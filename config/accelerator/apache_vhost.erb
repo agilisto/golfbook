@@ -1,0 +1,21 @@
+<VirtualHost <%= public_ip %>:80>
+ServerName <%= server_name %>                                                                                                                                                                      
+DocumentRoot <%= public_path %>                                                                                                                                                                            
+<Directory "<%= public_path %>/">                                                                                                                                                                               
+Options FollowSymLinks                                                                                                                                                                                                  
+AllowOverride None                                                                                                                                                                                                      
+Order allow,deny                                                                                                                                                                                                        
+Allow from all                                                                                                                                                                                                        
+</Directory>    
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^/(.*)$ balancer://<%= application %>-mongrels%{REQUEST_URI} [P,QSA,L]       
+<Proxy balancer://<%= application %>-mongrels><% start_port.upto(end_port) do |port| %>
+  BalancerMember http://127.0.0.1:<%= port %><% end %>
+</Proxy>                                                                       
+ProxyPass /images !                                                                                                                                                                                                     
+ProxyPass /stylesheets !                                                                                                                                                                                                
+ProxyPass / balancer://<%= application %>-mongrels                                                                                                                                                                          
+ProxyPassReverse / balancer://<%= application %>-mongrels                                                                                                                                                                      
+ProxyPreserveHost On  
+</VirtualHost>
