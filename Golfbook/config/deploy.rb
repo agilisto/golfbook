@@ -40,6 +40,7 @@ set :server_alias, "*." + key_name + ".fb.joyent.us"
 # depend :remote, :gem, :RubyInline, '>=3.6.3'
 
 desc "update vendor rails"
+
 task :update_rails do
     # get the version of edge rails that the user is currently using
     #for entry in Dir.entries("./vendor/rails")
@@ -81,8 +82,8 @@ end
 
 desc "tasks to run after checkout"
 task :after_update_code do
-    update_rails
-    create_sym
+    #update_rails
+    #create_sym
 end
 
 deploy.task :restart do
