@@ -4,4 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
-Mine::Type.register "text/html", :facebook
+Mime::Type.register "text/html", :facebook
