@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='network/mongrel/<%= service_name %>-production'>
+  <service name='network/mongrel/<%= service_name %>-production' type='service' version='0'>
+    <create_default_instance enabled='true'/>
+    <single_instance/>
+    <dependency name='milestone' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/milestone/sysconfig'/>
+    </dependency>
+    <exec_method name='start' type='method' exec='/opt/local/bin/mongrel_rails cluster::start -C <%= working_directory %>/config/mongrel_cluster.yml --clean' timeout_seconds='60'>
+      <method_context working_directory='<%= working_directory %>'>
+        <method_credential user='<%=smf_process_user%>' group='<%=smf_process_group%>'/>
+        <method_environment>
+          <envvar name='PATH' value='/opt/local/bin:/opt/local/sbin:/usr/xpg4/bin:/usr/sbin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/openwin/bin'/>
+        </method_environment>
+      </method_context>
+    </exec_method>
+    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'>
+      <method_context working_directory='<%= working_directory %>'>
+        <method_credential user='<%=smf_process_user%>' group='<%=smf_process_group%>'/>
+      </method_context>
+    </exec_method>
+    <stability value='Unstable'/>
+    <template>
+      <common_name>
+        <loctext xml:lang='C'>Production mongrel cluster for <%= service_name %></loctext>
+      </common_name>
+    </template>
+  </service>
+</service_bundle>
