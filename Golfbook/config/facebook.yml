@@ -1,0 +1,33 @@
+
+development:
+    key: 838e3b71f1bb2379bb1da00638db020e
+    secret: 1fdad4d4f084741b8d588f3c1130988d
+    canvas_path: /golfbookapp/
+    callback_path: /
+    tunnel:
+      username: yourLoginName
+      host: www.yourexternaldomain.com
+      port: 1234
+      local_port: 5678
+
+test:
+    key: YOUR_API_KEY_HERE
+    secret: YOUR_API_SECRET_HERE
+    canvas_path: /yourAppName/
+    callback_path: /path/to/your/callback/
+    tunnel:
+      username: yourLoginName
+      host: www.yourexternaldomain.com
+      port: 1234
+      local_port: 5678
+
+production:
+    key: 838e3b71f1bb2379bb1da00638db020e
+    secret: 1fdad4d4f084741b8d588f3c1130988d
+    canvas_path: /golfbookapp/
+    callback_path: /
+    tunnel:
+      username: yourLoginName
+      host: www.yourexternaldomain.com
+      port: 1234
+      local_port: 5678
