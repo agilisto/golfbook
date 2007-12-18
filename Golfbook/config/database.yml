@@ -15,7 +15,7 @@ test:
 
 production:
   adapter: mysql
-  database: golfbook_production
+  database: nine93440e2_golfbook_production
   timeout: 5000
   username: root
-  password: ke8773hb4c
+  password: d8yx8sp9u4
