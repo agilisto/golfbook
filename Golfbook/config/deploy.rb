@@ -43,6 +43,7 @@ desc "update vendor rails"
 task :update_rails do
     # get the version of edge rails that the user is currently using
     for entry in Dir.entries("./vendor/rails")
+        puts entry.to_s
         if entry[/\REVISION_\d+/]
             local_revision  = entry.sub("REVISION_","")
         end
