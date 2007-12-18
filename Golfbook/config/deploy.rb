@@ -42,13 +42,14 @@ set :server_alias, "*." + key_name + ".fb.joyent.us"
 desc "update vendor rails"
 task :update_rails do
     # get the version of edge rails that the user is currently using
-    for entry in Dir.entries("./vendor/rails")
-        puts entry.to_s
-        if entry[/\TAG_rel_\d+/]
-            local_revision  = entry.sub("TAG_rel_","")
-        end
-    end
+    #for entry in Dir.entries("./vendor/rails")
+    #    puts entry.to_s
+    #    if entry[/\TAG_rel_\d+/]
+    #        local_revision  = entry.sub("TAG_rel_","")
+    #    end
+    #end
 
+    local_revision = "2.0.2"
     # update to that revision
     puts local_revision
 
