@@ -8,6 +8,7 @@
 
 #map {
     float:left;    
-    margin-left:5px;
-    margin-right:5px;
+    width:100%;
+    margin-left:10px;
+    margin-right:10px;
 }
