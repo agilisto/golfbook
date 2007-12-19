@@ -1,0 +1,18 @@
+/* 
+    Document   : golfbook
+    Created on : 2007/12/19, 07:59:24
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#map {
+    float:left;
+    width:90%;
+    margin-left:5%;
+}
