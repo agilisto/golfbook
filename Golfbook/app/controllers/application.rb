@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   
   private
       def adjust_format_for_facebook        
-          request.format = :facebook        
+          request.format = :fbml        
       end
 end
