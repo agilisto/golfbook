@@ -5,6 +5,8 @@
         <fb:dashboard>
           <fb:action href="#">Home</fb:action>  
           <fb:action href="#">My Courses</fb:action>
+          <fb:action href="#">My Tours</fb:action>
+          <fb:action href="#">My Competitions</fb:action>
           <fb:action href="#">My Profile</fb:action>
           <fb:help href="#p">Help</fb:help>
           <fb:create-button href="new.php">Setup Home Location</fb:create-button>
@@ -20,15 +22,16 @@
         </div>
         <div id="mapcontainer">
           <div id="map">
-              <fb:editor action="#" labelwidth="100">
-                  <fb:editor-text label="Change Map Location" name="location" value=""/>               
+              <fb:editor action="#" labelwidth="150">
+                  <fb:editor-text label="Search for courses near" name="location" value=""/>               
                </fb:editor>
               <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
               <fb:iframe width="600px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
               <div id="map-menu">
                   <fb:tabs>
-                    <fb:tab-item href='#' title='I want to play' selected='true'/>
-                    <fb:tab-item href='#' title='I have played' />  </fb:tabs>
+                    <fb:tab-item href='#' title='Top Rated in Area' selected='true'/>
+                    <fb:tab-item href='#' title='I have Played' />  </fb:tabs>
+                    <fb:tab-item href='#' title='I want to play' />  </fb:tabs>
             </div>
           </div>
         </div>
