@@ -1,6 +1,6 @@
 <div id="container">
     <div id="header">
-        <%= image_tag "banner.jpg" %>
+        <img src="<%= image_path 'banner.jpg' %>" />        
         
         <fb:dashboard>
           <fb:action href="#">Home</fb:action>  
@@ -13,15 +13,15 @@
     <div id="content">
         <div id="messages">
             <fb:success>
-              <fb:message>Welcome to Golfbook</fb:message>
+              <fb:message>Welcome to Golfbook <fb:name uid="<%= fbsession.session_user_id %>"/></fb:message>
                     We see this is your first visit to Golfbook. Please take a second and complete your 
                     home location and profile <a href="#">here.</a>                
             </fb:success>
         </div>
         <div id="mapcontainer">
           <div id="map">
-              <fb:editor action="#">
-                  <fb:editor-text label="Map Location" name="location" value=""/>               
+              <fb:editor action="#" labelwidth="100">
+                  <fb:editor-text label="Set Location" name="location" value=""/>               
                </fb:editor>
               <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
               <fb:iframe width="600px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
