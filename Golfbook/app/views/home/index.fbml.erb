@@ -1,6 +1,6 @@
 <div id="container">
     <div id="header">
-        <%= image_tag ('banner.jpg') %>
+        <%= image_tag ('http://apps.facebook.com/golfbookapp/images/banner.jpg') %>
         
         <fb:dashboard>
           <fb:action href="#">Home</fb:action>  
@@ -19,11 +19,11 @@
             </fb:success>
         </div>
         <div id="map">
-            <fb:editor action="#" width="600px">
+            <fb:editor action="#">
                 <fb:editor-text label="Map Location" name="location" value=""/>               
              </fb:editor>
             <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
-            <fb:iframe width="640px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
+            <fb:iframe width="600px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
             <div id="map-menu">
                 <fb:tabs>
                   <fb:tab-item href='#' title='I want to play' selected='true'/>

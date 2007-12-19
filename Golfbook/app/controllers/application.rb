@@ -16,5 +16,8 @@ class ApplicationController < ActionController::Base
         end
       end
       
+  def finish_facebook_login
+    
+  end
       
 end
