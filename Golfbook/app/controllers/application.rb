@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :adjust_format_for_facebook
+  before_filter :adjust_format_for_facebook  
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   
   private
       def adjust_format_for_facebook        
-          request.format = :fbml        
+        request.format = :fbml        
       end
+      
+      
 end
