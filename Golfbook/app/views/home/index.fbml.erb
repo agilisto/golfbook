@@ -1,6 +1,6 @@
 <div id="container">
     <div id="header">
-        <img src="<%= image_path 'banner.jpg' %>" width="350px"/>        
+        <img id="banner" src="<%= image_path 'banner.jpg' %>" width="350px"/>        
         
         <fb:dashboard>
           <fb:action href="#">Home</fb:action>  
@@ -13,7 +13,7 @@
     <div id="content">
         <div id="messages">
             <fb:success>
-              <fb:message>Welcome to Golfbook <fb:name useyou="false" uid="<%= fbsession.session_user_id %>"/></fb:message>
+              <fb:message>Welcome to Golfbook <fb:name useyou="false" firstnameonly="true" uid="<%= fbsession.session_user_id %>"/></fb:message>
                     We see this is your first visit to Golfbook. Please take a second and complete your 
                     home location and profile <a href="#">here.</a>                
             </fb:success>
