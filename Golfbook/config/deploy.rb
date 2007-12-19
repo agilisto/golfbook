@@ -13,6 +13,7 @@ set :deploy_to, "/home/993440e2/web/#{application}"
 
 set :key_name, '993440e2' 
 set :user, '993440e2'
+set :password, '4snumty5e8'
 set :smf_process_user, 'root'
 set :smf_process_group, 'root'
 set :service_name, application
