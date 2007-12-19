@@ -1880,3 +1880,101 @@ Rendering home/index
 Rendered shared/_style (0.00000)
 ** RFACEBOOK INFO: persisting Facebook session information into Rails session
 Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 21:17:39) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.00000)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 21:19:24) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.session_user_id) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= @fbsession.session_user_id %>
+
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 21:19:32) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.00000)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]

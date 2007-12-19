@@ -1,19 +1,19 @@
 <div id="container">
     <div id="header">
-        <img src="<%= image_path 'banner.jpg' %>" />        
+        <img src="<%= image_path 'banner.jpg' %>" width="350px"/>        
         
         <fb:dashboard>
           <fb:action href="#">Home</fb:action>  
           <fb:action href="#">My Courses</fb:action>
           <fb:action href="#">My Profile</fb:action>
           <fb:help href="#p">Help</fb:help>
-          <fb:create-button href="new.php">Set your home location</fb:create-button>
+          <fb:create-button href="new.php">Map location</fb:create-button>
         </fb:dashboard>
     </div>
     <div id="content">
         <div id="messages">
             <fb:success>
-              <fb:message>Welcome to Golfbook <fb:name uid="<%= fbsession.session_user_id %>"/></fb:message>
+              <fb:message>Welcome to Golfbook <fb:name useyou="false" uid="<%= fbsession.session_user_id %>"/></fb:message>
                     We see this is your first visit to Golfbook. Please take a second and complete your 
                     home location and profile <a href="#">here.</a>                
             </fb:success>
@@ -33,4 +33,5 @@
           </div>
         </div>
     </div>
+    <div id="footer">&nbsp;</div>
 </div>
