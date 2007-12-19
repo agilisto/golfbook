@@ -1,0 +1,1882 @@
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 01:29:13) [GET]
+  Session ID: cdb591e885273b4876a0a7c1c2032989
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 01:29:13) [GET]
+  Session ID: cdb591e885273b4876a0a7c1c2032989
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+MissingSourceFile (no such file to load -- sqlite3):
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 02:30:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 02:30:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+MissingSourceFile (no such file to load -- sqlite3):
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:27:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:27:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+MissingSourceFile (no such file to load -- sqlite3):
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /vendor/rails/activesupport/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:28:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.390000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+NoMethodError (undefined method `determine_layout' for #<HomeController:0x36551c8>):
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:236:in `send!'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:236:in `active_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:298:in `pick_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:256:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:28:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+
+
+NoMethodError (undefined method `determine_layout' for #<HomeController:0x34ad640>):
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:236:in `send!'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:236:in `active_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:298:in `pick_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:256:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:28:34) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01600 (51%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:28:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+
+
+ActionController::MissingTemplate (Missing template home/index.html.erb in view path C:/Projects/Golfbook/trunk/Golfbook/app/views):
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1269:in `assert_existence_of_template_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1098:in `render_for_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:29:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 09:29:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 10:58:36) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=YOUR_API_KEY_HERE
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x35c2850 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 11:03:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=838e3b71f1bb2379bb1da00638db020e
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x56e0a50 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:26:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=838e3b71f1bb2379bb1da00638db020e
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x56e6860 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:38:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=838e3b71f1bb2379bb1da00638db020e
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5680efc @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:41:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=838e3b71f1bb2379bb1da00638db020e
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x5634818 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:41:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x56e6888 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:41:55) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"7034d073c125fcb6a022223b214799e0", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"7034d073c125fcb6a022223b214799e0"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+
+
+RFacebook::Rails::ControllerExtensions::APIFinisherNeededStandardError (RFACEBOOK ERROR: in an external Facebook application, you should define finish_facebook_login in your controller (often this is used to redirect to a 'login success' page, but it can also simply do nothing)):
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/rfacebook_on_rails/controller_extensions.rb:64:in `finish_facebook_login'
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/rfacebook_on_rails/controller_extensions.rb:228:in `handle_facebook_login'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:469:in `send!'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:469:in `call'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:441:in `run'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:716:in `run_before_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    ./script\server:3
+    C:/ruby/lib/ruby/gems/1.8/gems/ruby-debug-ide-0.1.9/lib/ruby-debug.rb:79:in `debug_load'
+    C:/ruby/lib/ruby/gems/1.8/gems/ruby-debug-ide-0.1.9/lib/ruby-debug.rb:79:in `main'
+    C:/ruby/lib/ruby/gems/1.8/gems/ruby-debug-ide-0.1.9/bin/rdebug-ide:74
+    C:/ruby/bin/rdebug-ide:19:in `load'
+    C:/ruby/bin/rdebug-ide:19
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:42:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x55753a0 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:42:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"e67841ba75cd54840adfdb1214438457", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"e67841ba75cd54840adfdb1214438457"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.407000)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.187000)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.078000)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.109000)[0m   [0;1mSHOW TABLES[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:43:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x56e6798 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:43:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"001d93a71d5a5172db17327334753b2f", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"001d93a71d5a5172db17327334753b2f"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 44.98500 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=001d93a71d5a5172db17327334753b2f]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:44:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x54cd614 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:44:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x547b38c @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:44:44) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTc5MyIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--e51a23bc04d534f95466d00f69f2350f866d8a37
+  Parameters: {"action"=>"index", "auth_token"=>"8c905caaa058fa08d3571c5772b5fafc", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"8c905caaa058fa08d3571c5772b5fafc"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 20.92200 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=8c905caaa058fa08d3571c5772b5fafc]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:45:05) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTc5MyIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--e51a23bc04d534f95466d00f69f2350f866d8a37
+  Parameters: {"action"=>"index", "auth_token"=>"9e2fa7ea3cc522ab17f7947e297ba8a0", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"9e2fa7ea3cc522ab17f7947e297ba8a0"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 1.39000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=9e2fa7ea3cc522ab17f7947e297ba8a0]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:45:06) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTc5MyIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--e51a23bc04d534f95466d00f69f2350f866d8a37
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.03200 (31 reqs/sec) | Rendering: 0.01600 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:45:06) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTc5MyIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--e51a23bc04d534f95466d00f69f2350f866d8a37
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:46:56) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--5c39d780d70d8d41dbe1575fe8c7e7a9348e2605
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:47:32) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCIPQGNhbGxjYWNo%0AZXsAIg1AYXBpX2tleSIlNzg2YmI0NTE5YmM3ZjJiMjMwNGU4NjZkZTBhMGI5%0AM2QiFUBzZXNzaW9uX2V4cGlyZWRGIhVAc3VwcHJlc3NfZXJyb3JzRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--5c39d780d70d8d41dbe1575fe8c7e7a9348e2605
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01500 (48%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 16:53:39) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:54:05) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:54:16) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for /shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => '/shared/style')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:55:35) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:56:00) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:56:08) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/__style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/_style')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 17:56:16) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style.fbml in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style.fbml')%>
+2: 
+3: <%= yield :layout %>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:13:23) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style.fbml in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style.fbml')%>
+2: 
+3: <%= yield :layout %> 
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:13:42) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %> 
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:14:46) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.282000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %> 
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:15:11) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style.fbml in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style.fbml')%>
+2: 
+3: <%= yield :layout %> 
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:18:03) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for shared/_style in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #1 of layouts/application.html.erb:
+1: <%= render(:partial => 'shared/style')%>
+2: 
+3: <%= yield :layout %> 
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:18:30) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for /public/stylesheets/golfbook.css in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #2 of shared/_style.html.erb:
+1: <style type="text/css">
+2:     <%= render :file => '/public/stylesheets/golfbook.css' %>
+3: </style>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:348:in `render'
+    app/views/shared/_style.html.erb:2:in `_run_erb_47app47views47shared47_style46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:21:20) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for /stylesheets/golfbook.css in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #2 of shared/_style.html.erb:
+1: <style type="text/css">
+2:     <%= render :file => '/stylesheets/golfbook.css' %>
+3: </style>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:348:in `render'
+    app/views/shared/_style.html.erb:2:in `_run_erb_47app47views47shared47_style46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:22:53) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for /stylesheets/golfbook.css in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #2 of shared/_style.html.erb:
+1: <style type="text/css">
+2:     <%= render :file => '/stylesheets/golfbook.css',  :use_full_path => true %>
+3: </style>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:348:in `render'
+    app/views/shared/_style.html.erb:2:in `_run_erb_47app47views47shared47_style46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:23:08) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--525e1658df3302455964e76bdb6e5dfcaed916ff
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (Couldn't find template file for stylesheets/golfbook.css in ["C:/Projects/Golfbook/trunk/Golfbook/app/views"]) on line #2 of shared/_style.html.erb:
+1: <style type="text/css">
+2:     <%= render :file => 'stylesheets/golfbook.css' %>
+3: </style>
+    vendor/rails/actionpack/lib/action_view/base.rb:312:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:348:in `render'
+    app/views/shared/_style.html.erb:2:in `_run_erb_47app47views47shared47_style46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:331:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:117:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:116:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:352:in `render'
+    app/views/layouts/application.html.erb:1:in `_run_erb_47app47views47layouts47application46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-19 20:26:04) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODE2MTg3MCIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1c918a38a0e2f42b3fe8ac7b82fcbb55d2bea1ce
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.00000)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]

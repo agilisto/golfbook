@@ -51,7 +51,7 @@ module RFacebook
         @controller.fbsession
       end
       
-      def image_path(*params)
+      def path_to_image(*params)
         path = super(*params)
         if ((in_facebook_canvas? or in_mock_ajax?) and !(/(\w+)(\:\/\/)([\w0-9\.]+)([\:0-9]*)(.*)/.match(path)))
           path = "#{request.protocol}#{request.host_with_port}#{path}"
