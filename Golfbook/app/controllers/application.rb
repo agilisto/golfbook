@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'ab3cdc368e4e352eebd96b713dae6028'
+
+  def fbuser
+    if @fbuser.nil?      
+      @fbuser = fbsession.users_getInfo(:uids => fbsession.session_user_id, :fields => ["first_name", "last_name"])
+    end
+  end
   
   private
       def adjust_format_for_facebook  

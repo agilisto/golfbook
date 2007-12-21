@@ -1978,3 +1978,933 @@ Rendering home/index
 Rendered shared/_style (0.00000)
 ** RFACEBOOK INFO: persisting Facebook session information into Rails session
 Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:27:41) [GET]
+  Session ID: d84fd5b89390404e99f5ac3a7656fd58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x31e3d38 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 0.00010 (10000 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:27:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"df15ae87eada245d4448609fc331923a", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"df15ae87eada245d4448609fc331923a"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - first.name(nil) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - first.name({:call_id=>"1198139264.437", :sig=>"815e8a1f6f68c969c75b4319a58c040b", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.first.name"}) - remote call failed
+
+
+ActionView::TemplateError (ERROR 3: Unknown method ("first.name", {:call_id=>"1198139264.437", :sig=>"815e8a1f6f68c969c75b4319a58c040b", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.first.name"})) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= fbsession.first_name %>
+
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:241:in `call_method'
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:174:in `method_missing'
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:27:56) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"df15ae87eada245d4448609fc331923a", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"df15ae87eada245d4448609fc331923a"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"3e5d7c238790106e03854ca09648df6d", :auth_token=>"df15ae87eada245d4448609fc331923a", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x355cd0c @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.34400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=df15ae87eada245d4448609fc331923a]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:27:58) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"7a09e55ca8bbf5737d741f9037655f5a", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"7a09e55ca8bbf5737d741f9037655f5a"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - name(nil) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - name({:call_id=>"1198139279.984", :sig=>"a312494202fbc6a1f29f10898caa4653", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.name"}) - remote call failed
+
+
+ActionView::TemplateError (ERROR 3: Unknown method ("name", {:call_id=>"1198139279.984", :sig=>"a312494202fbc6a1f29f10898caa4653", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.name"})) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= fbsession.name %>
+
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:241:in `call_method'
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:174:in `method_missing'
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:28:38) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"7a09e55ca8bbf5737d741f9037655f5a", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"7a09e55ca8bbf5737d741f9037655f5a"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"dbe6570a972ae50e0299800b5541524d", :auth_token=>"7a09e55ca8bbf5737d741f9037655f5a", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x37664e0 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.32800 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=7a09e55ca8bbf5737d741f9037655f5a]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:28:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"c7c05a0c9dbfe15325288c6e931c8009", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"c7c05a0c9dbfe15325288c6e931c8009"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (undefined local variable or method `fbuser' for #<ActionView::Base:0x36696f0>) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= fbuser.first_name %>
+
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:31:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"c7c05a0c9dbfe15325288c6e931c8009", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"c7c05a0c9dbfe15325288c6e931c8009"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"01977f7844d349b568fee038e6128759", :auth_token=>"c7c05a0c9dbfe15325288c6e931c8009", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x3466114 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.34300 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=c7c05a0c9dbfe15325288c6e931c8009]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:31:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"452b9e82643b53255e092bafa04e14f4", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"452b9e82643b53255e092bafa04e14f4"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (undefined local variable or method `fbuser' for #<ActionView::Base:0x3236830>) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= fbuser.first_name %>
+
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:32:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"452b9e82643b53255e092bafa04e14f4", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"452b9e82643b53255e092bafa04e14f4"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"ed6ff1a36ffa28d3207db1ccdeceecea", :auth_token=>"452b9e82643b53255e092bafa04e14f4", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x358c3f4 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.34300 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=452b9e82643b53255e092bafa04e14f4]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:32:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"611c4151194a614ba457caa554061490", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"611c4151194a614ba457caa554061490"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (undefined local variable or method `fbuser' for #<ActionView::Base:0x34d602c>) on line #3 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: <%= fbuser.first_name %>
+
+    app/views/home/index.html.erb:3:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:32:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"611c4151194a614ba457caa554061490", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"611c4151194a614ba457caa554061490"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"71c359c66015634d1f50303e8f1f945d", :auth_token=>"611c4151194a614ba457caa554061490", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x374fad8 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.34400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=611c4151194a614ba457caa554061490]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:32:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"752aa409021b536e0ec8466b1faef9c5", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"752aa409021b536e0ec8466b1faef9c5"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+Rendering template within layouts/application
+Rendering home/index
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.first_name) on line #4 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: 
+7: <%= @fbuser.first_name %>
+
+    app/views/home/index.html.erb:4:in `_run_erb_47app47views47home47index46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:637:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:33:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"752aa409021b536e0ec8466b1faef9c5", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"752aa409021b536e0ec8466b1faef9c5"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"a4911fbb2293f2905fc93828ed196093", :auth_token=>"752aa409021b536e0ec8466b1faef9c5", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x346d1e4 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.31200 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=752aa409021b536e0ec8466b1faef9c5]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:33:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"ee6223564da3b23328979c084d7ec36b", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"ee6223564da3b23328979c084d7ec36b"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - current.session.id(nil) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - current.session.id({:call_id=>"1198139609.984", :sig=>"572c17308003a996a3d73b28a43b7f7c", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.current.session.id"}) - remote call failed
+
+
+RFacebook::FacebookSession::RemoteStandardError (ERROR 3: Unknown method ("current.session.id", {:call_id=>"1198139609.984", :sig=>"572c17308003a996a3d73b28a43b7f7c", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.current.session.id"})):
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:241:in `call_method'
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:174:in `method_missing'
+    /app/controllers/application.rb:14:in `fbuser'
+    /app/controllers/home_controller.rb:3:in `index'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:33:39) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"ee6223564da3b23328979c084d7ec36b", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"ee6223564da3b23328979c084d7ec36b"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"3c4ebe213903c172bd243a61f28b881b", :auth_token=>"ee6223564da3b23328979c084d7ec36b", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x37573dc @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.34400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=ee6223564da3b23328979c084d7ec36b]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:33:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"866952887d9c006726027de5c4df2dd0", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"866952887d9c006726027de5c4df2dd0"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - current.session.uid(nil) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - current.session.uid({:call_id=>"1198139623.875", :sig=>"8cf38dbf5331f0f2dbf66355da6a9f56", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.current.session.uid"}) - remote call failed
+
+
+RFacebook::FacebookSession::RemoteStandardError (ERROR 3: Unknown method ("current.session.uid", {:call_id=>"1198139623.875", :sig=>"8cf38dbf5331f0f2dbf66355da6a9f56", :session_key=>"7aa970027a85a48a0e22684e-579040750", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.current.session.uid"})):
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:241:in `call_method'
+    C:/ruby/lib/ruby/gems/1.8/gems/rfacebook-0.9.7/lib/facebook_session.rb:174:in `method_missing'
+    /app/controllers/application.rb:14:in `fbuser'
+    /app/controllers/home_controller.rb:3:in `index'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:34:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"866952887d9c006726027de5c4df2dd0", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"866952887d9c006726027de5c4df2dd0"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"283e5efd0bf0c53c472f919d600bfa1f", :auth_token=>"866952887d9c006726027de5c4df2dd0", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: Session is not valid
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x353a1a8 @filter=:require_facebook_login>] rendered_or_redirected.
+Completed in 1.36000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=866952887d9c006726027de5c4df2dd0]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:34:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--484aa0a6c26650431295925410959827519c5849
+  Parameters: {"action"=>"index", "auth_token"=>"8db24b2273700223b1b8e1ba1621ead8", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"8db24b2273700223b1b8e1ba1621ead8"}) - making remote call
+** RFACEBOOK INFO: Login was successful, calling finish_facebook_login
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - users.getInfo({:fields=>["first_name", "last_name"], :uids=>"579040750"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.00000)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 2.70300 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=8db24b2273700223b1b8e1ba1621ead8]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:35:54) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODIyNjA3NiIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--f8086ea685468ae108fab8d165214e473ab5e1e8
+  Parameters: {"action"=>"index", "auth_token"=>"8db24b2273700223b1b8e1ba1621ead8", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"8db24b2273700223b1b8e1ba1621ead8"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"e64cef31683f2dd5bb1df75697a891e2", :auth_token=>"8db24b2273700223b1b8e1ba1621ead8", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - users.getInfo({:fields=>["first_name", "last_name"], :uids=>"579040750"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+ERROR: compiling _run_erb_47app47views47home47index46html46erb RAISED compile error
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: syntax error, unexpected $undefined, expecting ')'
+_erbout.concat(( "Welcome #{@fbuser.first_name} ).to_s); _erbout.concat " \n"
+                                                                           ^
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: unterminated string meets end of file
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: syntax error, unexpected $end, expecting ')'
+Function body: def _run_erb_47app47views47home47index46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat(( "Welcome #{@fbuser.first_name} ).to_s); _erbout.concat " \n"
+_erbout
+end
+Backtrace: C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4:in `compile_template'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_view/base.rb:630:in `compile_and_render_template'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/railties/lib/commands/servers/webrick.rb:66
+C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/railties/lib/commands/server.rb:39
+C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: syntax error, unexpected $undefined, expecting ')'
+_erbout.concat(( "Welcome #{@fbuser.first_name} ).to_s); _erbout.concat " \n"
+                                                                           ^
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: unterminated string meets end of file
+C:/Projects/Golfbook/trunk/Golfbook/app/views/home/index.html.erb:4: syntax error, unexpected $end, expecting ')') on line #4 of home/index.html.erb:
+1: <%#
+2: # To change this template, choose Tools | Templates
+3: # and open the template in the editor.
+4: %>
+5: 
+6: 
+7: <%= "Welcome #{@fbuser.first_name} %> 
+
+    app/views/home/index.html.erb:4:in `compile_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:630:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:365:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1100:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:112:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:62:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/Projects/Golfbook/trunk/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:36:09) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJv%0Ab2s6OkZhY2Vib29rV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21l%0Ac3NhZ2UwIhBAYXBpX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNm%0ANjkwN2IzZjAiEUBzZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2%0AODRlLTU3OTA0MDc1MCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODIyNjA3NiIV%0AQHNlc3Npb25fdXNlcl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2Rl%0AMCINQGFwaV9rZXkiJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNk%0AIg9AY2FsbGNhY2hlewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9l%0AeHBpcmVkRg%3D%3D--1f58da80ddeafebad16e80a7b1215575b05eac77
+  Parameters: {"action"=>"index", "auth_token"=>"8db24b2273700223b1b8e1ba1621ead8", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"8db24b2273700223b1b8e1ba1621ead8"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"e64cef31683f2dd5bb1df75697a891e2", :auth_token=>"8db24b2273700223b1b8e1ba1621ead8", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - users.getInfo({:fields=>["first_name", "last_name"], :uids=>"579040750"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.01500)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 2.67100 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=8db24b2273700223b1b8e1ba1621ead8]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-12-20 10:36:29) [GET]
+  Session ID: BAh7BzoWcmZhY2Vib29rX3Nlc3Npb251OiJSRmFjZWJvb2s6OkZhY2Vib29r%0AV2ViU2Vzc2lvbgIpAQQIew8iGEBsYXN0X2Vycm9yX21lc3NhZ2UwIhBAYXBp%0AX3NlY3JldCIlMWI5OTUwY2FhOTI4MjZjYTUyN2QxYmNmNjkwN2IzZjAiEUBz%0AZXNzaW9uX2tleSInN2FhOTcwMDI3YTg1YTQ4YTBlMjI2ODRlLTU3OTA0MDc1%0AMCIVQHNlc3Npb25fZXhwaXJlcyIPMTE5ODIyNjA3NiIVQHNlc3Npb25fdXNl%0Acl9pZCIONTc5MDQwNzUwIhVAbGFzdF9lcnJvcl9jb2RlMCINQGFwaV9rZXki%0AJTc4NmJiNDUxOWJjN2YyYjIzMDRlODY2ZGUwYTBiOTNkIg9AY2FsbGNhY2hl%0AewAiFUBzdXBwcmVzc19lcnJvcnNGIhVAc2Vzc2lvbl9leHBpcmVkRiIKZmxh%0Ac2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK%0AQHVzZWR7AA%3D%3D--f8086ea685468ae108fab8d165214e473ab5e1e8
+  Parameters: {"action"=>"index", "auth_token"=>"8db24b2273700223b1b8e1ba1621ead8", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to create a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:auth_token=>"8db24b2273700223b1b8e1ba1621ead8"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - auth.getSession({:sig=>"e64cef31683f2dd5bb1df75697a891e2", :auth_token=>"8db24b2273700223b1b8e1ba1621ead8", :api_key=>"786bb4519bc7f2b2304e866de0a0b93d", :v=>"1.0", :method=>"facebook.auth.getSession"}) - remote call failed
+** RFACEBOOK INFO: Tried to use a stale auth_token
+** RFACEBOOK WARNING: Facebook session could not be activated with auth_token
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#call_method - users.getInfo({:fields=>["first_name", "last_name"], :uids=>"579040750"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_style (0.00000)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 2.73500 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/home/index?auth_token=8db24b2273700223b1b8e1ba1621ead8]
