@@ -1,0 +1,23 @@
+<h1>Editing course</h1>
+
+<%= error_messages_for :course %>
+
+<% form_for :course, @course, :url => {:action => 'update'} do |f| %>
+
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @course %> |
+<%= link_to 'Back', {:action => 'index'} %>

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => 'ab3cdc368e4e352eebd96b713dae6028'
+  #protect_from_forgery # :secret => 'ab3cdc368e4e352eebd96b713dae6028'
 
   def fbuser
     if @fbuser.nil?      

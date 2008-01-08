@@ -1,0 +1,22 @@
+<h1>Listing courses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% for course in @courses %>
+  <tr>
+    <td><%=h course.name %></td>
+    <td><%=h course.description %></td>
+    <td><%= link_to 'Show', {:action => :show, :id => course.id }%></td>
+    <td><%= link_to 'Edit', {:action => :edit} %></td>
+    <td><%= link_to 'Destroy', {:action => :destroy, :id => course.id}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New course', {:action => :new} %>

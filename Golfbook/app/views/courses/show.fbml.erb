@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @course.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @course.description %>
+</p>
+
+
+<%= link_to 'Edit', :action => :edit, :id => @course.id %> |
+<%= link_to 'Back', :action => :index %>

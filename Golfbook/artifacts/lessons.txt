@@ -1,0 +1,1 @@
+1) All Facebook calls are POSTS. Causes havoc with our nice clean RESTful routes.

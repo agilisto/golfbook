@@ -1,0 +1,21 @@
+<h1>New course</h1>
+
+<%= error_messages_for :course %>
+
+<% form_for :course, @course, :url => {:action => 'create'} do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', {:action => 'index'} %>
