@@ -3,7 +3,7 @@ module BuilderHelper
     raise ArgumentError, "Missing block" unless block_given?
      options = args.last.is_a?(Hash) ? args.pop : {}
      options = options.merge(:builder => EditorBuilder)
-     concat(editor_tag(options.delete(:url) || {}, options || {}), proc.binding)
+     concat(editor_tag(options.delete(:url) || {}, options.delete(:html) || {}), proc.binding)
      fields_for(object_name, *(args << options), &proc)
      concat('</fb:editor>', proc.binding)
   end

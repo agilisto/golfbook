@@ -2,7 +2,7 @@
 
 <%= error_messages_for :course %>
 
-<% editor_form_for :course, @course, :url => {:action => 'update', :labelwidth => 100 } do  |f| %>
+<% editor_form_for :course, @course, :url => {:action => 'update'}, :html => {:labelwidth => 50}  do  |f| %>
 
     <%= f.text_field :name %>
     <%= f.text_field :description %>
