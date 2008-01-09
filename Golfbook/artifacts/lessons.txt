@@ -1,1 +1,2 @@
 1) All Facebook calls are POSTS. Causes havoc with our nice clean RESTful routes.
+2) No external CSS stylesheets are allowed. Render css inline. 

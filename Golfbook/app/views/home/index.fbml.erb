@@ -1,43 +1,18 @@
-<div id="container">
-    <div id="header">
-        <img id="banner" src="<%= image_path 'banner.jpg' %>" width="350px"/>        
-        
-        <fb:dashboard>
-          <fb:action href="#">Home </fb:action>  
-          <fb:action href="#">My Courses</fb:action>
-          <fb:action href="#">My Tours</fb:action>
-          <fb:action href="#">My Competitions</fb:action>
-          <fb:action href="#">My Profile</fb:action>
-          <fb:help href="#p">Help</fb:help>
-          <fb:create-button href="new.php">Setup Home Location</fb:create-button>
-        </fb:dashboard>
-    </div>
-    <div id="content">
-        <div id="messages">
-            <fb:success>
-              <fb:message>Hi <fb:name useyou="false" firstnameonly="true" uid="<%= fbsession.session_user_id %>"/>, welcome to Golfbook! </fb:message>
-                    I see this is your first visit to Golfbook. Please take a second to complete your 
-                    home location and profile <a href="#">here.</a> You can get a tour of the Golfbook features over <a href="#">here</a> or feel free to jump right in.
-            </fb:success>
-        </div>
-        <div id="mapcontainer">
-          <div id="map">
-              <fb:editor action="#" labelwidth="150">
-                  <fb:editor-text label="Search for courses near" name="location" value=""/>               
-               </fb:editor>
-              <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
-              <fb:iframe width="600px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
-              <div id="map-menu">
-                  <fb:tabs>
-                    <fb:tab-item href='#' title='Top Rated in Area' selected='true'/>
-                    <fb:tab-item href='#' title='I Have Played' />
-                    <fb:tab-item href='#' title='Wishlist' />
-                    <fb:tab-item href='#' title='Upcoming Tours' />
-                    <fb:tab-item href='#' title='Upcoming Competitions' />
-                  </fb:tabs>
-            </div>            
-          </div>
-        </div>
-    </div>
-    <div id="footer">&nbsp;</div>
+<div id="mapcontainer">
+  <div id="map">
+      <fb:editor action="#" labelwidth="150">
+          <fb:editor-text label="Search for courses near" name="location" value=""/>               
+       </fb:editor>
+      <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
+      <fb:iframe width="600px" height="350px" src="http://maps.google.com/maps?ie=UTF8&amp;hl=en&amp;ll=-27.895915,24.691685&amp;spn=26.060358,41.132813&amp;z=5&amp;om=1&amp;output=embed&amp;s=AARTsJpnOA3ioEtcI9rx_v7gyZqlolGTYw" />
+      <div id="map-menu">
+          <fb:tabs>
+            <fb:tab-item href='#' title='Top Rated in Area' selected='true'/>
+            <fb:tab-item href='#' title='I Have Played' />
+            <fb:tab-item href='#' title='Wishlist' />
+            <fb:tab-item href='#' title='Upcoming Tours' />
+            <fb:tab-item href='#' title='Upcoming Competitions' />
+          </fb:tabs>
+    </div>            
+  </div>
 </div>

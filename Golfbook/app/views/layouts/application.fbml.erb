@@ -1,3 +1,21 @@
 <%= render(:partial => 'shared/style')%>
 
-<%= yield :layout %>
+<div id="container">
+    	<div id="header">
+        	
+			<img id="banner" src="<%= image_path 'banner.jpg' %>" width="350px"/>        
+        
+	     	<%= render :partial => 'shared/dashboard' %>
+
+	    </div>
+	<div id="content">
+		<div id="messages">
+            <%= render :partial => 'shared/messages' %>
+        </div>
+
+		<%= yield :layout %>
+	</div>
+
+</div>
+
+<div id="footer">&nbsp;</div>
