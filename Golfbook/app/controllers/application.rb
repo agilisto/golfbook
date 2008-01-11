@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :require_facebook_login, :adjust_format_for_facebook    
+  before_filter :require_facebook_login, :adjust_format_for_facebook, :set_active_menu   
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -16,14 +16,18 @@ class ApplicationController < ActionController::Base
   end
   
   private
-      def adjust_format_for_facebook  
-        if in_facebook_canvas? 
-          request.format = :fbml        
-        end
+    def adjust_format_for_facebook  
+      if in_facebook_canvas? 
+        request.format = :fbml        
       end
+    end
       
   def finish_facebook_login
-    
+  end
+  
+  protected
+  def set_active_menu
+    @current = 'overview_selected'
   end
       
 end

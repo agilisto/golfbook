@@ -1,4 +1,9 @@
 class CoursesController < ApplicationController
+
+  def set_active_menu
+     @current = 'courses_selected'
+   end
+    
    # GET /courses
    # GET /courses.xml
    def index
@@ -83,5 +88,6 @@ class CoursesController < ApplicationController
        format.xml  { head :ok }
      end
    end
+   
 
 end

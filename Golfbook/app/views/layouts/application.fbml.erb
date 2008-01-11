@@ -1,20 +1,24 @@
 <%= render(:partial => 'shared/style')%>
 
-<div id="container">
+<div id="container" class="<%= @current %>">
+
     	<div id="header">
         	
-			<img id="banner" src="<%= image_path 'banner.jpg' %>" width="350px"/>        
-        
-	     	<%= render :partial => 'shared/dashboard' %>
-
+			<!-- <img id="banner" src="<%= image_path 'banner.jpg' %>" width="350px"/>        -->
+    
 	    </div>
-	<div id="content">
-		<div id="messages">
-            <%= render :partial => 'shared/messages' %>
-        </div>
 
-		<%= yield :layout %>
-	</div>
+		<div class="pandemic_bar_wrapper">
+	     	<%= render :partial => 'shared/pandemicbar' %>		
+		</div>
+	
+		<div id="content">
+			<div id="messages">
+	            <%= render :partial => 'shared/messages' %>
+	        </div>
+
+			<%= yield :layout %>
+		</div>
 
 </div>
 

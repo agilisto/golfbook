@@ -4,9 +4,32 @@
     Author     : Armand du Plessis
     Description:
         Purpose of the stylesheet follows.
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
 */
 
+.clearfix {
+	
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
 #map {
+	padding-top:15px;
     float:left;    
     width:100%;
     margin-left:10px;
@@ -16,4 +39,112 @@
 #banner {
     padding-left:10px;
     padding-top:5px;
+}
+
+#content {
+	padding-left:10px;
+}
+
+.pandemic_bar_wrapper {
+	padding-top:15px;
+}
+
+.pandemic_bar {
+	background-color:#FAFAFA;
+	border-bottom:1px solid #AAAAAA;
+	border-top:1px solid #D0D0D0;
+	padding-right:15px;
+}
+
+.pandemic_bar .manager_icon {
+	background:transparent url(http://993440e2.fb.joyent.us:8889/images/g_16.jpg) no-repeat scroll left center;
+	float:left;
+	margin:0pt 8px 0pt 20px;
+	padding:5px 0pt 6px;
+	width:16px;
+	height:16px;
+}
+
+.pandemic_bar ul {
+	border-left:1px solid #898989;
+	float:left;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:-1px 0pt;
+	padding:0pt;
+}
+
+.pandemic_bar li {
+	border-style:solid solid solid none;
+}
+
+.pandemic_bar li {
+	border-color:#898989 rgb(137, 137, 137) rgb(137, 137, 137) -moz-use-text-color;
+	border-style:solid solid solid none;
+	border-width:1px 1px 1px 0pt;
+	float:left;
+	position:relative;
+}
+
+.pandemic_bar li a, 
+.create_button a {
+	background:#F7F7F7 none repeat scroll 0%;
+	border-top:1px solid #FFFFFF;
+	color:#333333;
+	display:block;
+	font-size:11px;
+	font-weight:bold;
+	padding:4px 1px 6px;
+	text-align:center;
+	width:106px;
+}
+
+.create_button {
+	border:1px solid #3B6E22;
+	float:right;
+	margin:-1px 0pt;
+	position:relative;
+	width:125px;
+}
+
+.create_button a {
+	background:#67A54B url(http://993440e2.fb.joyent.us:8889/images/white_on_green_arrow.gif) no-repeat scroll right center;
+	border-top:1px solid #95BF82;
+	color:#FFFFFF;
+	padding-right:15px;
+	width:auto;
+}
+
+/* Sets the selected menu item */
+.overview_selected .overview_nav a:hover,
+.courses_selected .courses_nav a:hover,
+.tours_selected .tours_nav a:hover,
+.competitions_selected .competitions_nav a:hover,
+.pandemic_bar li.selected a:hover {
+	text-decoration:none;
+}
+
+.pandemic_bar li.sub_page a:hover {
+	text-decoration:underline;
+}
+
+.overview_selected .overview_nav a,
+.courses_selected .courses_nav a,
+.tours_selected .tours_nav a,
+.competitions_selected .competitions_nav a,
+.pandemic_bar li.selected a, .pandemic_bar li.sub_page a {
+	background:#6D84B4 none repeat scroll 0%;
+	border-top:0pt none;
+	color:#FFFFFF;
+	padding-top:5px;
+}
+
+.overview_selected .overview_nav,
+.courses_selected .courses_nav,
+.tours_selected .tours_nav,
+.competitions_selected .competitions_nav,
+.pandemic_bar li.selected, .pandemic_bar li.sub_page {
+	border:1px solid #3B5998;
+	margin-left:-1px;
 }

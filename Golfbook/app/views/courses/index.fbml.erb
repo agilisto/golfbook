@@ -1,22 +1,20 @@
 <h1>Listing courses</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
+<div id="menu">
+</div>
 
-<% for course in @courses %>
-  <tr>
-    <td><%=h course.name %></td>
-    <td><%=h course.description %></td>
-    <td><%= link_to 'Show', {:action => :show, :id => course.id }%></td>
-    <td><%= link_to 'Edit', {:action => :edit, :id => course.id } %></td>
-    <td><%= link_to 'Destroy', {:action => :destroy, :id => course.id}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
+<div id="courses">
+	<% for course in @courses %>
+	<dl>
+		<dt><%=h course.name %></dt>
+		<dd><%=h course.description %></dd>
+		<dd><%= link_to 'Show', {:action => :show, :id => course.id }%> | 
+			<%= link_to 'Edit', {:action => :edit, :id => course.id } %> |
+			<%= link_to 'Destroy', {:action => :destroy, :id => course.id}, :confirm => 'Are you sure?' %></dd>
+	</dl>
+	<% end %>
+</div>
 
-<br />
-
-<%= link_to 'New course', {:action => :new} %>
+<div>
+	<%= link_to 'New course', {:action => :new} %>
+</div>
