@@ -28,6 +28,16 @@ html[xmlns] .clearfix {
     display: block;
 }
 
+.content {
+	border-color:-moz-use-text-color #B7B7B7 rgb(59, 89, 152);
+	border-style:none solid solid;
+	border-width:medium 1px 1px;
+	font-size:11px;
+	padding-left:10px;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	text-align:left;
+}
+
 #map {
 	padding-top:15px;
     float:left;    
@@ -41,9 +51,6 @@ html[xmlns] .clearfix {
     padding-top:5px;
 }
 
-#content {
-	padding-left:10px;
-}
 
 .pandemic_bar_wrapper {
 	padding-top:15px;
@@ -61,8 +68,6 @@ html[xmlns] .clearfix {
 	float:left;
 	margin:0pt 8px 0pt 20px;
 	padding:5px 0pt 6px;
-	width:16px;
-	height:16px;
 }
 
 .pandemic_bar ul {
@@ -73,10 +78,6 @@ html[xmlns] .clearfix {
 	list-style-type:none;
 	margin:-1px 0pt;
 	padding:0pt;
-}
-
-.pandemic_bar li {
-	border-style:solid solid solid none;
 }
 
 .pandemic_bar li {
@@ -148,3 +149,41 @@ html[xmlns] .clearfix {
 	border:1px solid #3B5998;
 	margin-left:-1px;
 }
+
+/* Control Panel Styles */
+
+.page_panel_header .header_page_summary {
+	float:left;
+	width:500px;
+}
+
+.page_panel_header {
+	padding-bottom:14px;
+	padding-top:15px;
+	width:100%;
+}
+
+.header_page_summary .thumb {
+	float:left;
+	padding:0pt 10px 0pt 20px;
+}
+
+.header_page_summary {
+	float:left;
+	width:500px;
+}
+
+.page_panel_header .header_page_summary .thumb a {
+	background:white none repeat scroll 0%;
+	display:block;
+	height:50px;
+	line-height:1px;
+	width:50px;
+}
+
+.page_panel_header .header_page_summary .info {
+	float:left;
+}
+
+
+
