@@ -185,5 +185,32 @@ html[xmlns] .clearfix {
 	float:left;
 }
 
+.main_column {
+	float:left;
+	width:375px;
+}
 
+.side_column {
+	padding-left:6px;
+	padding-top:0px;
+	vertical-align:top;
+	width:190px;
+	float:right;
+}
+.main_column h2.first_card_section {
+	padding-top:0pt;
+}
+.main_column h2 {
+	padding:7px 0pt 6px 10px;
+}
 
+.side_column .section {
+	margin-bottom:20px;
+}
+
+.section h3 {
+	background:#EFEBEF none repeat scroll 0%;
+	font-size:11px;
+	margin-bottom:12px;
+	padding:4px 6px;
+}

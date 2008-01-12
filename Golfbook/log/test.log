@@ -146,3 +146,244 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;35;1mSQL (0.000223)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.000184)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000217)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000953)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000502)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:13:20', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:13:20', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000875)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.021791)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000159)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000209)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000272)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000240)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000931)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000378)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:13:54', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:13:54', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000767)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000193)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000191)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000186)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000187)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000923)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000354)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:17:57', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:17:57', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000938)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000205)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000158)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000186)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000176)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000197)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000923)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000324)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:18:25', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:18:25', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000844)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000181)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000259)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000227)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000193)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000183)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000207)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000949)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000314)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:18:48', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:18:48', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000711)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000173)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000130)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000187)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000181)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000206)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000928)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000367)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:19:08', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:19:08', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000734)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000297)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000268)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001190)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000201)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000183)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000201)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000954)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000316)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:27:51', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:27:51', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000756)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000193)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000128)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000189)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000217)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000235)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000971)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000542)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:54:18', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:54:18', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000827)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000202)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000129)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000185)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000184)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000223)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000933)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.004172)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:56:51', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:56:51', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000785)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000162)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000220)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.056918)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000241)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000203)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000924)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000465)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:59:07', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:59:07', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000653)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000163)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000137)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000163)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000185)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000203)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000933)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000467)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 10:59:23', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 10:59:23', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000654)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000163)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000128)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000121)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000181)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000952)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000428)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:00:02', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:00:02', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000655)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000128)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.004954)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000180)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000159)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000747)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000477)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:00:49', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:00:49', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000704)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000165)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000116)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000172)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000362)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000202)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000951)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000601)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:01:48', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:01:48', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000797)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000215)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000252)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000823)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000263)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000172)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000187)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000210)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000937)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000438)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:02:09', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:02:09', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000640)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000170)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001419)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.002837)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000184)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000185)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001038)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000454)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:02:33', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:02:33', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000645)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000167)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001673)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000286)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000184)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001019)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000440)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:02:55', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:02:55', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000651)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000161)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000490)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.002641)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000188)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000203)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001072)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000474)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:03:06', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:03:06', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000652)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000167)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001419)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000113)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000247)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000204)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000202)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000937)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000435)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:06:52', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:06:52', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000648)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000162)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000114)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000171)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000165)[0m   [0mROLLBACK[0m
+** RFACEBOOK INFO: It looks like you don't have memcache-client, so MemCacheStore was not extended
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000187)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000141)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000767)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000424)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-12 11:07:01', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-12 11:07:01', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000676)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000196)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000269)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000113)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000153)[0m   [0mROLLBACK[0m

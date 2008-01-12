@@ -1,0 +1,16 @@
+<div id="page_panel">
+	<div class="messages">
+		<span style="color:green;padding:10px;background-color:yellow"><%= flash[:notice]%></span>
+		<span style="color:red;padding:10px;background-color:yellow"><%= flash[:error]%></span>
+	</div>
+	<div class="courses">
+			<h2 class="first_card_section">Import Courses</h2>
+			<!-- Must send directly to our server, facebook doesn't allow upload-->
+			<% form_tag({:action => :process_import}, :multipart => true ) do %>
+				<div class="form">
+					<span>File containing kml for upload : </span><%= file_field(:kml,:uploaded_file) %>
+				</div>
+				<%= submit_tag ('Import file')%>
+			<% end %>
+	</div>
+</div>

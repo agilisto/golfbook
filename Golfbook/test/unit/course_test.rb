@@ -1,4 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
+require 'KmlCourseImporter.rb'
+require 'stringio'
 
 class CourseTest < ActiveSupport::TestCase
   
@@ -20,7 +22,57 @@ class CourseTest < ActiveSupport::TestCase
     			</Point>
     		</Placemark>
 END_OF_STRING
-    
+
+      @full_doc = <<END_OF_DOC
+      <?xml version="1.0" encoding="UTF-8"?>
+      <kml xmlns="http://earth.google.com/kml/2.1">
+      <Document>
+      	<name>South African Golf</name>
+      	<Snippet maxLines="2">
+      <![CDATA[created by <A href="http://www.gpsvisualizer.com/">GPS Visualizer</A>]]>	</Snippet>
+      	<Style id="gv_waypoint">
+      		<IconStyle>
+      			<Icon>
+      				<href>http://maps.google.com/mapfiles/kml/pal4/icon57.png</href>
+      			</Icon>
+      		</IconStyle>
+      	</Style>
+      	<Folder>
+      		<name>Waypoints</name>
+      		<Placemark>
+      			<name>Gansbaai Golf Club</name>
+      			<Snippet maxLines="2">
+      <![CDATA[Gansbaai Golf Club &#133; Golf is a passion for so many people in South Africa. The country has many many golf courses and the weather and scenery to match. Find your perfect Golf Course here. By the sea, mountains, desert, game reserve, rivers, or wherever.<br>http://vuvuzela.com/accomodationquickfind/]]>			</Snippet>
+      			<description><![CDATA[Gansbaai Golf Club &#133; Golf is a passion for so many people in South Africa. The country has many many golf courses and the weather and scenery to match. Find your perfect Golf Course here. By the sea, mountains, desert, game reserve, rivers, or wherever.<br>http://vuvuzela.com/accomodationquickfind/]]></description>
+      			<styleUrl>#gv_waypoint</styleUrl>
+      			<Style>
+      				<LabelStyle>
+      					<color>ffffffff</color>
+      				</LabelStyle>
+      			</Style>
+      			<Point>
+      				<coordinates>19.34903,-34.61839,0</coordinates>
+      			</Point>
+      		</Placemark>
+      		<Placemark><name>Bredasdorp Golf Course</name>
+    			<Snippet maxLines="2">
+    <![CDATA[Bredasdorp Golf Course &#133; Golf is a passion for so many people in South Africa. The country has many many golf courses and the weather and scenery to match. Find your perfect Golf Course here. By the sea, mountains, desert, game reserve, rivers, or wherever.<br>http://vuvuzela.com/accomodationquickfind/]]>			</Snippet>
+    			<description><![CDATA[Bredasdorp Golf Course &#133; Golf is a passion for so many people in South Africa. The country has many many golf courses and the weather and scenery to match. Find your perfect Golf Course here. By the sea, mountains, desert, game reserve, rivers, or wherever.<br>http://vuvuzela.com/accomodationquickfind/]]></description>
+    			<styleUrl>#gv_waypoint</styleUrl>
+    			<Style>
+    				<LabelStyle>
+    					<color>ffffffff</color>
+    				</LabelStyle>
+    			</Style>
+    			<Point>
+    				<coordinates>20.04777,-34.5435,0</coordinates>
+    			</Point>
+    		</Placemark>
+    			</Folder>
+        </Document>
+        </kml>
+END_OF_DOC
+   
       @gansbaai_description = 'Gansbaai Golf Club &#133; Golf is a passion for so many people in South Africa. The country has many many golf courses and the weather and scenery to match. Find your perfect Golf Course here. By the sea, mountains, desert, game reserve, rivers, or wherever.<br>http://vuvuzela.com/accomodationquickfind/'
   end
   
@@ -38,6 +90,20 @@ END_OF_STRING
     
     target = Course.find_by_name('Gansbaai Golf Club')
     assert_not_nil(target, 'Gansbaai')
+  end
+  
+  def test_full_document_parse
+    expected = Array.new
+    expected.push('Gansbaai Golf Club')
+    expected.push('Bredasdorp Golf Course')
+    
+    doc_stream = StringIO.new(@full_doc)
+    
+    KmlCourseImporter.process_kml(doc_stream) do |course_kml|
+      course = Course.from_kml(course_kml)
+      assert_equal(expected.shift, course.name)
+    end
+    
   end
   
 end
