@@ -4,6 +4,9 @@ class Course < ActiveRecord::Base
   
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
+  cattr_reader :per_page
+  @@per_page = 10
+        
   def Course.from_kml(kml)
     doc = Hpricot.XML(kml)
     

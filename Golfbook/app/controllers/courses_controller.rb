@@ -7,7 +7,8 @@ class CoursesController < ApplicationController
    # GET /courses
    # GET /courses.xml
    def index
-     @courses = Course.find(:all)
+     @courses_count = Course.count
+     @courses = Course.paginate :all, :page => params[:page]
 
      respond_to do |format|
        format.fbml # index.html.erb

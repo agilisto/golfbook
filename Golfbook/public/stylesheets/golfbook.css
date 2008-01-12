@@ -187,7 +187,7 @@ html[xmlns] .clearfix {
 
 .main_column {
 	float:left;
-	width:375px;
+	width:400px;
 }
 
 .side_column {
@@ -213,4 +213,75 @@ html[xmlns] .clearfix {
 	font-size:11px;
 	margin-bottom:12px;
 	padding:4px 6px;
+}
+
+/* Pagination */
+
+.pagination {
+  padding: 3px;
+  margin: 3px;
+}
+.pagination a {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #aaaadd;
+  text-decoration: none;
+  color: #3b5998;
+}
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #3b5998;
+  color: #000;
+}
+.pagination span.current {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #3b5998;
+  font-weight: bold;
+  background-color: #3b5998;
+  color: #FFF;
+}
+.pagination span.disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #eee;
+  color: #ddd;
+}
+
+/* Bar chart */
+.bar_chart {
+	margin-top:-7px;
+	padding:0pt;
+}
+
+.bar_chart .header {
+	border-bottom:3px solid #CCCCCC;
+	margin:0pt;
+	padding:0pt 0pt 3px;
+}
+
+.bar_chart .header .title {
+	font-size:23px;
+	padding-left:1px;
+}
+
+.bar_chart .header .title {
+	color:#333333;
+	display:block;
+	float:left;
+	font-family:Helvetia,Arial,default;
+	font-size:33px;
+}
+
+.bar_chart .header .title_label {
+	height:10px;
+	margin-top:9px;
+}
+.bar_chart .header .title_label {
+	color:#777777;
+	display:block;
+	float:left;
+	font-size:11px;
+	font-weight:normal;
+	height:20px;
+	margin:5px 0pt 0pt 5px;
 }
