@@ -1,13 +1,44 @@
-<p>
-  <b>Name:</b>
-  <%=h @course.name %>
-</p>
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+			<a href="<%= url_for(:action => :index)%>">
+				<img src="http://993440e2.fb.joyent.us:8888/images/red_flag_hole.png" />
+			</a>
+		</div>
+		<div class="info">
+			<h2><%= @course.name %></h2>
+			<div id="sub_menu">
+				<%= link_to 'Back to Courses', {:action => :index} %>
+			</div>			
+		</div>
+	</div>
+</div>
+<div id="page_panel">
+	<div class="courses">
+		<div class="main_column">
+			<h2 class="first_card_section">Course Information</h2>
 
-<p>
-  <b>Description:</b>
-  <%=h @course.description %>
-</p>
+			<div class="card small_hole_card">
+				<%= render :partial => 'course_summary', :object => @course %>
+			</div>
 
-
-<%= link_to 'Edit', :action => :edit, :id => @course.id %> |
-<%= link_to 'Back', :action => :index %>
+			<div class="card small_hole_card">
+				<%= render :partial => 'course_map', :object => @course %>
+			</div>
+			
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<h3>Course Stats</h3>
+				<div class="bar_chart simple">
+					<h2 class="header">
+						<span class="title">0</span>
+						<span class="title_label">Total Players</span>
+						<span class="sub_title"/>
+						<div style="clear: left; height: 0px;"/>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

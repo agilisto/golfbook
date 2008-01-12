@@ -12,7 +12,7 @@
 	</p>
 	<%= link_to 'Edit Course', {:action => :edit, :id => course.id } %>
 	<span class="pipe">|</span>
-	<%= link_to 'Show Map', {:action => :map, :id => course.id } %>
+	<%= link_to 'Show Map', {:controller => :map, :action => :show, :id => course.id }, :size => 'large' %>
 	<span class="pipe">|</span>
 	<%= link_to 'Destroy', {:action => :destroy, :id => course.id}, :confirm => 'Are you sure?' %></dd>
 </div>

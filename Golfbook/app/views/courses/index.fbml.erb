@@ -10,7 +10,7 @@
 			<div id="sub_menu">
 				<%= link_to 'New Course', {:action => :new} %>
 				<span class="pipe">|</span>
-				<%= link_to 'Import Courses', {:action => :import} %>
+				<%= link_to 'Map View', {:action => :map} %>
 			</div>			
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="side_column">
 			<div class="section">
-				<h3>Courses Insights</h3>
+				<h3>Courses Stats</h3>
 				<div class="bar_chart simple">
 					<h2 class="header">
 						<span class="title"><%= @courses_count -%></span>

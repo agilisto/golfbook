@@ -4,6 +4,7 @@ class Course < ActiveRecord::Base
   
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
+  # for will_paginate
   cattr_reader :per_page
   @@per_page = 10
         

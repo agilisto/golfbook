@@ -285,3 +285,38 @@ html[xmlns] .clearfix {
 	height:20px;
 	margin:5px 0pt 0pt 5px;
 }
+
+.main_column .card {
+	background:white none no-repeat scroll 7px;
+	border:1px solid #CECFCE;
+	margin:0pt 4px 5px;
+	padding:7px 10px 11px 30px;
+	width:375px;
+}
+
+.main_column .card h3 span {
+	font-size:90%;
+	font-weight:normal;
+}
+
+.small_hole_card {
+	 background-image: url(http://apps.facebook.com/golfbookapp_dev/images/hole_small.png)
+}
+
+#map #small, .small {
+	width:320px;
+	height:200px;
+	text-align:left;
+	padding:0px;
+	margin:0px;
+}
+
+#map #medium, .medium {
+	
+}
+
+#map #large, .large {
+	width:600;
+	height:400;
+	
+}
