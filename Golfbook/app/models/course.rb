@@ -1,4 +1,5 @@
 require 'hpricot'
+require 'geonames'
 
 class Course < ActiveRecord::Base
   
@@ -14,9 +15,18 @@ class Course < ActiveRecord::Base
     course = Course.new
     course.name = (doc/'name').inner_text
     course.description = (doc/'description').inner_text
-    course.latitude, course.longitude = (doc/'Point/coordinates').inner_text.chomp.split(',')
+    course.longitude, course.latitude = (doc/'Point/coordinates').inner_text.chomp.split(',')
     
     course
+  end
+  
+  def calc_geolocations(persist = false)
+    places_nearby = Geonames::WebService.find_nearby_place_name(latitude, longitude)
+    if persist && places_nearby.length > 0 then
+      self.location_text = places_nearby[0].name
+      self.save!
+    end
+    places_nearby
   end
   
 end

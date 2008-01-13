@@ -80,8 +80,8 @@ END_OF_DOC
     course = Course.from_kml(@gansbaai)
     assert_equal('Gansbaai Golf Club', course.name, 'Course name doesn''t match')
     #assert_equal(@gansbaai_description, course.description, 'Course description doesn''t match')
-    assert_in_delta(19.34903, course.latitude, 0.05, 'Course latitude not populated correctly')
-    assert_in_delta(-34.61839, course.longitude, 0.05,'Course longitude not populated correctly')
+    assert_in_delta(19.34903, course.longitude, 0.05, 'Course latitude not populated correctly')
+    assert_in_delta(-34.61839, course.latitude, 0.05,'Course longitude not populated correctly')
   end
   
   def test_course_save
@@ -104,6 +104,14 @@ END_OF_DOC
       assert_equal(expected.shift, course.name)
     end
     
+  end
+  
+  def test_location_text_population
+    gansbaai = courses(:gansbaai)
+    locations = gansbaai.calc_geolocations(true)
+    p(locations[0].name)
+    assert_not_nil(gansbaai.location_text)
+    assert_equal('Kleinbaai', gansbaai.location_text)
   end
   
 end

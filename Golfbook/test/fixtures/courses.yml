@@ -9,11 +9,11 @@
 gansbaai:
     name:   Gansbaai Golf Club
     description: Gansbaai Golf Club Description
-    latitude:   19.34903
-    longitude:  -34.61839
+    longitude:   19.34903
+    latitude:  -34.61839
     
 ixopo:
     name:   Ixopo Golf Course
     description: Ixopo Golf Course Description
-    latitude:   30.0601
-    longitude:  -30.1497
+    longitude:   30.0601
+    latitude:  -30.1497

@@ -38,14 +38,6 @@ html[xmlns] .clearfix {
 	text-align:left;
 }
 
-#map {
-	padding-top:15px;
-    float:left;    
-    width:100%;
-    margin-left:10px;
-    margin-right:10px;
-}
-
 #banner {
     padding-left:10px;
     padding-top:5px;
@@ -304,19 +296,14 @@ html[xmlns] .clearfix {
 }
 
 #map #small, .small {
-	width:320px;
-	height:200px;
-	text-align:left;
-	padding:0px;
-	margin:0px;
+	width:350px;
+	height:250px;
 }
 
 #map #medium, .medium {
-	
 }
 
 #map #large, .large {
 	width:600;
 	height:400;
-	
 }

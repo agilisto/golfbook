@@ -9,15 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",    :precision => 15, :scale => 10
-    t.decimal  "longitude",   :precision => 15, :scale => 10
+    t.decimal  "latitude",      :precision => 15, :scale => 10
+    t.decimal  "longitude",     :precision => 15, :scale => 10
+    t.string   "location_text"
   end
 
   create_table "sessions", :force => true do |t|
@@ -29,5 +30,12 @@ ActiveRecord::Schema.define(:version => 3) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.integer  "facebook_uid", :null => false
+    t.string   "session_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

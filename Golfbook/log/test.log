@@ -387,3 +387,452 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;35;1mSQL (0.000269)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.000113)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.000153)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000498)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000152)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000770)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000424)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:52:08', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:52:09', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000805)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.036108)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000246)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000180)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000796)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000188)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000154)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000180)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000181)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.065909)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000448)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000434)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateSessions (3)
+  [4;36;1mSQL (0.002776)[0m   [0;1mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.059138)[0m   [0mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;36;1mSQL (0.007393)[0m   [0;1mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;35;1mSQL (0.015588)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000494)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddLocationToCourse (4)
+  [4;35;1mSQL (0.016635)[0m   [0mALTER TABLE `courses` ADD `location_text` varchar(255)[0m
+  [4;36;1mSQL (0.000405)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000413)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000630)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.030064)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.003059)[0m   [0;1mdescribe `courses`[0m
+  [4;35;1mSQL (0.001314)[0m   [0mSHOW KEYS FROM `courses`[0m
+  [4;36;1mSQL (0.002713)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (0.002525)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (0.001419)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000185)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000203)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001001)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000344)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:53:08', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:53:08', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000787)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000191)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000170)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000114)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000748)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000379)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000188)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000167)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000109)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000617)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000351)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:56:33', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:56:33', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000990)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000153)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000172)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000180)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000648)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000192)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000163)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000946)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000348)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:57:05', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:57:05', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000785)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000178)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000200)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000800)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000225)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000184)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000989)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000370)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:58:09', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:58:09', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000831)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000198)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000205)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000812)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+
+  [4;36;1mSQL (0.003827)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000120)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000248)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000199)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001023)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000418)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:59:03', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:59:03', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000811)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000185)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000245)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000834)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+
+  [4;36;1mSQL (0.000444)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000384)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000203)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000974)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000349)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 13:59:38', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 13:59:38', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000798)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000181)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000221)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000771)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+
+  [4;36;1mSQL (0.000556)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000174)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000257)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001253)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000661)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:05:41', `latitude` = '19.34903', `longitude` = '-34.61839', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:05:41', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000994)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000253)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000322)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000189)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000685)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+
+  [4;36;1mSQL (0.000283)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000131)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000213)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000175)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000156)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000819)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000341)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:06:20', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:06:20', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000855)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000182)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000201)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000821)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6c9c>
+  [4;36;1mSQL (0.000237)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000124)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000178)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000188)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001012)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000517)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:07:23', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:07:23', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.001512)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000318)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000346)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000188)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000703)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6c9c>
+  [4;36;1mSQL (0.000241)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000101)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000190)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000150)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001006)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000437)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:07:35', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:07:35', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000853)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000271)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000184)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000719)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c7da4>
+  [4;36;1mSQL (0.002099)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000119)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000434)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000201)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000973)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000346)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:08:15', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:08:15', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000800)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000182)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000203)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000826)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000182)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000132)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000177)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000157)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001152)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000417)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:08:30', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:08:30', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000957)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000262)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000182)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000107)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000711)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6bfc>
+  [4;36;1mSQL (0.000390)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000114)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000180)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000205)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001040)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000384)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:10:42', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:10:42', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000815)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000577)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001011)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000193)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000147)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000742)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6d28>
+  [4;36;1mSQL (0.000224)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000202)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001000)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000399)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:11:03', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:11:03', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000812)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000202)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000217)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000829)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c7e08>
+  [4;36;1mSQL (0.000274)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000123)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000176)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000199)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000940)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000341)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:13:24', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:13:24', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000796)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000193)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000200)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000222)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000766)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6c4c>
+  [4;36;1mSQL (0.000250)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000103)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000182)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001044)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000744)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:13:46', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:13:46', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.001198)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000269)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000328)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000219)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000752)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6c4c>
+  [4;36;1mSQL (0.000247)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000123)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000183)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000181)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001067)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000353)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:13:59', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:13:59', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000828)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000181)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000212)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000832)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6bfc>
+  [4;36;1mSQL (0.000281)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000123)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000172)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001042)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000376)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:15:46', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:15:46', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000837)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000223)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000363)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000622)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000758)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+#<Geonames::Toponym:0x31c6bac>
+  [4;36;1mSQL (0.012266)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000121)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000201)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000993)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000442)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:17:44', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:17:44', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.001104)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000197)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000188)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000755)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000122)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000147)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000202)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000962)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000351)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:18:04', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:18:04', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000798)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000211)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000208)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000189)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000878)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000700)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000163)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000948)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000500)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:18:19', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:18:19', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.001352)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000337)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000334)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000940)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000653)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mCourse Update (0.000456)[0m   [0;1mUPDATE `courses` SET `created_at` = '2008-01-13 14:18:19', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:18:20', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;35;1mSQL (0.001645)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000169)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000236)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000219)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000975)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000383)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:21:12', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:21:12', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000907)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000184)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000224)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000181)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000821)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000160)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000226)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000172)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001848)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.001001)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:21:30', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:21:30', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000869)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000389)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000209)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000122)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000679)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000170)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000197)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001001)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000453)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:22:07', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:22:08', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000991)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000819)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000252)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000240)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000150)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000698)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mSQL (0.000312)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000164)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000175)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000303)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000969)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000398)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:29:51', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:29:51', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000828)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000188)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000189)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000758)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mCourse Update (0.001105)[0m   [0;1mUPDATE `courses` SET `created_at` = '2008-01-13 14:29:51', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:29:57', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;35;1mSQL (0.002536)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000117)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000824)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000178)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000124)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000834)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000562)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:30:48', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:30:48', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000970)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000257)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000415)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000190)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000788)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mCourse Update (0.000924)[0m   [0;1mUPDATE `courses` SET `created_at` = '2008-01-13 14:30:48', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:30:49', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;35;1mSQL (0.002489)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000270)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000242)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000175)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000199)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.001037)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000354)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:31:27', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:31:27', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000799)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000182)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000316)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000438)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000847)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mCourse Update (0.000934)[0m   [0;1mUPDATE `courses` SET `created_at` = '2008-01-13 14:31:27', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:31:28', `location_text` = 'Kleinbaai', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;35;1mSQL (0.002617)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000223)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000194)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000172)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000141)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Load (0.000855)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;35;1mCourse Update (0.000384)[0m   [0mUPDATE `courses` SET `created_at` = '2008-01-13 14:31:44', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:31:45', `location_text` = NULL, `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;36;1mCourse Load (0.000825)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`name` = 'Gansbaai Golf Club') LIMIT 1[0m
+  [4;35;1mSQL (0.000816)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000205)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Load (0.000811)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 892904358) [0m
+  [4;36;1mCourse Update (0.000944)[0m   [0;1mUPDATE `courses` SET `created_at` = '2008-01-13 14:31:44', `latitude` = '-34.61839', `longitude` = '19.34903', `description` = 'Gansbaai Golf Club Description', `updated_at` = '2008-01-13 14:31:46', `location_text` = 'Kleinbaai', `name` = 'Gansbaai Golf Club' WHERE `id` = 892904358[0m
+  [4;35;1mSQL (0.001990)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000182)[0m   [0mROLLBACK[0m
