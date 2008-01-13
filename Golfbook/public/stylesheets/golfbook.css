@@ -308,6 +308,33 @@ html[xmlns] .clearfix {
 	height:400;
 }
 
+.editor {
+	margin:3px auto 7px;
+}
+
+.editor .inputtext, .editor .inputpassword {
+	margin-left:0px;
+	width:300px;
+}
+.inputtext, .inputpassword {
+	border:1px solid #BDC7D8;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+	padding:3px;
+}
+
+.editor td.label {
+	color:#666666;
+	font-weight:bold;
+	padding-right:10px;
+	text-align:right;
+}
+
+editor .buttons {
+	padding:10px 0px 0px;
+	text-align:center;
+}
+
 .editor_panel {
 	float:left;
 	border-top:1px solid #CCCCCC;
@@ -319,4 +346,46 @@ html[xmlns] .clearfix {
 	border-bottom:1px solid #EFE7EF;
 	margin-bottom:6px;
 	padding-bottom:2px;
+}
+
+/* Type ahead */
+.suggest_placeholder { 
+	color: #777; 
+} 
+.suggest_found { 
+	background: #e1e9f6; 
+} 
+.suggest_pretext { color: #aaa; } 
+
+.suggest_list { 
+	background: transparent; 
+	border: 1px solid #bdc7d8; 
+	border-top: none; 
+	font-size: 13px; 
+	margin-top: -1px; 
+	overflow: hidden; 
+	position: absolute; 
+	text-align: left; 
+	z-index: 102; 
+} 
+.suggest_list .suggest_suggestion 
+{
+	 background: #fff; border-top: 1px solid #ddd; color: #000; cursor: pointer; padding: 3px; opacity: 0.94; width: 100%; } .suggest_list .suggest_suggestion em { background: #d8dfea; color: black; font-style: normal; font-weight: bold; } .suggest_list .suggest_suggestion small { color: #808080; padding-left: 5px; } .suggest_list .suggest_selected { background: #3b5998; color: #fff; opacity: 1; } .suggest_list .suggest_selected em { background: #5670a6; color: #fff; }
+
+.city_input {
+	width:100%;
+	margin-left: auto;
+	margin-right:auto;
+}	
+	
+.inputbutton, .inputsubmit {
+	background-color:#3B5998;
+	border-color:#D9DFEA rgb(14, 31, 91) rgb(14, 31, 91) rgb(217, 223, 234);
+	border-style:solid;
+	border-width:1px;
+	color:#FFFFFF;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+	padding:2px 15px 3px;
+	text-align:center;
 }

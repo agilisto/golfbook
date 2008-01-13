@@ -8,14 +8,10 @@
 		</div>
 	</div>
 </div>
-<!-- <div id="profile_menu" class="sub_menu">
-	<fb:tabs>
-		<fb:tab-item href='<%= url_for :action => :index %>' title='Profile' selected='true'/>  
-		<fb:tab-item href='<%= url_for :action => :location %>' title='My Location'/>  
-		<fb:tab-item href='<%= url_for :action => :courses %>' title='My Courses' />  
-	</fb:tabs>
-</div> -->
-<div class="editor_panel">
+<fb:tabs>
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :index %>" title="Profile" selected="true"/>
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :location %>" title="My Location" />
+</fb:tabs><div class="editor_panel">
 	<div class="main_column clearfix">
 		<h2 class="first_card_section">Profile Information</h2>
 		<div class="card small_hole_card">

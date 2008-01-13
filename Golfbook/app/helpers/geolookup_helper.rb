@@ -1,0 +1,2 @@
+module GeolookupHelper
+end

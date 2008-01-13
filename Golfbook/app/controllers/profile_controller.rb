@@ -16,6 +16,20 @@ class ProfileController < ApplicationController
   end
 
   def location
+    @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
+  end
+  
+  def process_location
+    @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
+    @user.update_attributes(params[:user])
+    if @user.geocode then
+      @user.save!
+      flash[:notice] = "Your location has been saved"
+      redirect_to :action => :index
+    else
+      flash[:error] = "We can't resolve your location"
+      render :action => :location
+    end
   end
   
   private 

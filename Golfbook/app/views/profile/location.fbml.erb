@@ -8,37 +8,47 @@
 		</div>
 	</div>
 </div>
-<!-- <div id="profile_menu" class="sub_menu">
-	<fb:tabs>
-		<fb:tab-item href='<%= url_for :action => :index %>' title='Profile' selected='true'/>  
-		<fb:tab-item href='<%= url_for :action => :location %>' title='My Location'/>  
-		<fb:tab-item href='<%= url_for :action => :courses %>' title='My Courses' />  
-	</fb:tabs>
-</div> -->
+<fb:tabs>
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :index %>" title="Profile" />
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :location %>" title="My Location" selected="true" />
+</fb:tabs>
+
+<!-- Type ahead script -->
+<script src="http://993440e2.fb.joyent.us:8889/javascripts/typeahead.js"></script>
+<script>
+<!--
+	options = {
+		preMsgTxt: "type for suggestions",	// text to display when nothing has been typed
+		menuOpacity: 94, 			// opacity of the menu
+		ajaxUrl: "<%= url_for(:host => '993440e2.fb.joyent.us:8889', :controller => :geolookup, :action => :city)%>",	// url to your data source
+		focus: true,				// whether or not to auto-focus the textbox upon creation
+		onEnter: function(event) {		// handler for hitting the 'enter' key
+			form.submit();
+		},
+		delayTime: 400,				// amount of idle time after a keypress before making the ajax call
+		clearOnEnter: true			// whether or not to clear the text after they hit enter
+	};
+-->
+</script>
+
 <div class="editor_panel">
-	<div class="main_column clearfix">
-		<h2 class="first_card_section">Profile Information</h2>
-		<div class="card small_hole_card">
-			<h3>
-				<%= link_to 'Current Location <span>(change)</span>', :action => :location %>
-			</h3>
-			<p>Changes your current location in Golfbook. 
-				<% if @user.location_set? then %>
-					Your current location is set to <strong><%= "#{@user.address}" %></strong>
-				<% end %>
-			</p>
-			</div>
-	</div>
-	<div class="side_column">
-		<div class="section">
-			<h3>Courses Statistics</h3>
-			<div class="bar_chart simple">
-				<h2 class="header">
-					<span class="title"></span>
-					<span class="title_label">Total Courses</span>
-					<span class="sub_title"/>
-					<div style="clear: left; height: 0px;"/>
-				</h2>
+	<div class="editor clearfix">
+			<div class="city_input">
+				<% form_for :user, :url => {:action => :process_location} do |f| %>
+				<span class="label">City Name</span>
+
+				<%= f.text_field :address, {:size => 100, :id => 'i_like_text', :class => 'inputtext'} %>
+				<script>
+				<!--
+					var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options);
+				-->
+				</script>
+				
+
+				<div class="buttons">
+					<%= submit_tag %>
+				</div>
+				<% end%>
 			</div>
 		</div>
 	</div>

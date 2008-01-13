@@ -1,3 +1,3 @@
 1) All Facebook calls are POSTS. Causes havoc with our nice clean RESTful routes.
-2) No external CSS stylesheets are allowed. Render css inline. 
+2) CSS and script now allowed through include files.  
 3) Facebook doesn't allow uploads. Have to send directly to your own server
