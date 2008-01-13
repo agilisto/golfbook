@@ -21,7 +21,6 @@ class CoursesController < ApplicationController
    def show
      @course = Course.find(params[:id])
      @geolocations = @course.calc_geolocations(true) 
-     p @geolocations.inspect
        
      respond_to do |format|
        format.fbml # show.html.erb

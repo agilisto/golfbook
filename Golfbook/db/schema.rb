@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 7) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -32,10 +32,13 @@ ActiveRecord::Schema.define(:version => 5) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_uid", :null => false
+    t.integer  "facebook_uid",                                 :null => false
     t.string   "session_key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "latitude",     :precision => 15, :scale => 10
+    t.decimal  "longitude",    :precision => 15, :scale => 10
+    t.string   "address"
   end
 
 end

@@ -1,2 +1,45 @@
-<h1>Profile#location</h1>
-<p>Find me in app/views/profile/location.html.erb</p>
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+			<fb:profile-pic uid="<%= fbsession.session_user_id %>" size="square" linked="true" />
+		</div>
+		<div class="info">
+			<h2><fb:name uid="<%= fbsession.session_user_id %>"shownetwork="true" useyou="false" /></h2>
+		</div>
+	</div>
+</div>
+<!-- <div id="profile_menu" class="sub_menu">
+	<fb:tabs>
+		<fb:tab-item href='<%= url_for :action => :index %>' title='Profile' selected='true'/>  
+		<fb:tab-item href='<%= url_for :action => :location %>' title='My Location'/>  
+		<fb:tab-item href='<%= url_for :action => :courses %>' title='My Courses' />  
+	</fb:tabs>
+</div> -->
+<div class="editor_panel">
+	<div class="main_column clearfix">
+		<h2 class="first_card_section">Profile Information</h2>
+		<div class="card small_hole_card">
+			<h3>
+				<%= link_to 'Current Location <span>(change)</span>', :action => :location %>
+			</h3>
+			<p>Changes your current location in Golfbook. 
+				<% if @user.location_set? then %>
+					Your current location is set to <strong><%= "#{@user.address}" %></strong>
+				<% end %>
+			</p>
+			</div>
+	</div>
+	<div class="side_column">
+		<div class="section">
+			<h3>Courses Statistics</h3>
+			<div class="bar_chart simple">
+				<h2 class="header">
+					<span class="title"></span>
+					<span class="title_label">Total Courses</span>
+					<span class="sub_title"/>
+					<div style="clear: left; height: 0px;"/>
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,7 @@ development:
     tunnel:
       username: 993440e2
       host: 993440e2.fb.joyent.us
-      port: 8888
+      port: 8889
       local_port: 3000
 
 test:

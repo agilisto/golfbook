@@ -291,8 +291,8 @@ html[xmlns] .clearfix {
 	font-weight:normal;
 }
 
-.small_hole_card {
-	 background-image: url(http://apps.facebook.com/golfbookapp_dev/images/hole_small.png)
+.small_hole_card, .small_hole_card {
+	 background-image: url(http://993440e2.fb.joyent.us:8889/images/hole_small.png)
 }
 
 #map #small, .small {
@@ -306,4 +306,17 @@ html[xmlns] .clearfix {
 #map #large, .large {
 	width:600;
 	height:400;
+}
+
+.editor_panel {
+	float:left;
+	border-top:1px solid #CCCCCC;
+	background:#F7F7F7 none repeat scroll 0%;
+	padding:10px 0px;
+}
+
+.main_column .card h3 {
+	border-bottom:1px solid #EFE7EF;
+	margin-bottom:6px;
+	padding-bottom:2px;
 }
