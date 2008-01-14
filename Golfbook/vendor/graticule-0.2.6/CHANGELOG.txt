@@ -15,7 +15,7 @@
 * changed city to locality, state to region, and zip to postal_code
 * added support for PostcodeAnywhere
 * added support for Local Search Maps (James Stewart)
-* added IP-based geocoder
+* added IP-based geocoder 
 * moved geocoders to Graticule::Geocoder namespace
 * fixed Google geocoder (again)
 * made Yahoo geocoder consistent with others by returning 1 result
