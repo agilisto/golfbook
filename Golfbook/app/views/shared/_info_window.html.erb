@@ -1,15 +1,16 @@
 <div class="info_window">
 	<h4><%= info_window.name %></h4>
 	<p>
+		<h5>Actions :</h5>
 		<ul>
 			<li>
 				<%= link_to 'View Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
 			</li>
 			<li>
-				<%= link_to 'I have played', :controller => :courses, :action => :have_played, :id => info_window.id %>
+				<%= link_to 'Have played', '#' %>
 			</li>
 			<li>
-				<%= link_to 'I want to play', :controller => :courses, :action => :want_to_play, :id => info_window.id %>
+				<%= link_to 'Want to play', '#' %>
 			</li>
 		</ul>
 	</p>
