@@ -5,11 +5,9 @@ class ProfileController < ApplicationController
   end
    
   def index
-    @fbuser = fbsession.users_getInfo(
-      :uids => [fbsession.session_user_id],
-      :fields => ['first_name','last_name','current_location','hometown_location']).user_list[0]
-  
-    @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
+    @fbuser = fbuser(['current_location','hometown_location'])
+    @user = user
+    
     unless @user.location_set? 
       geocode_user
     end
