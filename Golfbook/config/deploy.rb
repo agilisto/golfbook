@@ -18,6 +18,7 @@ set :smf_process_user, 'root'
 set :smf_process_group, 'root'
 set :service_name, application
 set :working_directory, "#{deploy_to}/current"
+ssh_options[:paranoid] = false 
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
