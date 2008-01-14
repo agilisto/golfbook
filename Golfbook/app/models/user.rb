@@ -40,4 +40,10 @@ class User < ActiveRecord::Base
       false
     end
   end
+  
+  def self.random_user
+    count = User.count
+    return User.find(:first, :order => 'id', :offset => rand(count))
+  end
+  
 end

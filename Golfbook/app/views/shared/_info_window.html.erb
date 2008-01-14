@@ -1,0 +1,16 @@
+<div class="info_window">
+	<h4><%= info_window.name %></h4>
+	<p>
+		<ul>
+			<li>
+				<%= link_to 'View Course', :controller => :courses, :action => :show, :id => info_window.id %>
+			</li>
+			<li>
+				<%= link_to 'I have played', :controller => :courses, :action => :have_played, :id => info_window.id %>
+			</li>
+			<li>
+				<%= link_to 'I want to play', :controller => :courses, :action => :want_to_play, :id => info_window.id %>
+			</li>
+		</ul>
+	</p>
+</div>

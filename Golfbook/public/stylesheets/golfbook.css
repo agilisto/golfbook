@@ -301,11 +301,13 @@ html[xmlns] .clearfix {
 }
 
 #map #medium, .medium {
+	width:400px;
+	height:300px;
 }
 
 #map #large, .large {
-	width:600;
-	height:400;
+	width:600px;
+	height:400px;
 }
 
 .editor {
@@ -385,4 +387,14 @@ html[xmlns] .clearfix {
 	font-size:11px;
 	padding:2px 15px 3px;
 	text-align:center;
+}
+
+.info_window {
+}
+
+.info_window ul {
+}
+
+.info_window li {
+	display:inline;
 }
