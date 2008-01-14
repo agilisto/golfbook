@@ -1,15 +1,17 @@
 <%= render(:partial => 'shared/style')%>
+<%= yield :header %>
+
 <div id="content" class="<%= @current %>">
 
-		<div class="pandemic_bar_wrapper">
-	     	<%= render :partial => 'shared/pandemicbar' %>		
-		</div>
-	
-		<div id="messages">
-            <%= render :partial => 'shared/messages' %>
-        </div>
+	<div class="pandemic_bar_wrapper">
+     	ß<%= render :partial => 'shared/pandemicbar' %>		
+	</div>
 
-		<%= yield :layout %>
+	<div id="messages">
+           <%= render :partial => 'shared/messages' %>
+       </div>
+
+	<%= yield :layout %>
 
 </div>
 

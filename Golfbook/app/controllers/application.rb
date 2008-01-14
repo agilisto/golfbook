@@ -12,20 +12,16 @@ class ApplicationController < ActionController::Base
   DEFAULT_FIELDS =  ["first_name", "last_name"]
 
   def fbuser(fields = [])
-    
     fields = DEFAULT_FIELDS | fields
     
     if @fbuser.nil?      
       @fbuser = fbsession.users_getInfo(:uids => fbsession.session_user_id, :fields => fields)
     end
-    
   end
   
   def user
     if @user.nil?
       @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
-      puts "USER #{@user.inspect}"
-      @user
     end
   end
   

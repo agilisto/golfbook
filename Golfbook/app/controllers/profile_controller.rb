@@ -32,12 +32,16 @@ class ProfileController < ApplicationController
   
   private 
   def geocode_user
+    return false if @fbuser.current_location.city.nil? || @fbuser.current_location.country.nil? 
+      
     address = @fbuser.current_location.city.concat(', ').concat(@fbuser.current_location.country)
     @user.address = address
     if @user.save then
       flash[:notice] = "Successfully auto-geocoded current location"
+      true
     else
       flash[:error] = "Please set location manually, we failed to auto-geocode it based on the #{@user.address} values from your profile"
+      false
     end
   end
 end

@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<%= stylesheet_link_tag 'golfbook' %>
+        <%= GMap.header %>
+        <%= @map.to_html %>
+        </head>
+        <body>
+			<div id="map">
+				<%= @map.div %>
+			</div>
+			<%= yield :layout %>
+		</body>
+</html>

@@ -1,10 +1,15 @@
 <% if flash[:notice] %>
-	<fb:success>
-	    <fb:message><%= flash[:notice] %></fb:message>
-	</fb:success>
+	<fb:explanation>
+		<fb:message><%= flash[:notice] %></fb:message>
+	</fb:explanation>
 <% end %>
 <% if flash[:error] %>
 	<fb:error>
 	    <fb:message><%= flash[:error] %></fb:message>
+	</fb:success>
+<% end %>
+<% if flash[:success] %>
+	<fb:success>
+	    <fb:message><%= flash[:success] %></fb:message>
 	</fb:success>
 <% end %>
