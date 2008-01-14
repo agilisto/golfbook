@@ -60,7 +60,7 @@ html[xmlns] .clearfix {
 }
 
 .pandemic_bar .manager_icon {
-	background:transparent url(http://993440e2.fb.joyent.us:8889/images/g_16.jpg) no-repeat scroll left center;
+	background:transparent url(../images/g_16.jpg) no-repeat scroll left center;
 	float:left;
 	margin:0pt 8px 0pt 20px;
 	padding:5px 0pt 6px;
@@ -106,7 +106,7 @@ html[xmlns] .clearfix {
 }
 
 .create_button a {
-	background:#67A54B url(http://993440e2.fb.joyent.us:8889/images/white_on_green_arrow.gif) no-repeat scroll right center;
+	background:#67A54B url(../images/white_on_green_arrow.gif) no-repeat scroll right center;
 	border-top:1px solid #95BF82;
 	color:#FFFFFF;
 	padding-right:15px;
@@ -296,7 +296,7 @@ html[xmlns] .clearfix {
 }
 
 .small_hole_card, .small_hole_card {
-	 background-image: url(http://993440e2.fb.joyent.us:8889/images/hole_small.png)
+	 background-image: url(../images/hole_small.png)
 }
 
 #map #small, .small {

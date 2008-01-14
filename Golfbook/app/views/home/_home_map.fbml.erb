@@ -1,5 +1,5 @@
 <div>
 	<fb:iframe frameborder=0 scrolling='no' width="390" height="300" 
-		src="<%= url_for({:host => '993440e2.fb.joyent.us:8889', :controller => :map, :action => @action, :id => @id, :size => 'medium', :zoom => 12} )%>">
+		src="<%= url_for({:only_path => false, :controller => :map, :action => @action, :id => @id, :size => 'medium', :zoom => 12} )%>">
 	</fb:iframe>
 </div>
