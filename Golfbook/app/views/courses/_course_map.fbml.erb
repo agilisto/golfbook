@@ -1,12 +1,12 @@
 <h3>
 	Location
 </h3>
-<p>The course is close to 
+<p>The course is close to :
 	<ul>
 		<%= render :partial => 'geolocation', :collection => @geolocations %>
 	</ul>
 </p>
 <div style="text-align:left;horizontal-align=left">
-<fb:iframe frameborder=0 scrolling='no' width="375" height="275" src="<%= url_for({:host => '993440e2.fb.joyent.us:8889', :controller => :map, :action => :show, :id => @course.id, :size => 'small'} )%>">
+<fb:iframe frameborder=0 scrolling='no' width="380" height="280" src="<%= url_for({:host => '993440e2.fb.joyent.us:8889', :controller => :map, :action => :show, :id => @course.id, :size => 'small'} )%>">
 </fb:iframe>
 </div>

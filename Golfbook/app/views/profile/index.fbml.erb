@@ -20,7 +20,7 @@
 			</h3>
 			<p>Changes your current location in Golfbook. 
 				<% if @user.location_set? then %>
-					Your current location is set to <strong><%= "#{@user.address}" %></strong>
+					Your current location is <strong><%= "#{@user.address}" %></strong>
 				<% end %>
 			</p>
 			</div>

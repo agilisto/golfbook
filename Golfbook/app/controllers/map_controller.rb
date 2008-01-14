@@ -10,7 +10,7 @@ class MapController < ApplicationController
     @course = Course.find(params[:id])
     @map = GMap.new(@size)
     large_map = @size == 'large' ? true : false
-    @map.control_init(:large_map => large_map,:map_type => true)
+    @map.control_init(:large_map => true,:map_type => true)
     @map.center_zoom_init([@course.latitude, @course.longitude],@zoom.to_i)
 
     marker = GMarker.new([@course.latitude, @course.longitude],   

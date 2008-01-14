@@ -9,7 +9,7 @@ class GeolookupController < ApplicationController
     puts "SEARCHING FOR #{params[:suggest_typed]}"
     criteria = Geonames::ToponymSearchCriteria.new
     criteria.name_starts_with = params[:suggest_typed]
-    criteria.max_rows = '5'
+    criteria.max_rows = '10'
     results = Geonames::WebService.search(criteria).toponyms
     names = results.map {|n| n.name << ', ' << n.country_name }
     puts names

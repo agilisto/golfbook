@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
       # Fall back to Geonames
       criteria = Geonames::ToponymSearchCriteria.new
-      criteria.name_starts_with = self.address.split(',')[0]
+      criteria.name_starts_with, criteria.country_code = self.address.split(',')
       criteria.max_rows = '1'
 
       results = Geonames::WebService.search(criteria).toponyms
