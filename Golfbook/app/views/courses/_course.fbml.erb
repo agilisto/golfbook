@@ -1,7 +1,7 @@
 <div class="course_list_item clearfix">
 	<div class="profile_img">
 		<a href="#">
-			<img class="" alt="" src="http://993440e2.fb.joyent.us:8889/images/red_flag_hole.png"/>
+			<%= image_tag 'red_flag_hole.png' %>
 		</a>
 	</div>
 	<h2>
@@ -10,6 +10,9 @@
 	<p>
 		<%=h course.description %>
 	</p>
+	<%= link_to 'Have Played', '#' %>
+		<span class="pipe">|</span>
+	<%= link_to 'Want to Play', '#' %>
 <!--	<%= link_to 'Edit Course', {:action => :edit, :id => course.id } %>
 	<span class="pipe">|</span>
 	<%= link_to 'Show Map', {:controller => :map, :action => :show, :id => course.id }, :size => 'large' %>
