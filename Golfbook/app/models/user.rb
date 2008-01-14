@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   end
   
   def geocode
+    begin
     # Try GeoKit First
     res=MultiGeocoder.geocode(self.address)
     puts res.inspect
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
 
       # Fall back to Geonames
       criteria = Geonames::ToponymSearchCriteria.new
-      criteria.name_starts_with, criteria.country_code = self.address.split(',')
+      criteria.name_starts_with = self.address
       criteria.max_rows = '1'
 
       results = Geonames::WebService.search(criteria).toponyms
@@ -33,6 +34,10 @@ class User < ActiveRecord::Base
         self.address = results[0].name << ', ' << results[0].country_name
         return true
       end
+    end
+    rescue StandardError => e
+      puts e.inspect
+      false
     end
   end
 end

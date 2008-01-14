@@ -6,7 +6,6 @@ class GeolookupController < ApplicationController
   MAX_ROWS = 10
   
   def city
-    puts "SEARCHING FOR #{params[:suggest_typed]}"
     criteria = Geonames::ToponymSearchCriteria.new
     criteria.name_starts_with = params[:suggest_typed]
     criteria.max_rows = '10'

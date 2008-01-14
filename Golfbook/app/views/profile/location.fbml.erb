@@ -23,7 +23,7 @@
 		ajaxUrl: "<%= url_for(:host => '993440e2.fb.joyent.us:8889', :controller => :geolookup, :action => :city)%>",	// url to your data source
 		focus: true,				// whether or not to auto-focus the textbox upon creation
 		onEnter: function(event) {		// handler for hitting the 'enter' key
-			form.submit();
+			location_lookup.submit();
 		},
 		delayTime: 400,				// amount of idle time after a keypress before making the ajax call
 		clearOnEnter: true			// whether or not to clear the text after they hit enter
@@ -34,22 +34,23 @@
 <div class="editor_panel">
 	<div class="editor clearfix">
 			<div class="city_input">
-				<% form_for :user, :url => {:action => :process_location} do |f| %>
+				<% form_for :user, :url => {:action => :process_location}, :html => {:name => 'location_lookup'} do |f| %>
+
 				<span class="label">City Name</span>
 
-				<div id="lookup">
-				<%= f.text_field :address, {:size => 100, :id => 'i_like_text', :class => 'inputtext'} %>
-				<script>
-				<!--
-					var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options);
-				-->
-				</script>
+				<div id="lookup" style="display:inline">
+				
+					<%= f.text_field :address, {:size => 100, :id => 'i_like_text', :class => 'inputtext'} %>
+					<script>
+					<!--
+						var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options);
+					-->
+					</script>
 				</div>
+
+				<%= submit_tag 'Save Location', :class => 'inputsubmit' %>
 				
 
-				<div class="buttons">
-					<%= submit_tag %>
-				</div>
 				<% end%>
 			</div>
 		</div>
