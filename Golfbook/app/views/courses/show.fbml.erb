@@ -26,6 +26,13 @@
 				<%= render :partial => 'course_map', :object => @course %>
 			</div>
 			
+			<div class="card small_hole_card">
+				<h3>
+					Discuss <%= @course.name %>
+				</h3>
+				<fb:board xid="<%= @course.id%>" canpost="true" candelete="false" canmark="false" cancreatetopic="true" numtopics="5" >
+			</div>
+			
 		</div>
 		<div class="side_column">
 			<div class="section">

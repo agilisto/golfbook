@@ -336,11 +336,8 @@ editor .buttons {
 }
 
 .editor_panel {
-	float:left;
-	border-top:1px solid #CCCCCC;
 	background:#F7F7F7 none repeat scroll 0%;
-	padding:10px 0px;
-}
+	padding:10px 0px;}
 
 .main_column .card h3 {
 	border-bottom:1px solid #EFE7EF;
