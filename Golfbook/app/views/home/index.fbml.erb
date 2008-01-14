@@ -20,11 +20,13 @@
 
 <%= render :partial => 'home_menu.fbml.erb' %>
 
-<div class="editor_panel">
-	<div class="editor clearfix">
-			<h2 class="first_card_section">Courses Near Me</h2>
-			
-			<%= render :partial => 'home_map.fbml.erb' %>
-			
+<div class="editor_panel clearfix">
+	<div class="main_column clearfix">
+		<h2 class="first_card_section">Courses</h2>
+		<div class="card small_hole_card clearfix">
+			<h3>Courses Near Me</h3>
+			<div>	
+				<%= render :partial => 'home_map.fbml.erb' %>
+			</div>
 		</div>
 </div>

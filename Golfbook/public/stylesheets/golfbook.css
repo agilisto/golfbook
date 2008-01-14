@@ -19,6 +19,10 @@
 }
 
 */
+body {
+	padding:0;
+	margin:0;
+}
 
 .clearfix {
 	
@@ -179,14 +183,14 @@ html[xmlns] .clearfix {
 
 .main_column {
 	float:left;
-	width:400px;
+	width:390px;
 }
 
 .side_column {
 	padding-left:6px;
 	padding-top:0px;
 	vertical-align:top;
-	width:190px;
+	width:180px;
 	float:right;
 }
 .main_column h2.first_card_section {
@@ -283,7 +287,7 @@ html[xmlns] .clearfix {
 	border:1px solid #CECFCE;
 	margin:0pt 4px 5px;
 	padding:7px 10px 11px 30px;
-	width:375px;
+	width:390px;
 }
 
 .main_column .card h3 span {
@@ -302,7 +306,7 @@ html[xmlns] .clearfix {
 
 #map #medium, .medium {
 	width:400px;
-	height:300px;
+	height:320px;
 }
 
 #map #large, .large {

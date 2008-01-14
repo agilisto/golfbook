@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
    # GET /courses/1.xml
    def show
      @course = Course.find(params[:id])
-     @geolocations = @course.calc_geolocations(true) 
+     # @geolocations = @course.calc_geolocations(true) 
        
      respond_to do |format|
        format.fbml # show.html.erb
