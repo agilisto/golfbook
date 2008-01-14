@@ -3,7 +3,7 @@
 	<p>
 		<ul>
 			<li>
-				<%= link_to 'View Course', :controller => :courses, :action => :show, :id => info_window.id %>
+				<%= link_to 'View Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
 			</li>
 			<li>
 				<%= link_to 'I have played', :controller => :courses, :action => :have_played, :id => info_window.id %>
