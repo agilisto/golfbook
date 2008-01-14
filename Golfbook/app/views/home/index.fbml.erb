@@ -9,6 +9,7 @@
 			<h2>Golfbook</h2>
 			<p>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></p>
 		</div>
+		<%= render :partial => 'shared/set_goal'%>
 	</div>
 </div>
 
@@ -29,4 +30,18 @@
 				<%= render :partial => 'home_map.fbml.erb' %>
 			</div>
 		</div>
+	</div>
+	<div class="side_column">
+		<div class="section">
+			<h3>My Statistics</h3>
+			<div class="bar_chart simple">
+				<h2 class="header">
+					<span class="title">0</span>
+					<span class="title_label">Played</span>
+					<span class="sub_title"/>
+					<div style="clear: left; height: 0px;"/>
+				</h2>
+			</div>
+		</div>
+	</div>
 </div>

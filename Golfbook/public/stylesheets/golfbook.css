@@ -402,3 +402,7 @@ html[xmlns] .clearfix {
 .info_window li {
 	display:inline;
 }
+
+.dh_new_media {
+	float:right;
+}
