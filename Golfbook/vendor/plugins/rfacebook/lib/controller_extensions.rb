@@ -122,8 +122,6 @@ module RFacebook
           session[:_rfacebook_fbsession_holder] = nil
         end
         
-        RAILS_DEFAULT_LOGGER.debug "#### #{fbsession_holder.inspect}"
-        
         # if we have verified fb_sig_* params, we should be able to activate the session here
         if (!fbsession_holder.ready? and facebook_platform_signature_verified?)
           # then try to activate the session somehow (or retrieve from previous state)
