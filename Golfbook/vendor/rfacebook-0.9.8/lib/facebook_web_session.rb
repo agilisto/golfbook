@@ -33,6 +33,11 @@ module RFacebook
 
   class FacebookWebSession < FacebookSession
         
+      # returns true if this session is completely ready to be used and make API calls
+     def ready?
+       return (@session_key != nil and !expired?)
+     end
+        
     # Gets the authentication URL for this application
     #
     # options.next::          the page to redirect to after login
@@ -103,11 +108,6 @@ module RFacebook
         result = remote_call("users.getLoggedInUser")
         @session_user_id = result.at("users_getLoggedInUser_response").inner_html
       end
-    end
-  
-    # returns true if this session is completely ready to be used and make API calls
-    def ready?
-      return (@session_key != nil and !expired?)
     end
   
     # Used for signing a set of parameters in the way that Facebook
