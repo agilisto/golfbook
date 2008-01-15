@@ -21,8 +21,8 @@ test:
       local_port: 5678
 
 production:
-    key: 838e3b71f1bb2379bb1da00638db020e
-    secret: 1fdad4d4f084741b8d588f3c1130988d
+    key: afd3d15e326b5858a82623cfb78c9f82
+    secret: 3b2bfddfe5d8b42181f0f0e513081c66
     canvas_path: /golfbookapp/
     callback_path: /
     tunnel:
