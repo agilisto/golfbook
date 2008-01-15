@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :require_facebook_login, :adjust_format_for_facebook, :set_active_menu   
+  before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu   
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
