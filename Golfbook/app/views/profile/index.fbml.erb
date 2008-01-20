@@ -1,13 +1,5 @@
-<div class="module clearfix page_panel_header no_border">
-	<div class="header_page_summary clearfix">
-		<div class="thumb">
-			<fb:profile-pic uid="<%= fbsession.session_user_id %>" size="square" linked="true" />
-		</div>
-		<div class="info">
-			<h2><fb:name uid="<%= fbsession.session_user_id %>"shownetwork="true" useyou="false" /></h2>
-		</div>
-	</div>
-</div>
+<%= render :partial => 'profile_header' %>
+
 <fb:tabs>
 	<fb:tab-item href="<%= url_for :controller => :profile, :action => :index %>" title="Profile" selected="true"/>
 	<fb:tab-item href="<%= url_for :controller => :profile, :action => :location %>" title="My Location" />

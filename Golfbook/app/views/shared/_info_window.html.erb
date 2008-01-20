@@ -7,7 +7,7 @@
 				<%= link_to 'View Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
 			</li>
 			<li>
-				<%= link_to 'Have played', '#' %>
+				<%= link_to 'Post Score', url_for_canvas(course_add_round_url :course_id => info_window.id, :only_path => true), :target => '_top' %>
 			</li>
 			<li>
 				<%= link_to 'Want to play', '#' %>

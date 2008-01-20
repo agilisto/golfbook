@@ -20,6 +20,11 @@ class EditorBuilder < ActionView::Helpers::FormBuilder
       :name => tag_name(label), :label => label.to_s.humanize)
   end
   
+  def submit_tag(value = "Save changes", options = {})
+    @template.tag("fb:editor-button", 
+      :name => 'commit', :value => value.to_s.humanize)
+  end
+  
   private
   
   def tag_name(label)

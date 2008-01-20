@@ -1,6 +1,9 @@
 include GeoKit::Geocoders
 class User < ActiveRecord::Base
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude', :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
+  
+  has_many :rounds
+  has_many :courses_played, :through => :rounds, :source => :course
     
   def location_set?
     if self.latitude.nil? 
@@ -44,6 +47,10 @@ class User < ActiveRecord::Base
   def self.random_user
     count = User.count
     return User.find(:first, :order => 'id', :offset => rand(count))
+  end
+
+  def post_score(round)
+    rounds << round
   end
   
 end

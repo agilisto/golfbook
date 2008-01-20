@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  def set_active_menu
+   def set_active_menu
      @current = 'courses_selected'
    end
     

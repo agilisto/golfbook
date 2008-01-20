@@ -6,7 +6,7 @@ class ProfileController < ApplicationController
    
   def index
     @fbuser = fbuser(['current_location','hometown_location'])
-    @user = user
+    @user = current_user
     
     unless @user.location_set? 
       geocode_user

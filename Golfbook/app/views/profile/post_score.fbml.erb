@@ -1,0 +1,26 @@
+<%= render :partial => 'profile_header' %>
+
+<fb:tabs>
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :index %>" title="Profile" />
+	<fb:tab-item href="<%= url_for :controller => :profile, :action => :location %>" title="My Location" selected="true" />
+</fb:tabs>
+
+<div class="editor_panel">
+	<div class="editor clearfix">
+			<div class="course_input" style="height:250px">
+				<% form_for :round, :url => {:action => :process_location}, :html => {:name => 'location_lookup'} do |f| %>
+
+				<span class="label">Course Name</span>
+
+				<div id="lookup" style="display:inline;">
+				
+				</div>
+
+				<%= submit_tag 'Save Location', :class => 'inputsubmit' %>
+				
+
+				<% end%>
+			</div>
+		</div>
+	</div>
+</div>

@@ -3,14 +3,17 @@
 
 <div id="content" class="<%= @current %>">
 
-	<div class="pandemic_bar_wrapper">
-     	<%= render :partial => 'shared/pandemicbar' %>		
-	</div>
+	<div class="header">
+		<div class="pandemic_bar_wrapper">
+	     	<%= render :partial => 'shared/pandemicbar' %>		
+		</div>
 
-	<div id="messages">
-           <%= render :partial => 'shared/messages' %>
-       </div>
+		<div id="messages">
+	           <%= render :partial => 'shared/messages' %>
+	       </div>
 
+		</div>
+	
 	<%= yield :layout %>
 
 </div>

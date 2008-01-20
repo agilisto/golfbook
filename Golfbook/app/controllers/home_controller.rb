@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @fbuser = fbuser
-    @user = user
+    @user = current_user
     @id = @user.id
     @action = NEAR_USER
   end

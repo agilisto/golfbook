@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def user
+  def current_user
     if @user.nil?
       @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
     end
