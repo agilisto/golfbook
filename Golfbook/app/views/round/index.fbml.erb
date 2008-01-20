@@ -1,2 +1,28 @@
-<h1>Round#index</h1>
-<p>Find me in app/views/round/index.html.erb</p>
+<%= render :partial => 'round_header' %>
+<div id="page_panel">
+	<div class="courses">
+		<div class="main_column">
+			<h2 class="first_card_section"><%= pluralize(@user.rounds.count, 'round')%> played by 
+				<fb:name uid="<%= @user.facebook_uid %>"shownetwork="true" useyou="true" linked="false" /></h2>
+
+
+				<%= render :partial => 'round', :collection => @rounds %>
+			
+				<%= will_paginate @rounds, :inner_window => 2 %>
+			
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<h3>Vitals</h3>
+				<div class="bar_chart simple">
+					<h2 class="header">
+						<span class="title"><%= @courses_count -%></span>
+						<span class="title_label">Total Courses</span>
+						<span class="sub_title"/>
+						<div style="clear: left; height: 0px;"/>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

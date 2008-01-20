@@ -5,8 +5,13 @@ class Course < ActiveRecord::Base
   
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
-  has_many :rounds
+  has_many :rounds do
+    def recent_rounds(max)
+      find :all, :limit => max, :order => :created_at
+    end
+  end
   has_many :players, :through => :rounds, :source => :user
+  
   
   # for will_paginate
   cattr_reader :per_page

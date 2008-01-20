@@ -2,5 +2,5 @@
 	<%= link_to 'Course Description <span>(Edit)</span>', {:action => :show, :id => @course.id } %> 
 </h3>
 <p>
-	<%=  truncate(@course.description, 200 %>
+	<%= h @course.description %>
 </p>

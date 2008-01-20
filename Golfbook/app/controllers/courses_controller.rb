@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
      @courses_count = Course.count
      @courses = Course.paginate :all, :page => params[:page], :order => :name
 
+     
      respond_to do |format|
        format.fbml # index.html.erb
        format.xml  { render :xml => @courses }
@@ -21,7 +22,9 @@ class CoursesController < ApplicationController
    def show
      @course = Course.find(params[:id])
      # @geolocations = @course.calc_geolocations(true) 
-       
+
+     @recent_rounds = @course.rounds.recent_rounds(10)
+        
      respond_to do |format|
        format.fbml # show.html.erb
        format.xml  { render :xml => @course }

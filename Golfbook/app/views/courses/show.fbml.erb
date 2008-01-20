@@ -43,11 +43,24 @@
 				<h3>Course Stats</h3>
 				<div class="bar_chart simple">
 					<h2 class="header">
-						<span class="title">0</span>
-						<span class="title_label">Total Players</span>
+						<span class="title"><%= @course.players.count %></span>
+						<span class="title_label">Total <%= @course.players.count == 1 ? 'Player' : 'Players'.pluralize %></span>
 						<span class="sub_title"/>
 						<div style="clear: left; height: 0px;"/>
 					</h2>
+				</div>
+			</div>
+			<div class="section">
+			<h3>Actions</h3>
+				<div class="communication_item send_message clearfix">
+					<%= link_to 'Post Score', course_add_round_url(:course_id => @course.id, :only_path => true) %>
+				</div>
+			</div>
+			<div class="section">
+			<h3>Recently Posted Rounds</h3>
+					<ul class="small_list">
+						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
+					</ul>
 				</div>
 			</div>
 		</div>

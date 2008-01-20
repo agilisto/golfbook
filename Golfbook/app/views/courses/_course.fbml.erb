@@ -8,9 +8,9 @@
 		<%= link_to h(course.name), {:action => :show, :id => course.id }%> 
 	</h2>
 	<p>
-		<%=h course.description %>
+		<%= truncate course.description, 200 %>
 	</p>
-	<%= link_to 'Post Score', '#' %>
+	<%= link_to 'Post Score', course_add_round_url(:course_id => course.id, :only_path => true) %>
 		<span class="pipe">|</span>
 	<%= link_to 'Want to Play', '#' %>
 <!--	<%= link_to 'Edit Course', {:action => :edit, :id => course.id } %>

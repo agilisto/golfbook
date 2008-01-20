@@ -410,3 +410,12 @@ html[xmlns] .clearfix {
 .dh_new_media {
 	float:right;
 }
+
+.small_list {
+	padding:0px;
+	list-style: none;
+}
+
+.small_list h1 {
+	display:inline;
+}
