@@ -427,3 +427,12 @@ html[xmlns] .clearfix {
 	display:block;
 	padding-bottom:5px;
 }
+
+.round {
+	
+}
+
+.round .score {
+	float:right;
+	font-size:33px;
+}

@@ -25,8 +25,8 @@ class RoundController < ApplicationController
 
   def index
      @user = current_user
-     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => :date_played
-     logger.debug "COUNT #{@rounds.inspect}"
+     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
+
      respond_to do |format|
        format.fbml 
        format.xml  { render :xml => @courses }
