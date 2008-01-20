@@ -436,3 +436,30 @@ html[xmlns] .clearfix {
 	float:right;
 	font-size:33px;
 }
+
+.recent_rounds {
+	padding-bottom:10px;
+	font-size:90%;
+}
+
+.recent_rounds h4 {
+	padding:0px 0pt 0px 20px;
+	border-bottom:1px solid #D8DFEA;
+	margin:0pt 0pt 0px;
+	font-size:14px;
+}
+
+.recent_rounds ul {
+	clear:left;
+	float:left;
+	list-style: none inside;
+}
+
+.recent_rounds li {
+	width:180px;
+	float:left;
+	padding-right:10px;
+}
+.recent_rounds li h1 {
+	display:inline;
+}

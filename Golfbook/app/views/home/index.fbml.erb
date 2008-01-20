@@ -19,6 +19,13 @@
 	</fb:explanation>
 <% end %>
 
+<div class="recent_rounds">
+	<h4>Recently Posted Rounds</h4>
+	<ul class="horizontal_list">
+		<%= render :partial => 'shared/recent_round', :collection => @recent_rounds, :locals => {:display_course => true} %>
+	</ul>
+</div>
+
 <%= render :partial => 'home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
