@@ -46,6 +46,9 @@
 						<span class="title"><%= @course.players.count %></span>
 						<span class="title_label">Total <%= @course.players.count == 1 ? 'Player' : 'Players'.pluralize %></span>
 						<span class="sub_title"/>
+						<span class="title" style="clear:left"><%= @course.rounds.count %></span>
+						<span class="title_label"><%= @course.rounds.count == 1 ? 'Round' : 'Round'.pluralize %> played</span>
+						<span class="sub_title"/>
 						<div style="clear: left; height: 0px;"/>
 					</h2>
 				</div>

@@ -1,4 +1,5 @@
 <li>
 	<h1><%= link_to recent_round.score.to_s, :controller => :round, :action => :show, :id => recent_round.id %></h1>
-	<span><fb:name uid='<%= recent_round.user.facebook_uid %>'></fb:name></span> (<%= time_ago_in_words(recent_round.created_at) %> ago)
+	<span class="name"><fb:name uid='<%= recent_round.user.facebook_uid %>'></fb:name></span>
+	<span class="played"><%= time_ago_in_words(recent_round.created_at) %> ago</span>
 </li>

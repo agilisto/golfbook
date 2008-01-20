@@ -16,6 +16,18 @@ class CoursesController < ApplicationController
        format.xml  { render :xml => @courses }
      end
    end
+   
+   def courses_played
+     @user = current_user
+     @courses_count = @user.courses_played.count
+     @courses = @user.courses_played.uniq.paginate(:order => :date_played, :page => params[:page])
+     
+     respond_to do |format|
+       format.fbml { render :action => :index}
+       format.xml  { render :xml => @courses }
+     end
+     
+   end
 
    # GET /courses/1
    # GET /courses/1.xml

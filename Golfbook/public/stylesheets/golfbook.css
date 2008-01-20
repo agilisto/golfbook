@@ -419,3 +419,11 @@ html[xmlns] .clearfix {
 .small_list h1 {
 	display:inline;
 }
+
+.small_list .name {
+}
+
+.small_list .played {
+	display:block;
+	padding-bottom:5px;
+}

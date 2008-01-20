@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
       find :all, :limit => max, :order => :created_at
     end
   end
-  has_many :players, :through => :rounds, :source => :user
+  has_many :players, :through => :rounds, :source => :user, :uniq => true
   
   
   # for will_paginate
