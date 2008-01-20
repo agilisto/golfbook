@@ -19,12 +19,17 @@ class RoundController < ApplicationController
     end
     
   end
+  
+  def show
+    @round = Round.find(params[:id]) 
+    @user = @round.user
+  end
 
   def update
   end
 
   def index
-     @user = current_user
+     @user = User.find(params[:user_id])
      @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
 
      respond_to do |format|

@@ -1,0 +1,32 @@
+<%= render :partial => 'round_header' %>
+<fb:tabs>
+	<fb:tab-item href='#' title='Round Info' selected='true'/>
+    <fb:tab-item href='<%= user_view_rounds_url :only_path => true, :user_id => @user.id %>' title='Rounds'/>
+</fb:tabs>
+<div id="page_panel">
+	<div class="courses">
+		<div class="main_column">
+			<h2 class="first_card_section">Round</h2>
+
+			<div class="card small_hole_card">
+				TODO:<br />
+				Shot a <strong><%= @round.score %></strong> at <%= @round.course.name %> on <%= @round.date_played %>
+				<div>Played with</div>
+			</div>			
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<h3>Course Info</h3>
+				<div class="bar_chart simple">
+					<h2 class="header">
+						<span class="title"></span>
+						<span class="title_label"></span>
+						<span class="sub_title"/>
+						<div style="clear: left; height: 0px;"/>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		

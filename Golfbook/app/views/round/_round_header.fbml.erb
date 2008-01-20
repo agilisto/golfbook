@@ -4,7 +4,7 @@
 			<%= image_tag 'tees_50.png' %>
 		</div>
 		<div class="info">
-			<h2><fb:name uid="<%= fbsession.session_user_id %>"shownetwork="true" useyou="false" /></h2>
+			<h2><fb:name uid="<%= @user.facebook_uid %>"shownetwork="true" useyou="false" /></h2>
 		</div>
 	</div>
 </div>

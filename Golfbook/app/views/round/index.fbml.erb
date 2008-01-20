@@ -1,4 +1,8 @@
 <%= render :partial => 'round_header' %>
+<fb:tabs>
+    <fb:tab-item href='<%= user_view_rounds_url :only_path => true, :user_id => @user.id %>' title='Rounds'/>
+</fb:tabs>
+
 <div id="page_panel">
 	<div class="courses">
 		<div class="main_column">
