@@ -20,6 +20,8 @@
 
 */
 body {
+	font-family:verdana,arial,sans-serif;
+	font-size:12px;
 	padding:0;
 	margin:0;
 }
@@ -462,4 +464,15 @@ html[xmlns] .clearfix {
 }
 .recent_rounds li h1 {
 	display:inline;
+}
+
+.info_window {
+}
+
+.info_window ul {
+	padding-left:0px;
+	list-style: none inside;
+}
+
+.info_window li {
 }

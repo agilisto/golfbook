@@ -42,8 +42,20 @@ class MapController < ApplicationController
     
     @courses.each do |c|
       info_window = render_to_string :partial => 'shared/info_window', :object => c
+
+#      tabs = []
+#      t1 = GInfoWindowTab.new
+#      t1.tab = 'Info'
+#      t1.content = info_window
+#      tabs << t1
+#      
+#      t2 = GInfoWindowTab.new
+#      t2.tab = 'Location'
+#      tabs << t2
+#             
       marker = GMarker.new([c.latitude, c.longitude],   
-         :title => c.name, :info_window => info_window, :icon => @icon_flag)
+         :title => c.name, :icon => @icon_flag, :info_window => info_window)
+
       markers.push(marker)
     end  
     
@@ -68,15 +80,15 @@ class MapController < ApplicationController
     # # Define the start and end icons  
     @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'red_flag_hole_icon.png'), 
       :icon_size => GSize.new( 50,43 ), 
-      :icon_anchor => GPoint.new(25,40), 
-      :info_window_anchor => GPoint.new(25,40)),"icon_flag")
+      :icon_anchor => GPoint.new(25,21), 
+      :info_window_anchor => GPoint.new(25,21)),"icon_flag")
       #:icon_shadow => url_for(:controller => :images, :action => 'shadow-red_flag_hole_icon.png'),
       #:shadow_size => new GSize(72.0, 43.0)), 
     
     @map.icon_global_init(GIcon.new( :image => url_for(:controller => :images, :action => 'lots.png'),
       :icon_size => GSize.new(90,90), 
-      :icon_anchor => GPoint.new(45,90), 
-      :info_window_anchor => GPoint.new(45,60)),"lots")
+      :icon_anchor => GPoint.new(45,45), 
+      :info_window_anchor => GPoint.new(50,45)),"lots")
     
     @icon_flag = Variable.new("icon_flag");
     @lots_icon = Variable.new('lots')
