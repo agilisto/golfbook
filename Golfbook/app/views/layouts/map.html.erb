@@ -2,6 +2,7 @@
 	<head>
 		<%= stylesheet_link_tag 'golfbook' %>
         <%= GMap.header %>
+		<%= javascript_include_tag("clusterer") %>
         <%= @map.to_html %>
         </head>
         <body>

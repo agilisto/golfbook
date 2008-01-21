@@ -23,7 +23,7 @@ class MapController < ApplicationController
   end
   
   def near_user
-    begin
+
     @user = User.find(params[:id])
     if @user.nil? 
       @user = User.random_user
@@ -38,19 +38,20 @@ class MapController < ApplicationController
 
     define_icons
     
+    markers = []
+    
     @courses.each do |c|
       info_window = render_to_string :partial => 'shared/info_window', :object => c
       marker = GMarker.new([c.latitude, c.longitude],   
          :title => c.name, :info_window => info_window, :icon => @icon_flag)
-      @map.overlay_init(marker)    
+      markers.push(marker)
     end  
-    rescue StandardError => e
-      puts "=================="
-      puts "ERROR #{e.inspect}"
-      puts e.backtrace.join('\n')
-      puts "=================="
-    end  
+    
+    clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
+        :icon => @lots_icon)
+    @map.overlay_init clusterer
   end
+ 
 
   # rfacebook breaks this outside of the canvas, hence this method so i 
   # can see what is going on
@@ -67,12 +68,18 @@ class MapController < ApplicationController
     # # Define the start and end icons  
     @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'red_flag_hole_icon.png'), 
       :icon_size => GSize.new( 50,43 ), 
-      :icon_anchor => GPoint.new(25,20), 
-      :info_window_anchor => GPoint.new(39,15)),"icon_flag")
+      :icon_anchor => GPoint.new(25,40), 
+      :info_window_anchor => GPoint.new(25,40)),"icon_flag")
       #:icon_shadow => url_for(:controller => :images, :action => 'shadow-red_flag_hole_icon.png'),
       #:shadow_size => new GSize(72.0, 43.0)), 
-      
+    
+    @map.icon_global_init(GIcon.new( :image => url_for(:controller => :images, :action => 'lots.png'),
+      :icon_size => GSize.new(90,90), 
+      :icon_anchor => GPoint.new(45,90), 
+      :info_window_anchor => GPoint.new(45,60)),"lots")
+    
     @icon_flag = Variable.new("icon_flag");
+    @lots_icon = Variable.new('lots')
   end
   def map_size
     @size = params[:size] ? params[:size] : 'large'
