@@ -7,20 +7,27 @@ class CoursesController < ApplicationController
    # GET /courses
    # GET /courses.xml
    def index
+     @user = current_user
      @courses_count = Course.count
      @courses = Course.paginate :all, :page => params[:page], :order => :name
-
-     
+        
      respond_to do |format|
        format.fbml # index.html.erb
        format.xml  { render :xml => @courses }
      end
    end
    
+   def course_played
+     @course = Course.find(params[:id])
+     current_user.has_played @course
+     flash[:notice] = "#{@course.name} added to your list of played courses."
+     redirect_to :action => :courses_played
+   end
+   
    def courses_played
      @user = current_user
-     @courses_count = @user.courses_played.count
-     @courses = @user.courses_played.uniq.paginate(:order => :date_played, :page => params[:page])
+     @courses_count = @user.courses.count
+     @courses = @user.courses.paginate(:page => params[:page])
      
      respond_to do |format|
        format.fbml { render :action => :index}

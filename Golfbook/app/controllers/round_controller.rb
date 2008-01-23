@@ -1,7 +1,7 @@
 class RoundController < ApplicationController
 
   def new
-      @course = Course.find(params[:course_id])
+      @course = Course.find(params[:id])
       @round = Round.new(:course => @course)
       @user = current_user
   end
