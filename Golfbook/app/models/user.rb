@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   
   has_many :rounds
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
+ 
+  has_and_belongs_to_many :courses
     
   def location_set?
     if self.latitude.nil? 
@@ -50,7 +52,13 @@ class User < ActiveRecord::Base
   end
 
   def post_score(round)
+    has_played(round.course)
     rounds << round
+  end
+  
+  def has_played(course)
+    return if self.courses.include? course
+    courses << course
   end
   
 end
