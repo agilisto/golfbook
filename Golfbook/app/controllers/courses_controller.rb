@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-
+     
    def set_active_menu
      @current = 'courses_selected'
    end
@@ -10,11 +10,14 @@ class CoursesController < ApplicationController
      @user = current_user
      @courses_count = Course.count
      @courses = Course.paginate :all, :page => params[:page], :order => :name
-        
+     
+    @action = :courses    
+    
      respond_to do |format|
        format.fbml # index.html.erb
        format.xml  { render :xml => @courses }
      end
+     
    end
    
    def course_played
@@ -28,12 +31,13 @@ class CoursesController < ApplicationController
      @user = current_user
      @courses_count = @user.courses.count
      @courses = @user.courses.paginate(:page => params[:page])
+     @action = :courses_played
      
      respond_to do |format|
        format.fbml { render :action => :index}
        format.xml  { render :xml => @courses }
      end
-     
+
    end
 
    # GET /courses/1
@@ -43,11 +47,13 @@ class CoursesController < ApplicationController
      # @geolocations = @course.calc_geolocations(true) 
 
      @recent_rounds = @course.rounds.recent_rounds(10)
-        
+     A@action = :course
+
      respond_to do |format|
        format.fbml # show.html.erb
        format.xml  { render :xml => @course }
-     end
+     end  
+   
    end
 
    # GET /courses/new

@@ -1,0 +1,7 @@
+<fb:tabs>
+    <fb:tab-item href='<%= url_for :action => :index %>' title='All Courses' selected='<%= @action == :courses %>'/>
+    <fb:tab-item href='<%= url_for :action => :courses_played %>' title='Courses Played' selected='<%= @action == :courses_played %>'/>
+	<fb:tab-item href='#' title='Information' selected='<%= @action == :course %>'/>
+    <fb:tab-item href='#' title='Want to Play' selected='<%= @action == :wish_list %>'/>
+    <fb:tab-item href='#' title='Search' selected='<%= @action == :search %>'/>
+</fb:tabs>
