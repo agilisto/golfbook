@@ -10,7 +10,6 @@ class UserTest < ActiveSupport::TestCase
   end
   
   def test_post_score
-
     round = Round.new(
         :course => @gansbaai,
         :score => 81)
@@ -38,7 +37,6 @@ class UserTest < ActiveSupport::TestCase
 
     assert(1, @gansbaai.players.count)
     assert(2, @gansbaai.users.count)
-
   end
   
   def test_has_played
@@ -49,6 +47,5 @@ class UserTest < ActiveSupport::TestCase
     puts @gansbaai.inspect
     assert(1, @gansbaai.users.count)
   end
-  
   
 end
