@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
      # @geolocations = @course.calc_geolocations(true) 
 
      @recent_rounds = @course.rounds.recent_rounds(10)
-     A@action = :course
+     @action = :course
 
      respond_to do |format|
        format.fbml # show.html.erb
