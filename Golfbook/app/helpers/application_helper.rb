@@ -35,4 +35,9 @@ module ApplicationHelper
        path = "#{request.protocol}#{request.host}:#{request.port}#{path}"
      end
    end
+   
+   def display_course
+     @display_course.nil? == true ? false : true
+   end
+   
 end
