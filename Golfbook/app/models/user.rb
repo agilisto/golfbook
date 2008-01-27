@@ -11,12 +11,14 @@ class User < ActiveRecord::Base
   has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true do
     def outstanding
       find(:all,
+        :include => [:rounds],
         :joins => ['LEFT OUTER JOIN courses_users on wishlists.course_id = courses_users.course_id'],
         :conditions => ['courses_users.course_id is null'])
     end
  
     def completed
       find(:all,
+        :include => [:rounds],
         :joins => ['INNER JOIN courses_users on wishlists.course_id = courses_users.course_id'])
     end
   end
