@@ -4,8 +4,22 @@ class User < ActiveRecord::Base
   
   has_many :rounds
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
- 
+  
   has_and_belongs_to_many :courses
+  
+  has_many :wishlists
+  has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true do
+    def outstanding
+      find(:all,
+        :joins => ['LEFT OUTER JOIN courses_users on wishlists.course_id = courses_users.course_id'],
+        :conditions => ['courses_users.course_id is null'])
+    end
+ 
+    def completed
+      find(:all,
+        :joins => ['INNER JOIN courses_users on wishlists.course_id = courses_users.course_id'])
+    end
+  end
     
   def location_set?
     if self.latitude.nil? 
@@ -62,8 +76,8 @@ class User < ActiveRecord::Base
   end
   
   def add_to_wishlist(course)
-    return if self.wishlist.include? course
-    wishlist << course
+    return if self.courses_want_to_play.include? course
+    courses_want_to_play << course
   end
   
 end

@@ -12,7 +12,10 @@ class Course < ActiveRecord::Base
   end
   
   has_many :players, :through => :rounds, :source => :user, :uniq => true
-
+  
+  has_many :wishlists
+  has_many :players_want_to_play, :through => :wishlists, :source => :user, :uniq => true
+  
   has_and_belongs_to_many :users
   
   # for will_paginate
