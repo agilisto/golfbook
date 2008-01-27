@@ -1,8 +1,4 @@
 class CoursesController < ApplicationController
-     
-   def set_active_menu
-     @current = 'courses_selected'
-   end
     
    # GET /courses
    # GET /courses.xml
@@ -11,13 +7,20 @@ class CoursesController < ApplicationController
      @courses_count = Course.count
      @courses = Course.paginate :all, :page => params[:page], :order => :name
      
-    @action = :courses    
+     @action = :courses    
     
      respond_to do |format|
        format.fbml # index.html.erb
        format.xml  { render :xml => @courses }
      end
      
+   end
+   
+   def add_to_wishlist
+     @course = Course.find(params[:id])
+     current_user.add_to_wishlist(@course)
+     flash[:notice] = "#{@course.name} added to your list of courses to play."
+     redirect_to :action => :courses_wishlist
    end
    
    def course_played

@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu   
+  before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu, :set_active_submenu
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -37,7 +37,12 @@ class ApplicationController < ActionController::Base
   
   protected
   def set_active_menu
-    @current = 'overview_selected'
+    # Current sets the body id which sets the context to enable the right selected tab 
+    # in the pandemic bar
+    @current = "#{controller_name}_selected"
+  end
+  
+  def set_active_submenu
   end
       
 end

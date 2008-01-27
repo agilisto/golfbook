@@ -1,4 +1,9 @@
 class RoundController < ApplicationController
+  
+  def set_active_submenu
+    logger.debug 
+    @action = @action_name.intern
+  end
 
   def new
       @course = Course.find(params[:id])

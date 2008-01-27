@@ -120,7 +120,7 @@ html[xmlns] .clearfix {
 }
 
 /* Sets the selected menu item */
-.overview_selected .overview_nav a:hover,
+.home_selected .overview_nav a:hover,
 .courses_selected .courses_nav a:hover,
 .tours_selected .tours_nav a:hover,
 .competitions_selected .competitions_nav a:hover,
@@ -132,7 +132,7 @@ html[xmlns] .clearfix {
 	text-decoration:underline;
 }
 
-.overview_selected .overview_nav a,
+.home_selected .overview_nav a,
 .courses_selected .courses_nav a,
 .tours_selected .tours_nav a,
 .competitions_selected .competitions_nav a,
@@ -143,7 +143,7 @@ html[xmlns] .clearfix {
 	padding-top:5px;
 }
 
-.overview_selected .overview_nav,
+.home_selected .overview_nav,
 .courses_selected .courses_nav,
 .tours_selected .tours_nav,
 .competitions_selected .competitions_nav,

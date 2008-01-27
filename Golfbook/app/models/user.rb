@@ -61,4 +61,9 @@ class User < ActiveRecord::Base
     courses << course
   end
   
+  def add_to_wishlist(course)
+    return if self.wishlist.include? course
+    wishlist << course
+  end
+  
 end
