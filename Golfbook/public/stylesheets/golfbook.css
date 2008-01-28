@@ -122,6 +122,7 @@ html[xmlns] .clearfix {
 /* Sets the selected menu item */
 .home_selected .overview_nav a:hover,
 .courses_selected .courses_nav a:hover,
+.wishlist_selected .courses_nav a:hover,
 .tours_selected .tours_nav a:hover,
 .competitions_selected .competitions_nav a:hover,
 .pandemic_bar li.selected a:hover {
@@ -134,6 +135,7 @@ html[xmlns] .clearfix {
 
 .home_selected .overview_nav a,
 .courses_selected .courses_nav a,
+.wishlist_selected .courses_nav a,
 .tours_selected .tours_nav a,
 .competitions_selected .competitions_nav a,
 .pandemic_bar li.selected a, .pandemic_bar li.sub_page a {
@@ -145,6 +147,7 @@ html[xmlns] .clearfix {
 
 .home_selected .overview_nav,
 .courses_selected .courses_nav,
+.wishlist_selected .courses_nav,
 .tours_selected .tours_nav,
 .competitions_selected .competitions_nav,
 .pandemic_bar li.selected, .pandemic_bar li.sub_page {

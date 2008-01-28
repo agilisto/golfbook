@@ -1,0 +1,68 @@
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+			<a href="<%= url_for(:action => :index)%>">
+				<%= image_tag 'red_flag_hole.png' %>
+			</a>
+		</div>
+		<div class="info">
+			<h2>Adding <%= @course.name %> to Wishlist</h2>
+			<div id="sub_menu">
+				<%= link_to 'Back to wishlist', {:action => :index} %>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<%= render :partial => 'courses/courses_menu' %>
+
+<div class="editor_panel clearfix">
+	<div class="main_column clearfix">
+		<div class="card small_hole_card">
+			<h3>
+				<%= @course.name %>
+			</h3>
+			  <p>
+			   Would you like to play the course by a specific date?
+				<a id="show_text" href="#" clicktohide="show_text" clicktoshow="target_date_div,hide_text">
+				  Yes</a>
+
+				  <a id="hide_text" href="#" clicktohide="target_date_div, hide_text" clicktoshow="show_text"
+				  style="display:none">No</a>
+			  </p>
+			
+			<% unless @wishlist.errors.blank? %>
+				<fb:error>
+					<fb:message>
+						<%= error_messages_for :wishlist %>
+					</fb:message>
+				</fb:error>
+			<% end%>
+			
+			<span id="target_date_div" style="display:none">	
+				
+			
+			<% editor_form_for :wishlist, @wishlist, :url => {:action => 'update_target_date', :id => @wishlist.id}, :html => {:labelwidth => 50}  do  |f| %>
+			
+				<fb:editor-custom label="Target Date">
+					<%= f.date_select :target_date %>
+				</fb:editor-custom>
+				<fb:editor-buttonset>
+					<%= f.submit_tag('Submit') %>
+				</fb:editor-buttonset>
+
+				<% end %>
+		
+	    	</span>	
+	
+		</div>
+	</div>
+	<div class="side_column">
+		<div class="section">
+			<%= render :partial => 'courses/course_stats' %>
+		</div>
+		<div class="section">
+			<%= render :partial => 'courses/course_actions' %>
+		</div>
+	</div>
+</div>

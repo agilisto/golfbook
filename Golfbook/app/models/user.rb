@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   end
   
   def add_to_wishlist(course)
-    return if self.courses_want_to_play.include? course
+    return if self.courses_want_to_play.include?(course)
     courses_want_to_play << course
   end
   

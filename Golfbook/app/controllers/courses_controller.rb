@@ -16,13 +16,6 @@ class CoursesController < ApplicationController
      
    end
    
-   def add_to_wishlist
-     @course = Course.find(params[:id])
-     current_user.add_to_wishlist(@course)
-     flash[:notice] = "#{@course.name} added to your list of courses to play."
-     redirect_to :action => :courses_wishlist
-   end
-   
    def course_played
      @course = Course.find(params[:id])
      current_user.has_played @course
@@ -40,7 +33,6 @@ class CoursesController < ApplicationController
        format.fbml { render :action => :index}
        format.xml  { render :xml => @courses }
      end
-
    end
 
    # GET /courses/1

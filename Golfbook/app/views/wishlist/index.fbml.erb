@@ -1,0 +1,26 @@
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+				<%= image_tag 'red_flag_hole.png' %>
+		</div>
+		<div class="info">
+			<h2>My Courses To Play</h2>
+		</div>
+	</div>
+</div>
+
+<%= render :partial => 'courses/courses_menu' %>
+
+<div id="page_panel">
+	<div class="courses">
+		<div class="main_column">
+			<h2 class="first_card_section"><%= pluralize(@user.courses_want_to_play.count, 'Course')%> to play. 
+			</h2>
+				<%= render :partial => 'courses/course', :collection => @courses %>
+			
+		</div>
+		<div class="side_column">
+			<%= render :partial => 'shared/vitals' %>
+		</div>
+	</div>
+</div>

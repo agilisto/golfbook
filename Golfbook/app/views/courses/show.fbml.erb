@@ -39,24 +39,10 @@
 		</div>
 		<div class="side_column">
 			<div class="section">
-				<h3>Course Stats</h3>
-				<div class="bar_chart simple">
-					<h2 class="header">
-						<span class="title"><%= @course.users.count %></span>
-						<span class="title_label">Total <%= @course.players.count == 1 ? 'Player' : 'Players'.pluralize %></span>
-						<span class="sub_title"/>
-						<span class="title" style="clear:left"><%= @course.rounds.count %></span>
-						<span class="title_label"><%= @course.rounds.count == 1 ? 'Round' : 'Round'.pluralize %> played</span>
-						<span class="sub_title"/>
-						<div style="clear: left; height: 0px;"/>
-					</h2>
-				</div>
+				<%= render :partial => 'course_stats' %>
 			</div>
 			<div class="section">
-			<h3>Actions</h3>
-				<div class="communication_item send_message clearfix">
-					<%= link_to 'Post Score', course_add_round_url(:id => @course.id, :only_path => true) %>
-				</div>
+				<%= render :partial => 'course_actions' %>
 			</div>
 			<div class="section">
 			<h3>Recently Posted Rounds</h3>
