@@ -9,9 +9,18 @@ class Course < ActiveRecord::Base
     def recent_rounds(max)
       find :all, :limit => max, :order => :created_at
     end
+    
+    def by_facebook_uids(facebook_uids, options = {})          
+      # some defaults, can override
+      find :all, {
+          :limit => 5, 
+          :order => :date_played,
+          :conditions => ['user_id in (:uids)', {:uids => facebook_uids}]
+          }.merge(options)
+    end
   end
   
-  has_many :players, :through => :rounds, :source => :user, :uniq => true
+  has_many :players, :through => :rounds, :source => :user, :uniq => true 
   
   has_many :wishlists
   has_many :players_want_to_play, :through => :wishlists, :source => :user, :uniq => true
@@ -40,6 +49,10 @@ class Course < ActiveRecord::Base
       self.save!
     end
     places_nearby
+  end
+  
+  def best_rounds_for_facebook_users(friends_facebook_uids)
+    
   end
   
 end

@@ -17,3 +17,6 @@ ixopo:
     description: Ixopo Golf Course Description
     longitude:   30.0601
     latitude:  -30.1497
+    
+pebble_beach:
+    name: Pebble

@@ -114,4 +114,30 @@ END_OF_DOC
     assert_equal('Kleinbaai', gansbaai.location_text)
   end
   
+  def test_recent_rounds_by_facebook_friends
+    gansbaai = courses(:gansbaai)
+    rounds = gansbaai.rounds.by_facebook_uids([12345, 12346])
+    assert(2, rounds.length)
+    
+    pebble = courses(:pebble_beach)
+
+    rounds = pebble.rounds.by_facebook_uids([12345, 12346])
+    assert(0, rounds.length)
+    
+    arnold = users(:arnold_palmer)
+    round = Round.new(:score => 61, :course => pebble)
+    arnold.post_score(round)
+    
+    rounds = pebble.rounds.by_facebook_uids([12345, 12346])
+    assert(1, rounds.length)
+    
+  end
+
+  def test_best_rounds_by_facebook_friends
+    gansbaai = courses(:gansbaai)
+    rounds = gansbaai.rounds.by_facebook_uids([12345, 123456], {:group => 'user_id' })
+    puts rounds.inspect
+    assert(2, rounds.length)
+  end
+  
 end

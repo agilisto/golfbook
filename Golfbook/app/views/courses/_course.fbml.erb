@@ -5,7 +5,7 @@
 		</a>
 	</div>
 	<h2>
-		<%= link_to h(course.name), {:action => :show, :id => course.id }%> 
+		<%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
 	</h2>
 	<p>
 		<%= truncate course.description, 200 %>
@@ -19,6 +19,6 @@
 	<% if !@user.courses_want_to_play.include? course %>
 		<span class="pipe">|</span>
 		<%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>
-	<% end%>
-
+	<% end %>
+	
 </div>

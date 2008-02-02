@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :courses
   
   has_many :wishlists
-  has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true do
+  has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true, :order => 'target_date desc' do
+    
     def outstanding
       find(:all,
         :include => [:rounds],
@@ -81,5 +82,5 @@ class User < ActiveRecord::Base
     return if self.courses_want_to_play.include?(course)
     courses_want_to_play << course
   end
-  
+      
 end

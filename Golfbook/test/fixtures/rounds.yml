@@ -7,3 +7,16 @@ one:
 two:
   score: 1
   date_played: 2008-01-20
+
+tiger_gansbaai:
+  score: 69
+  course: gansbaai
+    
+ernie_gansbaai:
+  score: 68
+  course: gansbaai
+    
+john_gansbaai:
+  score: 70
+  course: gansbaai
+    

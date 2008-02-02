@@ -8,3 +8,13 @@
 arnold_palmer:
     longitude:   19.34903
     latitude:  -34.61839
+    
+tiger_woods:
+    facebook_uid: 12345
+    
+john_daly:
+    facebook_uid: 12346
+
+ernie_else:
+    facebook_uid: 12347    
+    

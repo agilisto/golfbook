@@ -1,8 +1,10 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class RoundTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+
+  def setup
+    @arnold = users(:arnold)
+    @gansbaai = courses(:gansbaai)
   end
+
 end
