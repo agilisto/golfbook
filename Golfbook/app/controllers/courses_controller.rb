@@ -43,8 +43,10 @@ class CoursesController < ApplicationController
      # @geolocations = @course.calc_geolocations(true) 
 
      @recent_rounds = @course.rounds.recent_rounds(10)
+     @friends_recent_rounds = @course.rounds.by_facebook_uids(fbsession.friends_get.uid_list) 
+     
      @action = :course
-
+    
      respond_to do |format|
        format.fbml # show.html.erb
        format.xml  { render :xml => @course }

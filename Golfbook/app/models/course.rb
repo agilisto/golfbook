@@ -14,8 +14,9 @@ class Course < ActiveRecord::Base
       # some defaults, can override
       find :all, {
           :limit => 5, 
-          :order => :date_played,
-          :conditions => ['user_id in (:uids)', {:uids => facebook_uids}]
+          :order => 'date_played DESC',
+          :joins => ' inner join users u on rounds.user_id = u.id',
+          :conditions => ['u.facebook_uid in (:uids)', {:uids => facebook_uids}]
           }.merge(options)
     end
   end

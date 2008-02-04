@@ -1,6 +1,6 @@
 include GeoKit::Geocoders
 class User < ActiveRecord::Base
-  acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude', :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
+  acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
   has_many :rounds
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true

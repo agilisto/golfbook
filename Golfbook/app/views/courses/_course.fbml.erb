@@ -15,7 +15,9 @@
 		<%= link_to 'Have Played', course_have_played_url(:id => course.id, :only_path => true) %>
 		<span class="pipe">|</span>
 	<% end %>
+	
 	<%= link_to 'Post Score', course_add_round_url(:id => course.id, :only_path => true) %>
+	
 	<% if !@user.courses_want_to_play.include? course %>
 		<span class="pipe">|</span>
 		<%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>

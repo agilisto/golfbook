@@ -1,0 +1,7 @@
+<h3 clicktotoggle="course_discuss">
+	Discuss <%= @course.name %>
+</h3>
+<div id="course_discuss">
+	<fb:board xid="<%= @course.id%>" canpost="true" candelete="false" canmark="false" cancreatetopic="true" numtopics="5" >
+	</fb:board>
+</div>

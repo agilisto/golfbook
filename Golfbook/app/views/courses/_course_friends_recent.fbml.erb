@@ -1,0 +1,12 @@
+<h3 clicktotoggle="course_friends_recent">
+	Recent scores by your friends
+</h3>
+<div id="course_friends_recent">
+	<ul class="scorecard">
+		<% course_friends_recent.each do |round| %>
+			<li>
+				<%= round.date_played %> - <fb:name uid="<%= round.user.facebook_uid %>" capitalize="true" /> shot <strong><%= round.score %></strong>
+			</li>
+		<% end %>
+	</ul>
+</div>

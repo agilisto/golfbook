@@ -20,20 +20,21 @@
 	<div class="courses">
 		<div class="main_column">
 			<h2 class="first_card_section">Course Information</h2>
-
+			
+			<div class="card small_hole_card">
+				<%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+			</div>
+			
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_summary', :object => @course %>
 			</div>
-
+			
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_map', :object => @course %>
 			</div>
 			
 			<div class="card small_hole_card">
-				<h3>
-					Discuss <%= @course.name %>
-				</h3>
-				<fb:board xid="<%= @course.id%>" canpost="true" candelete="false" canmark="false" cancreatetopic="true" numtopics="5" >
+				<%= render :partial => 'course_discuss' %>
 			</div>
 			
 		</div>

@@ -465,6 +465,7 @@ html[xmlns] .clearfix {
 	float:left;
 	padding-right:10px;
 }
+
 .recent_rounds li h1 {
 	display:inline;
 }
@@ -478,4 +479,19 @@ html[xmlns] .clearfix {
 }
 
 .info_window li {
+}
+
+.small_hole_card h3 {
+	
+}
+
+.small_hole_card h3:hover {
+	cursor:pointer;
+}
+
+.scorecard {
+	padding:0;
+	margin:0;
+	clear:left;
+	list-style: none inside;
 }
