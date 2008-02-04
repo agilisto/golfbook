@@ -38,6 +38,7 @@ class CoursesController < ApplicationController
    # GET /courses/1
    # GET /courses/1.xml
    def show
+     @user = current_user
      @course = Course.find(params[:id])
      # @geolocations = @course.calc_geolocations(true) 
 
@@ -112,6 +113,24 @@ class CoursesController < ApplicationController
        format.fbml { redirect_to(:action => :index) }
        format.xml  { head :ok }
      end
+   end
+   
+   def search
+     @action = :search
+     @courses_count = current_user.courses.count
+   end
+   
+   def perform_search
+     
+   end
+   
+   def lookup
+     @courses = Course.find :all, :conditions => ["name like ?", params[:suggest_typed]]
+     @count = @courses.count
+     #RAILS_DEFAULT_LOGGER.debug "Courses: #{@count}"
+     names = @courses.each {|course| course.name << "," }
+     #RAILS_DEFAULT_LOGGER.debug "Names: #{names}"
+     render :text => "{fortext:#{params[:suggest_typed].to_json},results:#{names.to_json}}"
    end
 
 end

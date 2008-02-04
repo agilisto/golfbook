@@ -73,6 +73,14 @@ class User < ActiveRecord::Base
     rounds << round
   end
   
+  def has_played_course?(course)
+    if self.courses.include? course
+      true
+    else
+      false
+    end
+  end
+  
   def has_played(course)
     return if self.courses.include? course
     courses << course

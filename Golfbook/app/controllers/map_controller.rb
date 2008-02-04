@@ -5,7 +5,8 @@ class MapController < ApplicationController
   #skip_before_filter :require_facebook_login, :adjust_format_for_facebook
   before_filter :map_size, :map_zoom
 
-  def show   
+  def show
+    @user = current_user
     @course = Course.find(params[:id])
     @map = GMap.new(@size)
     
