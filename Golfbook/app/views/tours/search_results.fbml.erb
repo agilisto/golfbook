@@ -1,0 +1,43 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <a href="<%= url_for(:action => :index)%>">
+  <%= image_tag 'blue_flag_hole.png' %>
+  </a>
+      </div>
+      <div class="info">
+        <h2>Add Courses to <b><%= @tour.name %></b></h2>
+        <div id="sub_menu">
+          <%= link_to 'Back to '+@tour.name, {:action => :show, :id => @tour.id} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render :partial => 'tours_menu' %>
+
+  <div id="page_panel">
+    <div class="courses">
+      <div class="main_column">
+        <h2 class="first_card_section">Courses</h2>
+      
+                                 <%= render :partial => 'tour_date', :collection => @tourdates %>
+                               
+                                 <%#= will_paginate @tourdates, :inner_window => 2 %>
+                               
+      </div>
+      <div class="side_column">
+        <div class="section">
+          <h3>Search Statistics</h3>
+          <div class="bar_chart simple">
+            <h2 class="header">
+              <span class="title"><%= @courses_count -%></span>
+              <span class="title_label">Total Courses</span>
+              <span class="sub_title"/>
+              <div style="clear: left; height: 0px;"/>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

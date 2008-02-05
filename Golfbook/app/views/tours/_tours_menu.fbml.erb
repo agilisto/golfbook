@@ -1,0 +1,4 @@
+<fb:tabs>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :index %>' title='All My Tours' selected='<%= @action == :tours %>'/>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :new %>' title='New Tour' selected='<%= @action == :newtour %>'/>
+</fb:tabs> 

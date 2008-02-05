@@ -1,0 +1,28 @@
+<div class="course_list_item clearfix">
+  <div class="profile_img">
+    <a href="#">
+      <%= image_tag 'red_flag_hole.png' %>
+    </a>
+  </div>
+  <h2>
+    <%= link_to h(tour_date.course.name), {:action => :show, :controller => :courses, :id => tour_date.course.id }%> 
+  </h2>
+  <p>
+    <%= truncate tour_date.course.description, 200 %>
+  </p>
+  
+ <% editor_form_for :tour_date, tour_date, :url => {:action => "add_course"} do |f| %>
+   
+    <%= f.hidden_field :course_id %>
+    <%= f.hidden_field :tour_id %>
+
+    <fb:editor-custom label="Target Date">
+      <%= f.date_select :to_play_at %>
+    </fb:editor-custom>
+    <fb:editor-buttonset>
+      <%= f.submit_tag('Add Course') %>
+    </fb:editor-buttonset>
+  
+        <%end%>
+         <%#= link_to 'Add to Tour', tour_add_course_url(:id => @tour.id, :course_id => tour_date.course.id, :only_path => true) %>
+</div>

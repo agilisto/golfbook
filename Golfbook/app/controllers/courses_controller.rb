@@ -125,8 +125,8 @@ class CoursesController < ApplicationController
     @courses_count = current_user.courses.count
     
     respond_to do |format|
-      format.fbml { redirect_to(:action => :index) }
-      format.xml  { head :ok }
+      format.fbml
+      format.xml  { render :xml => @courses }
     end
   end
    

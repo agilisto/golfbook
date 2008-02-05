@@ -1,0 +1,59 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <%= image_tag 'red_flag_hole.png' %>
+    </div>
+    <div class="info">
+      <h2>New Tour</h2>
+      <div id="sub_menu">
+        <%= link_to 'Back to My Tours', {:action => :index} %>
+      </div>			
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'tours_menu' %>
+
+<div class="editor_panel clearfix">
+  <div class="main_column clearfix">
+    <h2 class="first_card_section">Create a New Tour</h2>
+    <div class="card small_hole_card">
+      
+      <% unless @tour.errors.blank? %>
+        <fb:error>
+          <fb:message>
+            <%= error_messages_for :tour %>
+          </fb:message>
+        </fb:error>
+      <% end%>
+
+      <% editor_form_for :tour, @tour, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
+              
+        <%= f.text_field :name %>
+
+        <fb:editor-custom label="Description">
+          <%= f.text_area :description %>
+        </fb:editor-custom>
+      
+        <fb:editor-buttonset>
+          <%= f.submit_tag('Create') %>
+        </fb:editor-buttonset>
+      
+              <% end %>
+    </div>
+  </div>
+  <div class="side_column">
+    <div class="section">
+      <h3>My Vitals</h3>
+      <div class="bar_chart simple">
+        <h2 class="header">
+          <span class="title"><%= @user.tours.count %></span>
+          <span class="title_label">Total Tours</span>
+          <span class="sub_title" />
+          <div style="clear: left; height: 0px;"/>
+          
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
