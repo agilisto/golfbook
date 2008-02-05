@@ -5,7 +5,12 @@
 #
 # two:
 #   column: value
+
+dummy:
+    facebook_uid: 1
+
 arnold_palmer:
+    facebook_uid: 12348
     longitude:   19.34903
     latitude:  -34.61839
     
@@ -15,6 +20,6 @@ tiger_woods:
 john_daly:
     facebook_uid: 12346
 
-ernie_else:
+ernie_els:
     facebook_uid: 12347    
     

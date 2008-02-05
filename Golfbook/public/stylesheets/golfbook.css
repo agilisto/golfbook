@@ -489,9 +489,13 @@ html[xmlns] .clearfix {
 	cursor:pointer;
 }
 
-.scorecard {
+ol.scorecard {
 	padding:0;
 	margin:0;
-	clear:left;
+}
+
+ul.scorecard {
+	padding:0;
+	margin:0;
 	list-style: none inside;
 }

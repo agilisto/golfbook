@@ -1,22 +1,33 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  score: 1
+  score: 100
   date_played: 2008-01-20
-
+  user: dummy
+  course: dummy
 two:
-  score: 1
+  score: 100
   date_played: 2008-01-20
+  user: dummy
+  course: dummy
 
 tiger_gansbaai:
   score: 69
-  course: gansbaai
+  user:   tiger_woods
+  course:   gansbaai
     
 ernie_gansbaai:
   score: 68
-  course: gansbaai
+  user:   ernie_else
+  course:   gansbaai
     
 john_gansbaai:
   score: 70
-  course: gansbaai
+  user:   john_daly
+  course:   gansbaai
+  
+tiger_gansbaai2:
+  score: 71
+  user:   tiger_woods
+  course:   gansbaai
     

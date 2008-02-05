@@ -43,7 +43,11 @@ class CoursesController < ApplicationController
      # @geolocations = @course.calc_geolocations(true) 
 
      @recent_rounds = @course.rounds.recent_rounds(10)
-     @friends_recent_rounds = @course.rounds.by_facebook_uids(fbsession.friends_get.uid_list) 
+     
+     uids = fbsession.friends_get.uid_list
+     @friends_recent_rounds = @course.rounds.by_facebook_uids(uids) 
+     uids << fbsession.session_user_id
+     @friends_best_rounds = @course.rounds.best_rounds_by_facebook_uids(uids)
      
      @action = :course
     

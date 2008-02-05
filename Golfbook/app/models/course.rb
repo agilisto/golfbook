@@ -19,6 +19,18 @@ class Course < ActiveRecord::Base
           :conditions => ['u.facebook_uid in (:uids)', {:uids => facebook_uids}]
           }.merge(options)
     end
+    
+    def best_rounds_by_facebook_uids(facebook_uids, options = {})
+      find :all, {
+        :limit => 5,
+        :select => 'rounds.id, user_id, score, course_id, date_played, min(score) as "score"',
+        :order => 'score asc',
+        :joins => ' INNER JOIN users u ON rounds.user_id = u.id',
+        :group => 'u.id',
+        :conditions => ['u.facebook_uid in (:uids)', {:uids => facebook_uids}]
+      }
+    end
+  
   end
   
   has_many :players, :through => :rounds, :source => :user, :uniq => true 
@@ -52,8 +64,5 @@ class Course < ActiveRecord::Base
     places_nearby
   end
   
-  def best_rounds_for_facebook_users(friends_facebook_uids)
-    
-  end
   
 end

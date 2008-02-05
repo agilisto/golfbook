@@ -117,27 +117,30 @@ END_OF_DOC
   def test_recent_rounds_by_facebook_friends
     gansbaai = courses(:gansbaai)
     rounds = gansbaai.rounds.by_facebook_uids([12345, 12346])
-    assert(2, rounds.length)
+    assert_equal(3, rounds.length)
     
     pebble = courses(:pebble_beach)
 
     rounds = pebble.rounds.by_facebook_uids([12345, 12346])
-    assert(0, rounds.length)
+    assert_equal(0, rounds.length)
     
     arnold = users(:arnold_palmer)
     round = Round.new(:score => 61, :course => pebble)
     arnold.post_score(round)
     
     rounds = pebble.rounds.by_facebook_uids([12345, 12346])
-    assert(1, rounds.length)
+    assert_equal(0, rounds.length)
     
+    rounds = pebble.rounds.by_facebook_uids([12345, 12348])
+    assert_equal(1, rounds.length)
   end
 
   def test_best_rounds_by_facebook_friends
     gansbaai = courses(:gansbaai)
-    rounds = gansbaai.rounds.by_facebook_uids([12345, 123456], {:group => 'user_id' })
-    puts rounds.inspect
-    assert(2, rounds.length)
+    rounds = gansbaai.rounds.best_rounds_by_facebook_uids([12345, 12346])
+    assert_equal(2, rounds.length)
+    assert_equal(69, rounds[0].score)
+    assert_equal(70, rounds[1].score)
   end
   
 end
