@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(:version => 14) do
   create_table "tours", :force => true do |t|
     t.integer  "user_id"
     t.string   "name",        :default => "", :null => false
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|
