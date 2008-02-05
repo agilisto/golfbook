@@ -14,4 +14,5 @@ class GeolookupController < ApplicationController
     puts names
     render :text => "{fortext:#{params[:suggest_typed].to_json},results:#{names.to_json}}"
   end  
+
 end

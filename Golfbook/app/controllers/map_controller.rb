@@ -42,6 +42,7 @@ class MapController < ApplicationController
     markers = []
     
     @courses.each do |c|
+      @course = c
       info_window = render_to_string :partial => 'shared/info_window', :object => c
 
 #      tabs = []
