@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.course_add_round '/courses/:id/rounds/new', :controller => 'round', :action => 'new', :only_path => true
   map.user_view_rounds '/profile/:user_id/rounds/view', :controller => 'round', :action => 'index', :only_path => true
-  map.course_have_played '/courses/course_played/:id', :controller => 'courses', :action => 'course_played', :only_path => true
+  map.course_have_played '/courses/:id/course_played/', :controller => 'courses', :action => 'course_played', :only_path => true
   
   map.course_add_wishlist '/courses/:id/wishlist/new', :controller => 'wishlist', :action => 'new', :only_path => true
   map.course_add_wishlist_target_date '/courses/:id/wishlist/target_date', :controller => 'wishlist', :action => 'set_target_date', :only_path => true
