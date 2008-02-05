@@ -3,7 +3,7 @@
     <%if @user.has_played_course? @course%>
         You have played this course
     <%else%>
-        <%= link_to 'Mark as played', url_for(:action => :course_played, :id => @course.id, :only_path => true) %>
+        <%= link_to 'Mark as played', course_have_played_url(:id => @course.id, :only_path => true) %>
     <%end%>
 </div>
 <div class="communication_item send_message clearfix">
