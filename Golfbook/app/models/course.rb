@@ -7,7 +7,7 @@ class Course < ActiveRecord::Base
   
   has_many :rounds do
     def recent_rounds(max)
-      find :all, :limit => max, :order => :created_at
+      find :all, :limit => max, :order => 'created_at desc'
     end
     
     def by_facebook_uids(facebook_uids, options = {})          
