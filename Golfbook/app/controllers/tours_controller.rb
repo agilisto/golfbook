@@ -27,6 +27,20 @@ class ToursController < ApplicationController
   def show
     @user = current_user
     @tour = Tour.find params[:id]
+    @action = :show
+  end
+  
+  def edit
+    @user = current_user
+    @tour = Tour.find params[:id]
+    @action= :edit
+  end
+  
+  def update
+    @tour = Tour.find params[:tour][:id]
+    @tour.update_attributes(params[:tour])
+    @tour.save!
+    redirect_to :action => :show, :id => @tour.id
   end
   
   def search_for_course

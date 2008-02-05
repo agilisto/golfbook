@@ -16,8 +16,18 @@ class EditorBuilder < ActionView::Helpers::FormBuilder
   #     </fb:editor>
   
   def text_field(label, *args)
-    @template.tag("fb:editor-text", 
-      :name => tag_name(label), :label => label.to_s.humanize)
+    options = args.extract_options!
+    options["value"] = object.send(label)
+    options["name"] = tag_name(label)
+    options["label"] = label.to_s.humanize
+    @template.tag "fb:editor-text", options
+  end
+  
+  def text_area(label, *args)
+    options = args.extract_options!
+    options["name"] = tag_name(label)
+    options["label"] = label.to_s.humanize
+    @template.content_tag("fb:editor-textarea", object.send(label), options)
   end
   
   def submit_tag(value = "Save changes", options = {})

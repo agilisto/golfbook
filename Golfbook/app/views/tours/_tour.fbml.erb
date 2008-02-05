@@ -1,15 +1,14 @@
 <div class="course_list_item clearfix">
-	<div class="profile_img">
-		<a href="#">
-			<%= image_tag 'red_flag_hole.png' %>
-		</a>
-	</div>
-	<h2>
-		<%= link_to h(tour.name), {:action => :show, :controller => tours, :id => tour.id }%> 
-	</h2>
-	<p>
-		<%= truncate tour.description, 200 %>
-	</p>
-	
-         <a href="#">Link 1</a><span class="pipe">|</span><a href="#">Link 2</a>
+  <div class="profile_img">
+    <p>
+      <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
+      <h2><%= link_to h(tour.name), {:action => :show, :controller => "tours", :id => tour.id }%></h2>
+      <%= truncate tour.description, 200 %>
+      <br/><br/>
+      <h4><%= tour.users.count%> <%= tour.users.count == 1 ? "Player" : "Player".pluralize%></h4>
+      <h4><%= tour.courses.count%> <%= tour.courses.count == 1 ? "Course" : "Course".pluralize%></h4>
+      <br/><br/>
+      <a href="<%= tour_edit_url(:id=>tour.id, :only_path=>true)%>">Edit</a><span class="pipe">|</span><a href="#">Link 2</a>
+    </p>
+  </div>
 </div>

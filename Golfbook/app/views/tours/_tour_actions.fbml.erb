@@ -1,5 +1,8 @@
 <h3>Tour Actions</h3>
 <div class="communication_item send_message clearfix">
+    <%= link_to 'Edit Tour', tour_edit_url(:id => @tour.id, :only_path => true) %>
+</div>
+<div class="communication_item send_message clearfix">
     <%= link_to 'Add a Course', add_course_to_tour_url(:id => @tour.id, :only_path => true) %>
 </div>
 <div class="communication_item send_message clearfix">

@@ -1,0 +1,6 @@
+<fb:tabs>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :show, :id => @tour.id %>' title='Information' selected='<%= @action == :show %>'/>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :courses %>' title='Courses' selected='<%= @action == :courses %>'/>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :players %>' title='Players' selected='<%= @action == :players %>'/>
+    <fb:tab-item href='<%= url_for :controller => :tours, :action => :edit, :id => @tour.id %>' title='Edit' selected='<%= @action == :edit %>'/>
+</fb:tabs> 
