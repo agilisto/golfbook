@@ -5,7 +5,9 @@
 	<ol class="scorecard">
 		<% course_friends_best.each do |round| %>
 			<li>
-				<fb:name uid="<%= round.user.facebook_uid %>" capitalize="true" /> shot a <strong><%= round.score %></strong> <%= time_ago_in_words(round.date_played) %> ago.
+				<fb:name uid="<%= round.user.facebook_uid %>" capitalize="true" /> shot a 
+				<strong><%= link_to round.score, :controller => :round, :action => :show, :id => round.id %></strong>
+ 				<%= time_ago_in_words(round.date_played) %> ago.
 			</li>
 		<% end %>
 	</ol>
