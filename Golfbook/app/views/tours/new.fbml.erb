@@ -12,14 +12,14 @@
   </div>
 </div>
 
-<%= render :partial => 'tours_menu' %>
+  <%= render :partial => 'tours_menu' %>
 
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
     <h2 class="first_card_section">Create a New Tour</h2>
     <div class="card small_hole_card">
       
-      <% unless @tour.errors.blank? %>
+        <% unless @tour.errors.blank? %>
         <fb:error>
           <fb:message>
             <%= error_messages_for :tour %>
@@ -28,16 +28,16 @@
       <% end%>
 
       <% editor_form_for :tour, @tour, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
-              
-        <%= f.text_field :name %>
+            
+              <%= f.text_field :name %>
 
-        <%= f.text_area :description, :rows => 10 %>
-
+              <%= f.text_area :description, :rows => 10 %>
+    
         <fb:editor-buttonset>
           <%= f.submit_tag('Create Tour') %>
         </fb:editor-buttonset>
       
-              <% end %>
+                <% end %>
     </div>
   </div>
   <div class="side_column">

@@ -92,5 +92,5 @@ class User < ActiveRecord::Base
     return if self.courses_want_to_play.include?(course)
     courses_want_to_play << course
   end
-      
+  
 end

@@ -9,6 +9,19 @@ class ToursController < ApplicationController
     end
   end
   
+  def friends_tours
+    @user = current_user
+    #xml_friends_get = fbsession.friends_get
+    #friends_uids = xml_friends_get.search("//uid").map{|uidnode| uidnode.inner_html.to_i}
+    friends_uids = fbsession.friends_get.uid_list
+    users = User.find_all_by_facebook_uid friends_uids
+    uids = []
+    users.each { |u| uids << u.id }
+    @tours = Tour.paginate Tour.find_all_by_user_id(uids), :page => params[:page], :order => :name
+    @action = :friends_tours
+    render :action => :index
+  end
+  
   def new
     @user = current_user
     @tour = Tour.new(:user => @user)
@@ -113,11 +126,7 @@ class ToursController < ApplicationController
     @tour = Tour.find params[:id]
     if params[:response] == "Accept"
       @user = current_user
-      @ids = [ @tour.user.id ]
-      @tour.users.each do |u|
-        @ids << u.id
-      end
-      if !@ids.include? @user.id
+      if !@tour.user_on_tour? @user
         @tour.users << @user
         @tour.save!
       end
@@ -125,6 +134,14 @@ class ToursController < ApplicationController
     else
       redirect_to :controller => :home, :action => :index
     end
+  end
+  
+  def requestinvite
+    @user = current_user
+    @tour = Tour.find params[:id]
+    
+    #todo: fix this
+    redirect_to :action => :index
   end
   
   def courses
