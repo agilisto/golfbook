@@ -2,7 +2,7 @@
   <div class="profile_img">
     <p>
       <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
-      <h2><%= link_to h(tour.name), {:action => :show, :controller => "tours", :id => tour.id }%></h2>
+      <h2><%= link_to h(tour.name), {:action => :show, :id => tour.id }%></h2>
       <h4>Tour owner: <fb:name linked="true" uid="<%=tour.user.facebook_uid%>" /></h4>
       <p><%= truncate tour.description, 200 %></p>
       <h4><%= tour.users.count + 1%> <%= tour.users.count + 1 == 1 ? "Player" : "Player".pluralize%></h4>

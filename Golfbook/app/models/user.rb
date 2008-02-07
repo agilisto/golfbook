@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :courses
   
   has_many :tours
+  has_many :competitions
   
   has_many :wishlists
   has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true, :order => 'target_date desc' do

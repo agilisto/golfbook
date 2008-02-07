@@ -1,5 +1,5 @@
 <fb:tabs>
-    <fb:tab-item href='<%= url_for :controller => :tours, :action => :index %>' title='My Tours' selected='<%= @action == :tours %>'/>
-    <fb:tab-item href='<%= url_for :controller => :tours, :action => :friends_tours %>' title='My Friends Tours' selected='<%= @action == :friends_tours %>'/>
-    <fb:tab-item href='<%= url_for :controller => :tours, :action => :new %>' title='New Tour' selected='<%= @action == :newtour %>'/>
+    <fb:tab-item href='<%= url_for :action => :index %>' title='My Tours' selected='<%= @action == :tours %>'/>
+    <fb:tab-item href='<%= url_for :action => :friends_tours %>' title='My Friends Tours' selected='<%= @action == :friends_tours %>'/>
+    <fb:tab-item href='<%= url_for :action => :new %>' title='New Tour' selected='<%= @action == :newtour %>'/>
 </fb:tabs> 

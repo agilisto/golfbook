@@ -1,0 +1,43 @@
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+			<a href="<%= url_for(:action => :index)%>">
+				<%= image_tag 'blue_flag_hole.png' %>
+			</a>
+		</div>
+		<div class="info">
+			<h2>Competitions</h2>
+			<div id="sub_menu">
+				<%= link_to 'Map View', {:controller => :home, :action => :index} %>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<%= render :partial => 'competitions_menu' %>
+
+<div id="page_panel">
+	<div class="courses">
+		<div class="main_column">
+			<h2 class="first_card_section">All Competitions</h2>
+
+			<%= render :partial => 'competition', :collection => @competitions %>
+			
+			<%= will_paginate @competitions, :inner_window => 2 %>
+			
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<h3>Competition Statistics</h3>
+				<div class="bar_chart simple">
+					<h2 class="header">
+						<span class="title"><%= @competitions.length -%></span>
+						<span class="title_label">Total Competitions</span>
+						<span class="sub_title"/>
+						<div style="clear: left; height: 0px;"/>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
