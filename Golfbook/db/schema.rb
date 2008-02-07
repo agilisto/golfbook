@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 18) do
+
+  create_table "competitions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.string   "name",        :default => "", :null => false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "competitors", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "name"
