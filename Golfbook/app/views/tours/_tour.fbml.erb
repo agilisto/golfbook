@@ -5,7 +5,7 @@
       <h2><%= link_to h(tour.name), {:action => :show, :controller => "tours", :id => tour.id }%></h2>
       <%= truncate tour.description, 200 %>
       <br/><br/>
-      <h4><%= tour.users.count%> <%= tour.users.count == 1 ? "Player" : "Player".pluralize%></h4>
+      <h4><%= tour.users.count + 1%> <%= tour.users.count == 1 ? "Player" : "Player".pluralize%></h4>
       <h4><%= tour.courses.count%> <%= tour.courses.count == 1 ? "Course" : "Course".pluralize%></h4>
       <br/><br/>
       <a href="<%= tour_edit_url(:id=>tour.id, :only_path=>true)%>">Edit</a><span class="pipe">|</span><a href="#">Link 2</a>

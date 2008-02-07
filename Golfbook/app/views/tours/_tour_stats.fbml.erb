@@ -1,8 +1,8 @@
 <h3>Tour Stats</h3>
 <div class="bar_chart simple">
 	<h2 class="header">
-		<span class="title"><%= @tour.users.count %></span>
-		<span class="title_label">Tour <%= @tour.users.count == 1 ? 'Player' : 'Player'.pluralize %></span>
+		<span class="title"><%= @tour.users.count + 1 %></span>
+		<span class="title_label">Tour <%= @tour.users.count + 1 == 1 ? 'Player' : 'Player'.pluralize %></span>
 		<span class="sub_title"/>
 		<span class="title" style="clear:left"><%= @tour.courses.count %></span>
 		<span class="title_label">Tour <%= @tour.courses.count == 1 ? 'Course' : 'Course'.pluralize %></span>
