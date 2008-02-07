@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     if @user.nil?
       @user = User.find_or_create_by_facebook_uid(fbsession.session_user_id)
     end
+    @user
   end
   
   private
