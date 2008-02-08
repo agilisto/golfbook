@@ -11,6 +11,15 @@
 				<%= link_to 'Back to Courses', {:action => :index} %>
 			</div>			
 		</div>
+		<a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :search %>">
+			<div class="tr">
+				<div class="bl">
+					<div class="br">
+						<span>Find Course</span>
+					</div>
+				</div>
+			</div>
+		</a>
 	</div>
 </div>
 
@@ -32,7 +41,10 @@
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_summary', :object => @course %>
 			</div>
-		
+			
+			<div class="card small_hole_card">
+				<%= render :partial => "rating/rate", :locals => { :asset => @course } %>  
+			</div>
 			
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_map', :object => @course %>
@@ -57,6 +69,9 @@
 					</ul>
 				</div>
 			</div>
+			<!--<div class="section">
+				<h3>Recent Course Comments</h3>
+			</div>-->
 		</div>
 	</div>
 </div>
