@@ -1,0 +1,29 @@
+-----------------------------
+Changes to competitions table
+-----------------------------
+
+- add start_date // facilitate time frame
+- add end_date   // facilitate time frame
+
+- add type  // Open vs Closed
+
+-----------------------------
+Capturing of scores - options
+-----------------------------
+
+a) add score column to "competitors" 
+   // problematic if competition runs over several days
+
+b) create new table
+
+competition_scores
+
+id
+user_id
+competition_id
+date_played
+score
+created_at
+updated_at
+
+-----------------------------------------
