@@ -5,6 +5,8 @@
       <h2><%= link_to h(competition.name), {:action => :show, :id => competition.id }%></h2>
       <h4>Competition owner: <fb:name linked="true" uid="<%=competition.user.facebook_uid%>" /></h4>
       <p><%= truncate competition.description, 200 %></p>
+      <p><%= competition.start_date %> - <%= competition.end_date %></p>
+
       <h4><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></h4>
     </p>
 
