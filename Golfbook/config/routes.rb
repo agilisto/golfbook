@@ -42,7 +42,18 @@ ActionController::Routing::Routes.draw do |map|
   map.course_add_wishlist '/courses/:id/wishlist/new', :controller => 'wishlist', :action => 'new', :only_path => true
   map.course_add_wishlist_target_date '/courses/:id/wishlist/target_date', :controller => 'wishlist', :action => 'set_target_date', :only_path => true
   map.user_view_wishlist '/profile/:user_id/wishlist/view', :controller => 'wishlist', :action => 'index', :only_path => true
+  map.competition_edit 'competitions/:id/competitions/edit', 
+      :controller => 'competitions', :action => 'edit', 
+      :only_path => true
+      
+  map.add_course 'competitions/:id/competitions/courses', 
+      :controller => 'competitions', :action => 'add_course', 
+      :only_path => true
   
+  map.invite_friends 'competitions/:id/competitions/invite', 
+      :controller => 'competitions', :action => 'invite_friends', 
+      :only_path => true
+
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
