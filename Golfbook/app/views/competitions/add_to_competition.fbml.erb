@@ -1,0 +1,70 @@
+<div class="module clearfix page_panel_header no_border">
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+			<a href="<%= url_for(:action => :index)%>">
+				<%= image_tag 'red_flag_hole.png' %>
+			</a>
+		</div>
+		<div class="info">
+			<h2>Adding <%= @course.name %> to Wishlist</h2>
+			<div id="sub_menu">
+				<%= link_to 'Back to Courses', {:action => :index} %>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<%= render :partial => 'courses_menu' %>
+
+<div class="editor_panel clearfix">
+	<div class="main_column clearfix">
+		<h2 class="first_card_section">I want to play <%= @course.name %></h2>
+		<div class="card small_hole_card">
+			<h3>
+				<%= @course.name %>
+			</h3>
+			  <p>
+			   Would you like to play the course by a specific date?
+			  </p>
+			
+			<% unless @wishlist.errors.blank? %>
+				<fb:error>
+					<fb:message>
+						<%= error_messages_for :wishlist %>
+					</fb:message>
+				</fb:error>
+			<% end%>
+
+			<% editor_form_for :round, @wishlist, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
+
+				<%= f.hidden_field :course_id %>
+	
+			    <%= f.text_field :score, :html => {:width => 15} %>
+				
+				<fb:editor-custom label="Target Date">
+					<%= f.date_select :target_date %>
+				</fb:editor-custom>
+				
+				<fb:editor-buttonset>
+					<%= f.submit_tag('Submit') %>
+				</fb:editor-buttonset>
+		
+			<% end %>
+		</div>
+	</div>
+		<div class="side_column">
+			<div class="section">
+				<%= render :partial => 'course_stats' %>
+			</div>
+			<div class="section">
+				<%= render :partial => 'course_actions' %>
+			</div>
+			<div class="section">
+			<h3>Recently Posted Rounds</h3>
+					<ul class="small_list">
+						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
+					</ul>
+				</div>
+			</div>
+		</div>
+</div>

@@ -1,0 +1,47 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <%= image_tag 'red_flag_hole.png' %>
+    </div>
+    <div class="info">
+      <h2>New Competition</h2>
+      <div id="sub_menu">
+        <%= link_to 'Back to My Competitions', {:action => :index} %>
+      </div>			
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'competitions_menu' %>
+<div class="editor_panel clearfix">
+  <div class="main_column clearfix">
+   <h2 class="first_card_section">Selected Courses</h2>
+   
+   <h4 class="second_card_selection">one of these courses will be selected to host the
+   competition</h4>
+
+    <div class="card small_hole_card">
+
+	<%= render :partial => 'course', :collection => @courses %>
+		
+	<%= will_paginate @courses, :inner_window => 2 %>
+ 
+    </div>
+  </div>
+  <div class="side_column">
+    <div class="section">
+      <h3>My Vitals</h3>
+      <div class="bar_chart simple">
+        <h2 class="header">
+          <span class="title"><%= @user.competitions.count %></span>
+          <span class="title_label">Total Competitions</span>
+          <span class="sub_title" />
+          <div style="clear: left; height: 0px;"/>
+          
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+

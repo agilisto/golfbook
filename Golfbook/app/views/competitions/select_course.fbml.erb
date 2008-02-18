@@ -1,0 +1,79 @@
+<!-- Type ahead script -->
+<script src="<%= url_for :only_path => false, :controller => :javascripts, :action => 'typeahead.js' %>"></script>
+<script>
+  <!--
+  options = {
+    preMsgTxt: "type for suggestions",  // text to display when nothing has been typed
+    menuOpacity: 94,                    // opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>", // url to your data source
+      focus: true,                              // whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {                // handler for hitting the 'enter' key
+        location_lookup.submit();
+      },
+      delayTime: 350,                           // amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true                        // whether or not to clear the text after they hit enter
+    };
+    -->
+    </script>
+
+
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <%= image_tag 'red_flag_hole.png' %>
+    </div>
+    <div class="info">
+      <h2>New Competition</h2>
+      <div id="sub_menu">
+        <%= link_to 'Back to My Competitions', {:action => :index} %>
+      </div>			
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'competitions_menu' %>
+
+<div class="editor_panel clearfix">
+  <div class="main_column clearfix">
+    <h2 class="first_card_section">Select Competition Course</h2>
+    <div class="card small_hole_card">
+
+              <div class="course_input" style="height:250px">
+                <% form_for :course, :url => {:action => :course_selected}, :html => {:name => 'search_courses'} do |f| %>
+
+                  <span class="label">Course Name</span>
+
+                  <div id="lookup" style="display:inline;">
+
+                  <%= f.text_field "course_name", {:size => 50, :id => 'i_like_text', :class => 'inputtext'} %>
+                    <script>
+                      <!--
+                      var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options);
+                      -->
+                    </script>
+                  </div>
+
+                  <br/>
+                  <%= submit_tag 'Search', :class => 'inputsubmit' %>
+
+                <% end%>
+        </div>
+   </div>
+  </div>
+  
+  <div class="side_column">
+    <div class="section">
+      <h3>My Vitals</h3>
+      <div class="bar_chart simple">
+        <h2 class="header">
+          <span class="title"><%= @user.competitions.count %></span>
+          <span class="title_label">Total Competitions</span>
+          <span class="sub_title" />
+          <div style="clear: left; height: 0px;"/>
+          
+        </h2>
+      </div>
+    </div>
+  </div>
+
+</div>

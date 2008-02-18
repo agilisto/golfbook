@@ -1,18 +1,4 @@
-<div class="module clearfix page_panel_header no_border">
-	<div class="header_page_summary clearfix">
-		<div class="thumb">
-			<a href="<%= url_for(:action => :index)%>">
-				<%= image_tag 'blue_flag_hole.png' %>
-			</a>
-		</div>
-		<div class="info">
-			<h2>Competitions</h2>
-			<div id="sub_menu">
-				<%= link_to 'Map View', {:controller => :home, :action => :index} %>
-			</div>			
-		</div>
-	</div>
-</div>
+<%= render :partial => 'competitions_header'%>
 
 <%= render :partial => 'competitions_menu' %>
 
