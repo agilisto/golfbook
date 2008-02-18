@@ -49,20 +49,38 @@ class CompetitionsController < ApplicationController
     @competition.save!
     redirect_to :action => :show, :id => @competition.id
   end
-  
-  def search_for_course
-    @user = current_user
-    @competition = Competition.find params[:id]
-  end
 
-  def search_results
-    @competition = Competition.find params[:id]
+  def select_course
+    @user = current_user
+
+    @action = :select_course
+    @courses_count = current_user.courses.count
+    
+    respond_to do |format|
+      format.fbml
+      format.xml  { render :xml => @courses }
+    end
+  end
+   
+  def course_selected
+    @user = current_user
+
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
     @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
+    
+    @user = current_user
+    @courses_count = @courses.length
+    @courses = Course.paginate @courses, :page => params[:page], :order => :name
+    @action = :new
+    
+    respond_to do |format|
+      format.fbml # index.html.erb
+      format.xml  { render :xml => @courses }
+    end
   end
-
+ 
   def invite_friends
     @user = current_user
     @competition = Competition.find params[:id]
