@@ -34,7 +34,15 @@
         <%= f.text_field :name%>
 
         <%= f.text_area :description, :rows => 10 %>
-      
+	
+        <fb:editor-custom label="Start Date">
+           <%= f.date_select :start_date %>
+        </fb:editor-custom>
+ 
+        <fb:editor-custom label="End Date">
+           <%= f.date_select :end_date %>
+        </fb:editor-custom>
+ 
         <fb:editor-buttonset>
           <%= f.submit_tag('Update Competition') %>
         </fb:editor-buttonset>

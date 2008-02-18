@@ -7,5 +7,11 @@
       <p><%= truncate competition.description, 200 %></p>
       <h4><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></h4>
     </p>
+
+    <br />
+    <div class="communication_item send_message clearfix">
+      <%= link_to 'Edit Competition', {:action => :edit, :id => competition.id }%>
+    </div>
+
   </div>
 </div>

@@ -22,15 +22,18 @@
 			<h2 class="first_card_section clearfix">Competition Information</h2>
 						
 			<div class="card small_hole_card">
-				<%= render :partial => 'competition_summary', :object => @competition %>
+				<%= render :partial => 'competition_summary', 
+				           :object => @competition %>
 			</div>
 		</div>
 		<div class="side_column">
 			<div class="section">
-				<%= render :partial => 'competition_stats' %>
+				<%= render :partial => 'competition_stats',
+				           :object => @competition %>
 			</div>
 			<div class="section">
-				<%= render :partial => 'competition_actions' %>
+				<%= render :partial => 'competition_actions', 
+				           :object => @competition %>
 			</div>
 		</div>
 	</div>
