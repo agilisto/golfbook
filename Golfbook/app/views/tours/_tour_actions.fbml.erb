@@ -1,12 +1,19 @@
 <%if @tour.user == @user%>
-  <h3>Tour Owner Actions</h3>
+  <h3>Manage your tour</h3>
   <div class="communication_item send_message clearfix">
-    <%= link_to 'Edit Tour', tour_edit_url(:id => @tour.id, :only_path => true) %>
+    <%= link_to 'Edit this tour', tour_edit_url(:id => @tour.id, :only_path => true) %>
   </div>
   <div class="communication_item send_message clearfix">
-    <%= link_to 'Add a Course', add_course_to_tour_url(:id => @tour.id, :only_path => true) %>
+    <%= link_to 'Invite friends to this tour', invite_friends_to_tour_url(:id => @tour.id, :only_path => true) %>
+  </div>
+
+  <br/><br/>
+  
+  <h3>Add courses to this tour by..</h3> 
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Searching by name', add_course_to_tour_by_name_url(:id => @tour.id, :only_path => true) %>
   </div>
   <div class="communication_item send_message clearfix">
-    <%= link_to 'Invite Friends to Tour', invite_friends_to_tour_url(:id => @tour.id, :only_path => true) %>
+    <%= link_to 'Searching by location', add_course_to_tour_by_location_url(:id => @tour.id, :only_path => true) %>
   </div>
 <%end%>

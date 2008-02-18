@@ -56,7 +56,12 @@ class ToursController < ApplicationController
     redirect_to :action => :show, :id => @tour.id
   end
   
-  def search_for_course
+  def search_for_course_by_name
+    @user = current_user
+    @tour = Tour.find params[:id]
+  end
+  
+  def search_for_course_by_location
     @user = current_user
     @tour = Tour.find params[:id]
   end
@@ -78,11 +83,25 @@ class ToursController < ApplicationController
     #@tourdates = TourDate.paginate @tourdates, :page => params[:page]#, :order => :course.name
   end
   
+  def search_results_by_loc
+    @tour = Tour.find params[:id]
+    location = params[:course][:location]
+    @courses = Course.find :all, :origin => location, :within => 10
+    @tourdates = []
+    @courses.each do |c|
+      @tourdates << TourDate.new(:tour => @tour, :course => c)
+    end
+    
+    @user = current_user
+    @courses_count = @tourdates.length
+    render :action => :search_results
+  end
+  
   def add_course
     @user = current_user
     @tour_date = TourDate.new params[:tour_date]
     @tour_date.save!
-    redirect_to :action => "show", :id => @tour_date.tour.id
+    redirect_to :action => "courses", :id => @tour_date.tour.id
   end
   
   def addplayers
