@@ -7,6 +7,7 @@ class CompetitionsController < ApplicationController
       format.fbml # index.html.erb
       format.xml  { render :xml => @competitions }
     end
+
   end
 
   def new
@@ -27,7 +28,13 @@ class CompetitionsController < ApplicationController
   def show
     @user = current_user
     @competition = Competition.find params[:id]
-    @action = :show
+    @action = :competition
+    
+    respond_to do |format|
+      format.fbml # show.html.erb
+      format.xml  { render :xml => @course }
+    end  
+
   end
    
   def edit
@@ -55,6 +62,39 @@ class CompetitionsController < ApplicationController
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
     @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
   end
+
+  def invite_friends
+    @user = current_user
+    @competition = Competition.find params[:id]
+    
+    # get all friends who DON'T have the app installed
+    fql =  "SELECT uid, name FROM user WHERE uid IN" +
+      "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
+      "AND has_added_app = 0" 
+    xml_friends = fbsession.fql_query :query => fql
+    @friends = Hash.new
+    xml_friends.search("//user").map do|usrNode| 
+      @friends[(usrNode/"uid").inner_html] = (usrNode/"name").inner_html
+    end
+    
+    #create an exclusion list
+    @friend_ids = []
+    
+    #exclude friends already on the competition
+    @competition.users.each do |u|
+      @friend_ids << u.facebook_uid
+    end    
+    
+    #now exclude friends who don't have the app
+    @friends.each do |uid, name|
+      if !@friend_ids.include? uid
+        @friend_ids << uid
+      end
+    end
+
+    @friend_ids = @friend_ids.join(',')
+  end
+ 
 
   # place holder function
   def add_course
