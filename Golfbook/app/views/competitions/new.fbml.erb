@@ -1,3 +1,26 @@
+<!-- Type ahead script -->
+<script src="<%= url_for :only_path => false, 
+                         :controller => :javascripts, 
+			 :action => 'typeahead.js' %>"></script>
+<script>
+  <!--
+  options = 
+  {
+    preMsgTxt: "type for suggestions", 
+    menuOpacity: 94,           
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>", // url to your data source
+      focus: true,              
+      onEnter: function(event) 
+      { 
+        location_lookup.submit();
+      },
+      delayTime: 350,    
+      clearOnEnter: true  
+    };
+    -->
+</script>
+    
+
 <div class="module clearfix page_panel_header no_border">
   <div class="header_page_summary clearfix">
     <div class="thumb">
@@ -13,7 +36,6 @@
 </div>
 
 <%= render :partial => 'competitions_menu' %>
-
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
     <h2 class="first_card_section">Create a New Competition</h2>
@@ -27,11 +49,16 @@
         </fb:error>
       <% end%>
 
-      <% editor_form_for :competition, @competition, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
+      <% editor_form_for :competition, @competition, 
+                         :url => {:action => 'create'}, 
+			 :html => {:labelwidth => 50}  do  |f| %>
             
               <%= f.text_field :name %>
 
-
+              <%= f.text_field :course_id 
+ @course_list = Course.find(:all)
+ collection_select('course', 'course_id', @course_list, :id, :name )
+%>
 
               <%= f.text_area :description, :rows => 10 %>
 	      
