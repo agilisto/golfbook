@@ -4,9 +4,6 @@
     <%= link_to 'Edit Competition', competition_edit_url(:id => @competition.id, :only_path => true) %>
   </div>
   <div class="communication_item send_message clearfix">
-    <%= link_to 'Add a Course', add_course_url(:id => @competition.id, :only_path => true) %>
-  </div>
-  <div class="communication_item send_message clearfix">
-    <%= link_to 'Invite Friends', invite_friends_url(:id => @competition.id, :only_path => true) %>
+    <%= link_to 'Invite Players', invite_players_url(:id => @competition.id, :only_path => true) %>
   </div>
 <%end%>

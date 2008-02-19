@@ -5,10 +5,15 @@
 		</a>
 	</div>
 	<h2>
-	<%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+	<%= link_to h(course.name), 
+	            {:action => :show, :controller => :courses, :id => course.id }
+        %> 
 	</h2>
 	<p>
 	<%= truncate course.description, 200 %>
 	</p>
+	
+       <%= link_to 'Host Competition', 
+           course_create_competition_url(:id => course.id, :only_path => true) %>
 	
 </div>

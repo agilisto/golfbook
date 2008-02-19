@@ -14,17 +14,18 @@
     </div>
   </div>
 
-    <%= render :partial => 'competition_menu' %>
+        <%= render :partial => 'competition_menu' %>
 
   <div id="page_panel">
     <div class="courses clearfix">
       <div class="main_column clearfix">
-        <h2 class="first_card_section clearfix">Competition Course</h2>
+        <h2 class="first_card_section clearfix">Competition Players</h2>
       
-        <div class="card small_hole_card">
-          <%= render :partial => 'courses/course', :collection => @courses %>
-          <%= will_paginate @courses, :inner_window => 2 %>
-        </div>
+        <fb:request-form action="<%=url_for :action => :show, :id => @competition.id %>" method="POST" invite="false" type="Golfbook Competition Invitation" 
+                         content='Come play in my golf competition - <%= link_to h(@competition.name), {:action => :invite, :id => @competition.id }%>' >
+                         <fb:multi-friend-selector showborder="true" actiontext="Invite your Golfbook friends to play in your golf competition!" exclude_ids="<%= @friend_ids %>"/> 
+        </fb:request-form> 
+      
       </div>
       <div class="side_column">
         <div class="section">

@@ -19,13 +19,11 @@
   <div id="page_panel">
     <div class="courses clearfix">
       <div class="main_column clearfix">
-        <h2 class="first_card_section clearfix">Competition Course</h2>
+        <h2 class="first_card_section clearfix">Competition Players</h2>
       
-        <div class="card small_hole_card">
-          <%= render :partial => 'courses/course', :collection => @courses %>
-          <%= will_paginate @courses, :inner_window => 2 %>
+          <%= render :partial => 'player', :collection => @players %>
+
         </div>
-      </div>
       <div class="side_column">
         <div class="section">
           <%= render :partial => 'competition_stats' %>
