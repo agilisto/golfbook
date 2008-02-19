@@ -7,24 +7,27 @@ class CompetitionsController < ApplicationController
       format.fbml # index.html.erb
       format.xml  { render :xml => @competitions }
     end
-
   end
-
+  
   def new
-    @user = current_user
+    @course = Course.find(params[:id])
     @competition = Competition.new(:user => @user)
     @action = :new_competition
   end
-  
+
   def create
     @user = current_user
-    @competition = Competition.new(params[:competition])
+    @competition = Competition.new(:user => @user)
+    @course = Course.find(params[:id])
+
     @user.competitions << @competition
     @user.save!
 
+    @action = :new_competition
+
     redirect_to :action => :show, :id => @competition.id
   end
-  
+
   def show
     @user = current_user
     @competition = Competition.find params[:id]
@@ -81,7 +84,7 @@ class CompetitionsController < ApplicationController
     end
   end
  
-  def invite_friends
+  def invite_players
     @user = current_user
     @competition = Competition.find params[:id]
     
