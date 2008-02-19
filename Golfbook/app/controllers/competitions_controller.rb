@@ -56,7 +56,7 @@ class CompetitionsController < ApplicationController
   def select_course
     @user = current_user
 
-    @action = :select_course
+    @action = :new_competition
     @courses_count = current_user.courses.count
     
     respond_to do |format|
@@ -76,7 +76,8 @@ class CompetitionsController < ApplicationController
     @user = current_user
     @courses_count = @courses.length
     @courses = Course.paginate @courses, :page => params[:page], :order => :name
-    @action = :new
+
+    @action = :new_competition
     
     respond_to do |format|
       format.fbml # index.html.erb
