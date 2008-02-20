@@ -31,8 +31,11 @@ ActionController::Routing::Routes.draw do |map|
   
   map.tour_edit "/tours/edit/:id", :controller => "tours", :action => "edit", :only_path => true
   map.add_course_to_tour_by_location '/tours/:id/courses/searchbyloc', :controller => 'tours', :action => "search_for_course_by_name", :only_path => true
+  
   map.add_course_to_tour_by_name '/tours/:id/courses/searchbyname', :controller => 'tours', :action => "search_for_course_by_location", :only_path => true
+
   map.invite_friends_to_tour "/tours/:id/users/new", :controller => "tours", :action => "addplayers", :only_path => true
+  
   map.tour_add_course "/tours/:id/courses/add/:course_id", :controller => "tours", :action => "add_course", :only_path => true
 
   map.course_add_round '/courses/:id/rounds/new', 
@@ -55,23 +58,23 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'wishlist', :action => 'set_target_date', 
     :only_path => true
   
-  map.course_create_competition 'competitions/:id/new', 
-    :controller => 'competitions', :action => 'new', 
-    :only_path => true
-
   map.user_view_wishlist '/profile/:user_id/wishlist/view', 
     :controller => 'wishlist', :action => 'index', 
     :only_path => true
       
-  map.competition_select_course 'competitions/:id/select_course', 
+  map.competition_new '/competitions/:id/new', 
+    :controller => 'competitions', :action => 'new', 
+    :only_path => true
+
+  map.select_course_for_competition '/competitions/:id/select_course', 
     :controller => 'competitions', :action => 'select_course', 
     :only_path => true
 
-  map.competition_course_selected 'competitions/:id/course_selected', 
-    :controller => 'competitions', :action => 'course_selected', 
-    :only_path => true
+  map.competition_add_course "/competitions/:id/courses/add/:course_id", 
+      :controller => "competition", :action => "add_course", 
+      :only_path => true
 
-  map.competition_edit 'competitions/:id/edit', 
+  map.competition_edit '/competitions/:id/edit', 
     :controller => 'competitions', :action => 'edit', 
     :only_path => true
   
@@ -83,5 +86,4 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-
 end
