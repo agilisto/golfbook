@@ -6,4 +6,7 @@
   <div class="communication_item send_message clearfix">
     <%= link_to 'Invite Players', invite_players_url(:id => @competition.id, :only_path => true) %>
   </div>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Select Course', select_course_for_competition_url(:id => @competition.id, :only_path => true) %>
+  </div>
 <%end%>

@@ -35,13 +35,21 @@
 
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
-    <h2 class="first_card_section">Select Competition Course</h2>
+    <h2 class="first_card_section">Select Course for <%= @competition.name%></h2>
     <div class="card small_hole_card">
 
               <div class="course_input" style="height:250px">
                 <% form_for :course, :url => {:action => :course_selected}, :html => {:name => 'search_courses'} do |f| %>
 
                   <span class="label">Course Name</span>
+		  
+                 <% fields_for :competition do |t|%>
+                  
+                    <%=t.hidden_field :id%>
+                    
+                  <%end%>
+
+                  <input type="hidden" name="id" value="<%=@competition.id%>">
 
                   <div id="lookup" style="display:inline;">
 
@@ -61,19 +69,5 @@
    </div>
   </div>
   
-  <div class="side_column">
-    <div class="section">
-      <h3>My Vitals</h3>
-      <div class="bar_chart simple">
-        <h2 class="header">
-          <span class="title"><%= @user.competitions.count %></span>
-          <span class="title_label">Total Competitions</span>
-          <span class="sub_title" />
-          <div style="clear: left; height: 0px;"/>
-          
-        </h2>
-      </div>
-    </div>
-  </div>
 
 </div>

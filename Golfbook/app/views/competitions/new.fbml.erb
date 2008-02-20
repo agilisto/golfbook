@@ -1,33 +1,10 @@
-<!-- Type ahead script -->
-<script src="<%= url_for :only_path => false, 
-                         :controller => :javascripts, 
-			 :action => 'typeahead.js' %>"></script>
-<script>
-  <!--
-  options = 
-  {
-    preMsgTxt: "type for suggestions", 
-    menuOpacity: 94,           
-    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>", // url to your data source
-      focus: true,              
-      onEnter: function(event) 
-      { 
-        location_lookup.submit();
-      },
-      delayTime: 350,    
-      clearOnEnter: true  
-    };
-    -->
-</script>
-    
-
 <div class="module clearfix page_panel_header no_border">
   <div class="header_page_summary clearfix">
     <div class="thumb">
       <%= image_tag 'red_flag_hole.png' %>
     </div>
     <div class="info">
-      <h2>New Competition to be played at <%= @course.name %> </h2>
+      <h2>New Competition</h2>
       <div id="sub_menu">
         <%= link_to 'Back to My Competitions', {:action => :index} %>
       </div>			
@@ -55,11 +32,6 @@
             
               <%= f.text_field :name %>
 
-              <%= f.text_field :course_id 
- @course_list = Course.find(:all)
- collection_select('course', 'course_id', @course_list, :id, :name )
-%>
-
               <%= f.text_area :description, :rows => 10 %>
 	      
               <fb:editor-custom label="Start Date">
@@ -79,7 +51,7 @@
   </div>
   <div class="side_column">
     <div class="section">
-      <h3>My Vitals</h3>
+      <h3>Competition Statistics</h3>
       <div class="bar_chart simple">
         <h2 class="header">
           <span class="title"><%= @user.competitions.count %></span>
