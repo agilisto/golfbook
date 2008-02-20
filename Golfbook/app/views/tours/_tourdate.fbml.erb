@@ -1,0 +1,6 @@
+<div class="course_list_item clearfix">
+    <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
+    <h2><%= link_to h(tourdate.course.name), {:action => :show, :controller => :courses, :id => tourdate.course.id }%></h2>
+    <h4>Play date: <%=tourdate.to_play_at.to_formatted_s(:long)%></h4>
+    <p><%= truncate tourdate.course.description, 200 %></p>
+</div>

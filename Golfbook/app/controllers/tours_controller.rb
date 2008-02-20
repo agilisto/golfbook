@@ -166,7 +166,8 @@ class ToursController < ApplicationController
   def courses
     @user = current_user
     @tour = Tour.find params[:id]
-    @courses = Course.paginate @tour.courses, :page => params[:page], :order => :name
+    @tour_dates = TourDate.paginate @tour.tour_dates, :page => params[:page], :order => :to_play_at
+    #@courses = Course.paginate @tour.courses, :page => params[:page], :order => :name
     @action = :courses
   end
   
