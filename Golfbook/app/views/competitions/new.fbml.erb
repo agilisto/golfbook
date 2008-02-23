@@ -15,7 +15,7 @@
 <%= render :partial => 'competitions_menu' %>
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
-    <h2 class="first_card_section">Create a New Competition</h2>
+    <h2 class="first_card_section">Edit Competition Details - <%= h @course.name %></h2>
     <div class="card small_hole_card">
       
         <% unless @competition.errors.blank? %>
@@ -25,11 +25,13 @@
           </fb:message>
         </fb:error>
       <% end%>
-
+      
       <% editor_form_for :competition, @competition, 
                          :url => {:action => 'create'}, 
 			 :html => {:labelwidth => 50}  do  |f| %>
-            
+
+              <%= f.hidden_field :course_id %>
+ 
               <%= f.text_field :name %>
 
               <%= f.text_area :description, :rows => 10 %>

@@ -65,6 +65,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'wishlist', :action => 'index', 
     :only_path => true
       
+  map.course_add_competition '/courses/:id/competition/new', 
+    :controller => 'competitions', :action => 'new', 
+    :only_path => true
+  
   map.competition_show '/competitions/show/:id', 
     :controller => 'competitions', :action => 'show', 
     :only_path => true
@@ -72,14 +76,6 @@ ActionController::Routing::Routes.draw do |map|
   map.competition_new '/competitions/:id/new', 
     :controller => 'competitions', :action => 'new', 
     :only_path => true
-
-  map.select_course_for_competition '/competitions/:id/select_course', 
-    :controller => 'competitions', :action => 'select_course', 
-    :only_path => true
-
-  map.competition_add_course "/competitions/:id/courses/add/:course_id", 
-      :controller => "competitions", :action => "add_course", 
-      :only_path => true
 
   map.competition_edit '/competitions/:id/edit', 
     :controller => 'competitions', :action => 'edit', 

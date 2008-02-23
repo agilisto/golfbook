@@ -1,28 +1,19 @@
 <div class="course_list_item clearfix">
-  <div class="profile_img">
-    <a href="#">
-      <%= image_tag 'red_flag_hole.png' %>
-    </a>
-  </div>
-  <h2>
-    <%= link_to h(competition.course.name), 
-        {:action => :show, :controller => :courses, :id => competition.course.id }%> 
-  </h2>
-  <p>
-    <%= truncate competition.course.description, 200 %>
-  </p>
-  
- <% editor_form_for :competition, competition, :url => {:action => "add_course"} do |f| %>
-   
-    <%= f.hidden_field :course_id %>
-    <%= f.hidden_field :competition_id %>
-
-    <fb:editor-buttonset>
-      <%= f.submit_tag('Select Course') %>
-    </fb:editor-buttonset>
-  
-        <%end%>
-         <%#= link_to 'Add to Competition', 
-	      competition_add_course_url(:id => @competition.id, 
-              :course_id => competition.course.id, :only_path => true) %>
+	<div class="profile_img">
+		<a href="#">
+			<%= image_tag 'red_flag_hole.png' %>
+		</a>
+	</div>
+	<h2>
+	<%= link_to h(course.name), 
+	            {:action => :show, :controller => :courses, :id => course.id }
+        %> 
+	</h2>
+	<p>
+	<%= truncate course.description, 200 %>
+	</p>
+	
+       <%= link_to 'Host Competition', 
+                    competition_add_course_url(:id => course.id, :only_path => true) %>
+	
 </div>

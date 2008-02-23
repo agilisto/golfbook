@@ -22,5 +22,10 @@
 		<span class="pipe">|</span>
 		<%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>
 	<% end %>
+		<span class="pipe">|</span>
+
+	  <%= link_to 'Host Competition',
+                 course_add_competition_url(:id => course.id, :only_path => true) %>
+
 	
 </div>

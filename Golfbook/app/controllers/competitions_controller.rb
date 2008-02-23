@@ -11,13 +11,17 @@ class CompetitionsController < ApplicationController
   
   def new
     @user = current_user
-    @competition = Competition.new(:user => @user)
+    @course = Course.find(params[:id])
+    @competition = Competition.new(:user => @user, :course_id => @course.id)
     @action = :new_competition
   end
 
   def create
     @user = current_user
     @competition = Competition.new(params[:competition])
+
+    @competition.save!
+
     @user.competitions << @competition
     @user.save!
 
@@ -43,29 +47,35 @@ class CompetitionsController < ApplicationController
     redirect_to :action => :show, :id => @competition.id
   end
 
-  def select_course
+  def search_course
+    @courses_count = Course.count
+
     @user = current_user
-    @competition = Competition.find params[:id]
+    @action = :new_competition
+
+    respond_to do |format|
+      format.fbml
+      format.xml  { render :xml => @courses }
+    end
+
   end
-  
-  def course_selected
-    @competition = Competition.find params[:id]
+
+  def search_results 
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
     @courses = Course.find :all, 
-               :conditions => ["name like :name", {:name => course_name + "%"}]
+                           :conditions => ["name like :name", {:name => course_name + "%"}]
 
-    @competition.update_attributes(params[:competition])
-    @competition.save!
-
-   end
-
-   def add_course
     @user = current_user
-    @competition = Competition.new params[:competition]
-    @competition.save!
-    redirect_to :action => "courses", :id => @competition.competition.id
+    @courses_count = @courses.length
+    @courses = Course.paginate @courses, :page => params[:page], :order => :name
+    @action = :new_competition
+    
+    respond_to do |format|
+      format.fbml # index.html.erb
+      format.xml  { render :xml => @courses }
+    end
   end
  
   def invite_players
@@ -128,6 +138,33 @@ class CompetitionsController < ApplicationController
       @players << u
     end
     @action = :players
+  end
+
+  def invite
+    @user = current_user
+    @competition = Competition.find params[:id]
+  end
+  
+  def accept_invite
+    @competition = Competition.find params[:id]
+    if params[:response] == "Accept"
+      @user = current_user
+      if !@competition.user_on_competition? @user
+        @competition.users << @user
+        @competition.save!
+      end
+      redirect_to :action => :show, :id => @competition.id
+    else
+      redirect_to :controller => :home, :action => :index
+    end
+  end
+  
+  def request_invite
+    @user = current_user
+    @competition = Competition.find params[:id]
+    
+    #todo: fix this
+    redirect_to :action => :index
   end
 
 end

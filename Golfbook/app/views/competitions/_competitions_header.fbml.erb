@@ -1,23 +1,25 @@
 <div class="module clearfix page_panel_header no_border">
-	<div class="header_page_summary clearfix">
-		<div class="thumb">
-			<a href="<%= url_for(:action => :index)%>">
-				<%= image_tag 'blue_flag_hole.png' %>
-			</a>
-		</div>
-		<div class="info">
-			<h2>Competitions</h2>
-			<div id="sub_menu"><%=link_to 'Competitions Home', {:controller => :home, :action => :index} %>
-			</div>			
-		</div>
-		<a class="dh_new_media" href="<%= url_for :controller => :competitions, :action => :new %>">
-			<div class="tr">
-				<div class="bl">
-					<div class="br">
-						<span>New Competition</span>
-					</div>
-				</div>
-			</div>
-		</a>
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <a href="<%= url_for(:action => :index)%>">
+	<%= image_tag 'blue_flag_hole.png' %>
+	  </a>
+	  </div>
+	  <div class="info">
+	    <h2>Competitions</h2>
+	    <div id="sub_menu">
+	    <%=link_to 'Competitions Home', {:controller => :home, :action => :index} %>
+	  </div>			
+      </div>
+      <a class="dh_new_media" 
+	   href="<%= url_for :controller => :competitions, :action => :search_course %>">
+      <div class="tr">
+         <div class="bl">
+          <div class="br">
+	    <span>New Competition</span>
+          </div>
 	</div>
+      </div>
+    </a>
+  </div>
 </div>
