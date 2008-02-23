@@ -1,0 +1,15 @@
+<li>
+
+<h1>
+ <%= link_to recent_competition.name, :controller => :competitions, 
+                                      :action => :show, :id => recent_competition.id %>
+</h1>
+	  
+<span class="name">
+   <fb:name uid='<%= recent_competition.user.facebook_uid %>' useyou='false'>
+   </fb:name>
+</span>
+
+<span class="played"><%= time_ago_in_words(recent_competition.created_at) %> ago</span>
+
+</li>
