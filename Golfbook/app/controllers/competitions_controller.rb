@@ -149,7 +149,7 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find params[:id]
     if params[:response] == "Accept"
       @user = current_user
-      if !@competition.user_on_competition? @user
+      if !@competition.user_in_competition? @user
         @competition.users << @user
         @competition.save!
       end

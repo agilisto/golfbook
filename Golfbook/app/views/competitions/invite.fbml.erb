@@ -1,0 +1,46 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <a href="<%= url_for(:action => :index)%>">
+          <%= image_tag 'red_flag_hole.png' %>
+        </a>
+      </div>
+      <div class="info">
+        <h2><%= @competition.name %></h2>
+        <div id="sub_menu">
+          <%= link_to 'Back to My Competitions', {:action => :index} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <%= render :partial => 'competition_menu' %>
+
+  <div id="page_panel">
+    <div class="courses clearfix">
+      <div class="main_column clearfix">
+        <h2 class="first_card_section clearfix">Competition Invitation</h2>
+      
+        <div class="course_list_item clearfix">
+        
+          <fb:editor action="<%=url_for :action=>:accept_invite, :id=>@competition.id%>">
+            Would you like to join the competition "<%=@competition.name%>"?
+            <fb:editor-buttonset>
+              <fb:editor-button value="Accept" name="response"/>
+              <fb:editor-button value="Decline" name="response"/>
+            </fb:editor-buttonset>
+          </fb:editor>
+        
+        </div>
+      
+      </div>
+      <div class="side_column">
+        <div class="section">
+          <%= render :partial => 'competition_stats' %>
+        </div>
+        <div class="section">
+          <%= render :partial => 'competition_actions' %>
+        </div>
+      </div>
+    </div>
+  </div>
