@@ -21,7 +21,7 @@
       <div class="main_column">
         <h2 class="first_card_section">Courses</h2>
  
-          <%= render :partial => 'competition_course', :collection => @courses %>
+          <%= render :partial => 'courses/course', :collection => @courses %>
           <%= will_paginate @courses, :inner_window => 2 %>
  
       </div>
