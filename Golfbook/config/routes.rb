@@ -30,20 +30,23 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   
   map.tour_edit "/tours/edit/:id", :controller => "tours", :action => "edit", :only_path => true
-  map.add_course_to_tour_by_location '/tours/:id/courses/searchbyloc', :controller => 'tours', :action => "search_for_course_by_name", :only_path => true
+  map.tour_show "/tours/show/:id", :controller => "tours", :action => "show", :only_path => true
+  map.add_course_to_tour_by_location '/tours/:id/courses/searchbyloc', 
+      :controller => 'tours', :action => "search_for_course_by_location", :only_path => true
   
-  map.add_course_to_tour_by_name '/tours/:id/courses/searchbyname', :controller => 'tours', :action => "search_for_course_by_location", :only_path => true
+  map.add_course_to_tour_by_name '/tours/:id/courses/searchbyname', 
+      :controller => 'tours', :action => "search_for_course_by_name", :only_path => true
 
   map.invite_friends_to_tour "/tours/:id/users/new", :controller => "tours", :action => "addplayers", :only_path => true
   
   map.tour_add_course "/tours/:id/courses/add/:course_id", :controller => "tours", :action => "add_course", :only_path => true
 
   map.course_add_round '/courses/:id/rounds/new', 
-    :controller => 'round', :action => 'new', 
+    :controller => 'rounds', :action => 'new', 
     :only_path => true
       
   map.user_view_rounds '/profile/:user_id/rounds/view', 
-    :controller => 'round', :action => 'index', 
+    :controller => 'rounds', :action => 'index', 
     :only_path => true
       
   map.course_have_played '/courses/:id/course_played/', 
@@ -62,6 +65,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'wishlist', :action => 'index', 
     :only_path => true
       
+  map.competition_show '/competitions/show/:id', 
+    :controller => 'competitions', :action => 'show', 
+    :only_path => true
+
   map.competition_new '/competitions/:id/new', 
     :controller => 'competitions', :action => 'new', 
     :only_path => true
@@ -71,7 +78,7 @@ ActionController::Routing::Routes.draw do |map|
     :only_path => true
 
   map.competition_add_course "/competitions/:id/courses/add/:course_id", 
-      :controller => "competition", :action => "add_course", 
+      :controller => "competitions", :action => "add_course", 
       :only_path => true
 
   map.competition_edit '/competitions/:id/edit', 
