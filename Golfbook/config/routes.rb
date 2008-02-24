@@ -41,12 +41,12 @@ ActionController::Routing::Routes.draw do |map|
   
   map.tour_add_course "/tours/:id/courses/add/:course_id", :controller => "tours", :action => "add_course", :only_path => true
 
-  map.course_add_round '/courses/:id/rounds/new', 
-    :controller => 'rounds', :action => 'new', 
+  map.course_add_round '/courses/:id/round/new', 
+    :controller => 'round', :action => 'new', 
     :only_path => true
       
   map.user_view_rounds '/profile/:user_id/rounds/view', 
-    :controller => 'rounds', :action => 'index', 
+    :controller => 'round', :action => 'index', 
     :only_path => true
       
   map.course_have_played '/courses/:id/course_played/', 
