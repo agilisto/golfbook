@@ -166,5 +166,24 @@ class CompetitionsController < ApplicationController
     #todo: fix this
     redirect_to :action => :index
   end
+  
+  def new_round
+    @user = current_user
+    @competition = Competition.find params[:id]
+    @round = Round.new(:user => @user, 
+                       :course_id => @competition.course)
+    @action = :players
+  end
 
+  def add_round
+    @user = current_user
+    @competition = Competition.find params[:id]
+    
+    @competition.rounds << @round
+    @competition.save!
+	
+    @action = :players
+    redirect_to :action => :show, :id => @competition.id
+  end
+  
 end

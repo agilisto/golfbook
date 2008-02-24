@@ -81,6 +81,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'competitions', :action => 'edit', 
     :only_path => true
   
+  map.competition_add_round '/competitions/:id/round/new', 
+    :controller => 'competitions', :action => 'new_round', 
+    :only_path => true
+
   map.invite_players 'competitions/:id/invite', 
     :controller => 'competitions', :action => 'invite_players', 
     :only_path => true

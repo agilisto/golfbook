@@ -4,5 +4,7 @@
   </div>
   <div>
     <h2><fb:name uid="<%=player.facebook_uid%>" linked="true" /></h2>
+     <%= link_to 'Post Score', 
+         competition_add_round_url(:id => @competition.id, :only_path => true) %>
   </div>
 </div>
