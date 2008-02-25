@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 22) do
+ActiveRecord::Schema.define(:version => 23) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -101,10 +101,11 @@ ActiveRecord::Schema.define(:version => 22) do
 
   create_table "tours", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",        :default => "", :null => false
+    t.string   "name",           :default => "",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.boolean  "open_for_entry", :default => true
   end
 
   create_table "users", :force => true do |t|
