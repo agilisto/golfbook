@@ -18,13 +18,23 @@
 
 <div id="page_panel">
 	<div class="courses">
+		
+		<!-- Search Box -->
+		<form id="course_search">  
+			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px' %>
+			<a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => :false %>', 'course_search', 'results'); return false;">Search</a> 
+		</form>
+		
+		<!-- End Search Box -->
+		
 		<div class="main_column">
-			<h2 class="first_card_section">All Courses</h2>
+			<div id="results">
+				<h2 class="first_card_section">Results</h2>
 
-			<%= render :partial => 'course', :collection => @courses %>
+				<%= render :partial => 'course', :collection => @courses %>
 			
-			<%= will_paginate @courses, :inner_window => 2 %>
-			
+				<%= will_paginate @courses, :inner_window => 2 %>
+			</div>
 		</div>
 		<div class="side_column">
 			<div class="section">

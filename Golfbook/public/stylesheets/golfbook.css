@@ -582,3 +582,7 @@ ul.scorecard {
   text-indent: -9000px;
   z-index: 1;
 }
+
+.inputsearch {
+	padding-left:20px;
+}

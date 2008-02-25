@@ -129,6 +129,17 @@ class CoursesController < ApplicationController
       format.xml  { render :xml => @courses }
     end
   end
+  
+  # Facebook don't pass the proper format for async requests
+  # hence the additional search overload
+  def filter_by_name
+    course_name = course["course_filter"]
+    RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
+    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
+    
+    @courses_count = @courses.length
+    @courses = Course.paginate @courses, :page => params[:page], :order => :name
+  end
    
   def search_results
     course = params[:course]
