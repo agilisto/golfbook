@@ -21,9 +21,13 @@
       <div class="main_column clearfix">
         <h2 class="first_card_section clearfix">Tour Players</h2>
       
-        <fb:request-form action="<%=url_for :action => :show, :id => @tour.id %>" method="POST" invite="false" type="Golfbook Tour Invitation" 
-                         content='Join me on my golf tour - <%= link_to h(@tour.name), {:action => :invite, :id => @tour.id }%>' >
-                         <fb:multi-friend-selector showborder="true" actiontext="Invite your Golfbook friends to join your golf tour!" exclude_ids="<%= @friend_ids %>"/> 
+        <fb:request-form 
+        action="<%=url_for :action => :show, :id => @tour.id %>" 
+        method="POST" 
+        invite="false" 
+        type="Golfbook Tour" 
+        content='You have been invited by <fb:name uid="<%=@user.facebook_uid%>" /> to join the <%= link_to h(@tour.name),{:action=>:show,:id=>@tour.id}%> golf tour.<fb:req-choice url="<%=url_for(:action=>:invite,:id=>@tour.id)%>" label="Join Tour" />' >
+            <fb:multi-friend-selector showborder="true" actiontext="Invite your Golfbook friends to join your golf tour!" exclude_ids="<%= @friend_ids %>"/> 
         </fb:request-form> 
       
       </div>
