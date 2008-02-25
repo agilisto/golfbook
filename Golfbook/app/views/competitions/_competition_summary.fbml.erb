@@ -1,11 +1,18 @@
 <h2><%= h @competition.name%></h2>
 <div id="competition_description">
-	<p>
-	    <%= h @competition.description %>
-	    <br />
-	    <br />
-	    Running from <%= h @competition.start_date %> to 
-	    <%= h @competition.end_date %>
-
-	</p>
+  <p><%= h @competition.description %></p>
+  <p>Running from <b><%= h @competition.start_date.to_formatted_s(:long) %></b> to 
+    <b><%= h @competition.end_date.to_formatted_s(:long) %></b>
+  </p>
+  <p><i>
+      <%if @competition.open%>
+        This competition is open.
+      <%else%>
+            <%if @competition.winning_round.nil?%>
+          This competition has been cancelled.
+        <%else%>
+          This competition has been won by <fb:name uid="<%=@competition.winning_round.user.facebook_uid%>" /> with a score of <%=@competition.winning_round.score%>.
+        <%end%>
+<%end%>
+  </i></p>
 </div>

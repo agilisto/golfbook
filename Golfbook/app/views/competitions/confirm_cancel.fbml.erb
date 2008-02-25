@@ -1,0 +1,45 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      <a href="<%= url_for(:action => :index)%>">
+          <%= image_tag 'red_flag_hole.png' %>
+        </a>
+      </div>
+      <div class="info">
+        <h2><%= @competition.name %></h2>
+        <div id="sub_menu">
+          <%= link_to 'Back to My Competitions', {:action => :index} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render :partial => 'competition_menu' %>
+
+  <div id="page_panel">
+    <div class="courses clearfix">
+      <div class="main_column clearfix">
+        <h2 class="first_card_section clearfix">Cancel Competition</h2>
+      
+        <fb:editor action="<%=url_for(:action => :cancel, :only_path => true)%>">
+            <input type="hidden" name="id" value="<%=@competition.id%>" /> 
+                <p>Please confirm that you wish to cancel this competition. This action cannot be undone.</p>
+            <fb:editor-buttonset>  
+            <fb:editor-button value="Cancel Competition"/>
+            <fb:editor-cancel href="<%=url_for(:action => :show, :id => @competition.id, :only_path => true)%>" />
+                                </fb:editor-buttonset>
+            </fb:editor>
+      
+          </div>
+          <div class="side_column">
+            <div class="section">
+              <%= render :partial => 'competition_stats',
+                         :object => @competition %>
+            </div>
+            <div class="section">
+              <%= render :partial => 'competition_actions', 
+                         :object => @competition %>
+            </div>
+          </div>
+        </div>
+      </div>

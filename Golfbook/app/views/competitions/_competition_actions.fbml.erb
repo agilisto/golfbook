@@ -6,4 +6,10 @@
   <div class="communication_item send_message clearfix">
     <%= link_to 'Invite Players', invite_players_url(:id => @competition.id, :only_path => true) %>
   </div>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Close Competition', url_for(:action => :select_winner, :id => @competition.id, :only_path => true) %>
+  </div>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Cancel Competition', url_for(:action => :confirm_cancel, :id => @competition.id, :only_path => true) %>
+  </div>
 <%end%>

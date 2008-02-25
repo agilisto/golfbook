@@ -1,19 +1,20 @@
 <div class="course_list_item clearfix">
-  <div class="profile_img">
-    <p>
-      <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
-      <h2><%= link_to h(competition.name), {:action => :show, :id => competition.id }%></h2>
-      <h4>Competition owner: <fb:name linked="true" uid="<%=competition.user.facebook_uid%>" /></h4>
-      <p><%= truncate competition.description, 200 %></p>
-      <p><%= competition.start_date %> - <%= competition.end_date %></p>
+<div class="profile_img">
+<p>
+  <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
+       <h2><%= link_to h(competition.name), {:action => :show, :id => competition.id }%></h2>
+  <h4>Competition owner: <fb:name linked="true" uid="<%=competition.user.facebook_uid%>" /></h4>
+  <p><%= truncate competition.description, 200 %></p>
+  <p><b><%= competition.start_date.to_formatted_s(:long) %></b> to <b><%= competition.end_date.to_formatted_s(:long) %></b></p>
+  
+  <h4><a href="<%= url_for :action => :players, :id => competition.id %>"><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></a></h4>
+</p>
 
-      <h4><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></h4>
-    </p>
-
-    <br />
-    <div class="communication_item send_message clearfix">
-      <%= link_to 'Edit Competition', {:action => :edit, :id => competition.id }%>
-    </div>
-
+<%if competition.user == @user%>
+  <br />
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Edit Competition', {:action => :edit, :id => competition.id }%>
   </div>
+<%end%>
+</div>
 </div>

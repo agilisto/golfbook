@@ -65,7 +65,7 @@ class CompetitionsController < ApplicationController
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
     @courses = Course.find :all, 
-                           :conditions => ["name like :name", {:name => course_name + "%"}]
+      :conditions => ["name like :name", {:name => course_name + "%"}]
 
     @user = current_user
     @courses_count = @courses.length
@@ -187,7 +187,66 @@ class CompetitionsController < ApplicationController
     @competition_round = CompetitionRound.new :competition => @competition, :round => @round
     @competition_round.save!
     
+    title = "<fb:name /> has posted a score of #{@round.score} in the <a href='#{url_for(:action => :show, :id => @competition.id)}'>#{@competition.name}</a> golf competition."
+    fbsession.feed_publishActionOfUser(:title => title)
+    
     redirect_to :action => :players, :id => @competition.id
+  end
+  
+  def confirm_cancel
+    @competition = Competition.find params[:id]
+  end
+  
+  def cancel
+      @competition = Competition.find params[:id]
+    if @competition.open
+      @competition.open = false
+      @competition.save!      
+      #title = "<fb:name /> has cancelled the <a href='#{url_for(@competition)}'>#{@competition.name}</a> golf competition."
+      #fbsession.feed_publishActionOfUser(:title => title)
+      flash[:success] = "Competition has been cancelled."
+    else
+      flash[:error] = "Competition is already closed."
+    end
+    
+    redirect_to :action => :show, :id => @competition.id
+  end
+  
+  def select_winner
+    @competition = Competition.find params[:id]
+    if @competition.open
+      @user = current_user
+      @players = [ @competition.user ]
+      @competition.users.each do |u|
+        @players << u
+      end
+      @scores = {}
+      @competition.rounds.each do |r|
+        @scores[r.user] = r
+      end
+    else
+      flash[:error] = "Competition is already closed."
+      redirect_to :action => :show, :id => @competition.id
+    end
+  end
+  
+  def close
+    @competition = Competition.find params[:id]
+    if @competition.open
+      @round = Round.find params[:winner]
+      @competition_round = CompetitionRound.find :first, :conditions => ["competition_id = :cid and round_id = :rid",
+        {:cid => @competition.id, :rid => @round.id}]
+      @competition_round.winning_round = true;
+      @competition.open = false
+      @competition_round.save!
+      
+      title = "<fb:name uid='#{@round.user.facebook_uid}' /> has won the <a href='#{url_for(:action => :show, :id => @competition.id)}'>#{@competition.name}</a> golf competition with a score of #{@round.score}."
+      fbsession.feed_publishActionOfUser(:title => title)
+    else
+      flash[:error] = "Competition is already closed."
+    end
+    
+    redirect_to :action => :show, :id => @competition.id
   end
   
 end
