@@ -168,22 +168,20 @@ class CompetitionsController < ApplicationController
   end
   
   def new_round
-    @user = current_user
     @competition = Competition.find params[:id]
-    @round = Round.new(:user => @user, 
-                       :course_id => @competition.course)
+    @round = Round.new(:course_id => @competition.course)
+    @user = current_user
     @action = :players
   end
 
   def add_round
     @user = current_user
-    @competition = Competition.find params[:id]
-    
-    @competition.rounds << @round
-    @competition.save!
-	
+    @round = Round.new(params[:round])
     @action = :players
-    redirect_to :action => :show, :id => @competition.id
+    
+#    @competition.competition_round(@round)
+#    redirect_to :action => :show, :id => @competition.id
+    redirect_to :action => :index
   end
   
 end

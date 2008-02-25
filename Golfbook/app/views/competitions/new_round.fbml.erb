@@ -11,6 +11,10 @@
 		</div>
 	</div>
 </div>
+
+<%= render :partial => 'competition_menu' %>
+
+<div id="page_panel">
 <div class="editor_panel clearfix">
 	<div class="main_column clearfix">
 		<h2 class="first_card_section">Post Competition Score</h2>
@@ -47,15 +51,14 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="side_column">
-		<div class="section">
-		      <h3>Competiton Statistics</h3>
-      <div class="bar_chart simple">
-        <h2 class="header">
-          <span class="title"><%= @user.competitions.count %></span>
-          <span class="title_label">Total Competitions</span>
-          <span class="sub_title" />
-          <div style="clear: left; height: 0px;"/>
-		</div>
-	</div>
+
+      <div class="side_column">
+        <div class="section">
+          <%= render :partial => 'competition_stats' %>
+        </div>
+        <div class="section">
+          <%= render :partial => 'competition_actions' %>
+        </div>
+    </div>
+
 </div>
