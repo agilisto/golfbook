@@ -138,6 +138,10 @@ class CompetitionsController < ApplicationController
       @players << u
     end
     @action = :players
+    @scores = {}
+    @competition.rounds.each do |r|
+      @scores[r.user] = r
+    end
   end
 
   def invite
@@ -168,20 +172,22 @@ class CompetitionsController < ApplicationController
   end
   
   def new_round
+    @user = current_user
     @competition = Competition.find params[:id]
     @round = Round.new(:course_id => @competition.course)
-    @user = current_user
     @action = :players
   end
 
   def add_round
     @user = current_user
+    @competition = Competition.find params[:competition_id]
     @round = Round.new(params[:round])
-    @action = :players
+    @round.user = @user
+    @round.course = @competition.course
+    @competition_round = CompetitionRound.new :competition => @competition, :round => @round
+    @competition_round.save!
     
-#    @competition.competition_round(@round)
-#    redirect_to :action => :show, :id => @competition.id
-    redirect_to :action => :index
+    redirect_to :action => :players, :id => @competition.id
   end
   
 end

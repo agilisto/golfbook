@@ -36,8 +36,8 @@
 
 			<% editor_form_for :round, @round, :url => {:action => 'add_round'}, :html => {:labelwidth => 50}  do  |f| %>
 
-			<%= f.hidden_field :course_id %>
-	
+			<input type="hidden" name="competition_id" value="<%= @competition.id%>">
+  	
 			    <%= f.text_field :score, :html => {:width => 15} %>
 				
 				<fb:editor-custom label="Date Played">

@@ -4,8 +4,8 @@ class Competition < ActiveRecord::Base
   has_many :competitors
   has_many :users, :through => :competitors
 
-  has_many :competition_rounds, :through => :competition_rounds, 
-           :source => :round,  :uniq => true
+  has_many :competition_rounds
+  has_many :rounds, :through => :competition_rounds
 
     def user_in_competition? user
     ids = [ self.user.id ]
