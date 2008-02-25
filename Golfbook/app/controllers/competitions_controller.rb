@@ -19,11 +19,11 @@ class CompetitionsController < ApplicationController
   def create
     @user = current_user
     @competition = Competition.new(params[:competition])
-
-    @competition.save!
-
+    @competition.save
     @user.competitions << @competition
     @user.save!
+    title = "<fb:name /> has created a new golf competition: <a href='#{url_for(:action => :show, :id => @competition.id)}'>#{@competition.name}</a>."
+    fbsession.feed_publishActionOfUser(:title => title)
 
     redirect_to :action => :show, :id => @competition.id
   end
@@ -44,6 +44,8 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find params[:competition][:id]
     @competition.update_attributes(params[:competition])
     @competition.save!
+    title = "<fb:name /> has updated his golf competition: <a href='#{url_for(:action => :show, :id => @competition.id)}'>#{@competition.name}</a>."
+    fbsession.feed_publishActionOfUser(:title => title)
     redirect_to :action => :show, :id => @competition.id
   end
 
@@ -239,6 +241,7 @@ class CompetitionsController < ApplicationController
       @competition_round.winning_round = true;
       @competition.open = false
       @competition_round.save!
+      @competition.save!
       
       title = "<fb:name uid='#{@round.user.facebook_uid}' /> has won the <a href='#{url_for(:action => :show, :id => @competition.id)}'>#{@competition.name}</a> golf competition with a score of #{@round.score}."
       fbsession.feed_publishActionOfUser(:title => title)

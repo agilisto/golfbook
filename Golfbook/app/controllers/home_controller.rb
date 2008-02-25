@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     
     friends_uids = fbsession.friends_get.uid_list
     users = User.find_all_by_facebook_uid friends_uids
-    uids = [ @user.facebook_uid ]
+    uids = []
     users.each { |u| uids << u.id }
     @recent_tours = Tour.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_competitions = Competition.find_all_by_user_id uids, :order => :created_at, :limit => 3
