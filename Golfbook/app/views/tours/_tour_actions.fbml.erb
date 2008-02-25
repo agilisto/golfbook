@@ -3,9 +3,18 @@
   <div class="communication_item send_message clearfix">
     <%= link_to 'Edit this tour', tour_edit_url(:id => @tour.id, :only_path => true) %>
   </div>
+<%if @tour.open_for_entry%>
   <div class="communication_item send_message clearfix">
     <%= link_to 'Invite friends to this tour', invite_friends_to_tour_url(:id => @tour.id, :only_path => true) %>
   </div>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Close entries for this tour', url_for(:action => :close_entries, :id => @tour.id, :only_path => true) %>
+  </div>
+<%else%>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Open entries for this tour', url_for(:action => :open_entries, :id => @tour.id, :only_path => true) %>
+  </div>
+<%end%>
 
   <br/><br/>
   

@@ -180,5 +180,21 @@ class ToursController < ApplicationController
     end
     @action = :players
   end
+  
+  def close_entries
+    @tour = Tour.find params[:id]
+    @tour.open_for_entry = false
+    @tour.save!
+    flash[:notice] = "Tour is closed for entries."
+    redirect_to :action => :show, :id => @tour.id
+  end
+  
+  def open_entries
+    @tour = Tour.find params[:id]
+    @tour.open_for_entry = true
+    @tour.save!
+    flash[:notice] = "Tour is open for entries."
+    redirect_to :action => :show, :id => @tour.id
+  end
 end
 
