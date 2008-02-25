@@ -4,11 +4,18 @@
                   </div>
   <div>
     <h2><fb:name uid="<%=player.facebook_uid%>" linked="true" /></h2>
-    <%if @scores[player].nil? %>
+   
+      <fb:if-is-user uid="<%=@competition.user.facebook_uid%>">
+         Competition Owner</br>
+      </fb:if-is-user>
+      
+      <% if @scores[player].nil?%>
            <%= link_to 'Post Score', 
                  competition_add_round_url(:id => @competition.id, :only_path => true) %>
-      <%else%>
-      Your score: <%=@scores[player].score%>
-    <%end%>
+        <%else%>
+          Your score: <%=@scores[player].score%>
+      <%end%>
+
+    
   </div>
 </div>
