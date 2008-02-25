@@ -202,8 +202,8 @@ class CompetitionsController < ApplicationController
     if @competition.open
       @competition.open = false
       @competition.save!      
-      #title = "<fb:name /> has cancelled the <a href='#{url_for(@competition)}'>#{@competition.name}</a> golf competition."
-      #fbsession.feed_publishActionOfUser(:title => title)
+      title = "<fb:name /> has cancelled the <a href='#{url_for(:action=>:show,:id=>@competition.id)}'>#{@competition.name}</a> golf competition."
+      fbsession.feed_publishActionOfUser(:title => title)
       flash[:success] = "Competition has been cancelled."
     else
       flash[:error] = "Competition is already closed."
