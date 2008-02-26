@@ -16,14 +16,50 @@
 <div id="page_panel">
 	<div class="courses">
 		
+		<script>
+		<!--
+			options = { 
+				onEnter: function(event) { // handler for hitting the 'enter' key 
+					submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search', 'results'); 
+					
+				}
+			}; 
+			
+			function enterSubmit(obj, options) 
+			{ 
+				this.obj = obj; 
+				this.options = options;
+				// Setup the events we're listening to 
+				this.obj.addEventListener('keypress', this.onkeypress.bind(this)); 
+			};
+			
+			enterSubmit.prototype.onkeypress = function(event) { 
+				switch (event.keyCode) 
+					{ 
+						case 9: // tab 
+						case 13: // enter 
+ 							event.preventDefault(); 
+							this.options.onEnter(event); 
+							break;
+						default: 
+							break;
+					}
+			};
+			
+		-->
+		</script>
+		
 		<!-- Search Box -->
 		<form id="course_search">  
-			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px'%><%#, :onfocus => "clearInput(this, 'Course Name');", :onblur => "restoreInput(this, 'Course Name');", :value => "Course Name" %>
+			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+			<script>
+				var submitter = new enterSubmit(document.getElementById('course_filter'), options);
+			</script>
 			<a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search', 'results'); return false;">Search</a> 
 		</form>
 
-                <br/>
-		
+        <br/>
+	
 		<!-- End Search Box -->
 		<div id="results" style="overflow: hidden">
 			<div class="main_column">

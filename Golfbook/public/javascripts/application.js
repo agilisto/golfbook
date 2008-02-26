@@ -24,11 +24,12 @@ function submitForm(url, form_id, target_id) {
 	 }
 	
 	ajax.post(url, params);
-}
+};
+
 
 function rateCourse(source, url, form_id, target_id) {
 	submitForm(url, form_id, target_id);
-}
+};
 
 //function trim(str) {  
 //    return str.replace(/^\s+|\s+$/g, '');  
