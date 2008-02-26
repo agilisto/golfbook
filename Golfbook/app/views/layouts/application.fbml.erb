@@ -1,7 +1,14 @@
-<%= javascript_include_tag url_for :controller => 'javascripts', :action => 'application.js', :only_path => false %>
+<%= javascript_include_tag url_for :controller => 'javascripts', :action => 'application.js', :only_path => false, :html_options => {:version => 2} %>
 <%= render(:partial => 'shared/style')%>
 <%= yield :header %>
 
+<style>
+	div#banner{
+		background:url(<%= url_for :controller => :images, :action => "golfbook_#{(rand(3)+1).to_s}.jpg", :only_path => false%>) no-repeat left top;
+		height:90px;
+}
+</style>
+<div id="banner">&nbsp;</div>
 <div id="content" class="<%= @current %>">
 
 	<div class="header">

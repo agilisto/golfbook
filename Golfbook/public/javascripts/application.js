@@ -26,6 +26,12 @@ function submitForm(url, form_id, target_id) {
 	ajax.post(url, params);
 }
 
+function rateCourse(source, url, form_id, target_id) {
+	Animation(source).to('background', '#ffff4b').to('color', '#00a000').go();
+	submitForm(url, form_id, target_id);
+	Animation(source).to('background', '#fff').to('color', '#00a000').go();
+}
+
 //function trim(str) {  
 //    return str.replace(/^\s+|\s+$/g, '');  
 //}  
