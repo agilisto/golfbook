@@ -4,6 +4,7 @@
   <p>Running from <b><%= h @competition.start_date.to_formatted_s(:long) %></b> to 
     <b><%= h @competition.end_date.to_formatted_s(:long) %></b>
   </p>
+<p><i>This competition is <b><%= @competition.open_for_entry ? "open" : "closed"%></b> for entries.</i></p>
   <p><i>
       <%if @competition.open%>
         This competition is open.

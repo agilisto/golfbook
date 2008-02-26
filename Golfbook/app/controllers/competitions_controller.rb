@@ -159,6 +159,8 @@ class CompetitionsController < ApplicationController
         @competition.users << @user
         @competition.save!
       end
+      message = render_to_string :partial => "comp_accept_invite"
+      fbsession.notifications_send :to_ids => [@competition.user.facebook_uid].join(","), :notification => message
       redirect_to :action => :show, :id => @competition.id
     else
       redirect_to :controller => :home, :action => :index
@@ -166,11 +168,8 @@ class CompetitionsController < ApplicationController
   end
   
   def request_invite
-    @user = current_user
-    @competition = Competition.find params[:id]
-    
-    #todo: fix this
-    redirect_to :action => :index
+    flash[:notice] = "Your request has been sent."
+    redirect_to :action => :show, :id => params[:id]
   end
   
   def new_round
@@ -200,7 +199,7 @@ class CompetitionsController < ApplicationController
   end
   
   def cancel
-      @competition = Competition.find params[:id]
+    @competition = Competition.find params[:id]
     if @competition.open
       @competition.open = false
       @competition.save!      
@@ -252,4 +251,19 @@ class CompetitionsController < ApplicationController
     redirect_to :action => :show, :id => @competition.id
   end
   
+  def close_entries
+    @competition = Competition.find params[:id]
+    @competition.open_for_entry = false
+    @competition.save!
+    flash[:notice] = "Competition is closed for entries."
+    redirect_to :action => :show, :id => @competition.id
+  end
+  
+  def open_entries
+    @competition = Competition.find params[:id]
+    @competition.open_for_entry = true
+    @competition.save!
+    flash[:notice] = "Competition is open for entries."
+    redirect_to :action => :show, :id => @competition.id
+  end
 end

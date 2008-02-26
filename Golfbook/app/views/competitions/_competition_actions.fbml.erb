@@ -5,14 +5,23 @@
       <%= link_to 'Edit Competition', competition_edit_url(:id => @competition.id, :only_path => true) %>
     </div>
 
+            <%if @competition.open_for_entry%>
+      <div class="communication_item send_message clearfix">
+        <%= link_to 'Close entries for this competition', url_for(:action => :close_entries, :id => @competition.id, :only_path => true) %>
+      </div>
+      <div class="communication_item send_message clearfix">
+        <%= link_to 'Invite players', invite_players_url(:id => @competition.id, :only_path => true) %>
+      </div>
+    <%else%>
+      <div class="communication_item send_message clearfix">
+        <%= link_to 'Open entries for this competition', url_for(:action => :open_entries, :id => @competition.id, :only_path => true) %>
+      </div>
+    <%end%>
     <div class="communication_item send_message clearfix">
-      <%= link_to 'Invite Players', invite_players_url(:id => @competition.id, :only_path => true) %>
+      <%= link_to 'Select winner', url_for(:action => :select_winner, :id => @competition.id, :only_path => true) %>
     </div>
     <div class="communication_item send_message clearfix">
-      <%= link_to 'Select Winner', url_for(:action => :select_winner, :id => @competition.id, :only_path => true) %>
-    </div>
-    <div class="communication_item send_message clearfix">
-      <%= link_to 'Cancel Competition', url_for(:action => :confirm_cancel, :id => @competition.id, :only_path => true) %>
+      <%= link_to 'Cancel competition', url_for(:action => :confirm_cancel, :id => @competition.id, :only_path => true) %>
     </div>
   <%else%>
     <div class="communication_item send_message clearfix">
