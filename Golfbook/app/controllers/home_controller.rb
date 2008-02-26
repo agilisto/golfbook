@@ -15,7 +15,6 @@ class HomeController < ApplicationController
     users.each { |u| uids << u.id }
     @recent_tours = Tour.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_competitions = Competition.find_all_by_user_id uids, :order => :created_at, :limit => 3
-    
   end
   
 end
