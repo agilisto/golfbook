@@ -1,5 +1,13 @@
 <%= render :partial => 'tours_header'%>
 
+<div class="recent_rounds">
+	<h4>Upcoming Tour Dates</h4>
+	<ul class="horizontal_list">
+		<%= render :partial => 'upcoming_tour', :collection => @upcoming_tours %>
+	</ul>
+</div>
+
+<br/><br/><br/>
 
 <%= render :partial => 'tours_menu' %>
 

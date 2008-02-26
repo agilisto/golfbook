@@ -13,6 +13,9 @@ class ToursController < ApplicationController
   def index
     @user = current_user
     @tours = Tour.paginate @user.tours, :page => params[:page], :order => :name
+    
+    @upcoming_tours = TourDate.upcoming_tours
+    
     @action = :tours
     respond_to do |format|
       format.fbml # index.html.erb

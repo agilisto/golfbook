@@ -1,0 +1,8 @@
+<li>
+	<span class="name">
+		<em><%= link_to upcoming_tour.tour.name, :controller => :tours, :action => :show, :id => upcoming_tour.tour.id %></em>
+	</span>
+	<span class="name"><%= upcoming_tour.to_play_at.to_s %> - 
+		<%= link_to upcoming_tour.course.name, :controller => :courses, :action => :show, :id => upcoming_tour.course.id %>
+	</span>
+</li>
