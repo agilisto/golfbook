@@ -43,7 +43,10 @@
 			</div>
 			
 			<div class="card small_hole_card">
-				<%= render :partial => "rating/rate", :locals => { :asset => @course } %>  
+				<h3 clicktotoggle="rating">
+					Rate this Course
+				</h3>
+				<%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
 			</div>
 			
 			<div class="card small_hole_card">

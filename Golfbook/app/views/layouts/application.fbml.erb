@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'http://993440e2.fb.joyent.us/javascripts/application.js?xx' %>
+<%= javascript_include_tag url_for :controller => 'javascripts', :action => 'application.js', :only_path => false %>
 <%= render(:partial => 'shared/style')%>
 <%= yield :header %>
 
