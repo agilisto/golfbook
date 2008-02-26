@@ -1,4 +1,15 @@
 class ToursController < ApplicationController
+  
+  def test
+    @user = current_user
+    @tour = Tour.find params[:id]
+    #fbsession.notifications_send :to_ids => [@user.facebook_uid].join(","), :notification => "Hi <fb:name />, this is a test notification."
+    message = render_to_string :partial => "tour_accept_invite_request"
+    fbsession.notifications_send :to_ids => [@user.facebook_uid].join(","), :notification => message
+    flash[:notice] = message
+    redirect_to :action => :index
+  end
+  
   def index
     @user = current_user
     @tours = Tour.paginate @user.tours, :page => params[:page], :order => :name
@@ -101,6 +112,14 @@ class ToursController < ApplicationController
     @user = current_user
     @tour_date = TourDate.new params[:tour_date]
     @tour_date.save!
+    @tour = @tour_date.tour
+    @course = @tour_date.course
+    uids = []
+    @tour.users.each do |u|
+      uids << u.facebook_uid
+    end
+    message = render_to_string :partial => "tour_course_added"
+    fbsession.notifications_send :to_ids => uids.join(","), :notification => message
     redirect_to :action => "courses", :id => @tour_date.tour.id
   end
   
@@ -149,6 +168,8 @@ class ToursController < ApplicationController
         @tour.users << @user
         @tour.save!
       end
+      message = render_to_string :partial => "tour_accept_invite"
+      fbsession.notifications_send :to_ids => [@tour.user.facebook_uid].join(","), :notification => message
       redirect_to :action => :show, :id => @tour.id
     else
       redirect_to :controller => :home, :action => :index
@@ -156,11 +177,21 @@ class ToursController < ApplicationController
   end
   
   def requestinvite
+    flash[:notice] = "Your request has been sent."
+    redirect_to :action => :show, :id => params[:id]
+  end
+  
+  def acceptplayer
     @user = current_user
     @tour = Tour.find params[:id]
-    
-    #todo: fix this
-    redirect_to :action => :index
+    @player = User.find params[:player_id]
+    if !@tour.user_on_tour? @player
+      @tour.users << @player
+      @tour.save!
+    end
+    message = render_to_string :partial => "tour_accept_invite_request"
+    fbsession.notifications_send :to_ids => [@player.facebook_uid].join(","), :notification => message
+    redirect_to :action => :show, :id => @tour.id
   end
   
   def courses

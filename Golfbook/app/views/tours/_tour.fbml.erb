@@ -8,6 +8,15 @@
   <p>
     <% if !tour.user_on_tour? @user %>
         <%= link_to 'Request Invitation', url_for(:action => :requestinvite, :id => tour.id, :only_path => true) %>
+        <fb:request-form 
+        action="<%=url_for :action => :requestinvite, :id => tour.id %>" 
+        method="POST" 
+        invite="false" 
+        type="Request Tour Invitation" 
+        content='<fb:name uid="<%=@user.facebook_uid%>"/> has requested an invitation to the <%= link_to h(tour.name),{:action=>:show,:id=>tour.id}%> golf tour.<fb:req-choice url="<%=url_for(:action=>:acceptplayer,:id=>tour.id, :player_id => @user.id)%>" label="Invite Player" />' 
+        >
+            <fb:request-form-submit uid="<%=tour.user.facebook_uid%>" label="Request Invitation from %n" />
+        </fb:request-form> 
     <% end %>
   </p>
 </div>
