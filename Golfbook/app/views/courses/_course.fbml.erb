@@ -1,8 +1,6 @@
 <div class="course_list_item clearfix">
 	<div class="profile_img">
-		<a href="#">
-			<%= image_tag 'red_flag_hole.png' %>
-		</a>
+	
 	</div>
 	<h2>
 		<%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
