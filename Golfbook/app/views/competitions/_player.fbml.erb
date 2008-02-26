@@ -1,20 +1,20 @@
 <div class="course_list_item clearfix">
-  <div class="profile_img">
-    <fb:profile-pic uid="<%=player.facebook_uid%>" linked="true" />
-  </div>
+<div class="profile_img">
+  <fb:profile-pic uid="<%=player.facebook_uid%>" linked="true" />
+                  </div>
   <div>
     <h2><fb:name uid="<%=player.facebook_uid%>" linked="true" /></h2>
     
        <%if player.facebook_uid == @competition.user.facebook_uid%>
-      <b>Competition Owner</b></br>
+      <p><b>Competition Owner</b></p>
     <%end%>
     
     <% if @scores[player].nil?%>
-        <%if player.facebook_uid == @user.facebook_uid%>
-             <%= link_to 'Post Score', competition_add_round_url(:id => @competition.id, :only_path => true) %>
-        <%end%>
-    <%else%>
-        Score: <%=@scores[player].score%>
+          <%if player.facebook_uid == @user.facebook_uid%>
+        <p><%= link_to 'Post Score', competition_add_round_url(:id => @competition.id, :only_path => true) %></p>
+      <%end%>
+<%else%>
+      <p>Score: <%=@scores[player].score%></p>
     <%end%>
 
   

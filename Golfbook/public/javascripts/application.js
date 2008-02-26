@@ -25,3 +25,21 @@ function submitForm(url, form_id, target_id) {
 	
 	ajax.post(url, params);
 }
+
+//function trim(str) {  
+//    return str.replace(/^\s+|\s+$/g, '');  
+//}  
+//  
+//function clearInput(e, compare) {  
+//    e.removeClassName('inputblank');   // remove grayed out color  
+//    if (e.getValue() == compare) {  
+//        e.setValue('');                // clear default text when clicked  
+//    }  
+//}  
+//  
+//function restoreInput(e, value) {  
+//    if (trim(e.getValue()) == '') {  
+//        e.setValue(value);             // reset default text when unclicked  
+//        e.addClassName('inputblank');  // display grayed out color  
+//    }  
+//}

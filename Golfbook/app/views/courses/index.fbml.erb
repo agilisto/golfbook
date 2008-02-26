@@ -21,9 +21,11 @@
 		
 		<!-- Search Box -->
 		<form id="course_search">  
-			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px' %>
+			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px'%><%#, :onfocus => "clearInput(this, 'Course Name');", :onblur => "restoreInput(this, 'Course Name');", :value => "Course Name" %>
 			<a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search', 'results'); return false;">Search</a> 
 		</form>
+
+                <br/>
 		
 		<!-- End Search Box -->
 		<div id="results" style="overflow: hidden">

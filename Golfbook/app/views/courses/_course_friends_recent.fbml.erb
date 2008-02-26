@@ -3,6 +3,7 @@
 </h3>
 <div id="course_friends_recent">
 	<ul class="scorecard">
+            <%if course_friends_recent.length > 0%>
 		<% course_friends_recent.each do |round| %>
 			<li>
 				<fb:name uid="<%= round.user.facebook_uid %>" capitalize="true" /> shot a 
@@ -10,5 +11,8 @@
  				here <%= time_ago_in_words(round.date_played) %> ago.
 			</li>
 		<% end %>
+             <%else%>
+                <li>No recent scores</li>
+               <%end%>
 	</ul>
 </div>
