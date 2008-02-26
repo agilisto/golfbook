@@ -27,7 +27,6 @@ function submitForm(url, form_id, target_id) {
 }
 
 function rateCourse(source, url, form_id, target_id) {
-	Animation(document.getElementById(source)).to('height', '0px').to('width', '0px').to('opacity', 0).hide().go();
 	submitForm(url, form_id, target_id);
 }
 
