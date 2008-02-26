@@ -1,0 +1,22 @@
+	<div class="main_column">
+	
+			<h2 class="first_card_section">Results</h2>
+
+			<%= render :partial => 'course', :collection => @courses %>
+	
+			<%= will_paginate @courses, :inner_window => 2 %>
+
+	</div>
+	<div class="side_column">
+		<div class="section">
+			<h3>Courses Statistics</h3>
+			<div class="bar_chart simple">
+				<h2 class="header">
+					<span class="title"><%= @courses_count -%></span>
+					<span class="title_label"><%= pluralize(@courses_count, 'Result')%></span>
+					<span class="sub_title"/>
+					<div style="clear: left; height: 0px;"/>
+				</h2>
+			</div>
+		</div>
+	</div>
