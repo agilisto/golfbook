@@ -25,6 +25,8 @@ class RoundController < ApplicationController
   def show
     @round = Round.find(params[:id]) 
     @user = @round.user
+    @reviews = @round.reviews.paginate(:page => params[:page], :order => 'created_at DESC')     
+    @review = Review.new
   end
 
   def update
