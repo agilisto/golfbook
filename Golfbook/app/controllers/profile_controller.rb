@@ -1,16 +1,20 @@
 class ProfileController < ApplicationController
 
   def set_active_menu
-     @current = 'profile'
+    @current = 'profile'
   end
    
   def index
     @fbuser = fbuser(['current_location','hometown_location'])
     @user = current_user
-    
     unless @user.location_set? 
       geocode_user
     end
+    redirect_to :action => :show, :id => @user.id
+  end
+  
+  def show
+    @user = User.find params[:id]
     
     @entries = []
     @user.competitions.upcoming.each do |e|
@@ -27,6 +31,11 @@ class ProfileController < ApplicationController
     @user.tour_entries.upcoming.each do |t|
       @tours << t # TODO: check dates
     end
+  end
+  
+  def rounds
+     @user = User.find params[:id]
+     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
   end
 
   def location
