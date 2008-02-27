@@ -4,6 +4,9 @@ class Review < ActiveRecord::Base
   # NOTE: Reviews belong to a user
   belongs_to :user
   
+  cattr_reader :per_page
+  @@per_page = 10
+  
   # Helper class method to lookup all reviews assigned
   # to all reviewable types for a given user.
   def self.find_reviews_by_user(user)

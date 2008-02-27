@@ -50,7 +50,7 @@ class CoursesController < ApplicationController
     uids << fbsession.session_user_id
     @friends_best_rounds = @course.rounds.best_rounds_by_facebook_uids(uids)
       
-    @reviews = @course.reviews.paginate(:page => params[:page])     
+    @reviews = @course.reviews.paginate(:page => params[:page], :order => 'created_at DESC')     
     @review = Review.new
          
     respond_to do |format|
