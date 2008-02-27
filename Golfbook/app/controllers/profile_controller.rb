@@ -11,6 +11,22 @@ class ProfileController < ApplicationController
     unless @user.location_set? 
       geocode_user
     end
+    
+    @entries = []
+    @user.competitions.each do |e|
+      @entries << e if e.open
+    end
+    @user.competition_entries.each do |e|
+      @entries << e if e.open
+    end
+    
+    @tours = []
+    @user.tours.each do |t|
+      @tours << t # TODO: check dates
+    end
+    @user.tour_entries.each do |t|
+      @tours << t # TODO: check dates
+    end
   end
 
   def location

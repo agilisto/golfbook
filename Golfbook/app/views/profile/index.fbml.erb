@@ -10,14 +10,45 @@
 		<h2 class="first_card_section">Profile Information</h2>
 		<div class="card small_hole_card">
 			<h3>
-				<%= link_to 'Current Location <span>(change)</span>', :action => :location %>
+				<%= link_to 'Home Location <span>(change)</span>', :action => :location %>
 			</h3>
 			<p>Changes your current location in Golfbook. 
 				<% if @user.location_set? then %>
 					Your current location is <strong><%= "#{@user.address}" %></strong>
 				<% end %>
 			</p>
-			</div>
+                </div>
+		<div class="card small_hole_card">
+			<h3>
+                            <%= link_to 'Upcoming Competitions</span>', :controller => :competitions, :action => :index %>
+			</h3>
+                        
+                        <%@entries.each do |entry|%>
+                          <p>
+                            <%= link_to entry.name, :controller => :competitions, :action => :show, :id => entry.id%>
+                            - <%= entry.start_date.to_formatted_s(:long)%> to 
+                            <%= entry.end_date.to_formatted_s(:long)%>
+                          </p>
+                        <%end%>
+
+                </div>
+		<div class="card small_hole_card">
+			<h3>
+                            <%= link_to 'Upcoming Tours</span>', :controller => :tours, :action => :index %>
+			</h3>
+                        
+                        <%@tours.each do |tour|%>
+                          <p><%= link_to tour.name, :controller => :tours, :action => :show, :id => tour.id%>
+                          <%names = []
+                          tour.courses.each do |c|
+                            names << c.name
+                          end
+                          if names.length > 0 %>
+                            - <span style="font-size:9px"><%= names.join(",")%></span>
+                          <%end%>
+                          </p>
+                        <%end%>
+                </div>
 	</div>
 	<div class="side_column">
 		<div class="section">
