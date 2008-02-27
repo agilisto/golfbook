@@ -37,17 +37,9 @@ class CoursesController < ApplicationController
     end
   end
   
-  def highest_rated
+  def highest_rated_loc
     @user = current_user
-    @courses = Course.find_all_by_highest_rated :page => params[:page]
-    puts @courses.nil? ? "ZOMG" : "All is well, move along.."
-    @courses_count = @courses.length
     @action = :highest_rated
-    render :action => :highest_rated_proximity
-  end
-
-  def highest_rated_proximity
-    @user = current_user
     courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
     rated = {}
     courses.each do |c|
@@ -59,7 +51,27 @@ class CoursesController < ApplicationController
     @courses = []
     arr.each { |a| @courses << a[0] }
     @courses_count = @courses.length
-    @action = :highest_rated_proximity
+  end
+  
+  def filter_by_loc
+    @user = current_user
+    @location = params["location"]
+    RAILS_DEFAULT_LOGGER.debug "Location: #{@location}"
+    courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+    RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
+    rated = {}
+    courses.each do |c|
+      if c.rating > 0
+        rated[c] = c.rating
+      end
+    end
+    arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
+    @courses = []
+    arr.each { |a| @courses << a[0] }
+    RAILS_DEFAULT_LOGGER.debug "Sorted #{@courses.length} courses"
+    @courses_count = @courses.length
+    request.format = :fbml
+    render :action => 'filter_by_loc', :layout => false
   end
 
   # GET /courses/1
