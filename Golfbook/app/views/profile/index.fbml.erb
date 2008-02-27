@@ -26,8 +26,8 @@
                         <%@entries.each do |entry|%>
                           <p>
                             <%= link_to entry.name, :controller => :competitions, :action => :show, :id => entry.id%>
-                            - <%= entry.start_date.to_formatted_s(:long)%> to 
-                            <%= entry.end_date.to_formatted_s(:long)%>
+                            - <span style="font-size:9px"><%= entry.start_date.to_formatted_s(:long)%> to 
+                              <%= entry.end_date.to_formatted_s(:long)%></span>
                           </p>
                         <%end%>
 
@@ -44,8 +44,16 @@
                             names << c.name
                           end
                           if names.length > 0 %>
-                            - <span style="font-size:9px"><%= names.join(",")%></span>
+                          <!--  - <span style="font-size:9px"><%= names.join(", ")%></span> -->
                           <%end%>
+                          <ul>
+                          <%tour.tour_dates.each do |td|%>
+                            <li style="font-size:9px">
+                                <%= link_to td.course.name, :controller => :courses, :action => :show, :id => td.course.id%>
+                                - <%= td.to_play_at.to_formatted_s(:long) %>
+                            </li>
+                          <%end%>
+                          </ul>
                           </p>
                         <%end%>
                 </div>
