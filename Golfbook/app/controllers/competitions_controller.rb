@@ -167,9 +167,22 @@ class CompetitionsController < ApplicationController
     end
   end
   
-  def request_invite
+  def requestinvite
     flash[:notice] = "Your request has been sent."
     redirect_to :action => :show, :id => params[:id]
+  end
+  
+  def acceptplayer
+    @user = current_user
+    @competition = Competition.find params[:id]
+    @player = User.find params[:player_id]
+    if !@competition.user_in_competition? @player
+      @competition.users << @player
+      @competition.save!
+    end
+    message = render_to_string :partial => "comp_accept_invite_request"
+    fbsession.notifications_send :to_ids => [@player.facebook_uid].join(","), :notification => message
+    redirect_to :action => :players, :id => @competition.id
   end
   
   def new_round

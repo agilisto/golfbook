@@ -194,7 +194,7 @@ class ToursController < ApplicationController
     end
     message = render_to_string :partial => "tour_accept_invite_request"
     fbsession.notifications_send :to_ids => [@player.facebook_uid].join(","), :notification => message
-    redirect_to :action => :show, :id => @tour.id
+    redirect_to :action => :players, :id => @tour.id
   end
   
   def courses

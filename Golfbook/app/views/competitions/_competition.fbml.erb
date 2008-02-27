@@ -1,34 +1,53 @@
 <div class="course_list_item clearfix">
-  <div class="profile_img">
-    <p>
-      <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
-      <h2><%= link_to h(competition.name), {:action => :show, :id => competition.id }%></h2>
-      <h4>Competition owner: <fb:name linked="true" uid="<%=competition.user.facebook_uid%>" /></h4>
-      <p><%= truncate competition.description, 200 %></p>
-      <p><b><%= competition.start_date.to_formatted_s(:long) %></b> to <b><%= competition.end_date.to_formatted_s(:long) %></b></p>
-      
-      <p><i>This competition is <b><%= competition.open_for_entry ? "open" : "closed"%></b> for entries.</i></p>
+<div class="profile_img">
+<p>
+  <img src="<%= image_path 'red_flag_hole.png' %>" align="left" />
+       <h2><%= link_to h(competition.name), {:action => :show, :id => competition.id }%></h2>
+  <h4>Competition owner: <fb:name linked="true" uid="<%=competition.user.facebook_uid%>" /></h4>
+  <p><%= truncate competition.description, 200 %></p>
+  <p><b><%= competition.start_date.to_formatted_s(:long) %></b> to <b><%= competition.end_date.to_formatted_s(:long) %></b></p>
+  
+  <p><i>This competition is <b><%= competition.open_for_entry ? "open" : "closed"%></b> for entries.</i></p>
+  
+  <p><i>
+    <%if competition.open%>
+      This competition is open.
+    <%else%>
+              <%if competition.winning_round.nil?%>
+        This competition has been cancelled.
+      <%else%>
+        This competition has been won by <fb:name uid="<%=competition.winning_round.user.facebook_uid%>" /> with a score of <%=competition.winning_round.score%>.
+                                                <%end%>
+                                    <%end%>
+                                            </i></p>
 
-      <p><i>
-          <%if competition.open%>
-            This competition is open.
-          <%else%>
-                  <%if competition.winning_round.nil?%>
-              This competition has been cancelled.
-            <%else%>
-              This competition has been won by <fb:name uid="<%=competition.winning_round.user.facebook_uid%>" /> with a score of <%=competition.winning_round.score%>.
-            <%end%>
-  <%end%>
-      </i></p>
-      
-      <h4><a href="<%= url_for :action => :players, :id => competition.id %>"><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></a></h4>
-    </p>
-    
-    <%if competition.user == @user && competition.open%>
-      <br />
-      <div class="communication_item send_message clearfix">
-        <%= link_to 'Edit Competition', {:action => :edit, :id => competition.id }%>
-      </div>
+      <%if competition.user_in_competition? @user%>
+        <p><i>You have entered this competition.</i></p>
+        <%end%>
     <%end%>
-  </div>
-</div>
+  
+  <h4><a href="<%= url_for :action => :players, :id => competition.id %>"><%= competition.users.count + 1%> <%= competition.users.count + 1 == 1 ? "Player" : "Player".pluralize%></a></h4>
+</p>
+
+<%if competition.user == @user%>
+    <%if competition.open%>
+    <br />
+    <div class="communication_item send_message clearfix">
+      <%= link_to 'Edit Competition', {:action => :edit, :id => competition.id }%>
+    </div>
+  <%end%>
+<%else%>
+      <%if competition.open && competition.open_for_entry && !competition.user_in_competition?(@user)%>
+    <br />
+    <fb:request-form 
+      action="<%=url_for :action => :requestinvite, :id => competition.id %>" 
+      method="POST" 
+      invite="false" 
+      type="Request Competition Invitation" 
+      content='<fb:name uid="<%=@user.facebook_uid%>"/> has requested an invitation to the <%= link_to h(competition.name),{:action=>:show,:id=>competition.id}%> golf competition.<fb:req-choice url="<%=url_for(:action=>:acceptplayer,:id=>competition.id, :player_id => @user.id)%>" label="Invite Player" />' 
+          >
+          <fb:request-form-submit uid="<%=competition.user.facebook_uid%>" label="Request Invitation from %n" />
+        </fb:request-form> 
+      <%end%>
+    </div>
+    </div>
