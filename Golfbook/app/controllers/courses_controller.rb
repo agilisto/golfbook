@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
     
+  DEFAULT_RADIUS = 20
+  
   # GET /courses
   # GET /courses.xml
   def index
@@ -36,22 +38,22 @@ class CoursesController < ApplicationController
   end
   
   #    courses = Course.find :all
-#    rated = {}
-#    courses.each do |c|
-#      if c.rating > 0
-#        rated[c] = c.rating
-#      end
-#    end
-#    arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
-#    puts arr.length
-#    page = params[:page] ||= 1
-#    puts "Page: #{page}"
-#    @courses = WillPaginate::Collection.create(page, 10, nil) {}
-#    arr.each { |a| @courses << a[0] }
-#    @courses.each { |c| puts c.name }
+  #    rated = {}
+  #    courses.each do |c|
+  #      if c.rating > 0
+  #        rated[c] = c.rating
+  #      end
+  #    end
+  #    arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
+  #    puts arr.length
+  #    page = params[:page] ||= 1
+  #    puts "Page: #{page}"
+  #    @courses = WillPaginate::Collection.create(page, 10, nil) {}
+  #    arr.each { |a| @courses << a[0] }
+  #    @courses.each { |c| puts c.name }
 
-#    @user = current_user
-#    @courses = Course.paginate_all_by_highest_rated :page => params[:page]
+  #    @user = current_user
+  #    @courses = Course.paginate_all_by_highest_rated :page => params[:page]
   
   def highest_rated
     @user = current_user
@@ -63,7 +65,19 @@ class CoursesController < ApplicationController
   end
 
   def highest_rated_proximity
-    
+    @user = current_user
+    courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
+    rated = {}
+    courses.each do |c|
+      if c.rating > 0
+        rated[c] = c.rating
+      end
+    end
+    arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
+    @courses = []
+    arr.each { |a| @courses << a[0] }
+    @courses_count = @courses.length
+    @action = :highest_rated_proximity
   end
 
   # GET /courses/1
