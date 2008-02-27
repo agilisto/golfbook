@@ -1,9 +1,6 @@
 <%= render :partial => 'profile_header' %>
 
-<fb:tabs>
-	<fb:tab-item href="<%= url_for :controller => :profile, :action => :index %>" title="Profile" />
-	<fb:tab-item href="<%= url_for :controller => :profile, :action => :location %>" title="My Location" selected="true" />
-</fb:tabs>
+<%= render :partial => 'profile_menu'%>
 
 <!-- Type ahead script -->
 <script src="<%= url_for :only_path => false, :controller => :javascripts, :action => 'typeahead.js' %>"></script>

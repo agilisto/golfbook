@@ -1,0 +1,6 @@
+<li>
+	<h1><%= link_to recent_rating.rating, :controller => :courses, :action => :show, :id => recent_rating.rateable.id %></h1>
+        <span class="name"><a href="<%= url_for :controller=>:courses,:action=>:show,:id=>recent_rating.rateable.id%>"><%=recent_rating.rateable.name%></a></span>
+	<!--span class="name"><a href="<%#= profile_view_url :id=>recent_rating.user.id, :only_path => true%>"><fb:name uid='<%#= recent_rating.user.facebook_uid %>' linked="false" useyou='false' /></a></span-->
+	<span class="played"><%= time_ago_in_words(recent_rating.created_at) %> ago</span>
+</li>

@@ -1,5 +1,5 @@
 <li>
 	<h1><%= link_to recent_tour.name, :controller => :tours, :action => :show, :id => recent_tour.id %></h1>
-	<span class="name"><fb:name uid='<%= recent_tour.user.facebook_uid %>' useyou='false'></fb:name></span>
+	<span class="name"><a href="<%= profile_view_url :id=>recent_tour.user.id, :only_path => true%>"><fb:name uid='<%= recent_tour.user.facebook_uid %>' linked="false" useyou='false' /></a></span>
 	<span class="played"><%= time_ago_in_words(recent_tour.created_at) %> ago</span>
 </li>

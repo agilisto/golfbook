@@ -6,7 +6,8 @@
 </h1>
 	  
 <span class="name">
-   <fb:name uid='<%= recent_competition.user.facebook_uid %>' useyou='false'>
+   <a href="<%= profile_view_url :id=>recent_competition.user.id, :only_path => true%>">
+   <fb:name uid='<%= recent_competition.user.facebook_uid %>' linked="false" useyou='false'></a>
    </fb:name>
 </span>
 

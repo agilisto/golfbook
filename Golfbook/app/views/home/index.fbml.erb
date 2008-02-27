@@ -18,27 +18,52 @@
 
 <div class="recent_rounds">
 	<h4>Recently Posted Rounds</h4>
+        <%if @recent_rounds.length > 0%>
 	<ul class="horizontal_list">
 		<%= render :partial => 'shared/recent_round', :collection => @recent_rounds, :locals => {:display_course => true} %>
 	</ul>
+        <%else%>
+          <ul><li>No recently posted rounds.</li></ul>
+        <%end%>
 </div>
 
   <br /><br /><br />
 
 <div class="recent_rounds">
 	<h4>Recently Created Tours</h4>
-	<ul class="horizontal_list">
-		<%= render :partial => 'shared/recent_tour', :collection => @recent_tours %>
-	</ul>
+        <%if @recent_tours.length > 0%>
+          <ul class="horizontal_list">
+                  <%= render :partial => 'shared/recent_tour', :collection => @recent_tours %>
+          </ul>
+        <%else%>
+          <ul><li>No recently created tours.</li></ul>
+        <%end%>
 </div>
 
   <br /><br /><br />
 
 <div class="recent_rounds">
 	<h4>Recently Created Competitions</h4>
+        <%if @recent_competitions.length > 0%>
+          <ul class="horizontal_list">
+                  <%= render :partial => 'shared/recent_competition', :collection => @recent_competitions %>
+          </ul>
+        <%else%>
+          <ul><li>No recently created competitions.</li></ul>
+        <%end%>
+</div>
+
+  <br /><br /><br />
+
+<div class="recent_rounds">
+	<h4>Recently Rated</h4>
+        <%if @recent_ratings.length > 0%>
 	<ul class="horizontal_list">
-		<%= render :partial => 'shared/recent_competition', :collection => @recent_competitions %>
+		<%= render :partial => 'shared/recent_rating', :collection => @recent_ratings %>
 	</ul>
+        <%else%>
+          <ul><li>No recently rated courses.</li></ul>
+        <%end%>
 </div>
 
 <div class="clearfix" />
