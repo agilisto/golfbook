@@ -32,6 +32,8 @@ class ToursController < ApplicationController
     uids = []
     users.each { |u| uids << u.id }
     @tours = Tour.paginate Tour.find_all_by_user_id(uids), :page => params[:page], :order => :name
+    @upcoming_tours = TourDate.upcoming_tours
+    
     @action = :friends_tours
     render :action => :index
   end
