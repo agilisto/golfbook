@@ -586,3 +586,12 @@ ul.scorecard {
 .inputsearch {
 	padding-left:20px;
 }
+
+.rating-big {
+	float:right;
+	color:#333333;
+	display:block;
+	float:left;
+	font-family:Helvetia,Arial,default;
+	font-size:33px;
+}

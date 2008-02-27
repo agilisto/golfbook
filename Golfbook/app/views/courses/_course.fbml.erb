@@ -4,7 +4,11 @@
 	</div>
 	<h2>
 		<%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+		<span class="big-rating">
+			Player Rating : <%= course.rating %> / 5
+		</span>
 	</h2>
+
 	<p>
 		<%= truncate course.description, 200 %>
 	</p>

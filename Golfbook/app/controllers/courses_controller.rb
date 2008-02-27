@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   def index
     @user = current_user
     @courses_count = Course.count
-    @courses = Course.paginate :all, :page => params[:page], :order => :name
+    @courses = Course.paginate :all, :page => params[:page], :order => :name #, :include => [:ratings]
      
     @action = :courses    
     
@@ -135,7 +135,7 @@ class CoursesController < ApplicationController
   def filter_by_name
     course_name = params["course_filter"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
+    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
@@ -148,7 +148,7 @@ class CoursesController < ApplicationController
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
+    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
