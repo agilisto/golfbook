@@ -1,3 +1,4 @@
+<fb:title><%= @course.name %></fb:title>
 <div class="module clearfix page_panel_header no_border">
 	<div class="header_page_summary clearfix">
 		<div class="thumb">
@@ -52,7 +53,26 @@
 			</div>
 			
 			<div class="card small_hole_card">
-				<%= render :partial => 'course_discuss' %>
+				<div id="course_reviews">
+					<h3 clicktotoggle="course_review_wall">
+						Recent reviews
+					</h3>
+					<div id="course_review_wall">
+						<fb:wall>
+							<%= render :partial => 'reviews/review', :collection => @reviews %>
+						</fb:wall>
+					</div>
+					<%= will_paginate @reviews, :inner_window => 2 %>
+				</div>
+			
+				<div id="course_new_review">
+					<h3 clicktotoggle="course_new_review">
+						Add Review
+					</h3>
+					<div id="course_new_review">
+						<%= render :partial => 'reviews/new_review', :object => @review %>
+					</div>
+				</div>
 			</div>
 			
 		</div>

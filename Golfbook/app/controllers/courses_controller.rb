@@ -49,6 +49,9 @@ class CoursesController < ApplicationController
     @friends_recent_rounds = @course.rounds.by_facebook_uids(uids) 
     uids << fbsession.session_user_id
     @friends_best_rounds = @course.rounds.best_rounds_by_facebook_uids(uids)
+      
+    @reviews = @course.reviews.paginate(:page => params[:page])     
+    @review = Review.new
          
     respond_to do |format|
       format.fbml # show.html.erb
@@ -77,7 +80,7 @@ class CoursesController < ApplicationController
   # POST /courses.xml
   def create
     @course = Course.new(params[:course])
-
+    
     respond_to do |format|
       if @course.save
         flash[:notice] = 'Course was successfully created.'
