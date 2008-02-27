@@ -55,7 +55,7 @@ module Juixe
           rateables.uniq!
         end
         
-        def find_all_by_highest_rated
+        def find_all_by_highest_rated *args
           rateable = ActiveRecord::Base.send(:class_name_of_active_record_descendant, self).to_s
           ratings = Rating.find(:all,
             :conditions => ["rateable_type = ?", rateable],
@@ -74,6 +74,10 @@ module Juixe
         # Helper method that defaults the current time to the submitted field.
         def add_rating(rating)
           ratings << rating
+        end
+        
+        def is_rated?
+          ratings.length > 0
         end
         
         # Helper method that returns the average rating
