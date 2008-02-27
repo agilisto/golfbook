@@ -54,6 +54,19 @@ module Juixe
           }
           rateables.uniq!
         end
+        
+        def find_all_by_highest_rated
+          rateable = ActiveRecord::Base.send(:class_name_of_active_record_descendant, self).to_s
+          ratings = Rating.find(:all,
+            :conditions => ["rateable_type = ?", rateable],
+            :order => "rating DESC"
+          )
+          rateables = []
+          ratings.each { |r|
+            rateables << r.rateable
+          }
+          rateables.uniq!
+        end
       end
       
       # This module contains instance methods
