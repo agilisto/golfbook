@@ -7,14 +7,41 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :courses
   
-  has_many :tours
-  has_many :competitions
+  has_many :tours do
+    def upcoming
+      find :all,
+        :joins => 'inner join tour_dates on tours.id = tour_dates.tour_id',
+        :conditions => ['tour_dates.to_play_at >= :today', {:today => Date.today}],
+        :order => 'tour_dates.to_play_at asc'
+    end
+  end
+  
+  has_many :competitions do
+    def upcoming
+      find :all,
+        :order => "start_date asc",
+        :conditions => ["start_date <= :today and end_date >= :today", {:today => Date.today}]
+    end
+  end
   
   has_many :competitors
-  has_many :competition_entries, :through => :competitors, :source => :competition
+  has_many :competition_entries, :through => :competitors, :source => :competition do
+    def upcoming
+      find :all,
+        :order => "start_date asc",
+        :conditions => ["start_date <= :today and end_date >= :today", {:today => Date.today}]
+    end
+  end
   
   has_many :tour_players
-  has_many :tour_entries, :through => :tour_players, :source => :tour
+  has_many :tour_entries, :through => :tour_players, :source => :tour do
+    def upcoming
+      find :all,
+        :joins => 'inner join tour_dates on tours.id = tour_dates.tour_id',
+        :conditions => ['tour_dates.to_play_at >= :today', {:today => Date.today}],
+        :order => 'tour_dates.to_play_at asc'
+    end
+  end
   
   has_many :wishlists
   has_many :courses_want_to_play, :through => :wishlists, :source => :course, :uniq => true, :order => 'target_date desc' do

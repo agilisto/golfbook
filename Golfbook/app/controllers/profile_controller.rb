@@ -13,18 +13,18 @@ class ProfileController < ApplicationController
     end
     
     @entries = []
-    @user.competitions.each do |e|
+    @user.competitions.upcoming.each do |e|
       @entries << e if e.open
     end
-    @user.competition_entries.each do |e|
+    @user.competition_entries.upcoming.each do |e|
       @entries << e if e.open
     end
     
     @tours = []
-    @user.tours.each do |t|
+    @user.tours.upcoming.each do |t|
       @tours << t # TODO: check dates
     end
-    @user.tour_entries.each do |t|
+    @user.tour_entries.upcoming.each do |t|
       @tours << t # TODO: check dates
     end
   end
