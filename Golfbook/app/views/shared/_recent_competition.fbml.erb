@@ -7,8 +7,8 @@
 	  
 <span class="name">
    <a href="<%= profile_view_url :id=>recent_competition.user.id, :only_path => true%>">
-   <fb:name uid='<%= recent_competition.user.facebook_uid %>' linked="false" useyou='false'></a>
-   </fb:name>
+   <fb:name uid='<%= recent_competition.user.facebook_uid %>' linked="false" useyou='false'></fb:name></a>
+ 
 </span>
 
 <span class="played"><%= time_ago_in_words(recent_competition.created_at) %> ago</span>
