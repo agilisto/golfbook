@@ -26,10 +26,10 @@ class ProfileController < ApplicationController
     
     @tours = []
     @user.tours.upcoming.each do |t|
-      @tours << t # TODO: check dates
+      @tours << t
     end
     @user.tour_entries.upcoming.each do |t|
-      @tours << t # TODO: check dates
+      @tours << t
     end
   end
   

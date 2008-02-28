@@ -6,7 +6,8 @@
   <h4><a href="<%= url_for :controller => :tours, :action => :players, :id => tour.id %>"><%= tour.users.count + 1%> <%= tour.users.count + 1 == 1 ? "Player" : "Player".pluralize%></a></h4>
   <h4><a href="<%= url_for :controller => :tours, :action => :courses, :id => tour.id %>"><%= tour.courses.count%> <%= tour.courses.count == 1 ? "Course" : "Course".pluralize%></a></h4>
   <p>
-    <% if !tour.user_on_tour? @user && tour.open_for_entry %>
+    <% if !(tour.user == @user) 
+      if !tour.user_on_tour? @user && tour.open_for_entry %>
         <fb:request-form 
         action="<%=url_for :action => :requestinvite, :id => tour.id %>" 
         method="POST" 
@@ -16,6 +17,7 @@
         >
             <fb:request-form-submit uid="<%=tour.user.facebook_uid%>" label="Request Invitation from %n" />
         </fb:request-form> 
-    <% end %>
+        <%end
+       end%>
   </p>
 </div>

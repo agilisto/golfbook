@@ -12,3 +12,9 @@
 <div class="communication_item send_message clearfix">
 	<%= link_to 'Want to Play', course_add_wishlist_url(:id => @course.id, :only_path => true) %>
 </div>
+<div class="communication_item send_message clearfix">
+	<%= link_to 'Host Competition', course_add_competition_url(:id => @course.id, :only_path => true) %>
+</div>
+<div class="communication_item send_message clearfix">
+	<%= link_to 'Add to Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => @course.id, :only_path => true) %>
+</div>

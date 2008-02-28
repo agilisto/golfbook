@@ -4,7 +4,7 @@
 		</div>
 		<div class="info">
 			<a href="<%= url_for(:action => :index)%>"><h2>Tours</h2></a>
-			<div id="sub_menu"><%=link_to 'Tours Home', {:controller => :home, :action => :index} %>
+			<div id="sub_menu"><%=link_to 'Tours Home', {:controller => :tours, :action => :index} %>
 			</div>			
 		</div>
 		<a class="dh_new_media" href="<%= url_for :controller => :tours, :action => :new %>">

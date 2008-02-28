@@ -21,4 +21,21 @@ class HomeController < ApplicationController
     @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 3#, :include => [:user]
   end
   
+  def invite
+    @user = current_user
+    fql =  "SELECT uid, name FROM user WHERE uid IN" +
+      "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
+      "AND has_added_app = 1" 
+    xml_friends = fbsession.fql_query :query => fql
+    @friends = Hash.new
+    xml_friends.search("//user").map do|usrNode| 
+      @friends[(usrNode/"uid").inner_html] = (usrNode/"name").inner_html
+    end
+    @friend_ids = []
+    @friends.each do |uid, name|
+      @friend_ids << uid
+    end
+    @friend_ids = @friend_ids.join(',')
+  end
+  
 end

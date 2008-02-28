@@ -53,6 +53,18 @@ class CoursesController < ApplicationController
     @courses_count = @courses.length
   end
   
+  def filter_by_loc_unrated
+    @user = current_user
+    @location = params["location"]
+    RAILS_DEFAULT_LOGGER.debug "Location: #{@location}"
+    #@courses = Course.paginate :all, :origin => @location, :within => DEFAULT_RADIUS, :page => params[:page], :order => :name
+    @courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+    RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
+    @courses_count = @courses.length
+    request.format = :fbml
+    render :action => 'filter_by_loc_unrated', :layout => false
+  end
+  
   def filter_by_loc
     @user = current_user
     @location = params["location"]

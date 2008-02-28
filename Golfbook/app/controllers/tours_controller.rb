@@ -16,6 +16,10 @@ class ToursController < ApplicationController
     
     @upcoming_tours = TourDate.upcoming_tours
     
+#    @upcoming_tours = []
+#    @user.tours.upcoming.each { |t| @upcoming_tours << t }
+#    @user.tour_entries.upcoming.each { |t| @upcoming_tours << t }
+    
     @action = :tours
     respond_to do |format|
       format.fbml # index.html.erb
@@ -126,6 +130,22 @@ class ToursController < ApplicationController
     message = render_to_string :partial => "tour_course_added"
     fbsession.notifications_send :to_ids => uids.join(","), :notification => message
     redirect_to :action => "courses", :id => @tour_date.tour.id
+  end
+  
+  def add_course_to_tour
+    @user = current_user
+    @course = Course.find params[:course_id]
+    @tours = @user.tours
+  end
+  
+  def add_course_to_tour_proc
+    @user = current_user
+    @course = Course.find params[:course_id]
+    @tour = Tour.find params[:tour_id]
+    @tourdates = []
+    @tourdates << TourDate.new(:tour => @tour, :course => @course)
+    @courses_count = @tourdates.length
+    render :action => :search_results
   end
   
   def addplayers

@@ -1,3 +1,4 @@
+<script src="<%= url_for :only_path => false, :controller => :javascripts, :action => 'typeahead.js' %>"></script>
 <div class="module clearfix page_panel_header no_border">
 	<div class="header_page_summary clearfix">
 		<div class="thumb">
@@ -18,12 +19,29 @@
 		
 		<script>
 		<!--
-			options = { 
-				onEnter: function(event) { // handler for hitting the 'enter' key 
-					submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search', 'results'); 
-					
-				}
-			}; 
+  options = {
+    preMsgTxt: "Type a course name, eg. Wanderers",	// text to display when nothing has been typed
+    menuOpacity: 94, 			// opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>",	// url to your data source
+      focus: false,				// whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {		// handler for hitting the 'enter' key
+        location_lookup.submit();
+      },
+      delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true			// whether or not to clear the text after they hit enter
+    };
+
+                          options2 = {
+                        preMsgTxt: "Type a location, eg. New York",	// text to display when nothing has been typed
+                        menuOpacity: 94, 			// opacity of the menu
+                        ajaxUrl: "<%= url_for(:only_path => false, :controller => :geolookup, :action => :city)%>",	// url to your data source
+                          focus: false,				// whether or not to auto-focus the textbox upon creation
+                          onEnter: function(event) {		// handler for hitting the 'enter' key
+                            location_lookup.submit();
+                          },
+                          delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+                          clearOnEnter: true			// whether or not to clear the text after they hit enter
+                        };
 			
 			function enterSubmit(obj, options) 
 			{ 
@@ -50,12 +68,28 @@
 		</script>
 		
 		<!-- Search Box -->
-		<form id="course_search">  
-			<%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
-			<script>
-				var submitter = new enterSubmit(document.getElementById('course_filter'), options);
-			</script>
-			<a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search', 'results'); return false;">Search</a> 
+		<form id="course_search_by_name">  
+                      <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+                      <script>
+                      <!--
+                              //var submitter = new enterSubmit(document.getElementById('course_filter'), options);
+                              var suggestr = new ajaxSuggestFbml(document.getElementById('course_filter'), options);
+                      -->
+                      </script>
+                      <a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search_by_name', 'results'); return false;">Search</a> 
+                      <br/><a href="#"  clicktoshow="course_search_by_loc" clicktohide="course_search_by_name">Search by location</a>
+		</form>
+
+    		<form id="course_search_by_loc" style="display:none">
+                      <%= text_field_tag "location", nil, :id => 'i_like_text', :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+                      <script>
+                      <!--
+                              //var submitter = new enterSubmit(document.getElementById('i_like_text'), options);
+                              var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options2);
+                      -->
+                      </script>
+                      <a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_loc, :only_path => false %>', 'course_search_by_loc', 'results'); return false;">Search</a> 
+                      <br/><a href="#" clicktoshow="course_search_by_name" clicktohide="course_search_by_loc">Search by course name</a>
 		</form>
 
         <br/>
