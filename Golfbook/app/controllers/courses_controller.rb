@@ -73,9 +73,9 @@ class CoursesController < ApplicationController
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
     rated = {}
     courses.each do |c|
-      if c.rating > 0
+      #if c.rating > 0
         rated[c] = c.rating
-      end
+      #end
     end
     arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
     @courses = []
