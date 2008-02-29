@@ -32,7 +32,7 @@ class ProfileController < ApplicationController
       @tours << t
     end
     
-    @rounds = @user.rounds.recent
+    @rounds = @user.rounds.recent 5
   end
   
   def rounds

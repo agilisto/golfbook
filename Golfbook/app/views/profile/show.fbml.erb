@@ -26,8 +26,8 @@
                         <%@rounds.each do |round|%>
                           <p>
                             <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
-                            - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:course,:action=>:show,:id=>round.course.id%>
-                            <%= round.date_played.to_formatted_s(:long)%></span>
+                            - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:courses,:action=>:show,:id=>round.course.id%>
+                            <%= time_ago_in_words round.date_played %> ago</span>
                           </p>
                         <%end%>
 

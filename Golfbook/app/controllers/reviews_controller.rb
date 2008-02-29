@@ -32,7 +32,10 @@ class ReviewsController < ApplicationController
   end
   
   def show
+    @user = current_user
     @review = Review.find(params[:id])
+    @course = @review.reviewable
+    @recent_rounds = @course.rounds.recent_rounds(10)
   end
   
 end

@@ -1,0 +1,55 @@
+<%= render :partial => "courses/course_header"%>
+
+<%= render :partial => 'courses/courses_menu' %>
+
+<div id="page_panel">
+	<div class="courses clearfix">
+		<div class="main_column clearfix">
+			<h2 class="first_card_section clearfix">Course Review</h2>
+			
+			<div class="card small_hole_card">
+				<%= render :partial => 'review_summary', :object => @course %>
+			</div>
+			
+			<div class="card small_hole_card">
+				<%= render :partial => 'courses/course_summary', :object => @course %>
+			</div>
+			
+			<div class="card small_hole_card">
+			
+				<div id="course_reviews_add_new">
+					<h3 clicktotoggle="course_new_review">
+						Add your own review
+					</h3>
+					<div id="course_new_review">
+						<%= render :partial => 'new_review', :object => @review %>
+					</div>
+				</div>
+			</div>
+
+                        <div class="card small_hole_card">
+                            <fb:comments xid="review_<%=@review.id%>" 
+                                canpost="true" 
+                                candelete="false" 
+                                returnurl="<%=url_for :controller=>:reviews,:action=>:show,:id=>@review.id%>">
+                                <fb:title>Discuss this review</fb:title>
+                            </fb:comments>
+                        </div>
+			
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<%= render :partial => 'courses/course_stats' %>
+			</div>
+			<div class="section">
+				<%= render :partial => 'courses/course_actions' %>
+			</div>
+			<div class="section">
+			<h3>Recently Posted Rounds</h3>
+					<ul class="small_list">
+						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
+					</ul>
+				</div>
+		</div>
+	</div>
+</div>
