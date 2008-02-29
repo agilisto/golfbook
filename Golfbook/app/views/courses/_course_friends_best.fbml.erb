@@ -2,7 +2,7 @@
 	Best scores by your friends
 </h3>
 <div id="course_friends_best">
-	<ol class="scorecard">
+	<ul class="scorecard">
             <%if course_friends_best.length > 0%>
 		<% course_friends_best.each do |round| %>
 			<li>
@@ -14,5 +14,5 @@
             <%else%>
                    <li>No friend scores.</li>
             <%end%>
-	</ol>
+	</ul>
 </div>

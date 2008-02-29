@@ -33,15 +33,19 @@ class ProfileController < ApplicationController
     end
     
     @rounds = @user.rounds.recent 5
+    
+    @action = :profile
   end
   
   def rounds
      @user = User.find params[:id]
      @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
+     @action = :rounds
   end
 
   def location
     @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
+    @action = :location
   end
   
   def process_location

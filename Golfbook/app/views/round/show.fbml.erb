@@ -9,15 +9,15 @@
 
 			<div class="card small_hole_card">
                            <h3>Round Information</h3>
-                            <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>"><fb:name uid="<%= @round.user.facebook_uid %>" linked="false" /></a> shot a 
+                            <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>"><fb:name uid="<%= @round.user.facebook_uid %>" capitalize="true" linked="false" /></a> shot a 
                               <strong><%= @round.score %></strong> at 
                               <%= link_to(@round.course.name,:controller=>:courses,:action=>:show,:id=>@round.course_id)%> on <%= @round.date_played.to_formatted_s(:long) %>
                         </div>
 
                         <div class="card small_hole_card">
                             <h3><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>">
-                              <fb:name uid="<%=@round.user.facebook_uid%>" linked="false" possessive="true" firstnameonly="true" /></a> best score at this course</h3>
-<a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@best_round.user_id)%>"><fb:name uid="<%= @best_round.user.facebook_uid %>" linked="false" /></a> shot a 
+                              <fb:name uid="<%=@round.user.facebook_uid%>" capitalize="true" linked="false" possessive="true" firstnameonly="true" /></a> best score at this course</h3>
+<a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@best_round.user_id)%>"><fb:name uid="<%= @best_round.user.facebook_uid %>" linked="false" capitalize="true" /></a> shot a 
                               <strong><%= @best_round.score %></strong> at 
                               <%= link_to(@best_round.course.name,:controller=>:courses,:action=>:show,:id=>@best_round.course_id)%> on <%= @best_round.date_played.to_formatted_s(:long) %>
                         </div>
