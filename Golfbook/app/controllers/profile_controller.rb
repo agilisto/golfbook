@@ -31,6 +31,8 @@ class ProfileController < ApplicationController
     @user.tour_entries.upcoming.each do |t|
       @tours << t
     end
+    
+    @rounds = @user.rounds.recent
   end
   
   def rounds

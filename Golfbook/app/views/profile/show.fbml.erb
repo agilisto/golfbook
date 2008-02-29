@@ -20,7 +20,21 @@
                 </fb:if-is-user>
 		<div class="card small_hole_card">
 			<h3>
-                            <%= link_to 'Upcoming Competitions</span>', :controller => :competitions, :action => :index %>
+                            <%= link_to 'Recent Rounds', :action => :rounds, :id => @user.id %>
+			</h3>
+                        
+                        <%@rounds.each do |round|%>
+                          <p>
+                            <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
+                            - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:course,:action=>:show,:id=>round.course.id%>
+                            <%= round.date_played.to_formatted_s(:long)%></span>
+                          </p>
+                        <%end%>
+
+                </div>
+		<div class="card small_hole_card">
+			<h3>
+                            <%= link_to 'Upcoming Competitions', :controller => :competitions, :action => :index %>
 			</h3>
                         
                         <%@entries.each do |entry|%>
@@ -34,7 +48,7 @@
                 </div>
 		<div class="card small_hole_card">
 			<h3>
-                            <%= link_to 'Upcoming Tours</span>', :controller => :tours, :action => :index %>
+                            <%= link_to 'Upcoming Tours', :controller => :tours, :action => :index %>
 			</h3>
                         
                         <%@tours.each do |tour|%>

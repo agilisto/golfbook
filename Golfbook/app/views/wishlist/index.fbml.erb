@@ -12,6 +12,10 @@
 
 <div id="page_panel">
 	<div class="courses">
+
+                <%= render :partial => "shared/course_search_box" %>
+
+<div id="results" style="overflow: hidden">
 		<div class="main_column">
 			<h2 class="first_card_section"><%= pluralize(@user.courses_want_to_play.count, 'Course')%> to play. 
 			</h2>
@@ -22,4 +26,5 @@
 			<%= render :partial => 'shared/vitals' %>
 		</div>
 	</div>
+       </div>
 </div>

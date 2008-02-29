@@ -2,7 +2,11 @@ include GeoKit::Geocoders
 class User < ActiveRecord::Base
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
-  has_many :rounds
+  has_many :rounds do
+    def recent
+      find :all, :order => 'date_played desc', :limit => 5
+    end
+  end
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
   
   has_and_belongs_to_many :courses

@@ -57,9 +57,18 @@ class CoursesController < ApplicationController
     @user = current_user
     @location = params["location"]
     RAILS_DEFAULT_LOGGER.debug "Location: #{@location}"
-    #@courses = Course.paginate :all, :origin => @location, :within => DEFAULT_RADIUS, :page => params[:page], :order => :name
-    @courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+    courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
+    rated = {}
+    courses.each do |c|
+      #if c.rating > 0
+        rated[c] = c.rating
+      #end
+    end
+    arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
+    @courses = []
+    arr.each { |a| @courses << a[0] }
+    RAILS_DEFAULT_LOGGER.debug "Sorted #{@courses.length} courses"
     @courses_count = @courses.length
     request.format = :fbml
     render :action => 'filter_by_loc_unrated', :layout => false
@@ -73,9 +82,9 @@ class CoursesController < ApplicationController
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
     rated = {}
     courses.each do |c|
-      #if c.rating > 0
+      if c.rating > 0
         rated[c] = c.rating
-      #end
+      end
     end
     arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
     @courses = []
