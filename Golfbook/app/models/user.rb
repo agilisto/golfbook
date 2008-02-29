@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
     def recent max
       find :all, :order => 'date_played desc', :limit => max
     end
+    def best(course)
+      find :first,
+        :conditions => ['course_id = :id', {:id => course.id}],
+        :limit => 1,
+        :order => 'score asc'
+    end
   end
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
   

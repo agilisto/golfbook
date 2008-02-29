@@ -5,7 +5,9 @@
 <div id="page_panel">
 	<div class="courses clearfix">
 		<div class="main_column clearfix">
-			<h2 class="first_card_section clearfix">Course Review</h2>
+			<h2 class="first_card_section clearfix">
+                           Course Review of <%=link_to @course.name, :controller=>:courses,:action=>:show,:id=>@course.id %>
+                        </h2>
 			
 			<div class="card small_hole_card">
 				<%= render :partial => 'review_summary', :object => @course %>
@@ -32,7 +34,7 @@
                                 canpost="true" 
                                 candelete="false" 
                                 returnurl="<%=url_for :controller=>:reviews,:action=>:show,:id=>@review.id%>">
-                                <fb:title>Discuss this review</fb:title>
+                                <fb:title>Comment on this review</fb:title>
                             </fb:comments>
                         </div>
 			
