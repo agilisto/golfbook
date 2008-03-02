@@ -27,7 +27,7 @@
 
                             <fb:editor-buttonset>
                                 <%= f.submit_tag('Create') %>
-                                <fb:editor-cancel />
+                                <fb:editor-cancel href="<%=url_for(:action=>:index,:only_path=>true)%>" />
                             </fb:editor-buttonset>
                           <% end %>
 
@@ -36,8 +36,7 @@
 			</div>
 
 			<div class="card small_hole_card">
-                                <%@action = :shownew%>
-				<%= render :partial => 'course_map', :object => @course %>
+				<%= render :partial => 'course_map_new', :object => @course %>
 			</div>
 			
 		</div>

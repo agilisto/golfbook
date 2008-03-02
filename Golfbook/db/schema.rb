@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 25) do
+ActiveRecord::Schema.define(:version => 26) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(:version => 25) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",      :precision => 15, :scale => 10
-    t.decimal  "longitude",     :precision => 15, :scale => 10
+    t.decimal  "latitude",        :precision => 15, :scale => 10
+    t.decimal  "longitude",       :precision => 15, :scale => 10
     t.string   "location_text"
+    t.boolean  "awaiting_review",                                 :default => false
+    t.integer  "added_by"
   end
 
   create_table "courses_users", :id => false, :force => true do |t|
@@ -120,13 +122,14 @@ ActiveRecord::Schema.define(:version => 25) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_uid",                                 :null => false
+    t.integer  "facebook_uid",                                                    :null => false
     t.string   "session_key"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "latitude",     :precision => 15, :scale => 10
     t.decimal  "longitude",    :precision => 15, :scale => 10
     t.string   "address"
+    t.boolean  "admin",                                        :default => false
   end
 
   create_table "wishlists", :force => true do |t|
