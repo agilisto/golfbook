@@ -1,7 +1,0 @@
-<h3 clicktotoggle="course_map">
-	Location
-</h3>
-<div id="course_map">
-	<fb:iframe frameborder=0 scrolling='no' width="390" height="300" src="<%= url_for({:only_path => false, :controller => :map, :action => :shownew, :lat => @course.latitude, :lng => @course.longitude, :size => 'medium'} )%>">
-	</fb:iframe>
-</div>

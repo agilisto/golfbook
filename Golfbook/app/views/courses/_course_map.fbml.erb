@@ -1,13 +1,7 @@
 <h3 clicktotoggle="course_map">
-	Location
+  Location
 </h3>
-<!--<p>The course is close to :
-	<ul>
-		<%= # render :partial => 'geolocation', :collection => @geolocations 
-		%>
-	</ul>
-</p>-->
 <div id="course_map">
-	<fb:iframe frameborder=0 scrolling='no' width="390" height="300" src="<%= url_for({:only_path => false, :controller => :map, :action => :show, :id => @course.id, :size => 'medium'} )%>">
-	</fb:iframe>
+  <fb:iframe frameborder=0 scrolling='no' width="390" height="300" src="<%= url_for({:only_path => false, :controller => :map, :action => @action, :id => @course.id, :size => 'medium'} )%>">
+      </fb:iframe>
 </div>

@@ -20,6 +20,15 @@ class MapController < ApplicationController
   
     marker = GMarker.new([@course.latitude, @course.longitude],   
       :title => @course.name, :info_window => info_window, :icon => @icon_flag)  
+    
+    js = "function(overlay, latlng)
+    {
+      var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
+      map.openInfoWindow(latlng, html)
+    }"
+    
+    @map.event_init @map, "click", js
+    
     @map.overlay_init(marker)    
   end
   
@@ -36,6 +45,46 @@ class MapController < ApplicationController
     marker = GMarker.new([params[:lat], params[:lng]],   
       :title => 'New Course', :icon => @icon_flag)  
     @map.overlay_init(marker)    
+  end
+  
+  def newmap
+    @user = current_user
+    
+    if params.include? 'location'
+      RAILS_DEFAULT_LOGGER.debug "Looking up location.."
+      # Try GeoKit First
+      res=MultiGeocoder.geocode(params['location'])
+      if res.success
+        @latitude, @longitude = res.lat, res.lng 
+      else
+        # Fall back to Geonames
+        criteria = Geonames::ToponymSearchCriteria.new
+        criteria.name_starts_with = params['location']
+        criteria.max_rows = '1'
+
+        results = Geonames::WebService.search(criteria).toponyms
+
+        if results.length < 1 
+          @latitude, @longitude = @user.latitude, @user.longitude
+        else
+          @latitude, @longitude = results[0].latitude, results[0].longitude
+        end
+      end
+    else
+      RAILS_DEFAULT_LOGGER.debug "No location found, using user home location.."
+      @latitude, @longitude = @user.latitude, @user.longitude
+    end
+    
+    @map = GMap.new(@size)
+    define_icons
+    @map.control_init(:large_map => true, :map_type => true)
+    @map.center_zoom_init([@latitude, @longitude], @zoom.to_i)
+    js = "function(overlay, latlng)
+    {
+      var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
+      map.openInfoWindow(latlng, html)
+    }"
+    @map.event_init @map, "click", js
   end
   
   def near_user
@@ -84,7 +133,6 @@ class MapController < ApplicationController
       var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
       map.openInfoWindow(latlng, html)
     }"
-    
     @map.event_init @map, "click", js
     
     @map.overlay_init clusterer

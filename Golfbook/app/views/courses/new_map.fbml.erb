@@ -1,0 +1,56 @@
+<script src="<%= url_for :only_path => false, :controller => :javascripts, :action => 'typeahead.js' %>"></script>
+
+<%= render :partial => "course_header"%>
+
+<%= render :partial => 'courses_menu' %>
+
+<script>
+  options2 = {
+    preMsgTxt: "Type a location, eg. New York",	// text to display when nothing has been typed
+    menuOpacity: 94, 			// opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :geolookup, :action => :city)%>",	// url to your data source
+      focus: false,				// whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {		// handler for hitting the 'enter' key
+        location_lookup.submit();
+      },
+      delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true			// whether or not to clear the text after they hit enter
+    };
+    </script>
+
+  <div id="page_panel">
+    <div class="courses clearfix">
+      <div class="main_column clearfix">
+        <h2 class="first_card_section clearfix">Course Information</h2>
+      
+        <div class="card small_hole_card clearfix">
+          <h3>New Course</h3>
+        
+          <p>The map below has been centered on your home location by default.
+            You can select a different start location by entering a city name
+            below. Drag and zoom the map to find the location of the course you
+            wish to add, and then click on the location.
+          </p>
+        
+          <h3>Jump to Location</h3>
+          <p>
+            <form id="course_search_by_loc" action="<%= url_for :controller => :courses, :action => :new_map, :only_path => true %>" method="POST">
+              <%= text_field_tag "location", nil, :id => 'i_like_text', :size => 35, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+              <script>
+                <!--
+                var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options2);
+                -->
+              </script>
+              <input type="submit" class="inputsubmit" value="Jump to City" /> 
+            </form>
+          </p>
+        
+        </div>
+      
+        <div class="card small_hole_card">
+          <%= render :partial => 'new_course_map' %>
+        </div>
+      
+      </div>
+    </div>
+  </div>

@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
   def index
     @user = current_user
     @courses_count = Course.count
-    @courses = Course.paginate :all, :page => params[:page], :order => :name #, :include => [:ratings]
+    @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
      
     @action = :courses    
     
@@ -123,6 +123,11 @@ class CoursesController < ApplicationController
     end  
    
   end
+  
+  def new_map
+    @user = current_user
+    @course = Course.new
+  end
 
   # GET /courses/new
   # GET /courses/new.xml
@@ -144,11 +149,21 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.xml
   def create
+    @user = current_user
     @course = Course.new(params[:course])
+    @course.awaiting_review = true
     
     respond_to do |format|
       if @course.save
-        flash[:notice] = 'Course was successfully created.'
+        flash[:notice] = 'Your course was submitted for review.'
+        
+        # send notifications to admins
+        admins = User.find_all_by_admin true
+        uids = []
+        admins.each { |a| uids << a.facebook_uid }
+        message = "<fb:name uid=#{@user.facebook_uid} /> has submitted a new course for review - <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>"
+        fbsession.notifications_send :to_ids => uids.join(","), :notification => message
+        
         format.fbml { redirect_to :action => 'show', :id => @course.id }
         format.xml  { render :xml => @course, :status => :created, :location => @course }
       else
@@ -203,7 +218,7 @@ class CoursesController < ApplicationController
   def filter_by_name
     course_name = params["course_filter"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}] #, :include => [:ratings]
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
@@ -216,7 +231,7 @@ class CoursesController < ApplicationController
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}] #, :include => [:ratings]
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
@@ -235,7 +250,7 @@ class CoursesController < ApplicationController
       return
     else
       search_string = params[:suggest_typed] + "%"
-      @courses = Course.find :all, :conditions => ["name like :name", {:name => search_string}]
+      @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => search_string}]
       @count = @courses.length
       RAILS_DEFAULT_LOGGER.debug "Courses: #{@count}"
       names = @courses.map {|course| course.name }

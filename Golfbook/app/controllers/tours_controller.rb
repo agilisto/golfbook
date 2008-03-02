@@ -91,7 +91,7 @@ class ToursController < ApplicationController
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name", {:name => course_name + "%"}]
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}]
     
     @tourdates = []
     @courses.each do |c|
@@ -106,7 +106,7 @@ class ToursController < ApplicationController
   def search_results_by_loc
     @tour = Tour.find params[:id]
     location = params[:course][:location]
-    @courses = Course.find :all, :origin => location, :within => 10
+    @courses = Course.find :all, :conditions => 'awaiting_review = false', :origin => location, :within => 10
     @tourdates = []
     @courses.each do |c|
       @tourdates << TourDate.new(:tour => @tour, :course => c)

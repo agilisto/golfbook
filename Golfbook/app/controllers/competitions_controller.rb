@@ -67,7 +67,7 @@ class CompetitionsController < ApplicationController
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
     @courses = Course.find :all, 
-      :conditions => ["name like :name", {:name => course_name + "%"}]
+      :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}]
 
     @user = current_user
     @courses_count = @courses.length
