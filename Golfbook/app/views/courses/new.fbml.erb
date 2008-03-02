@@ -3,46 +3,52 @@
 <%= render :partial => 'courses_menu' %>
 
 <div id="page_panel">
-	<div class="courses clearfix">
-		<div class="main_column clearfix">
-			<h2 class="first_card_section clearfix">Course Information</h2>
-			
-			<div class="card small_hole_card clearfix">
-                          <h3>New Course</h3>
+  <div class="courses clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix">Course Information</h2>
+      
+      <div class="card small_hole_card clearfix">
+        <h3>New Course</h3>
+        
+                                  <%= error_messages_for :course %>
+        
+                                  <% editor_form_for :course, @course, :url => {:action => 'create'}, :html => {:labelwidth => 50} do |f| %>
+                                    
+                                        <%= f.hidden_field :longitude %>
+                                        <%= f.hidden_field :latitude %>
+          
+          <p>
+            <%= f.text_field :name %>
+          </p>
+        
+          <p>
+            <%= f.text_area :description, :rows => 10 %>
+          </p>
+        
+          <fb:editor-buttonset>
+            <%= f.submit_tag('Create') %>
+            <fb:editor-cancel href="<%=url_for(:action=>:index,:only_path=>true)%>" />
+            </fb:editor-buttonset>
+          <% end %>
 
-                          <%= error_messages_for :course %>
+          <%= link_to 'Back', {:action => 'index'} %>
 
-                          <% editor_form_for :course, @course, :url => {:action => 'create'}, :html => {:labelwidth => 50} do |f| %>
-                            
-                            <%= f.hidden_field :longitude %>
-                            <%= f.hidden_field :latitude %>
-  
-                            <p>
-                              <%= f.text_field :name %>
-                            </p>
-
-                            <p>
-                              <%= f.text_area :description, :rows => 10 %>
-                            </p>
-
-                            <fb:editor-buttonset>
-                                <%= f.submit_tag('Create') %>
-                                <fb:editor-cancel href="<%=url_for(:action=>:index,:only_path=>true)%>" />
-                            </fb:editor-buttonset>
-                          <% end %>
-
-                          <%= link_to 'Back', {:action => 'index'} %>
-
-			</div>
-
-			<div class="card small_hole_card">
-				<%= render :partial => 'course_map_new', :object => @course %>
-			</div>
-			
-		</div>
-		<div class="side_column">
-
-
-		</div>
-	</div>
-</div>
+        </div>
+      
+        <div class="card small_hole_card">
+          <%= render :partial => 'course_map_new', :object => @course %>
+        </div>
+      
+      </div>
+      <div class="side_column">
+        <div class="section">
+          <h3>Instructions</h3>
+          <p>
+            Please enter the details of the course you wish to add. The course
+            information that you submit will be reviewed by an administrator before
+            it is entered into the Golfbook database.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
