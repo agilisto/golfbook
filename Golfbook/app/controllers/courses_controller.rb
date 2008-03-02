@@ -56,13 +56,13 @@ class CoursesController < ApplicationController
   def filter_by_loc_unrated
     @user = current_user
     @location = params["location"]
-    RAILS_DEFAULT_LOGGER.debug "Location: #{@location}"
+    RAILS_DEFAULT_LOGGER.debug "Checking location: #{@location}"
     courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
     rated = {}
     courses.each do |c|
       #if c.rating > 0
-        rated[c] = c.rating
+      rated[c] = c.rating
       #end
     end
     arr = rated.sort {|a,b| -1*(a[1]<=>b[1]) }
@@ -74,10 +74,14 @@ class CoursesController < ApplicationController
     render :action => 'filter_by_loc_unrated', :layout => false
   end
   
+  def choose_location
+    
+  end
+  
   def filter_by_loc
     @user = current_user
     @location = params["location"]
-    RAILS_DEFAULT_LOGGER.debug "Location: #{@location}"
+    RAILS_DEFAULT_LOGGER.debug "Checking location: #{@location}"
     courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
     rated = {}
@@ -123,7 +127,8 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.xml
   def new
-    @course = Course.new
+    @user = current_user
+    @course = Course.new(:latitude=>params[:lat],:longitude=>params[:lng])
 
     respond_to do |format|
       format.fbml # new.html.erb

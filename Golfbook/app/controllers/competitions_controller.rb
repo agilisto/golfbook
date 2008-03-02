@@ -229,14 +229,19 @@ class CompetitionsController < ApplicationController
   def select_winner
     @competition = Competition.find params[:id]
     if @competition.open
-      @user = current_user
-      @players = [ @competition.user ]
-      @competition.users.each do |u|
-        @players << u
-      end
-      @scores = {}
-      @competition.rounds.each do |r|
-        @scores[r.user] = r
+      if @competition.rounds.length > 0
+        @user = current_user
+        @players = [ @competition.user ]
+        @competition.users.each do |u|
+          @players << u
+        end
+        @scores = {}
+        @competition.rounds.each do |r|
+          @scores[r.user] = r
+        end
+      else
+        flash[:error] = "No rounds have been posted for this competition."
+        redirect_to :action => :show, :id => @competition.id
       end
     else
       flash[:error] = "Competition is already closed."

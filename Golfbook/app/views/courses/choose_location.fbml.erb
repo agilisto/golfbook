@@ -1,0 +1,22 @@
+	<div class="main_column">
+	
+			<h2 class="first_card_section">Did you mean..?</h2>
+
+			<%@names.each do |n|%>
+                          <h3><%= n%></h3>
+                        <%end%>
+	
+	</div>
+        <div class="side_column">
+                <div class="section">
+                        <h3>Locations</h3>
+                        <div class="bar_chart simple">
+                                <h2 class="header">
+                                        <span class="title"><%= @names.length -%></span>
+                                        <span class="title_label">Results</span>
+                                        <span class="sub_title"/>
+                                        <div style="clear: left; height: 0px;"/>
+                                </h2>
+                        </div>
+                </div>
+        </div>
