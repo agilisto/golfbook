@@ -170,6 +170,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    @user = current_user
     @course = Course.find(params[:id])
   end
 
@@ -205,12 +206,12 @@ class CoursesController < ApplicationController
   # PUT /courses/1.xml
   def update
    
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:course][:id])
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
         flash[:notice] = 'Course was successfully updated.'
-        format.fbml { redirect_to(:action => :index) }
+        format.fbml { redirect_to(:action => :show, :id => @course.id) }
         format.xml  { head :ok }
       else
         format.fbml { render :action => "edit" }
