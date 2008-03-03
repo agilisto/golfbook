@@ -31,13 +31,13 @@
 <div id="content" class="<%= @current %>">
 	
 	<div class="header">
-		<div class="pandemic_bar_wrapper">
-	     	<%= render :partial => 'shared/pandemicbar' %>		
-		</div>
-
 		<div id="messages">
 	           <%= render :partial => 'shared/messages' %>
 	       </div>
+                
+                <div class="pandemic_bar_wrapper">
+                    <%= render :partial => 'shared/pandemicbar' %>		
+		</div>
 
 		</div>
 	

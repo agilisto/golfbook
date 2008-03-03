@@ -1,0 +1,19 @@
+<%if @course.awaiting_review%>
+  <div class="card small_hole_card clearfix">
+  <h3>Review Course</h3>
+
+  <p>
+    This course is awaiting review. It was added by 
+    <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@course.added_by_id)%>">
+      <fb:name uid="<%=@course.added_by.facebook_uid%>" linked="false" /></a>.
+    </p>
+
+        <% editor_form_for :course, @course, :url => {:action => 'review_course',:id=>@course.id}, :html => {:labelwidth => 50} do |f| %>
+
+      <fb:editor-buttonset>
+        <%= f.submit_tag('Approve') %>
+        <%= f.submit_tag('Decline') %>
+        </fb:editor-buttonset>
+      <%end%>
+    </div>
+    <%end%>

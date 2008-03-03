@@ -13,7 +13,21 @@ class ProfileController < ApplicationController
     redirect_to :action => :show, :id => @user.id
   end
   
+  def users
+    @user = current_user
+    @users = User.paginate :page => params[:page]
+    @action = :users
+  end
+  
+  def makeadmin
+    @user = User.find params[:id]
+    @user.admin = !@user.admin
+    @user.save!
+    redirect_to :action => :show, :id => @user.id
+  end
+  
   def show
+    @viewer = current_user
     @user = User.find params[:id]
     
     @entries = []

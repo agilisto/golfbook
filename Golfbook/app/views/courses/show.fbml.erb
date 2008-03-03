@@ -7,7 +7,11 @@
 		<div class="main_column clearfix">
 			<h2 class="first_card_section clearfix">Course Information</h2>
 			
-			<div class="card small_hole_card clearfix">
+                    <%if @user.admin%>
+                        <%= render :partial => 'review_course', :object => @course %>
+                    <%end%>
+                    
+                         <div class="card small_hole_card clearfix">
 				<%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
 			</div>
 			

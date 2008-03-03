@@ -17,6 +17,33 @@ class CoursesController < ApplicationController
     end
      
   end
+  
+  def review
+    @user = current_user
+    @courses_count = Course.count
+    @courses = Course.paginate :all, :conditions => 'awaiting_review = true', :page => params[:page], :order => :name #, :include => [:ratings] 
+    @action = :review    
+    render :action => :index
+  end
+  
+  def review_course
+    @user = current_user
+    @course = Course.find params[:id]
+    if params[:commit] == "Approve"
+      @course.awaiting_review = false
+      @course.save!
+      flash[:notice] = "Course addition has been approved."
+      message = "has approved your course submission - <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>"
+      fbsession.notifications_send :to_ids => @course.added_by.facebook_uid, :notification => message
+      redirect_to :action => :show, :id => @course.id
+    else
+      message = "has declined your course submission - #{@course.name}"
+      fbsession.notifications_send :to_ids => @course.added_by.facebook_uid, :notification => message
+      Course.delete(@course.id)
+      flash[:notice] = "Course addition has been declined."
+      redirect_to :action => :review
+    end
+  end
    
   def course_played
     @course = Course.find(params[:id])
@@ -152,6 +179,7 @@ class CoursesController < ApplicationController
     @user = current_user
     @course = Course.new(params[:course])
     @course.awaiting_review = true
+    @course.added_by = @user
     
     respond_to do |format|
       if @course.save
@@ -161,7 +189,7 @@ class CoursesController < ApplicationController
         admins = User.find_all_by_admin true
         uids = []
         admins.each { |a| uids << a.facebook_uid }
-        message = "<fb:name uid=#{@user.facebook_uid} /> has submitted a new course for review - <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>"
+        message = "has submitted a new course for review - <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>"
         fbsession.notifications_send :to_ids => uids.join(","), :notification => message
         
         format.fbml { redirect_to :action => 'show', :id => @course.id }
