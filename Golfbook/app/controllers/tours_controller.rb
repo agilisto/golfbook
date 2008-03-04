@@ -148,6 +148,15 @@ class ToursController < ApplicationController
     render :action => :search_results
   end
   
+  def remove_course_from_tour
+    @user = current_user
+    @tour_date = TourDate.find params[:id]
+    tour_id = @tour_date.tour_id
+    TourDate.delete @tour_date
+    flash[:notice] = "#{@tour_date.course.name} has been removed from the tour."
+    redirect_to :action => :courses, :id => tour_id
+  end
+  
   def addplayers
     @user = current_user
     @tour = Tour.find params[:id]
