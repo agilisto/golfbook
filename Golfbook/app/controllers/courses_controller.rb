@@ -346,6 +346,8 @@ class CoursesController < ApplicationController
     @game.users << @user
     @game.save!
     flash[:notice] = "You have accepted the game invitation.";
+    message = "will join you for your game at <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@game.course_id)}'>#{@game.course.name}</a> on #{@game.date_to_play.to_formatted_s(:long)}."
+    fbsession.notifications_send :to_ids => @game.user.facebook_uid, :notification => message
     redirect_to :action => :show, :id => @game.course_id
   end
   
