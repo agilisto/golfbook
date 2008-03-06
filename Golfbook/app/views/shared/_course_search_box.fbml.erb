@@ -51,7 +51,7 @@
 		
 		<!-- Search Box -->
 		<form id="course_search_by_name">  
-                      <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+                      <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :style => 'width:300px;padding-left:20px', :autocomplete =>"off" %>
                       <script>
                       <!--
                               //var submitter = new enterSubmit(document.getElementById('course_filter'), options);
@@ -59,7 +59,14 @@
                       -->
                       </script>
                       <a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search_by_name', 'results'); return false;">Search</a> 
-                      <br/><a href="#"  clicktoshow="course_search_by_loc" clicktohide="course_search_by_name">Search by location</a>
+                      <div class="clearfix" style="width:300px">
+                      <div class="rightcontent">
+                        <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
+                      </div>
+                      <div class="leftcontent">
+                        <a href="#" clicktoshow="course_search_by_loc" clicktohide="course_search_by_name">Search by location</a>
+                      </div>
+                      </div>
 		</form>
 
     		<form id="course_search_by_loc" style="display:none">
@@ -71,7 +78,14 @@
                       -->
                       </script>
                       <a href="#" class="inputsubmit" onclick="submitForm('<%= url_for :controller => :courses, :action => :filter_by_loc_unrated, :only_path => false %>', 'course_search_by_loc', 'results'); return false;">Search</a> 
-                      <br/><a href="#" clicktoshow="course_search_by_name" clicktohide="course_search_by_loc">Search by course name</a>
+                      <div class="clearfix" style="width:300px">
+                      <div class="rightcontent">
+                        <%= image_tag "progress.gif", :style => "display:none", :id => "progress2"%>
+                      </div>
+                      <div class="leftcontent">
+                        <a href="#" clicktoshow="course_search_by_name" clicktohide="course_search_by_loc">Search by course name</a>
+                      </div>
+                      </div>
 		</form>
 
         <br/>

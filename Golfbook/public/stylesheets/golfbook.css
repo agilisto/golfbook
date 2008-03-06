@@ -591,3 +591,11 @@ ul.scorecard {
 	font-family:Helvetia,Arial,default;
 	font-size:33px;
 }
+
+.rightcontent{
+ float:right;
+ text-align:right;
+}
+.leftcontent{
+ float:left;
+}

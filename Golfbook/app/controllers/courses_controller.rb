@@ -84,7 +84,12 @@ class CoursesController < ApplicationController
     @user = current_user
     @location = params["location"]
     RAILS_DEFAULT_LOGGER.debug "Checking location: #{@location}"
-    courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+    begin
+      courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+    rescue StandardError => e
+      logger.debug "ERROR: #{e.inspect}"
+      courses = []
+    end
     RAILS_DEFAULT_LOGGER.debug "Found #{courses.length} courses"
     rated = {}
     courses.each do |c|
@@ -96,13 +101,20 @@ class CoursesController < ApplicationController
     @courses = []
     arr.each { |a| @courses << a[0] }
     RAILS_DEFAULT_LOGGER.debug "Sorted #{@courses.length} courses"
-    @courses_count = @courses.length
-    request.format = :fbml
-    render :action => 'filter_by_loc_unrated', :layout => false
-  end
-  
-  def choose_location
-    
+    if @courses.length > 0
+      @courses_count = @courses.length
+      request.format = :fbml
+      render :action => 'filter_by_loc_unrated', :layout => false
+    else
+      logger.debug "Didn't find any course, checking location.."
+      criteria = Geonames::ToponymSearchCriteria.new
+      criteria.name_starts_with = @location.split(' ')[0]
+      criteria.max_rows = '10'
+      results = Geonames::WebService.search(criteria).toponyms
+      @names = results.map {|n| n.name << ', ' << n.country_name }
+      request.format = :fbml
+      render :action => :choose_location, :layout => false
+    end
   end
   
   def filter_by_loc

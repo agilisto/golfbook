@@ -1,9 +1,11 @@
 	<div class="main_column">
 	
-			<h2 class="first_card_section">Did you mean..?</h2>
+			<h2 class="first_card_section">We didn't find any courses for that location, did you mean..?</h2>
 
 			<%@names.each do |n|%>
-                          <h3><%= n%></h3>
+                            <p>
+                                <a href="#" onclick="chooseLocation('<%= url_for :controller => :courses, :action => :filter_by_loc_unrated, :only_path => false, :location => n %>', 'results'); return false;"><%=n%></a> 
+                            </p>
                         <%end%>
 	
 	</div>
