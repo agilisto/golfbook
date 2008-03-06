@@ -1,0 +1,20 @@
+<h3 clicktotoggle="course_friends_best">
+	Upcoming Games at this Course
+</h3>
+<div id="course_friends_best">
+	<ul class="scorecard">
+              <% @games.each do |game| %>
+                  <li>
+                      You are playing in <a href="<%= url_for(:controller=>:profile,:action=>:show,:id=>game.user_id)%>">
+                      <fb:name uid="<%= game.user.facebook_uid %>" possessive="true" linked="false" useyou="true" /></a> game at
+                      <%= link_to game.course.name, :controller => :courses, :action => :show, :id => game.course_id %>
+                      on <%= game.date_to_play.to_formatted_s(:long) %>.
+                      <%if @user.id == game.user_id%>
+                        <%=link_to 'Invite Friends',{:action=>:schedule_game_invite,:id=>game.id},{:style=>'font-size:9px'}%> |
+                        <%=link_to 'Cancel',{:action=>:cancel_game,:id=>game.id},{:style=>'font-size:9px'}%>
+                      <%end%>
+                  </li>
+              <% end %>
+	</ul>
+</div>
+

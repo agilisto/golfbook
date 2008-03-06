@@ -2,6 +2,23 @@ include GeoKit::Geocoders
 class User < ActiveRecord::Base
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
+  has_many :games do
+    def for_course course
+      find :all, 
+        :conditions => ['course_id = :course_id and date_to_play > :date', 
+        { :course_id => course.id, :date => Date.today }]
+    end
+  end
+  
+  has_many :game_players
+  has_many :games_to_play, :through => :game_players, :source => :game, :uniq => true do
+    def for_course course
+      find :all, 
+        :conditions => ['course_id = :course_id and date_to_play > :date', 
+        { :course_id => course.id, :date => Date.today }]
+    end
+  end
+  
   has_many :rounds do
     def recent max
       find :all, :order => 'date_played desc', :limit => max

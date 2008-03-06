@@ -18,6 +18,12 @@
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
 			</div>
+
+                        <%if @games.length > 0%>
+                        <div class="card small_hole_card">
+				<%= render :partial => 'games', :object => @games %>
+			</div>
+                        <%end%>
 			
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_summary', :object => @course %>

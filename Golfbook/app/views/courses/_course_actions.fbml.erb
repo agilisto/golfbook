@@ -1,4 +1,5 @@
 <h3>Actions</h3>
+<%if !@course.awaiting_review%>
 <div class="communication_item send_message clearfix">
     <%if @user.has_played_course? @course%>
         You have played this course
@@ -18,3 +19,11 @@
 <div class="communication_item send_message clearfix">
 	<%= link_to 'Add to Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => @course.id, :only_path => true) %>
 </div>
+<div class="communication_item send_message clearfix">
+	<%= link_to 'Schedule Game', url_for(:action => :schedule_game, :id => @course.id, :only_path => true) %>
+</div>
+<%else%>
+  <div class="communication_item send_message clearfix">
+    This course is still awaiting review and no actions can currently be taken.
+  </div>
+<%end%>

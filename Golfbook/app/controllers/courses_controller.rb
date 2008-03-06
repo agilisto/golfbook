@@ -143,6 +143,11 @@ class CoursesController < ApplicationController
       
     @reviews = @course.reviews.paginate(:page => params[:page], :order => 'created_at DESC')     
     @review = Review.new
+    
+    @games = @user.games.for_course @course
+    @user.games_to_play.for_course(@course).each do |g|
+      @games << g
+    end
          
     respond_to do |format|
       format.fbml # show.html.erb
@@ -271,6 +276,78 @@ class CoursesController < ApplicationController
       format.fbml # index.html.erb
       format.xml  { render :xml => @courses }
     end
+  end
+  
+  def schedule_game
+    @user = current_user
+    @course = Course.find params[:id]
+    @game = Game.new(:user => @user, :course => @course)
+    @recent_rounds = @course.rounds.recent_rounds(10)
+  end
+  
+  def save_game
+    @user = current_user
+    @game = Game.new(params[:game])
+    @game.save!
+    redirect_to :action => :schedule_game_invite, :id => @game.id
+  end
+    
+  def schedule_game_invite
+    @user = current_user
+    @game = Game.find params[:id]
+    @course = @game.course
+    @recent_rounds = @course.rounds.recent_rounds(10)
+    
+    # get all friends who DON'T have the app installed
+    fql =  "SELECT uid, name FROM user WHERE uid IN" +
+      "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
+      "AND has_added_app = 0" 
+    xml_friends = fbsession.fql_query :query => fql
+    @friends = Hash.new
+    xml_friends.search("//user").map do|usrNode| 
+      @friends[(usrNode/"uid").inner_html] = (usrNode/"name").inner_html
+    end
+    
+    #create an exclusion list
+    @friend_ids = []  
+    
+    #now exclude friends who don't have the app
+    @friends.each do |uid, name|
+      if !@friend_ids.include? uid
+        @friend_ids << uid
+      end
+    end
+    
+    #exclude friends already playing the game
+    @game.users.each do |u|
+      if !@friend_ids.include? u.facebook_uid
+        @friend_ids << u.facebook_uid
+      end
+    end
+
+    @friend_ids = @friend_ids.join(',')
+  end
+  
+  def join_game
+    @user = current_user
+    @game = Game.find params[:id]
+    @game.users << @user
+    @game.save!
+    flash[:notice] = "You have accepted the game invitation.";
+    redirect_to :action => :show, :id => @game.course_id
+  end
+  
+  def cancel_game
+    @user = current_user
+    @game = Game.find params[:id]
+    Game.delete @game.id
+    message = "has cancelled his game at <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@game.course_id)}'>#{@game.course.name}</a> on #{@game.date_to_play.to_formatted_s(:long)}."
+    fbsession.feed_publishActionOfUser(:title => "<fb:name /> " + message)
+    uids = [ @game.user.facebook_uid ]
+    @game.users.each { |u| uids << u.facebook_uid }
+    fbsession.notifications_send :to_ids => uids.join(","), :notification => message
+    flash[:success] = "Game has been cancelled."
+    redirect_to :action => :show, :id => @game.course_id
   end
   
   def lookup

@@ -1,0 +1,47 @@
+<%= render :partial => "course_header"%>
+
+<%= render :partial => 'courses_menu' %>
+
+<div id="page_panel">
+	<div class="courses clearfix">
+		<div class="main_column clearfix">
+			<h2 class="first_card_section clearfix">Schedule a Game</h2>
+			
+			<div class="card small_hole_card">
+				<%= render :partial => 'course_summary', :object => @course %>
+			</div>
+
+                        <div class="card small_hole_card">
+                          <% editor_form_for :game, @game, :url => {:action => "save_game"} do |f| %>
+   
+                            <%= f.hidden_field :course_id %>
+                            <%= f.hidden_field :user_id %>
+
+                            <fb:editor-custom label="Target Date">
+                            <%= f.date_select :date_to_play %>
+                            </fb:editor-custom>
+                            <fb:editor-buttonset>
+                                <%= f.submit_tag('Invite Friends') %>
+                                <fb:editor-cancel href="<%= url_for(:action => :show, :id => @game.course_id)%>">
+                            </fb:editor-buttonset>
+
+                          <%end%>
+                        </div>
+		</div>
+		<div class="side_column">
+			<div class="section">
+				<%= render :partial => 'course_stats' %>
+			</div>
+			<div class="section">
+				<%= render :partial => 'course_actions' %>
+			</div>
+			<div class="section">
+			<h3>Recently Posted Rounds</h3>
+					<ul class="small_list">
+						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
+					</ul>
+				</div>
+
+		</div>
+	</div>
+</div>
