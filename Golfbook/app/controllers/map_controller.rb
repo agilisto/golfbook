@@ -137,7 +137,41 @@ class MapController < ApplicationController
     
     @map.overlay_init clusterer
   end
- 
+
+  def at_location
+    @user = current_user
+    latitude = params["latitude"]
+    longitude = params["longitude"]
+    @courses = Course.find :all, :origin => [latitude,longitude], :within => DEFAULT_RADIUS
+    @map = GMap.new(@size)
+    large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
+    @map.control_init(:large_map => large_map,:map_type => true)
+    @map.center_zoom_init([latitude, longitude], @zoom.to_i)
+
+    define_icons
+    
+    markers = []
+    
+    @courses.each do |c|
+      @course = c
+      info_window = render_to_string :partial => 'shared/info_window', :object => c 
+      marker = GMarker.new([c.latitude, c.longitude],   
+        :title => c.name, :icon => @icon_flag, :info_window => info_window)
+      markers.push(marker)
+    end  
+    
+    clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
+      :icon => @lots_icon)
+    
+    js = "function(overlay, latlng)
+    {
+      var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
+      map.openInfoWindow(latlng, html)
+    }"
+    @map.event_init @map, "click", js
+    
+    @map.overlay_init clusterer
+  end
 
   # rfacebook breaks this outside of the canvas, hence this method so i 
   # can see what is going on

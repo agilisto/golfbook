@@ -92,9 +92,11 @@ class CoursesController < ApplicationController
   def filter_by_loc_unrated
     @user = current_user
     @location = params["location"]
-    RAILS_DEFAULT_LOGGER.debug "Checking location: #{@location}"
+    logger.debug "Geocoding location: #{@location}"
+    @latitude, @longitude = geocode_location @location
+    logger.debug "Latitude: #{@latitude}, Longitude: #{@longitude}"
     begin
-      courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
+      courses = Course.find :all, :origin => [@latitude, @longitude], :within => DEFAULT_RADIUS
     rescue StandardError => e
       logger.debug "ERROR: #{e.inspect}"
       courses = []

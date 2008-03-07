@@ -1,6 +1,8 @@
 	<div class="main_column">
 	
 			<h2 class="first_card_section">Courses near <%= h @location%></h2>
+        
+                        <%= render :partial => 'loc_map.fbml.erb' %>
 
 			<%= render :partial => 'course', :collection => @courses %>
 	

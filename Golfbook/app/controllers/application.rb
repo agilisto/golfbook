@@ -68,5 +68,26 @@ class ApplicationController < ActionController::Base
       path = "#{request.protocol}#{request.host}:#{request.port}#{path}"
     end
   end
+     
+  def geocode_location location
+    res=MultiGeocoder.geocode(location)
+    latitude, longitude = 0, 0
+    
+    if res.success
+      latitude, longitude = res.lat, res.lng 
+    else
+      criteria = Geonames::ToponymSearchCriteria.new
+      criteria.name_equals = location
+      criteria.max_rows = '1'
+
+      results = Geonames::WebService.search(criteria).toponyms
+
+      if results.length == 1 
+        latitude, longitude = results[0].latitude, results[0].longitude
+      end
       
+      [latitude, longitude]
+    end
+  end
+  
 end
