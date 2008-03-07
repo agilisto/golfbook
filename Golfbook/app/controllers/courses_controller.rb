@@ -51,6 +51,15 @@ class CoursesController < ApplicationController
     flash[:notice] = "#{@course.name} added to your list of played courses."
     redirect_to :action => :courses_played
   end
+  
+  def course_played_remote
+    logger.debug("RECEIVED: #{params[:id]} played for user #{current_user.id}")
+    @course = Course.find params[:id]
+    current_user.has_played @course
+    respond_to do |format|
+      format.js
+    end
+  end
    
   def courses_played
     @user = current_user

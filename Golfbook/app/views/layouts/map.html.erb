@@ -4,6 +4,7 @@
         <%= GMap.header %>
 		<%= javascript_include_tag("clusterer") %>
         <%= @map.to_html %>
+        <%= javascript_include_tag :defaults %>
         </head>
         <body>
 			<div id="map">

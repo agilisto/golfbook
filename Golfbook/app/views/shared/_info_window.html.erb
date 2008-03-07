@@ -1,14 +1,17 @@
-<div class="info_window">
+<div class="info_window" id="info_window_<%= info_window.id%>">
   <h4><%= info_window.name %></h4>
   <ul>
     <li>
       <%= link_to 'View Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
     </li>
-    <li>
+    <li id="played_<%=info_window.id%>">
       <%if @user.has_played_course? @course%>
           You have played this course
         <%else%>
-            <%= link_to 'Mark as Played', url_for_canvas(url_for(:controller => :courses, :action => :course_played, :id => info_window.id)), :target => '_top' %>
+            <%= link_to_remote 'Mark as Played', 
+              :url => url_for( :controller => :courses, :action => :course_played_remote ),
+              :with => "'id=' + #{info_window.id}"
+            %>
           <%end%>
       </li>
       <li>
