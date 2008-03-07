@@ -2,9 +2,13 @@
 	
 			<h2 class="first_card_section">Courses near <%= h @location%></h2>
         
-                        <%= render :partial => 'loc_map.fbml.erb' %>
-
-			<%= render :partial => 'course', :collection => @courses %>
+                    <div class="course_list_item clearfix">
+                        <div>	
+                            <%= render :partial => 'loc_map.fbml.erb' %>
+			</div>
+                    </div>
+        
+                    <%= render :partial => 'course', :collection => @courses %>
 	
 	</div>
         <div class="side_column">
