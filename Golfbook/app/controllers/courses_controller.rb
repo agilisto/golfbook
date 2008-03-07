@@ -264,7 +264,7 @@ class CoursesController < ApplicationController
   def filter_by_name
     course_name = params["course_filter"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}] #, :include => [:ratings]
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%#{course_name}%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
@@ -277,7 +277,7 @@ class CoursesController < ApplicationController
     course = params[:course]
     course_name = course["course_name"]
     RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => course_name + "%"}] #, :include => [:ratings]
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%" + course_name + "%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
@@ -370,7 +370,7 @@ class CoursesController < ApplicationController
       return
     else
       search_string = params[:suggest_typed] + "%"
-      @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => search_string}]
+      @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%#{search_string}%"}]
       @count = @courses.length
       RAILS_DEFAULT_LOGGER.debug "Courses: #{@count}"
       names = @courses.map {|course| course.name }

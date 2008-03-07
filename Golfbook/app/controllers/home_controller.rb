@@ -16,6 +16,9 @@ class HomeController < ApplicationController
     @recent_tours = Tour.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_competitions = Competition.find_all_by_user_id uids, :order => :created_at, :limit => 3
     
+    @upcoming_games = @user.games.upcoming
+    @user.games_to_play.upcoming.each { |g| @upcoming_games << g }
+    
     # causing "stack level too deep" exception
     #@recent_ratings = Course.find_last_rated 3
     @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 3#, :include => [:user]

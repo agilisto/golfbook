@@ -7,7 +7,7 @@
     ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>",	// url to your data source
       focus: false,				// whether or not to auto-focus the textbox upon creation
       onEnter: function(event) {		// handler for hitting the 'enter' key
-        location_lookup.submit();
+        course_search_by_name.submit();
       },
       delayTime: 350,				// amount of idle time after a keypress before making the ajax call
       clearOnEnter: true			// whether or not to clear the text after they hit enter
@@ -19,7 +19,7 @@
                         ajaxUrl: "<%= url_for(:only_path => false, :controller => :geolookup, :action => :city)%>",	// url to your data source
                           focus: false,				// whether or not to auto-focus the textbox upon creation
                           onEnter: function(event) {		// handler for hitting the 'enter' key
-                            location_lookup.submit();
+                            course_search_by_loc.submit();
                           },
                           delayTime: 350,				// amount of idle time after a keypress before making the ajax call
                           clearOnEnter: true			// whether or not to clear the text after they hit enter

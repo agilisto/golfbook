@@ -6,7 +6,14 @@ class User < ActiveRecord::Base
     def for_course course
       find :all, 
         :conditions => ['course_id = :course_id and date_to_play > :date', 
-        { :course_id => course.id, :date => Date.today }]
+        { :course_id => course.id, :date => Date.today }],
+      :order => "date_to_play asc",
+      :limit => 3
+    end
+    def upcoming
+      find :all,
+        :order => 'date_to_play asc',
+        :limit => 3
     end
   end
   
@@ -15,7 +22,14 @@ class User < ActiveRecord::Base
     def for_course course
       find :all, 
         :conditions => ['course_id = :course_id and date_to_play > :date', 
-        { :course_id => course.id, :date => Date.today }]
+        { :course_id => course.id, :date => Date.today }],
+        :order => "date_to_play asc",
+        :limit => 3
+    end
+    def upcoming
+      find :all,
+        :order => "date_to_play asc",
+        :limit => 3
     end
   end
   

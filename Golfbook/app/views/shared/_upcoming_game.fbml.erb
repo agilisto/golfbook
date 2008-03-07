@@ -1,0 +1,15 @@
+<li>
+
+<h1>
+ <%= link_to upcoming_game.course.name, :controller => :courses, :action => :show, :id => upcoming_game.course_id %>
+</h1>
+	  
+<span class="name">
+   <a href="<%= profile_view_url :id=>upcoming_game.user_id, :only_path => true%>">
+   <fb:name uid='<%= upcoming_game.user.facebook_uid %>' linked="false" useyou='false'></fb:name></a>
+ 
+</span>
+
+<span class="played"><%= upcoming_game.date_to_play.to_formatted_s(:long) %></span>
+
+</li>

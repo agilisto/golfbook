@@ -68,6 +68,19 @@
 
 <br><br><br>
 
+<div class="recent_rounds">
+	<h4>Upcoming Games</h4>
+        <%if @upcoming_games.length > 0%>
+	<ul class="horizontal_list">
+		<%= render :partial => 'shared/upcoming_game', :collection => @upcoming_games %>
+	</ul>
+        <%else%>
+          <ul><li>No upcoming games.</li></ul>
+        <%end%>
+</div>
+
+<br><br><br>
+
 <!--div class="clearfix">&nbsp;</div-->
 
 <%= render :partial => 'home_menu.fbml.erb' %>
