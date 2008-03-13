@@ -7,8 +7,8 @@ class CourseCleaner
     courses = Course.find(:all)
     courses.each do |course|
       if course.name =~ REGEX
-        puts "#{course.name}" if course.name =~ REGEX
-        puts "\t#{course.name.gsub(REGEX, '')}" if course.name =~ REGEX
+        puts "#{course.name}"
+        puts "\t#{course.name.gsub(REGEX, '')}"
         course.name.gsub!(REGEX, '')
         course.save!
       end
