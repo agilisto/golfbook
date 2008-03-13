@@ -18,6 +18,8 @@ class RoundController < ApplicationController
     @user.post_score(@round)
     # TODO: Failure
 
+    update_profile_box(@user.id)
+    
     redirect_to :action => :index
     
   end

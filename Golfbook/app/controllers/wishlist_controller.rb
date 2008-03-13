@@ -8,6 +8,7 @@ class WishlistController < ApplicationController
     else
       flash[:notice] = "You've already marked '#{@course.name} as a course you'd like to play."
     end
+    
     redirect_to course_add_wishlist_target_date_url(:id => @course.id, :only_path => true)
   end
   

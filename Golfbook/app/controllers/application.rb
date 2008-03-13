@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   def current_user
     if @user.nil?
       @user = User.find_or_create_by_facebook_uid(fbsession.session_user_id)
+      update_profile_box(@user.id)
     end
     @user
   end
@@ -44,6 +45,14 @@ class ApplicationController < ActionController::Base
   end
   
   def set_active_submenu
+  end
+  
+  def update_profile_box user_id
+    user = User.find user_id
+    recent_rounds = user.rounds.recent(3)
+    upcoming_games = user.games.upcoming
+    profile_box = render_to_string(:partial => 'shared/profile_box', :locals => { :user => user, :recent_rounds => recent_rounds, :upcoming_games => upcoming_games })
+    fbsession.profile_setFBML({:profile => profile_box, :uid => user.facebook_uid})
   end
   
   def url_for_canvas(path)

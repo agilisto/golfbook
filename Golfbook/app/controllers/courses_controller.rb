@@ -312,6 +312,7 @@ class CoursesController < ApplicationController
     @user = current_user
     @game = Game.new(params[:game])
     @game.save!
+    update_profile_box(@user.id)
     redirect_to :action => :schedule_game_invite, :id => @game.id
   end
     
@@ -359,6 +360,7 @@ class CoursesController < ApplicationController
     flash[:notice] = "You have accepted the game invitation.";
     message = "will join you for your game at <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@game.course_id)}'>#{@game.course.name}</a> on #{@game.date_to_play.to_formatted_s(:long)}."
     fbsession.notifications_send :to_ids => @game.user.facebook_uid, :notification => message
+    update_profile_box(@user.id)
     redirect_to :action => :show, :id => @game.course_id
   end
   
@@ -372,6 +374,7 @@ class CoursesController < ApplicationController
     @game.users.each { |u| uids << u.facebook_uid }
     fbsession.notifications_send :to_ids => uids.join(","), :notification => message
     flash[:success] = "Game has been cancelled."
+    update_profile_box(@user.id)
     redirect_to :action => :show, :id => @game.course_id
   end
   

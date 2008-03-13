@@ -37,6 +37,10 @@ class ProfileController < ApplicationController
     redirect_to :action => :show, :id => @user.id
   end
   
+  def update_profile_test
+    update_profile_box current_user.id
+  end
+  
   def show
     @viewer = current_user
     @user = User.find params[:id]
@@ -63,9 +67,9 @@ class ProfileController < ApplicationController
   end
   
   def rounds
-     @user = User.find params[:id]
-     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
-     @action = :rounds
+    @user = User.find params[:id]
+    @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
+    @action = :rounds
   end
 
   def location
