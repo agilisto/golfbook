@@ -93,7 +93,7 @@
     <div class="card small_hole_card clearfix">
         <h3>Your Goals</h3>
         <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
-        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:course_played %>.</p>
+        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
     </div>
 <%end%>
 
