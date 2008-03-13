@@ -8,6 +8,7 @@ class MapController < ApplicationController
   def show
     @user = current_user
     @course = Course.find(params[:id])
+    
     @map = GMap.new(@size)
     
     define_icons
@@ -15,11 +16,10 @@ class MapController < ApplicationController
     large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
     @map.control_init(:large_map => large_map,:map_type => true)
     @map.center_zoom_init([@course.latitude, @course.longitude],@zoom.to_i)
+    #@map.event_init(@map,:moveend,"function(){alert('HOYOYO');}")
+    
 
     info_window = render_to_string :partial => 'shared/info_window', :object => @course
-  
-    marker = GMarker.new([@course.latitude, @course.longitude],   
-      :title => @course.name, :info_window => info_window, :icon => @icon_flag)  
     
     js = "function(overlay, latlng)
     {
@@ -27,9 +27,31 @@ class MapController < ApplicationController
       map.openInfoWindow(latlng, html)
     }"
     
+    @courses_near = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @course)
+    
+    markers = []
+
+    
+    @courses_near.each do |c|
+      @course = c
+      info_window = render_to_string :partial => 'shared/info_window', :object => c
+
+      marker = GMarker.new([c.latitude, c.longitude],   
+        :title => c.name, :icon => @icon_flag, :info_window => info_window)
+
+      markers.push(marker)
+    end
+    
+    marker = GMarker.new([@course.latitude, @course.longitude],   
+      :title => @course.name, :info_window => info_window, :icon => @icon_flag)
+    markers.push(marker)
+  
     @map.event_init @map, "click", js
     
-    @map.overlay_init(marker)    
+    clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
+        :icon => @lots_icon)
+    
+    @map.overlay_init(clusterer)   
   end
   
   def shownew
@@ -190,6 +212,11 @@ class MapController < ApplicationController
         :icon_size => GSize.new( 50,43 ), 
         :icon_anchor => GPoint.new(25,21), 
         :info_window_anchor => GPoint.new(25,21)),"icon_flag")
+        
+    @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'blue_flag_hole.png'), 
+        :icon_size => GSize.new( 50,43 ), 
+        :icon_anchor => GPoint.new(25,21), 
+        :info_window_anchor => GPoint.new(25,21)),"blue_icon_flag")
     #:icon_shadow => url_for(:controller => :images, :action => 'shadow-red_flag_hole_icon.png'),
     #:shadow_size => new GSize(72.0, 43.0)), 
     
@@ -198,8 +225,10 @@ class MapController < ApplicationController
         :icon_anchor => GPoint.new(45,45), 
         :info_window_anchor => GPoint.new(50,45)),"lots")
     
-    @icon_flag = Variable.new("icon_flag");
+    @icon_flag = Variable.new("icon_flag")
     @lots_icon = Variable.new('lots')
+    @blue_icon_flag = Variable.new('blue_icon_flag')
+    
   end
   def map_size
     @size = params[:size] ? params[:size] : 'large'
