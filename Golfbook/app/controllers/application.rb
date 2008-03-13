@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   def current_user
     if @user.nil?
       @user = User.find_or_create_by_facebook_uid(fbsession.session_user_id)
-      update_profile_box(@user.id)
     end
     @user
   end

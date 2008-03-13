@@ -378,6 +378,25 @@ class CoursesController < ApplicationController
     redirect_to :action => :show, :id => @game.course_id
   end
   
+  def report_course
+    @user = current_user
+    @course = Course.find params[:id]
+  end
+  
+  def report_proc
+    @user = current_user
+    @course = Course.find params[:course_id]
+    
+    # send notifications to admins
+    admins = User.find_all_by_admin true
+    uids = []
+    admins.each { |a| uids << a.facebook_uid }
+    message = "has submitted a comment for <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>: #{params[:comments]}"
+    fbsession.notifications_send :to_ids => uids.join(","), :notification => message
+    flash[:notice] = "Your comment has been sent to the admins."
+    redirect_to :action => :show, :id => @course.id
+  end
+  
   def lookup
     RAILS_DEFAULT_LOGGER.debug "Search string: #{params[:suggest_typed]} .. length: #{params[:suggest_typed].length}"
     if params[:suggest_typed].nil? || params[:suggest_typed].blank? || params[:suggest_typed].length == 0

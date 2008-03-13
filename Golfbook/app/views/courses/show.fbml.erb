@@ -39,6 +39,11 @@
 			<div class="card small_hole_card">
 				<%= render :partial => 'course_map', :object => @course %>
 			</div>
+
+                         <div class="card small_hole_card">
+				If you find any inaccuracies with this course please 
+                                <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
+			</div>
 			
 			<div class="card small_hole_card">
 				<div id="course_reviews">
