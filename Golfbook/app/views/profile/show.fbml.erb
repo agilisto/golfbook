@@ -18,6 +18,17 @@
                           </p>
                   </div>
                 </fb:if-is-user>
+
+                <div class="card small_hole_card">
+                  <h3>Goal</h3>
+                  <p><a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" possessive="true" capitalize="true" linked="false" /></a> goal is 
+                  to play <%=@user.goal%> courses. <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:pronoun uid="<%=@user.facebook_uid%>" capitalize="true" linked="false" /></a>
+                  currently have played <%=@user.courses_played.length%> courses.</p>
+                  <fb:if-is-user uid="<%=@user.facebook_uid%>">
+                    <p><%=link_to("Set Goal", {:action=>:goal,:id=>@user.id}, {:class=>'inputsubmit'})%></p>
+                  </fb:if-is-user>
+                </div>
+
 		<div class="card small_hole_card">
 			<h3>
                             <%= link_to 'Recent Rounds', :action => :rounds, :id => @user.id %>

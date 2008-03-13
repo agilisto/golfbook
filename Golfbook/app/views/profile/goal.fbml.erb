@@ -1,0 +1,23 @@
+<%= render :partial => 'profile_header' %>
+
+<%= render :partial => 'profile_menu'%>
+
+<div class="editor_panel">
+  <div class="editor clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section">Set Your Goal</h2>
+      <div class="card small_card_hole">
+        <% form_for :user, :url => {:action => :set_goal} do |f| %>
+  
+          <span class="label">Courses To Play</span>
+        
+                                                     <%= f.text_field :goal, {:size => 10} %>
+        
+                                             <%= submit_tag 'Set Goal', :class => 'inputsubmit' %>
+                                         
+        
+                                         <% end%>
+      </div>
+    </div>
+  </div>
+</div>

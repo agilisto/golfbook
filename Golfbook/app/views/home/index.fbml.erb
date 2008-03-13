@@ -16,7 +16,7 @@
 	</fb:explanation>
 <% end %>
 
-<div class="recent_rounds"so>
+<div class="recent_rounds">
 	<h4>Recently Posted Rounds</h4>
         <%if @recent_rounds.length > 0%>
 	<ul class="horizontal_list">
@@ -87,7 +87,16 @@
 
 <div class="editor_panel clearfix">
 	<div class="main_column clearfix">
-		<h2 class="first_card_section">Courses</h2>
+
+
+<%if @user.goal > 0%>
+    <div class="card small_hole_card clearfix">
+        <h3>Your Goals</h3>
+        <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
+        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:course_played %>.</p>
+    </div>
+<%end%>
+
 		<div class="card small_hole_card clearfix">
 			<h3>Courses Near Me</h3>
 			<div>	

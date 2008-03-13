@@ -26,6 +26,17 @@ class ProfileController < ApplicationController
     redirect_to :action => :show, :id => @user.id
   end
   
+  def goal
+    @user = current_user
+  end
+  
+  def set_goal
+    @user = current_user
+    @user.goal = params[:user][:goal]
+    @user.save!
+    redirect_to :action => :show, :id => @user.id
+  end
+  
   def show
     @viewer = current_user
     @user = User.find params[:id]

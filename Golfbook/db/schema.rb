@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 29) do
+ActiveRecord::Schema.define(:version => 30) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(:version => 29) do
     t.decimal  "longitude",    :precision => 15, :scale => 10
     t.string   "address"
     t.boolean  "admin",                                        :default => false
+    t.integer  "goal",                                         :default => 0
   end
 
   create_table "wishlists", :force => true do |t|
