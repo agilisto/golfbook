@@ -38,7 +38,7 @@ class ProfileController < ApplicationController
   end
   
   def update_profile_test
-    update_profile_box current_user.id
+    update_profile_box params[:id]
   end
   
   def show

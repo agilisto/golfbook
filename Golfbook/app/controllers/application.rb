@@ -51,6 +51,7 @@ class ApplicationController < ActionController::Base
     user = User.find user_id
     recent_rounds = user.rounds.recent(3)
     upcoming_games = user.games.upcoming
+    #profile_action = "<a href='#{url_for(:controller=>:profile,:action=>:show,:id=>user.id)}'>View My Golfbook Profile</a>"
     profile_box = render_to_string(:partial => 'shared/profile_box', :locals => { :user => user, :recent_rounds => recent_rounds, :upcoming_games => upcoming_games })
     fbsession.profile_setFBML({:profile => profile_box, :uid => user.facebook_uid})
   end
