@@ -20,7 +20,7 @@
 	<%= link_to 'Add to Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => @course.id, :only_path => true) %>
 </div>
 <div class="communication_item send_message clearfix">
-	<%= link_to 'Schedule Game', url_for(:action => :schedule_game, :id => @course.id, :only_path => true) %>
+	<%= link_to 'Schedule Game', url_for(:controller => :courses, :action => :schedule_game, :id => @course.id, :only_path => true) %>
 </div>
 <%else%>
   <div class="communication_item send_message clearfix">
