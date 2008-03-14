@@ -21,7 +21,7 @@
                             <%= f.date_select :date_to_play %>
                             </fb:editor-custom>
                             <fb:editor-buttonset>
-                                <%= f.submit_tag('Invite Friends') %>
+                                <%= f.submit_tag('Schedule Game') %>
                                 <fb:editor-cancel href="<%= url_for(:action => :show, :id => @game.course_id)%>">
                             </fb:editor-buttonset>
 
