@@ -1,103 +1,111 @@
 <div class="module clearfix page_panel_header no_border">
-  <div class="header_page_summary clearfix">
-    <div class="thumb">
-    </div>
-    <div class="info">
-      <h2>Golfbook</h2>
-      <div>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></div>
-    </div>
-    <%#= render :partial => 'set_goal'%>
-  </div>
+	<div class="header_page_summary clearfix">
+		<div class="thumb">
+		</div>
+		<div class="info">
+			<h2>Golfbook</h2>
+			<div>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></div>
+		</div>
+		<%#= render :partial => 'set_goal'%>
+	</div>
 </div>
 
 <% if !@user.location_set? %>
-  <fb:explanation>
-    <fb:message>Welcome, we see you are new here! Please take a moment to set your <%= link_to 'location',:controller => :profile, :action => :index %> to get the most out of Golfbook.</fb:message>
-  </fb:explanation>
+	<fb:explanation>
+	    <fb:message>Welcome, we see you are new here! Please take a moment to set your <%= link_to 'location',:controller => :profile, :action => :index %> to get the most out of Golfbook.</fb:message>
+	</fb:explanation>
 <% end %>
+
+<div class="recent_rounds">
+	<h4>Recently Posted Rounds</h4>
+        <%if @recent_rounds.length > 0%>
+	<ul class="horizontal_list">
+		<%= render :partial => 'shared/recent_round', :collection => @recent_rounds, :locals => {:display_course => true} %>
+	</ul>
+        <%else%>
+          <ul><li>No recently posted rounds.</li></ul>
+        <%end%>
+</div>
+
+  <br /><br /><br />
+
+<div class="recent_rounds">
+	<h4>Recently Created Tours</h4>
+        <%if @recent_tours.length > 0%>
+          <ul class="horizontal_list">
+                  <%= render :partial => 'shared/recent_tour', :collection => @recent_tours %>
+          </ul>
+        <%else%>
+          <ul><li>No recently created tours.</li></ul>
+        <%end%>
+</div>
+
+  <br /><br /><br />
+
+<div class="recent_rounds">
+	<h4>Recently Created Competitions</h4>
+        <%if @recent_competitions.length > 0%>
+          <ul class="horizontal_list">
+                  <%= render :partial => 'shared/recent_competition', :collection => @recent_competitions %>
+          </ul>
+        <%else%>
+          <ul><li>No recently created competitions.</li></ul>
+        <%end%>
+</div>
+
+  <br /><br /><br />
+
+<div class="recent_rounds">
+	<h4>Recently Rated</h4>
+        <%if @recent_ratings.length > 0%>
+	<ul class="horizontal_list">
+		<%= render :partial => 'shared/recent_rating', :collection => @recent_ratings %>
+	</ul>
+        <%else%>
+          <ul><li>No recently rated courses.</li></ul>
+        <%end%>
+</div>
+
+<br><br><br>
+
+<div class="recent_rounds">
+	<h4>Upcoming Games</h4>
+        <%if @upcoming_games.length > 0%>
+	<ul class="horizontal_list">
+		<%= render :partial => 'shared/upcoming_game', :collection => @upcoming_games %>
+	</ul>
+        <%else%>
+          <ul><li>No upcoming games.</li></ul>
+        <%end%>
+</div>
+
+<br><br><br>
 
 <!--div class="clearfix">&nbsp;</div-->
 
 <%= render :partial => 'home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
-  <div class="main_column clearfix">
-    
-    
-    <%if @user.goal > 0%>
-      <div class="card small_hole_card clearfix">
+	<div class="main_column clearfix">
+
+
+<%if @user.goal > 0%>
+    <div class="card small_hole_card clearfix">
         <h3>Your Goals</h3>
         <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
-          <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
-        </div>
-      <%end%>
-    
-      <div class="card small_hole_card clearfix">
-        <h3>Courses Near Me</h3>
-        <div>	
-          <%= render :partial => 'home_map.fbml.erb' %>
-        </div>
-      </div>
+        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
     </div>
-    <div class="side_column">
-      <%= render :partial => 'shared/vitals' %>
-   
-      <div class="section">
-        <h3>Recently Posted Rounds</h3>
-        <%if @recent_rounds.length > 0%>
-          <ul>
-            <%= render :partial => 'shared/recent_round', :collection => @recent_rounds, :locals => {:display_course => true} %>
-          </ul>
-        <%else%>
-          <ul><li>No recently posted rounds.</li></ul>
-        <%end%>
-      </div>
-    
-    
-      <div class="section">
-        <h3>Recently Created Tours</h3>
-        <%if @recent_tours.length > 0%>
-          <ul>
-            <%= render :partial => 'shared/recent_tour', :collection => @recent_tours %>
-          </ul>
-        <%else%>
-          <ul><li>No recently created tours.</li></ul>
-        <%end%>
-      </div>
-    
-      <div class="section">
-        <h3>Recently Created Competitions</h3>
-        <%if @recent_competitions.length > 0%>
-          <ul>
-            <%= render :partial => 'shared/recent_competition', :collection => @recent_competitions %>
-          </ul>
-        <%else%>
-          <ul><li>No recently created competitions.</li></ul>
-        <%end%>
-      </div>
-    
-      <div class="section">
-        <h3>Recently Rated</h3>
-        <%if @recent_ratings.length > 0%>
-          <ul>
-            <%= render :partial => 'shared/recent_rating', :collection => @recent_ratings %>
-          </ul>
-        <%else%>
-          <ul><li>No recently rated courses.</li></ul>
-        <%end%>
-      </div>
-    
-      <div class="section">
-        <h3>Upcoming Games</h3>
-        <%if @upcoming_games.length > 0%>
-          <ul>
-            <%= render :partial => 'shared/upcoming_game', :collection => @upcoming_games %>
-          </ul>
-        <%else%>
-          <ul><li>No upcoming games.</li></ul>
-        <%end%>
-      </div>
+<%end%>
 
-       <%= render :partial => "shared/invite_button"%>
-    </div>
-  </div>
+		<div class="card small_hole_card clearfix">
+			<h3>Courses Near Me</h3>
+			<div>	
+				<%= render :partial => 'home_map.fbml.erb' %>
+			</div>
+		</div>
+	</div>
+	<div class="side_column">
+		<%= render :partial => 'shared/vitals' %>
+                <%= render :partial => "shared/invite_button"%>
+	</div>
+</div>
