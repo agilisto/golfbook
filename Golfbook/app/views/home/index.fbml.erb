@@ -16,40 +16,40 @@
 	</fb:explanation>
 <% end %>
 
-
-<!--div class="clearfix">&nbsp;</div-->
-
 <%= render :partial => 'home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
 	<div class="main_column clearfix">
-
-
-	<%if @user.goal > 0%>
-	    <div class="card small_hole_card clearfix">
-	        <h3>Your Goals</h3>
-	        <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
-	        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
-	    </div>
-	<%end%>
-
-	<div class="card small_hole_card clearfix">
-		<h3>Find the best courses in town!</h3>
-		<h4>Read reviews of the courses in your area</h4>
-		<div>	
-			<%= render :partial => 'home_map.fbml.erb' %>
+		<%if @user.goal > 0%>
+		    <div class="card small_hole_card clearfix">
+		        <h3>Your Goals</h3>
+		        <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
+		        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
+		    </div>
+		<%end%>
+		
+		<div class="card small_hole_card clearfix">
+			<h3>Your upcoming games</h3>
+				<%= render :partial => 'shared/expanded_upcoming_game', :collection => @upcoming_games %>
 		</div>
-	</div>
+
+		<div class="card small_hole_card clearfix">
+			<h3>Find the best courses in town!</h3>
+			<h4>Read reviews and find out more of the courses in your area</h4><br/>
+			<div>	
+				<%= render :partial => 'home_map.fbml.erb' %>
+			</div>
+		</div>
 	
-	<div class="card small_hole_card clearfix">
-		<h3>Where are your friends playing?</h3>
-			<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
-	</div>
+		<div class="card small_hole_card clearfix">
+			<h3>Where are your friends playing?</h3>
+				<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
+		</div>
 	
-	<div class="card small_hole_card clearfix">
-		<h3>Recently Posted Rounds Worldwide</h3>
-			<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
-	</div>
+		<div class="card small_hole_card clearfix">
+			<h3>Recently Posted Rounds Worldwide</h3>
+				<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
+		</div>
 	
 	</div>
 	
@@ -59,71 +59,19 @@
 
 		<br/>
 		<div class="section">
-	
-		<h3>Worldwide Reviews</h3>
-			 <%if @recent_ratings.length > 0%>
+			<h3>Worldwide Reviews</h3>
 				<%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
-	        <%else%>
-	          <div>No recently rated courses.</div>
-	        <%end%>
 		</div>
-
+		
+		<div class="section">
+			<h3>Worldwide Tours</h3>
+				<%= render :partial => 'shared/expanded_recent_tour', :collection => @recent_tours %>
+		</div>
+		
+		<div class="section">
+			<h3>Worldwide Competitions</h3>
+				<%= render :partial => 'shared/expanded_recent_competition', :collection => @recent_competitions %>
+		</div>
+		
 	</div>
 </div>
-
-
-
-  <br /><br /><br />
-
-<div class="recent_rounds">
-	<h4>Recently Created Tours</h4>
-        <%if @recent_tours.length > 0%>
-          <ul class="horizontal_list">
-                  <%= render :partial => 'shared/recent_tour', :collection => @recent_tours %>
-          </ul>
-        <%else%>
-          <ul><li>No recently created tours.</li></ul>
-        <%end%>
-</div>
-
-  <br /><br /><br />
-
-<div class="recent_rounds">
-	<h4>Recently Created Competitions</h4>
-        <%if @recent_competitions.length > 0%>
-          <ul class="horizontal_list">
-                  <%= render :partial => 'shared/recent_competition', :collection => @recent_competitions %>
-          </ul>
-        <%else%>
-          <ul><li>No recently created competitions.</li></ul>
-        <%end%>
-</div>
-
-  <br /><br /><br />
-
-<div class="recent_rounds">
-	<h4>Recently Rated</h4>
-        <%if @recent_ratings.length > 0%>
-	<ul class="horizontal_list">
-		<%= render :partial => 'shared/recent_rating', :collection => @recent_ratings %>
-	</ul>
-        <%else%>
-          <ul><li>No recently rated courses.</li></ul>
-        <%end%>
-</div>
-
-<br><br><br>
-
-<div class="recent_rounds">
-	<h4>Upcoming Games</h4>
-        <%if @upcoming_games.length > 0%>
-	<ul class="horizontal_list">
-		<%= render :partial => 'shared/upcoming_game', :collection => @upcoming_games %>
-	</ul>
-        <%else%>
-          <ul><li>No upcoming games.</li></ul>
-        <%end%>
-</div>
-
-<br><br><br>
-

@@ -1,0 +1,8 @@
+<div>
+	<span class="name">
+	 <%= link_to expanded_upcoming_game.course.name, :controller => :courses, :action => :show, :id => expanded_upcoming_game.course_id %>
+	</span>
+
+	<span class="played"><%= expanded_upcoming_game.date_to_play.to_formatted_s(:long) %></span>
+
+</div>

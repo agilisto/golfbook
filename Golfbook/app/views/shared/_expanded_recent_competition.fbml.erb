@@ -1,0 +1,11 @@
+<div>
+	<span class="name" style="font-size:11px;font-weight:bold">
+		<%= link_to expanded_recent_competition.name, :controller => :tours, :action => :show, :id => expanded_recent_competition.id %>
+	</span><br/>
+	<span class="name">
+		<a href="<%= profile_view_url :id=>expanded_recent_competition.user.id, :only_path => true%>">
+			<fb:name uid='<%= expanded_recent_competition.user.facebook_uid %>' linked="false" useyou='false' />
+		</a>
+	</span>
+	<span class="played"><%= time_ago_in_words(expanded_recent_competition.created_at) %> ago</span>
+</div>
