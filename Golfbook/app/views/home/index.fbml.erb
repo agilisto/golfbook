@@ -16,16 +16,61 @@
 	</fb:explanation>
 <% end %>
 
-<div class="recent_rounds">
-	<h4>Recently Posted Rounds</h4>
-        <%if @recent_rounds.length > 0%>
-	<ul class="horizontal_list">
-		<%= render :partial => 'shared/recent_round', :collection => @recent_rounds, :locals => {:display_course => true} %>
-	</ul>
-        <%else%>
-          <ul><li>No recently posted rounds.</li></ul>
-        <%end%>
+
+<!--div class="clearfix">&nbsp;</div-->
+
+<%= render :partial => 'home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+	<div class="main_column clearfix">
+
+
+	<%if @user.goal > 0%>
+	    <div class="card small_hole_card clearfix">
+	        <h3>Your Goals</h3>
+	        <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
+	        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
+	    </div>
+	<%end%>
+
+	<div class="card small_hole_card clearfix">
+		<h3>Courses Near Me</h3>
+		<div>	
+			<%= render :partial => 'home_map.fbml.erb' %>
+		</div>
+	</div>
+	
+	<div class="card small_hole_card clearfix">
+		<h3>Where are your friends playing?</h3>
+			<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
+	</div>
+	
+	<div class="card small_hole_card clearfix">
+		<h3>Recently Posted Rounds Worldwide</h3>
+			<%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
+	</div>
+	
+	</div>
+	
+	<div class="side_column">
+		<%= render :partial => 'shared/vitals' %>
+        <%= render :partial => "shared/invite_button"%>
+
+		<br/>
+		<div class="section">
+	
+		<h3>Worldwide Reviews</h3>
+			 <%if @recent_ratings.length > 0%>
+				<%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
+	        <%else%>
+	          <div>No recently rated courses.</div>
+	        <%end%>
+		</div>
+
+	</div>
 </div>
+
+
 
   <br /><br /><br />
 
@@ -81,31 +126,3 @@
 
 <br><br><br>
 
-<!--div class="clearfix">&nbsp;</div-->
-
-<%= render :partial => 'home_menu.fbml.erb' %>
-
-<div class="editor_panel clearfix">
-	<div class="main_column clearfix">
-
-
-<%if @user.goal > 0%>
-    <div class="card small_hole_card clearfix">
-        <h3>Your Goals</h3>
-        <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
-        <%=@user.goal%> courses. So far you have played <%= link_to @user.courses_played.length, :controller=>:courses,:action=>:courses_played %>.</p>
-    </div>
-<%end%>
-
-		<div class="card small_hole_card clearfix">
-			<h3>Courses Near Me</h3>
-			<div>	
-				<%= render :partial => 'home_map.fbml.erb' %>
-			</div>
-		</div>
-	</div>
-	<div class="side_column">
-		<%= render :partial => 'shared/vitals' %>
-                <%= render :partial => "shared/invite_button"%>
-	</div>
-</div>

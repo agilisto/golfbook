@@ -596,6 +596,31 @@ ul.scorecard {
  float:right;
  text-align:right;
 }
+
 .leftcontent{
- float:left;
+	 float:left;
+}
+
+
+.expanded_profile_pic {
+	padding-right:5px;
+}
+
+.expanded_rating {
+	width:50%;
+}
+
+.expanded_rating .info {
+	color:#333333;
+	font-size:8px;
+}
+
+.expanded_rating .info {
+	padding:0px;
+	margin:0px;
+}
+
+.expanded_rating a:visited {
+	color:#333333;
+	font-size:8px;
 }
