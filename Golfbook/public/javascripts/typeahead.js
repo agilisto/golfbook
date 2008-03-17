@@ -14,7 +14,7 @@ function ajaxSuggestFbml(obj, options) {
 	// Create the dropdown list that contains our suggestions
 	this.list = document.createElement('div');
 	this.list.setClassName('suggest_list')
-		.setStyle({width: this.obj.getOffsetWidth()-2+'px',
+		.setStyle({width: (this.obj.getOffsetWidth()-2) + 'px',
 					display: 'none'});
 	this.obj.getParentNode().appendChild(this.list);
 
