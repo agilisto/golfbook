@@ -58,17 +58,17 @@
         <%= render :partial => "shared/invite_button"%>
 
 		<br/>
-		<div class="section">
+		<div class="section clearfix">
 			<h3>Worldwide Reviews</h3>
 				<%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
 		</div>
 		
-		<div class="section">
+		<div class="section clearfix">
 			<h3>Worldwide Tours</h3>
 				<%= render :partial => 'shared/expanded_recent_tour', :collection => @recent_tours %>
 		</div>
 		
-		<div class="section">
+		<div class="section clearfix">
 			<h3>Worldwide Competitions</h3>
 				<%= render :partial => 'shared/expanded_recent_competition', :collection => @recent_competitions %>
 		</div>
