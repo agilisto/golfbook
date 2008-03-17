@@ -2,23 +2,23 @@
   <h4><%= info_window.name %></h4>
   <ul>
     <li>
-      <%= link_to 'View Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
+      <%= link_to 'View The Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
     </li>
     <li id="played_<%=info_window.id%>">
       <%if @user.has_played_course? @course%>
           You have played this course
         <%else%>
-            <%= link_to_remote 'Mark as Played', 
+            <%= link_to_remote 'Played It', 
               :url => url_for( :controller => :courses, :action => :course_played_remote ),
               :with => "'id=' + #{info_window.id}"
             %>
           <%end%>
       </li>
       <li>
-        <%= link_to 'Post Score', url_for_canvas(course_add_round_url :id => info_window.id, :only_path => true), :target => '_top' %>
+        <%= link_to 'Post Score for this Course', url_for_canvas(course_add_round_url :id => info_window.id, :only_path => true), :target => '_top' %>
       </li>
       <li>
-        <%= link_to 'Wishlist', '#' %>
+        <%= link_to 'I Want to Play this Course', '#' %>
       </li>
     </ul>
   </div>

@@ -1,9 +1,9 @@
 <fb:tabs>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :index %>' title='All Courses' selected='<%= @action == :courses %>'/>
-    <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='Courses Played' selected='<%= @action == :courses_played %>'/>
+    <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='Played It' selected='<%= @action == :courses_played %>'/>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Highest Rated' selected='<%= @action == :highest_rated %>'/>
     <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='Want to Play' selected='<%= @action == :wishlist %>'/>
-    <fb:tab-item href='<%= url_for :controller => :courses, :action => :new_map %>' title='Add New Course' selected='<%= @action == :new_map %>'/>
+    <fb:tab-item href='<%= url_for :controller => :courses, :action => :new_map %>' title='Add a New Course' selected='<%= @action == :new_map %>'/>
     <%if @user.admin%>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :review %>' title='Review' selected='<%= @action == :review %>'/>
     <%end%>
