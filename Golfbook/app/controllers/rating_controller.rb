@@ -32,7 +32,7 @@ class RatingController < ApplicationController
       
     # logger.debug "Publish Templatized Action Result : #{result}"
   
-    render :partial => 'ratings/rate', :locals => { :asset => @course }
+    render :partial => 'ratings/rate', :locals => { :asset => @course }, :layout => false
   end
   
   # rfacebook breaks this outside of the canvas, hence this method so i 
