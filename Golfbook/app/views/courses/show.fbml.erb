@@ -33,7 +33,7 @@
                                     <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
                                 </div>
 				<h3 clicktotoggle="rating">
-					Rate this Course
+					Rate This Course (This is an overall rating)
 				</h3>
 				<%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
 			</div>
@@ -50,7 +50,7 @@
 			<div class="card small_hole_card">
 				<div id="course_reviews">
 					<h3 clicktotoggle="course_review_wall">
-						Recent reviews
+						Recent Course Reviews
 					</h3>
 					<div id="course_review_wall">
 						<fb:wall>
