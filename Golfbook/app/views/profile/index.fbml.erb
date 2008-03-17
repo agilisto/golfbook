@@ -7,7 +7,8 @@
 </fb:tabs>
 <div class="editor_panel clearfix">
 	<div class="main_column clearfix">
-		<h2 class="first_card_section">Profile Information</h2>
+		<h2 class="first_card_section">
+			<fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Profile</h2>
 		<div class="card small_hole_card">
 			<h3>
 				<%= link_to 'Home Location <span>(change)</span>', :action => :location %>
