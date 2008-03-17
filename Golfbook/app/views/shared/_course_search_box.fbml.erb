@@ -25,26 +25,26 @@
                           clearOnEnter: true			// whether or not to clear the text after they hit enter
                         };
 			
-			function enterSubmit(obj, options) 
-			{ 
-				this.obj = obj; 
-				this.options = options;
-				// Setup the events we're listening to 
-				this.obj.addEventListener('keypress', this.onkeypress.bind(this)); 
-			};
+//			function enterSubmit(obj, options) 
+//			{ 
+//				this.obj = obj; 
+//				this.options = options;
+//				// Setup the events we're listening to 
+//				this.obj.addEventListener('keypress', this.onkeypress.bind(this)); 
+//			};
 			
-			enterSubmit.prototype.onkeypress = function(event) { 
-				switch (event.keyCode) 
-					{ 
-						case 9: // tab 
-						case 13: // enter 
- 							event.preventDefault(); 
-							this.options.onEnter(event); 
-							break;
-						default: 
-							break;
-					}
-			};
+//			enterSubmit.prototype.onkeypress = function(event) { 
+//				switch (event.keyCode) 
+//					{ 
+//						case 9: // tab 
+//						case 13: // enter 
+//							event.preventDefault(); 
+//							this.options.onEnter(event); 
+//							break;
+//						default: 
+//							break;
+//					}
+//			};
 			
 		-->
 		</script>
