@@ -1,7 +1,7 @@
 <div id="rating">
 <% @convert = %w[one two three four five] %>
 <div id="star-ratings-block-<%= asset.id %>" class="star-ratings-block">
-    This course is currently rated  <%= number_with_precision(asset.rating, 1) %>/5 (That's from a total of '<%= asset.ratings.size %> votes)<br />
+    This course is currently rated  <%= number_with_precision(asset.rating, 1) %>/5 (That's from a total of <%= asset.ratings.size %> votes)<br />
     <ul class='star-rating'>
         <li class='current-rating' style='width:<%= (asset.rating * 30).to_i -%>px;'>
             Currently rated  <%= number_with_precision(asset.rating, 1) %>/5 
