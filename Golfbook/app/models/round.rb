@@ -8,6 +8,6 @@ class Round < ActiveRecord::Base
   acts_as_reviewable
   
   cattr_reader :per_page
-  @@per_page = 50
+  @@per_page = 25
 
 end

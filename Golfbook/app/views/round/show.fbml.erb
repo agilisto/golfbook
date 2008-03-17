@@ -40,6 +40,13 @@
                         </div>
 		</div>
 		<div class="side_column">
+				<div class="section clearfix">
+					<h3>Share This Round</h3>
+					<fb:share-button class="meta">
+						<meta name="title" content="<%= "#{@round.score} at #{@round.course.name}" %>"/>
+						<link rel="target_url" href="<%= url_for :controller => :round, :action => :show, :id => @round.id %>"/>
+					</fb:share-button>
+				</div>
 			<div class="section clearfix">
 				<%= render :partial => 'courses/course_stats' %>
 			</div>

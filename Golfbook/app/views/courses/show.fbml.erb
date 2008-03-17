@@ -73,9 +73,8 @@
 		</div>
 		<div class="side_column">
 			<div class="section clearfix">
-				<h3>Share this Course</h3>
+				<h3>Share This Course</h3>
 				<fb:share-button class="meta">
-					<meta name="medium" content="blog"/>
 					<meta name="title" content="<%= @course.name %>"/>
 					<meta name="description" content="<%= @course.description %>"/>
 					<link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
