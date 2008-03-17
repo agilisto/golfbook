@@ -18,14 +18,17 @@
                             <%= f.hidden_field :user_id %>
 
                             <fb:editor-custom label="Target Date">
-                            <%= f.date_select :date_to_play %>
+	                            <%= f.date_select :date_to_play %>
                             </fb:editor-custom>
-                            <fb:editor-buttonset>
+							<fb:editor-buttonset>
                                 <%= f.submit_tag('Schedule Game') %>
                                 <fb:editor-cancel href="<%= url_for(:action => :show, :id => @game.course_id)%>">
                             </fb:editor-buttonset>
 
                           <%end%>
+						
+						<p><strong>Tip:&nbsp;</strong>To schedule a game for a more general time in future, use the last day of the week, month or year as your target!</p>
+
                         </div>
 		</div>
 		<div class="side_column">
