@@ -27,17 +27,25 @@
 
 				<div id="lookup" style="display:inline;">
 				
-					<%= f.text_field :address, {:size => 100, :id => 'i_like_text', :class => 'inputtext', :autocomplete=>"off"} %><br />
+					<%= f.text_field :address, {:size => 100, :id => 'i_like_text', :class => 'inputtext', :autocomplete=>"off"} %>
+					
 					<script>
 					<!--
 						var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options);
 					-->
 					</script>
+					
+					<%= submit_tag 'Save Location', :class => 'inputsubmit' %>
+					
+					<div class="clearfix" style="width:300px">
+			            <div class="rightcontent">
+			               <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
+			             </div>
+			             <div class="rightcontent" style="display:none">
+			               <%= image_tag "progress.gif", :style => "display:none", :id => "progress2"%>
+			             </div>
+				      </div>
 				</div>
-
-				<%= submit_tag 'Save Location', :class => 'inputsubmit' %>
-				
-
 				<% end%>
 			</div>
 		</div>
