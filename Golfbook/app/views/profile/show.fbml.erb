@@ -11,7 +11,7 @@
                           <h3>
                                   <%= link_to 'Home Location <span>(change)</span>', :action => :location %>
                           </h3>
-                          <p>Changes your current location in Golfbook. 
+                          <p>This changes your current home location in Golfbook. 
                                   <% if @user.location_set? then %>
                                           Your current location is <strong><%= "#{@user.address}" %></strong>
                                   <% end %>
@@ -20,7 +20,7 @@
                 </fb:if-is-user>
 
                 <div class="card small_hole_card">
-                  <h3>Goal</h3>
+                  <h3>Personal Goal</h3>
                   <p><a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" possessive="true" capitalize="true" linked="false" /></a> goal is 
                   to play <%=@user.goal%> courses. <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:pronoun uid="<%=@user.facebook_uid%>" capitalize="true" linked="false" /></a>
                   currently have played <%=@user.courses_played.length%> courses.</p>
@@ -31,7 +31,7 @@
 
 		<div class="card small_hole_card">
 			<h3>
-                            <%= link_to 'Recent Rounds', :action => :rounds, :id => @user.id %>
+                            <%= link_to 'Recent Rounds Played', :action => :rounds, :id => @user.id %>
 			</h3>
                         
                         <%@rounds.each do |round|%>
@@ -86,11 +86,11 @@
 	</div>
 	<div class="side_column">
 		<div class="section clearfix">
-			<h3>Courses Statistics</h3>
+			<h3>Statistics</h3>
 			<div class="bar_chart simple">
 				<h2 class="header">
 					<span class="title"></span>
-					<span class="title_label">Total Courses: <%=@user.courses.count%></span>
+					<span class="title_label">Total Courses Played: <%=@user.courses.count%></span>
 					<span class="sub_title"/>
 					<div style="clear: left; height: 0px;"/>
 				</h2>
