@@ -69,21 +69,21 @@
 			
 		</div>
 		<div class="side_column">
-			<div class="section">
+			<div class="section clearfix">
 				<%= render :partial => 'course_stats' %>
 			</div>
-			<div class="section">
+			<div class="section clearfix">
 				<%= render :partial => 'course_actions' %>
 			</div>
                 <%if @user.admin%>
-		<div class="section">
+		<div class="section clearfix">
                    <h3>Admin Actions</h3>
                   <div class="communication_item send_message clearfix">
                           <%= link_to 'Edit Course', url_for(:action => :edit, :id => @course.id, :only_path => true) %>
                   </div>
 		</div>
                 <%end%>
-			<div class="section">
+			<div class="section clearfix">
 			<h3>Recently Posted Rounds</h3>
 					<ul class="small_list">
 						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
