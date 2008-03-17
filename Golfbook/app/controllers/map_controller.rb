@@ -23,7 +23,8 @@ class MapController < ApplicationController
     
     js = "function(overlay, latlng)
     {
-      var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
+      if ( overlay != null ) return; 
+      var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add A New Course Here</a></div>'
       map.openInfoWindow(latlng, html)
     }"
     
@@ -46,7 +47,7 @@ class MapController < ApplicationController
       :title => @course.name, :info_window => info_window, :icon => @icon_flag)
     markers.push(marker)
   
-    @map.event_init @map, "click", js
+    @map.event_init @map, :click, js
     
     clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
         :icon => @lots_icon)

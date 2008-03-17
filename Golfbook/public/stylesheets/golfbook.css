@@ -403,7 +403,9 @@ html[xmlns] .clearfix {
 	text-align:center;
 }
 
-.info_window {
+
+.info_window .info_rating {
+	text-align:right;
 }
 
 .info_window ul {
@@ -472,6 +474,7 @@ html[xmlns] .clearfix {
 }
 
 .info_window ul {
+	margin:0px;
 	padding-left:0px;
 	list-style: none inside;
 }
