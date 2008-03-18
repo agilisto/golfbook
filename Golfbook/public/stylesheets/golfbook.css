@@ -625,6 +625,6 @@ ul.scorecard {
 }
 
 .expanded_rating a:visited {
-	color:#333333;
+	/* color:#333333; */
 	/* font-size:8px; */
 }
