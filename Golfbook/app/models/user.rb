@@ -147,7 +147,7 @@ class User < ActiveRecord::Base
 
   def post_score(round)
     has_played(round.course)
-    rounds << round
+    self.rounds << round
   end
   
   def has_played_course?(course)
@@ -160,12 +160,12 @@ class User < ActiveRecord::Base
   
   def has_played(course)
     return if self.courses.include? course
-    courses << course
+    self.courses << course
   end
   
   def add_to_wishlist(course)
     return if self.courses_want_to_play.include?(course)
-    courses_want_to_play << course
+    self.courses_want_to_play << course
   end
   
 end
