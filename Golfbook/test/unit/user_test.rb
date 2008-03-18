@@ -13,11 +13,11 @@ class UserTest < ActiveSupport::TestCase
     round = Round.new(
         :course => @gansbaai,
         :score => 81)
-    
+
     @arnold.post_score(round)
     
-    assert(@gansbaai.players.count == 1)
-    assert_equal(@arnold, @gansbaai.players[0])
+    assert(@gansbaai.players.count == 4) #include users from fixture
+    assert_equal(@arnold, @gansbaai.players[3])
     assert(@arnold.rounds.count == 1)
   end
   
@@ -25,6 +25,7 @@ class UserTest < ActiveSupport::TestCase
     round = Round.new(
         :course => @gansbaai)
 
+    
     @arnold.post_score(round)
     
     assert(1, @gansbaai.players.count)
