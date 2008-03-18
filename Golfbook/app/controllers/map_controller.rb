@@ -4,7 +4,7 @@ class MapController < ApplicationController
   DEFAULT_ZOOM_COURSE_ONLY = 10
   
   DEFAULT_RADIUS = 20
-  DEFAULT_LIMIT = 10
+  DEFAULT_LIMIT = 25
   #skip_before_filter :require_facebook_login, :adjust_format_for_facebook
   before_filter :map_size, :map_zoom
 
