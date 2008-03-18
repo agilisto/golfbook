@@ -3,6 +3,9 @@ class HomeController < ApplicationController
   NEAR_ME = 'near_user'
 
   def index
+    
+    flash[:notice] = 'The site is still under active development so please excuse the occasional glitch!'
+    
     @fbuser = fbuser
     @user = current_user
     @id = @user.id
