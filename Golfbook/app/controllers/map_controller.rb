@@ -104,6 +104,7 @@ class MapController < ApplicationController
     @map.center_zoom_init([@latitude, @longitude], @zoom.to_i)
     js = "function(overlay, latlng)
     {
+      if ( overlay != null ) return; 
       var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
       map.openInfoWindow(latlng, html)
     }"
@@ -153,6 +154,7 @@ class MapController < ApplicationController
     
     js = "function(overlay, latlng)
     {
+      if ( overlay != null ) return; 
       var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
       map.openInfoWindow(latlng, html)
     }"
@@ -188,6 +190,7 @@ class MapController < ApplicationController
     
     js = "function(overlay, latlng)
     {
+      if ( overlay != null ) return; 
       var html = '<div class=info_window><a target=_top href=#{url_for_canvas(url_for(:controller=>:courses,:action=>:new,:only_path=>true))}/?lat=' + latlng.lat() + '&lng=' + latlng.lng() + '>Add a course here</a></div>'
       map.openInfoWindow(latlng, html)
     }"
