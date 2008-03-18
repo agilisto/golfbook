@@ -19,7 +19,7 @@
 		<h2 class="first_card_section">Invite your friends to Golfbook</h2>
 
   <fb:request-form action="index" method="POST" invite="true" type="Golfbook" 
-                   content="<fb:name uid='<%=@user.facebook_uid%>' /> has invited you to join <fb:pronoun objective='true'/> on Golfbook. <fb:req-choice url='http://www.facebook.com/add.php?api_key=afd3d15e326b5858a82623cfb78c9f82' label='Join Golfbook!' />">
+                   content="<fb:name uid='<%=@user.facebook_uid%>' /> has invited you to join <fb:pronoun uid='<%=@user.facebook_uid%>' objective='true'/> on Golfbook. <fb:req-choice url='http://www.facebook.com/add.php?api_key=afd3d15e326b5858a82623cfb78c9f82' label='Join Golfbook!' />">
     <fb:multi-friend-selector showborder="false" actiontext="Invite your friends to join you on Golfbook!" exclude_ids="<%= @friend_ids %>"/> 
   </fb:request-form> 
 
