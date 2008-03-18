@@ -17,7 +17,8 @@ class ReviewsController < ApplicationController
     body_data = {:course_name => @course.name,
       :course_url => url_for(:controller => :courses, :action => :show, :id => @course.id),
       :review_url => url_for(:controller => :reviews, :action => :show, :id => @review.id),
-      :review => @review.review }
+      :review => @review.review, 
+      :golfbook_url => url_for(:controller => :home, :action => :index) }
       
     image_1 = url_for(:controller => :images, :action => 'ball_50.png', :only_path => false)
     image_1_link = url_for(:controller => :courses, :action => :show, :id => @course.id)

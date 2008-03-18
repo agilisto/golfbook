@@ -20,7 +20,8 @@ class RatingController < ApplicationController
       :course_url => url_for(:controller => :courses, :action => :show, :id => @course.id)}
     body_data = {:course_name => @course.name,
       :course_url => url_for(:controller => :courses, :action => :show, :id => @course.id),
-      :rating => rating.rating.to_s }
+      :rating => rating.rating.to_s, 
+      :golfbook_url =>  url_for(:controller => :home, :action => :index)}
       
     image_1 = url_for(:controller => :images, :action => 'tees_50.png', :only_path => false)
     image_1_link = url_for(:controller => :courses, :action => :show, :id => @course.id)
