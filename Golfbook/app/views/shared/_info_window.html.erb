@@ -1,6 +1,5 @@
 <div class="info_window" id="info_window_<%= info_window.id%>">
   <h4><%= info_window.name %></h4>
-  <h4 class="info_rating"><%= info_window.rating %></h4>
   <ul>
     <li>
       <%= link_to 'View The Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => info_window.id)), :target => '_top' %>
