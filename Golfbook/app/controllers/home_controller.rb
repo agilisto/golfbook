@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
   def index
     
-    flash[:notice] = 'The site is still under active development so please excuse the occasional glitch!'
+    flash[:notice] = 'The site is still under active development so please excuse (and report) the occasional glitch!'
     
     @fbuser = fbuser
     @user = current_user
