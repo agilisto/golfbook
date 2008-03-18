@@ -1,7 +1,10 @@
 class MapController < ApplicationController
 
   DEFAULT_ZOOM = 8
+  DEFAULT_ZOOM_COURSE_ONLY = 10
+  
   DEFAULT_RADIUS = 20
+  DEFAULT_LIMIT = 10
   #skip_before_filter :require_facebook_login, :adjust_format_for_facebook
   before_filter :map_size, :map_zoom
 
@@ -10,11 +13,14 @@ class MapController < ApplicationController
     @course = Course.find(params[:id])
     
     @map = GMap.new(@size)
+    @map.add_map_type_init(:G_PHYSICAL_MAP)
+    @map.set_map_type_init(:G_SATELLITE_MAP)
     
     define_icons
     
     large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
     @map.control_init(:large_map => large_map,:map_type => true)
+    logger.info "ZOOM : #{@zoom.to_i}"
     @map.center_zoom_init([@course.latitude, @course.longitude],@zoom.to_i)
     #@map.event_init(@map,:moveend,"function(){alert('HOYOYO');}")
     
@@ -28,7 +34,7 @@ class MapController < ApplicationController
       map.openInfoWindow(latlng, html)
     }"
     
-    @courses_near = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @course)
+    @courses_near = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @course, :limit => DEFAULT_LIMIT)
     
     markers = []
 
@@ -118,7 +124,7 @@ class MapController < ApplicationController
       @user = User.random_user
     end
     
-    @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
+    @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user, :limit => DEFAULT_LIMIT)
     
     @map = GMap.new(@size)
     large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
