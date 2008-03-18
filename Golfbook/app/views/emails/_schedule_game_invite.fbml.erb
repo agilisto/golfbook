@@ -1,1 +1,5 @@
-You have been invited by <fb:name uid="<%= game.user.facebook_uid%>" /> to join him playing <%= link_to h(game.course.name),{:action=>:show,:id=> game.course.id}%> on <%= game.date_to_play.to_formatted_s(:long)%>.<fb:req-choice url="<%=url_for(:action=>:join_game,:id=>game.id)%>" label="Accept" />
+<div><div style="float:left"><fb:profile-pic uid="<%= game.user.facebook_uid%>"</fb:profile-pic></div>You have been invited by <fb:name uid="<%= game.user.facebook_uid%>" /> to join him playing <%= link_to h(game.course.name),{:action=>:show,:id=> game.course.id}%> on 
+<%= game.date_to_play.to_formatted_s(:long)%>.</div>
+
+<div>Click <a href="<%=url_for(:action=>:join_game,:id=>game.id)%>">here</a> to accept the invitation.</div>
+<div><fb:name uid="<%= game.user.facebook_uid%>" /> will be notified when you accept.</div>

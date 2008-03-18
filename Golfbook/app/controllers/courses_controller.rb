@@ -316,7 +316,7 @@ class CoursesController < ApplicationController
     
     fbsession.notifications_sendemail :recipients => params[:ids], :subject => "Golfbook Game Invite", 
       :fbml => email_body
-    
+    flash[:notice] = "Your friends have been invited"
     redirect_to :action => :show, :id => @game.course.id
   end
   
