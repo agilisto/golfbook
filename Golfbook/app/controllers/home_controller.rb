@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     @recent_tours = Tour.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_competitions = Competition.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 10, :include => [:course, :user]
+    @recent_courses = Course.recent_additions
         
     @upcoming_games = @user.games.upcoming
     @user.games_to_play.upcoming.each { |g| @upcoming_games << g }

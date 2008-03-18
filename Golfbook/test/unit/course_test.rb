@@ -143,6 +143,11 @@ END_OF_DOC
     assert_equal(70, rounds[1].score)
   end
   
+  def test_recent_courses
+    @recent = Course.recent_additions(:limit => 5)
+    assert_equal(3, @recent.length)
+  end
+  
   def test_rate_course
     
   end

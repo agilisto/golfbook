@@ -64,6 +64,10 @@
 
 		<br/>
 		<div class="section clearfix">
+			<h3>Recently Added Courses</h3>
+				<%= render :partial => 'shared/expanded_recent_course', :collection => @recent_courses %>
+		</div>
+		<div class="section clearfix">
 			<h3>Worldwide Reviews</h3>
 				<%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
 		</div>

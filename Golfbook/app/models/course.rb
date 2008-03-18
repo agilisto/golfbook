@@ -72,5 +72,10 @@ class Course < ActiveRecord::Base
     places_nearby
   end
   
+  def self.recent_additions(options = {})
+    limits = {:order => 'created_at desc', :limit => 5}
+    recent_courses = Course.find(:all, limits.merge(options))
+  end
+  
   
 end
