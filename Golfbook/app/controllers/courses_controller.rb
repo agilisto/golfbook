@@ -308,6 +308,18 @@ class CoursesController < ApplicationController
     @recent_rounds = @course.rounds.recent_rounds(10)
   end
   
+  def schedule_game_notify
+    @user = current_user
+    @game = Game.find params[:game_id]
+    
+    email_body =  render_to_string :partial => 'emails/schedule_game_invite', :locals => {:game => @game}
+    
+    fbsession.notifications_sendemail :recipients => params[:ids], :subject => "Golfbook Game Invite", 
+      :fbml => email_body
+    
+    redirect_to :action => :show, :id => @game.course.id
+  end
+  
   def save_game
     @user = current_user
     @game = Game.new(params[:game])
