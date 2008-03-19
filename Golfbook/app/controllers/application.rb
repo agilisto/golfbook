@@ -94,9 +94,9 @@ class ApplicationController < ActionController::Base
       if results.length == 1 
         latitude, longitude = results[0].latitude, results[0].longitude
       end
-      
-      [latitude, longitude]
     end
+    
+    [latitude, longitude]
   end
   
 end

@@ -16,9 +16,9 @@ class ToursController < ApplicationController
     
     @upcoming_tours = TourDate.upcoming_tours
     
-#    @upcoming_tours = []
-#    @user.tours.upcoming.each { |t| @upcoming_tours << t }
-#    @user.tour_entries.upcoming.each { |t| @upcoming_tours << t }
+    #    @upcoming_tours = []
+    #    @user.tours.upcoming.each { |t| @upcoming_tours << t }
+    #    @user.tour_entries.upcoming.each { |t| @upcoming_tours << t }
     
     @action = :tours
     respond_to do |format|
@@ -260,6 +260,25 @@ class ToursController < ApplicationController
     @tour.save!
     flash[:notice] = "Tour is open for entries."
     redirect_to :action => :show, :id => @tour.id
+  end
+  
+  def confirm_cancel
+    @user = current_user
+    @tour = Tour.find params[:id]
+  end
+  
+  def cancel
+    @user = current_user
+    @tour = Tour.find params[:id]
+    uids = [@user.facebook_uid]
+    @tour.users.each { |u| uids << u.facebook_uid }
+    message = "has cancelled the #{@tour.name} golf tour."
+    fbsession.notifications_send :to_ids => uids.join(","), :notification => message
+    title = "<fb:name /> " << message
+    fbsession.feed_publishActionOfUser(:title => title)
+    @tour.destroy
+    flash[:success] = "Tour has been cancelled."
+    redirect_to :action => :index
   end
 end
 

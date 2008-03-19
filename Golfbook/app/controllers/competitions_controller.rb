@@ -212,18 +212,17 @@ class CompetitionsController < ApplicationController
   end
   
   def cancel
+    @user = current_user
     @competition = Competition.find params[:id]
-    if @competition.open
-      @competition.open = false
-      @competition.save!      
-      title = "<fb:name /> has cancelled the <a href='#{url_for(:action=>:show,:id=>@competition.id)}'>#{@competition.name}</a> golf competition."
-      fbsession.feed_publishActionOfUser(:title => title)
-      flash[:success] = "Competition has been cancelled."
-    else
-      flash[:error] = "Competition is already closed."
-    end
-    
-    redirect_to :action => :show, :id => @competition.id
+    uids = [@user.facebook_uid]
+    @competition.users.each { |u| uids << u.facebook_uid }
+    message = "has cancelled the #{@competition.name} golf competition."
+    fbsession.notifications_send :to_ids => uids.join(","), :notification => message
+    title = "<fb:name /> " << message
+    fbsession.feed_publishActionOfUser(:title => title)
+    @competition.destroy
+    flash[:success] = "Competition has been cancelled."    
+    redirect_to :action => :index
   end
   
   def select_winner

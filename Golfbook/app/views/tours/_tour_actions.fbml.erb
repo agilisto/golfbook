@@ -15,6 +15,9 @@
     <%= link_to 'Open entries for this tour', url_for(:action => :open_entries, :id => @tour.id, :only_path => true) %>
   </div>
 <%end%>
+  <div class="communication_item send_message clearfix">
+    <%= link_to 'Cancel this tour', url_for(:action => :confirm_cancel, :id => @tour.id, :only_path => true) %>
+  </div>
 
   <br/><br/>
   
