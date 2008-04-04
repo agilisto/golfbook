@@ -1,12 +1,13 @@
-<div class="course_list_item clearfix">
-	 <% editor_form_for :review, @review, 
-                         :url => {:controller => :reviews, :action => :create, :id => @course.id }, :labelwidth=>"20"  do  |f| %>
-
-          <%= f.text_area :review, :rows => 10 %>
-   
-          <fb:editor-buttonset>
-             <%= f.submit_tag('Post Review') %>
-           </fb:editor-buttonset>
+<div id="course_reviews_add_new">
+  <h3>Add Review</h3>
+  <% editor_form_for :review, @review, 
+    :url => {:controller => :reviews, :action => :create, :id => @course.id }, :labelwidth=>"20"  do  |f| %>
       
-        <% end %>
+    <%= f.text_area :review, :rows => 10 %>
+         
+    <fb:editor-buttonset>
+      <%= f.submit_tag('Post Review') %>
+    </fb:editor-buttonset>
+  
+<% end %>
 </div>
