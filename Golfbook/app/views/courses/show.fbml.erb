@@ -76,7 +76,6 @@
 				<h3>Share This Course</h3>
 				<fb:share-button class="meta">
 					<meta name="title" content="<%= @course.name %>"/>
-					<meta name="description" content="<%= @course.description %>"/>
 					<link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
 				</fb:share-button>
 			</div>

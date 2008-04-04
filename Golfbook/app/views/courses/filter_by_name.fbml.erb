@@ -1,22 +1,28 @@
-	<div class="main_column">
-	
-			<h2 class="first_card_section">Results</h2>
-
-			<%= render :partial => 'course', :collection => @courses %>
-	
-			<%= will_paginate @courses, :inner_window => 2 %>
-
-	</div>
-	<div class="side_column">
-		<div class="section clearfix">
-			<h3>Courses Statistics</h3>
-			<div class="bar_chart simple">
-				<h2 class="header">
-					<span class="title"><%= @courses_count -%></span>
-					<span class="title_label"><%= pluralize(@courses_count, 'Result')%></span>
-					<span class="sub_title"/>
-					<div style="clear: left; height: 0px;"/>
-				</h2>
-			</div>
-		</div>
-	</div>
+<div class="main_column clearfix">
+  
+  <h2 class="first_card_section">Results</h2>
+  
+  <% if @courses.length > 0 %>
+  <%= render :partial => 'course', :collection => @courses %>
+  <%= will_paginate @courses, :inner_window => 2 %>
+<%else%>
+    <div class="course_list_item clearfix">
+      <p>No courses could be found for search "<%= @search%>"</p>
+      <p>If the course you were looking for isn't in our database, perhaps you'd 
+      like to <%= link_to "add it", url_for(:controller => :courses, :action => :new_map)%>.</p>
+    </div>
+  <%end%>
+</div>
+<div class="side_column">
+  <div class="section clearfix">
+    <h3>Courses Statistics</h3>
+    <div class="bar_chart simple">
+      <h2 class="header">
+        <span class="title"><%= @courses_count -%></span>
+        <span class="title_label"><%= pluralize(@courses_count, 'Result')%></span>
+        <span class="sub_title"/>
+        <div style="clear: left; height: 0px;"/>
+      </h2>
+    </div>
+  </div>
+</div>

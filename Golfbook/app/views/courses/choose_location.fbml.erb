@@ -1,24 +1,26 @@
-	<div class="main_column">
-	
-			<h2 class="first_card_section">We didn't find any courses for that location, did you mean..?</h2>
-
-			<%@names.each do |n|%>
-                            <p>
-                                <a href="#" onclick="chooseLocation('<%= url_for :controller => :courses, :action => :filter_by_loc_unrated, :only_path => false, :location => n %>', 'results'); return false;"><%=n%></a> 
-                            </p>
-                        <%end%>
-	
-	</div>
-        <div class="side_column">
-                <div class="section clearfix">
-                        <h3>Locations</h3>
-                        <div class="bar_chart simple">
-                                <h2 class="header">
-                                        <span class="title"><%= @names.length -%></span>
-                                        <span class="title_label">Results</span>
-                                        <span class="sub_title"/>
-                                        <div style="clear: left; height: 0px;"/>
-                                </h2>
-                        </div>
-                </div>
-        </div>
+<div class="main_column">
+  
+  <h2 class="first_card_section">We didn't find any courses for that location, did you mean..?</h2>
+  
+  <div class="course_list_item clearfix" style="margin-left:10px">
+    <%@names.each do |n|%>
+      <p>
+        <a href="#" onclick="chooseLocation('<%= url_for :controller => :courses, :action => :filter_by_loc_unrated, :only_path => false, :location => n %>', 'results'); return false;"><%=n%></a> 
+      </p>
+    <%end%>
+  </div>
+  
+</div>
+<div class="side_column">
+  <div class="section clearfix">
+    <h3>Locations</h3>
+    <div class="bar_chart simple">
+      <h2 class="header">
+        <span class="title"><%= @names.length -%></span>
+        <span class="title_label">Results</span>
+        <span class="sub_title"/>
+        <div style="clear: left; height: 0px;"/>
+      </h2>
+    </div>
+  </div>
+</div>

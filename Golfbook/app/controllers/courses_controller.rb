@@ -273,9 +273,9 @@ class CoursesController < ApplicationController
   # Facebook don't pass the proper format for async requests
   # hence the additional search overload
   def filter_by_name
-    course_name = params["course_filter"]
-    RAILS_DEFAULT_LOGGER.debug "Course name: #{course_name}"
-    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%#{course_name}%"}] #, :include => [:ratings]
+    @search = params["course_filter"]
+    RAILS_DEFAULT_LOGGER.debug "Course name: #{@search}"
+    @courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%#{@search}%"}] #, :include => [:ratings]
     
     @user = current_user
     @courses_count = @courses.length
