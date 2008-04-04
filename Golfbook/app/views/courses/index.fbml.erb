@@ -1,48 +1,47 @@
 <div class="module clearfix page_panel_header no_border">
-	<div class="header_page_summary clearfix">
-		<div class="thumb">
-		</div>
-		<div class="info">
-			<a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
-			<!--div id="sub_menu">
-				<%= link_to 'Map View', {:controller => :home, :action => :index} %>
-			</div-->			
-		</div>
-	</div>
-</div>
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
+        <!--div id="sub_menu">
+  <%= link_to 'Map View', {:controller => :home, :action => :index} %>
+                          </div-->			
+      </div>
+    </div>
+  </div>
 
-<%= render :partial => 'courses_menu' %>
+  <%= render :partial => 'courses_menu' %>
 
-<div id="page_panel">
-	<div class="courses">
-		
-                <%= render :partial => "shared/course_search_box" %>
+  <div id="page_panel">
+    <div class="courses">
+    
+  <%= render :partial => "shared/course_search_box" %>
 
-		<div id="results" style="overflow: hidden">
-			<div class="main_column">
-			
-					<h2 class="first_card_section">Results</h2>
-
-					<%= render :partial => 'course', :collection => @courses %>
-			
-					<%= will_paginate @courses, :inner_window => 2 %>
-
-			</div>
-			<div class="side_column">
-       <%= render :partial => "shared/buttons"%>
- 				<div class="section clearfix">
-					<h3>Courses Statistics</h3>
-					<div class="bar_chart simple">
-						<h2 class="header">
-							<span class="title"><%= @courses_count -%></span>
-							<span class="title_label">Total Courses</span>
-							<span class="sub_title"/>
-							<div style="clear: left; height: 0px;"/>
-						</h2>
-					</div>
-				</div>
-                                <%= render :partial => "shared/invite_button"%>
-			</div>
-		</div>
-	</div>
-</div>
+      <div id="results" style="overflow: hidden">
+        <div class="main_column">
+        
+          <h2 class="first_card_section">Results</h2>
+        
+          <%= render :partial => 'course', :collection => @courses %>
+                                
+          <%= will_paginate @courses, :inner_window => 2 %>
+        
+        </div>
+        <div class="side_column">
+          <%= render :partial => "shared/buttons"%>
+          <div class="section clearfix">
+            <h3>Courses Statistics</h3>
+            <div class="bar_chart simple">
+              <h2 class="header">
+                <span class="title"><%= @courses_count -%></span>
+                <span class="title_label">Total Courses</span>
+                <span class="sub_title"/>
+                <div style="clear: left; height: 0px;"/>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
