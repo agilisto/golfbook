@@ -18,7 +18,14 @@
         </p>
       </div>
     </fb:if-is-user>
-    
+
+	<div class="card small_hole_card">
+      <h3>
+        Courses Played
+      </h3>
+	  	<fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
+     </div>    
+
     <div class="card small_hole_card">
       <h3>Personal Goal</h3>
       <p><a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" possessive="true" capitalize="true" linked="false" /></a> goal is 
@@ -90,7 +97,8 @@
               <div class="bar_chart simple">
                 <h2 class="header">
                   <span class="title"></span>
-                  <span class="title_label">Total Courses Played: <%=@user.courses.count%></span>
+                  <span class="title_label">
+					<%= link_to "Total Courses Played: #{@user.courses.length}", user_view_courses_path(@user.id) %></span>
                   <span class="sub_title"/>
                   <div style="clear: left; height: 0px;"/>
                 </h2>

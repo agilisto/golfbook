@@ -64,6 +64,10 @@ ActionController::Routing::Routes.draw do |map|
   map.user_view_wishlist '/profile/:user_id/wishlist/view', 
     :controller => 'wishlist', :action => 'index', 
     :only_path => true
+    
+  map.user_view_courses '/profile/:user_id/courses',
+    :controller => 'courses', :action => 'courses_played_for',
+    :only_path => true
   
   map.profile_view '/profile/:id/show',
     :controller => "profile", :action => "show", :only_path => true

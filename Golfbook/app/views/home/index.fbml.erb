@@ -16,10 +16,6 @@
   </fb:explanation>
 <% end %>
 
-<fb:explanation>
-  <fb:message>The site is still under active development so please excuse (and report) the occasional glitch!</fb:message>
-</fb:explanation>
-
 <%= render :partial => 'home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
@@ -28,7 +24,13 @@
   </div>
   <div id="results" style="overflow: hidden">
     <div class="main_column clearfix">
-      
+    
+	<div class="card small_hold_card clearfix">
+		<h3>Recent Courses Played</h3>
+		<%= render :partial => 'friend_course', :collection => @recent_courses_played %>
+
+	</div>
+
 <%if @user.goal > 0%>
         <div class="card small_hole_card clearfix">
           <h3>Your Goals</h3>

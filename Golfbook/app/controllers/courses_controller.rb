@@ -73,6 +73,18 @@ class CoursesController < ApplicationController
     end
   end
   
+  def courses_played_for
+    @user = User.find(params[:user_id])
+    @courses_count = @user.courses.count
+    @courses = @user.courses.paginate(:page => params[:page])
+    @action = :courses_played
+     
+    respond_to do |format|
+      format.fbml { render :action => :index}
+      format.xml  { render :xml => @courses }
+    end
+  end
+  
   def highest_rated_loc
     @user = current_user
     @action = :highest_rated

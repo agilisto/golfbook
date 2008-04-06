@@ -11,6 +11,15 @@ class Course < ActiveRecord::Base
   acts_as_rateable
   acts_as_reviewable
   
+  def self.recently_played
+    find(:all, 
+      :limit => 20,
+      :select => 'users.id as user_id, users.facebook_uid as facebook_uid, courses.id as course_id, courses.name as course_name',
+      :order => 'courses_users.created_at desc',
+      :joins => [:users]
+      )
+  end
+  
   has_many :rounds do
     def recent_rounds(max)
       find :all, :limit => max, :order => 'created_at desc'
@@ -73,7 +82,7 @@ class Course < ActiveRecord::Base
   end
   
   def self.recent_additions(options = {})
-    limits = {:order => 'created_at desc', :limit => 5}
+    limits = {:order => 'created_at desc', :limit => 10}
     recent_courses = Course.find(:all, limits.merge(options))
   end
   

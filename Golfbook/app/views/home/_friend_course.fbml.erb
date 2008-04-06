@@ -1,0 +1,12 @@
+<div class="leftcontent expanded_rating">
+	<div style="float:left" class="expanded_profile_pic">
+		<fb:profile-pic uid="<%= friend_course.facebook_uid %>" size="square" linked="true" />
+	</div>
+	<div style="float:left">
+			<a href="<%= profile_view_url :id=>friend_course.user_id, :only_path => true%>">
+				<fb:name uid='<%= friend_course.facebook_uid %>' linked="false" useyou='false' /></a>
+			<br/>
+			<%= link_to friend_course.course_name, :controller => :courses, :action => :show, :id => friend_course.course_id %>
+			<br/>
+	</div>
+</div>

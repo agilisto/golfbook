@@ -1,0 +1,5 @@
+<% if (@user.courses.size - 1 != (course_played_counter)) and course_played_counter > 0%>,&nbsp;
+<% elsif ((@user.courses.size > 1) && (@user.courses.size - 1 == (course_played_counter))) %>
+and
+<% end %>
+<%= link_to course_played.name, :controller => :courses, :action => :show, :id => course_played %>
