@@ -13,7 +13,7 @@ class Course < ActiveRecord::Base
   
   def self.recently_played
     find(:all, 
-      :limit => 20,
+      :limit => 9,
       :select => 'users.id as user_id, users.facebook_uid as facebook_uid, courses.id as course_id, courses.name as course_name',
       :order => 'courses_users.created_at desc',
       :joins => [:users]
