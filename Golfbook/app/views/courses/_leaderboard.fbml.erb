@@ -1,0 +1,7 @@
+<tr style="background-color:<%= cycle('#f2f2f2','#fff') %>">
+	<th>
+		<a href="<%= profile_view_url :id=>leaderboard.user.id, :only_path => true%>"><fb:name uid='<%= leaderboard.user.facebook_uid %>' linked="false" useyou='false' /></a>
+	</th>
+	<th><strong><%= link_to leaderboard.score, :controller => :round, :action => :show, :id => leaderboard.id %></strong></th>
+	<th><%= time_ago_in_words(leaderboard.date_played) %> ago.</th>
+</tr>
