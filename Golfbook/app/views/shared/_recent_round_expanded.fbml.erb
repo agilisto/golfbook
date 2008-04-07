@@ -6,7 +6,7 @@
 			<a href="<%= profile_view_url :id=>recent_round_expanded.user.id, :only_path => true%>">
 				<fb:name uid='<%= recent_round_expanded.user.facebook_uid %>' linked="false" useyou='false' /></a>
 			<br/>
-			<%= link_to recent_round_expanded.course.name, :controller => :courses, :action => :show, :id => recent_round_expanded.course.id %>
+			<%= link_to truncate(recent_round_expanded.course.name, 20), :controller => :courses, :action => :show, :id => recent_round_expanded.course.id %>
 			<br/>
 			<b><%= link_to recent_round_expanded.score.to_s, :controller => :round, :action => :show, :id => recent_round_expanded.id %></b>
 			<%= time_ago_in_words(recent_round_expanded.created_at) %> ago
