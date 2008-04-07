@@ -24,26 +24,28 @@
   </div>
   <div id="results" style="overflow: hidden">
     <div class="main_column clearfix">
-    
-	<div class="card small_hold_card clearfix">
-		<h3>Recent Courses Played</h3>
-		<%= render :partial => 'friend_course', :collection => @recent_courses_played %>
-
-	</div>
-
-<%if @user.goal > 0%>
+      
+      <div class="card small_hold_card clearfix">
+        <h3>Recent Courses Played</h3>
+        <%= render :partial => 'friend_course', :collection => @recent_courses_played %>
+        
+      </div>
+      
+      <%if @user.goal > 0%>
         <div class="card small_hole_card clearfix">
           <h3>Your Goals</h3>
           <p><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@user.id)%>">Your</a> goal is to play
             <%=@user.goal%> courses. So far you have played <%= link_to @user.courses.length, :controller=>:courses,:action=>:courses_played %>.</p>
           </div>
         <%end%>
-                                        
-        <div class="card small_hole_card clearfix">
-          <h3>Your upcoming games</h3>
-          <%= render :partial => 'shared/expanded_upcoming_game', :collection => @upcoming_games %>
-        </div>
-      
+                                
+        <%if @upcoming_games.length > 0%>              
+          <div class="card small_hole_card clearfix">
+            <h3>Your upcoming games</h3>
+            <%= render :partial => 'shared/expanded_upcoming_game', :collection => @upcoming_games %>
+          </div>
+        <%end%>
+            
         <div class="card small_hole_card clearfix">
           <h3>Find the best courses in town!</h3>
           <h4>Read reviews and find out more of the courses in your area</h4><br/>
@@ -68,7 +70,7 @@
       <div class="side_column">
         <%= render :partial => "shared/buttons"%>
         <%= render :partial => 'shared/vitals' %>
-                        
+                              
         <br/>
         <div class="section clearfix">
           <h3>Recently Added Courses</h3>
