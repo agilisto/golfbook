@@ -2,13 +2,16 @@ include GeoKit::Geocoders
 class User < ActiveRecord::Base
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   
+  # home course
+  belongs_to :home_course, :class_name => "Course"
+  
   has_many :games do
     def for_course course
       find :all, 
         :conditions => ['course_id = :course_id and date_to_play > :date', 
         { :course_id => course.id, :date => Date.today }],
-      :order => "date_to_play asc",
-      :limit => 3
+        :order => "date_to_play asc",
+        :limit => 3
     end
     def upcoming
       find :all,
@@ -44,6 +47,7 @@ class User < ActiveRecord::Base
         :order => 'score asc'
     end
   end
+  
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
   
   has_and_belongs_to_many :courses

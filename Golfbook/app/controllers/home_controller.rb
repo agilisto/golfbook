@@ -46,4 +46,17 @@ class HomeController < ApplicationController
     @friend_ids = @friend_ids.join(',')
   end
   
+  def friends
+    @user = current_user
+    fql =  "SELECT uid, name FROM user WHERE uid IN" +
+      "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
+      "AND has_added_app = 1" 
+    friends_xml = fbsession.fql_query :query => fql
+    friends = friends_xml.user_list
+    @users = {}
+    friends.each do |f|
+      @users[User.find_by_facebook_uid(f.uid)] = f.name
+    end
+  end
+  
 end

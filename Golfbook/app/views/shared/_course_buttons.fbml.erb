@@ -1,0 +1,30 @@
+<div class="section clearfix">
+  <div class="bar_chart simple">
+    <br />
+    
+    <a class="dh_new_media" href="<%= url_for(:controller => :courses, :action => :schedule_game, :id => @course.id, :only_path => true) %>">
+      <div class="tr" style="width:160px">
+        <div class="bl">
+          <div class="br">
+            <span>Schedule a Game</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <br /><br />
+    
+<% if @user.home_course.nil? ||  @user.home_course != @course  %>
+      <a class="dh_new_media" href="<%= url_for(:controller => :courses, :action => :set_home_course, :id => @course.id, :only_path => true) %>">
+        <div class="tr" style="width:160px">
+          <div class="bl">
+            <div class="br">
+              <span>Set as Home Course</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <br />
+    <% end %>
+            
+  </div>
+</div>

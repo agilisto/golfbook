@@ -62,6 +62,11 @@
       </div>
       
       <div class="card small_hole_card">
+        <h3>Players with this Home Course</h3>
+        <%= render :partial => "home_course", :collection => @home_users %>
+      </div>
+      
+      <div class="card small_hole_card">
         If you find any inaccuracies with this course please 
         <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
       </div>
@@ -86,6 +91,8 @@
       
     </div>
     <div class="side_column">
+      <%= render :partial => "shared/course_buttons"%>
+      <%#= render :partial => "shared/buttons"%>
       <div class="section clearfix">
         <h3>Share This Course</h3>
         <fb:share-button class="meta">

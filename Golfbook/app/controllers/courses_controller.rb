@@ -18,6 +18,15 @@ class CoursesController < ApplicationController
      
   end
   
+  def set_home_course
+    home_course = Course.find params[:id]
+    current_user.home_course = home_course
+    current_user.save!
+    message = "has set <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>home_course.id)}'>#{home_course.name}</a> as his home course."
+    fbsession.feed_publishActionOfUser(:title => "<fb:name /> " + message)
+    redirect_to :action => :show, :id => current_user.course_id
+  end
+  
   def review
     @user = current_user
     @courses_count = Course.count
@@ -183,6 +192,8 @@ class CoursesController < ApplicationController
     @user.games_to_play.for_course(@course).each do |g|
       @games << g
     end
+    
+    @home_users = User.find_all_by_home_course_id @course.id
          
     respond_to do |format|
       format.fbml # show.html.erb

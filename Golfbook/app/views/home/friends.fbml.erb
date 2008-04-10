@@ -1,0 +1,36 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook</h2>
+      <div>Golfbook Friends</div>
+    </div>
+    <%#= render :partial => 'set_goal'%>
+  </div>
+</div>
+
+<%= render :partial => 'home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+  <div style="padding-left:10px">
+    <%= render :partial => "shared/course_search_box" %>
+  </div>
+  <div id="results" style="overflow: hidden">
+    <div class="main_column clearfix">
+      
+<% @users.each do |user, name| %>
+      
+        <div class="card small_hold_card clearfix">
+          <h3><%= name %></h3>
+          <p>
+            <fb:profile-pic uid="<%= user.facebook_uid %>" size="small" />
+            Has played <%= user.courses.count %> courses
+          </p>
+        </div>
+      
+<% end %>
+      
+    </div>
+  </div>
+</div>

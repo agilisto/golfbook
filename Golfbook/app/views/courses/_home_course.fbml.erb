@@ -1,0 +1,12 @@
+<div class="leftcontent expanded_rating">
+  <div style="float:left" class="expanded_profile_pic">
+    <fb:profile-pic uid="<%= home_course.facebook_uid %>" size="square" linked="true" />
+  </div>
+  <div style="float:left">
+    <a href="<%= profile_view_url :id=>home_course.id, :only_path => true%>">
+    <fb:name uid='<%= home_course.facebook_uid %>' linked="false" useyou='false' /></a>
+    <br/>
+    Course played: <%= home_course.courses_played.count %>
+    <br/>
+  </div>
+</div>

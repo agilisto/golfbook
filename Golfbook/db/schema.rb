@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 30) do
+ActiveRecord::Schema.define(:version => 32) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 30) do
   create_table "competitions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.string   "name",           :default => "",   :null => false
+    t.string   "name",                             :null => false
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 30) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :default => "", :null => false
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(:version => 30) do
 
   create_table "tours", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",           :default => "",   :null => false
+    t.string   "name",                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
@@ -137,15 +137,16 @@ ActiveRecord::Schema.define(:version => 30) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_uid",                                                    :null => false
+    t.integer  "facebook_uid",                                                      :null => false
     t.string   "session_key"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",     :precision => 15, :scale => 10
-    t.decimal  "longitude",    :precision => 15, :scale => 10
+    t.decimal  "latitude",       :precision => 15, :scale => 10
+    t.decimal  "longitude",      :precision => 15, :scale => 10
     t.string   "address"
-    t.boolean  "admin",                                        :default => false
-    t.integer  "goal",                                         :default => 0
+    t.boolean  "admin",                                          :default => false
+    t.integer  "goal",                                           :default => 0
+    t.integer  "home_course_id"
   end
 
   create_table "wishlists", :force => true do |t|
