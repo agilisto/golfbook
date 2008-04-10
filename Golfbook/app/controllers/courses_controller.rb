@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
     current_user.save!
     message = "has set <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>home_course.id)}'>#{home_course.name}</a> as his home course."
     fbsession.feed_publishActionOfUser(:title => "<fb:name /> " + message)
-    redirect_to :action => :show, :id => current_user.course_id
+    redirect_to :action => :show, :id => current_user.home_course_id
   end
   
   def review
