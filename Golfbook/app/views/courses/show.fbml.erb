@@ -10,25 +10,25 @@
   <%= render :partial => 'review_course', :object => @course %>
 <%end%>
 
-	<div class="card small_hole_card clearfix">
-		<h3 clicktotoggle="course_leaderboard">
-			2008 Leaderboard
-		</h3>
-		<div id="course_leaderboard">
-			<table cellspacing="0" width="100%">
-				<tbody>
-					<tr>
-						<th width="33%">Player</th>
-						<th  width="33%">Score</th>
-						<th>Date</th>
-					</tr>
-					<%= render :partial => 'leaderboard', :collection => @course.rounds.leaderboard %>
-				</tbody>
-			</table>
-			
-		</div>
-	</div>
-  
+      <div class="card small_hole_card clearfix">
+        <h3 clicktotoggle="course_leaderboard">
+          2008 Leaderboard
+        </h3>
+        <div id="course_leaderboard">
+          <table cellspacing="0" width="100%">
+            <tbody>
+              <tr>
+                <th width="33%">Player</th>
+                <th  width="33%">Score</th>
+                <th>Date</th>
+              </tr>
+              <%= render :partial => 'leaderboard', :collection => @course.rounds.leaderboard %>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+      
       <div class="card small_hole_card clearfix">
         <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
       </div>
@@ -42,7 +42,7 @@
           <%= render :partial => 'games', :object => @games %>
         </div>
       <%end%>
-                                    
+                                          
       <div class="card small_hole_card">
         <%= render :partial => 'course_summary', :object => @course %>
       </div>
@@ -61,7 +61,7 @@
         <%= render :partial => 'course_map', :object => @course %>
       </div>
       
-      <div class="card small_hole_card">
+      <div class="clearfix card small_hole_card">
         <h3>Players with this Home Course</h3>
         <%= render :partial => "home_course", :collection => @home_users %>
       </div>
