@@ -1,6 +1,18 @@
 <div class="section clearfix">
   <div class="bar_chart simple">
     <br />
+    <% unless @user.home_course.nil? %>
+    <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :show, :id => @user.home_course_id %>">
+      <div class="tr" style="width:160px">
+        <div class="bl">
+          <div class="br">
+            <span>Home Course</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <br /><br />
+    <% end %>
     <a class="dh_new_media" href="<%= url_for :controller => :home, :action => :invite %>">
       <div class="tr" style="width:160px">
         <div class="bl">
