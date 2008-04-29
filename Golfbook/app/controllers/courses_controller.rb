@@ -18,6 +18,14 @@ class CoursesController < ApplicationController
      
   end
   
+  def quicksearch
+    @user = current_user
+  end
+  
+  def quicksearch_filter
+    
+  end
+  
   def set_home_course
     home_course = Course.find params[:id]
     current_user.home_course = home_course

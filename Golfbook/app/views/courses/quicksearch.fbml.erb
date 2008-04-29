@@ -1,0 +1,44 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
+        <!--div id="sub_menu">
+  <%= link_to 'Map View', {:controller => :home, :action => :index} %>
+                                      </div-->			
+      </div>
+    </div>
+  </div>
+  <%= render :partial => 'courses_menu' %>
+  <div id="page_panel">
+    <div class="courses">
+    
+  <%= form_tag @redirect_url %>
+  <%= text_field_tag "quicksearch_course", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
+      </form>
+      <div class="leftcontent">
+        <%= image_tag "progress.gif", :id => "progress1"%>
+      </div>
+      
+        <br /><br />
+    
+      <div class="main_column">
+        <div id="results" style="overflow: hidden">
+          results go here
+        </div>
+      
+      </div>
+      <div class="side_column">
+        <%= render :partial => "shared/buttons"%>
+      </div>
+    </div>
+  </div>
+
+  <%= observe_field 'quicksearch_course', 
+  :url => { :controller => :courses, :action => :quicksearch_filter, :only_path => true },
+  :frequency => 1.0,
+  :update => 'results',
+  :with => 'quicksearch_course',
+  :loading => "alert('loading');"
+  %>
