@@ -1,6 +1,6 @@
 class FixCourseDesc < ActiveRecord::Migration
   def self.up
-    #add_column :courses, :desc_new, :text
+    add_column :courses, :desc_new, :text
     Course.transaction do
       Course.find(:all).each do |course|
         course.desc_new = course.description
