@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 33) do
+ActiveRecord::Schema.define(:version => 34) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -43,12 +43,16 @@ ActiveRecord::Schema.define(:version => 33) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",        :precision => 15, :scale => 10
-    t.decimal  "longitude",       :precision => 15, :scale => 10
+    t.decimal  "latitude",         :precision => 15, :scale => 10
+    t.decimal  "longitude",        :precision => 15, :scale => 10
     t.string   "location_text"
-    t.boolean  "awaiting_review",                                 :default => false
+    t.boolean  "awaiting_review",                                  :default => false
     t.integer  "added_by_id"
     t.text     "description"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "country"
+    t.string   "source_reference"
   end
 
   create_table "courses2", :force => true do |t|
@@ -81,6 +85,22 @@ ActiveRecord::Schema.define(:version => 33) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.date     "date_to_play"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "loopr", :force => true do |t|
+    t.integer  "loopr_id",                                       :null => false
+    t.string   "name"
+    t.string   "tel"
+    t.string   "street_address"
+    t.string   "region"
+    t.string   "locality"
+    t.string   "country"
+    t.string   "postal_code"
+    t.text     "description"
+    t.decimal  "latitude",       :precision => 15, :scale => 10
+    t.decimal  "longitude",      :precision => 15, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
