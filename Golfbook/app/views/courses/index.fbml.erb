@@ -22,10 +22,6 @@
         <div class="main_column">
         
           <h2 class="first_card_section">Results</h2>
-		  <% if @user %>
-	   	  <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="true" />
-		  </h2>
-		  <% end %>
         
           <%= render :partial => 'course', :collection => @courses %>
                                 
