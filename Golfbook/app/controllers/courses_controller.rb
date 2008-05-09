@@ -32,9 +32,12 @@ class CoursesController < ApplicationController
       @game = Game.new(:user => @user)
       @search_desc = "Schedule a Game"
       @course_partial = "course_schedule"
+    when "rate"
+      @search_desc = "Rate a Course"
+      @course_partial = "course_rate"
     end
 
-    @courses = [ @user.home_course ]
+    @courses = @user.home_course.nil? ? [] : [ @user.home_course ]
     @user.rounds.recent(5).each do |round|
       @courses << round.course
     end
