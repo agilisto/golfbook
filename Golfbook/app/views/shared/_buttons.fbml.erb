@@ -13,6 +13,26 @@
     </a>
     <br /><br />
     <% end %>
+    <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">
+      <div class="tr" style="width:160px">
+        <div class="bl">
+          <div class="br">
+            <span>Post Score</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <br /><br />
+    <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :schedule %>">
+      <div class="tr" style="width:160px">
+        <div class="bl">
+          <div class="br">
+            <span>Schedule Game</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <br /><br />
     <a class="dh_new_media" href="<%= url_for :controller => :home, :action => :invite %>">
       <div class="tr" style="width:160px">
         <div class="bl">

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 34) do
+ActiveRecord::Schema.define(:version => 35) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(:version => 34) do
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "comments"
   end
 
   create_table "sessions", :force => true do |t|

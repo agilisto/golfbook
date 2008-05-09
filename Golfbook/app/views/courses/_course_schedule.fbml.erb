@@ -1,0 +1,27 @@
+<% course = course_schedule %>
+
+<div class="course_list_item clearfix">
+  <div class="profile_img">
+  </div>
+  <h2>
+    <%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+    <span class="big-rating">
+      Current Overall Rating : <%= course.rating %> / 5
+    </span>
+  </h2>
+  
+<% editor_form_for :game, @game, :url => {:action => "save_game"} do |f| %>
+   
+  <%= hidden_field_tag :course_id, course.id %>
+  <%= f.hidden_field :user_id %>
+
+    <fb:editor-custom label="Target Date">
+      <%= f.date_select :date_to_play %>
+    </fb:editor-custom>
+    <fb:editor-buttonset>
+      <%= f.submit_tag('Schedule Game') %>
+    </fb:editor-buttonset>
+  
+  <%end%>
+  
+</div>

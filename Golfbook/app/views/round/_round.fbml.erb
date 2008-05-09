@@ -1,9 +1,10 @@
 <div class="course_list_item clearfix">
-	<div class="round">
-		<h3 class="score">
-			<%= link_to round.score.to_s, :controller => :round, :action => :show, :id => round.id %>
-		</h3>
-		<h3 class="course"><%= link_to h(round.course.name), {:controller => :courses, :action => :show, :id => round.course.id }%></h3>
-		<span class="time"><%= time_ago_in_words round.date_played %>&nbsp;ago</span>
-	</div>
+  <div class="round">
+    <h3 class="score">
+      <%= link_to round.score.to_s, :controller => :round, :action => :show, :id => round.id %>
+    </h3>
+    <h3 class="course"><%= link_to h(round.course.name), {:controller => :courses, :action => :show, :id => round.course.id }%></h3>
+    <div class="time"><%= time_ago_in_words round.date_played %>&nbsp;ago</div>
+    <div class="comments"><%= truncate round.comments, 200 %></div>
+  </div>
 </div>

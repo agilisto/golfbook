@@ -1,19 +1,18 @@
 <%= render :partial => 'round_header' %>
 <%= render :partial => 'round_menu' %>
 <div id="page_panel">
-	<div class="courses">
-		<div class="main_column">
-			<h2 class="first_card_section"><%= pluralize(@user.rounds.count, 'round')%> played by 
-				<fb:name uid="<%= @user.facebook_uid %>"shownetwork="true" useyou="true" linked="false" /></h2>
-
-
-				<%= render :partial => 'round', :collection => @rounds %>
-			
-				<%= will_paginate @rounds, :inner_window => 2 %>
-			
-		</div>
-		<div class="side_column">
-			<%= render :partial => 'shared/vitals' %>
-		</div>
-	</div>
+  <div class="courses">
+    <div class="main_column">
+      <h2 class="first_card_section"><%= pluralize(@user.rounds.count, 'round')%> played by 
+      <fb:name uid="<%= @user.facebook_uid %>"shownetwork="true" useyou="true" linked="false" /></h2>
+      
+      <%= render :partial => 'round', :collection => @rounds %>
+                              
+      <%= will_paginate @rounds, :inner_window => 2 %>
+                              
+    </div>
+    <div class="side_column">
+      <%= render :partial => 'shared/vitals' %>
+    </div>
+  </div>
 </div>

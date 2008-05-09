@@ -1,44 +1,43 @@
 <div class="module clearfix page_panel_header no_border">
   <div class="header_page_summary clearfix">
-    <div class="thumb">
-    </div>
-    <div class="info">
-      <a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
-        <!--div id="sub_menu">
-  <%= link_to 'Map View', {:controller => :home, :action => :index} %>
-                                      </div-->			
-      </div>
-    </div>
+    <div class="thumb"></div>
+    <div class="info"><a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a></div>
   </div>
+
   <%= render :partial => 'courses_menu' %>
+
   <div id="page_panel">
     <div class="courses">
     
-  <%= form_tag @redirect_url %>
-  <%= text_field_tag "quicksearch_course", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
-      </form>
-      <div class="leftcontent">
-        <%= image_tag "progress.gif", :id => "progress1"%>
-      </div>
-      
-        <br /><br />
+      <h2 class="first_card_section"><%= @search_desc %></h2>
     
-      <div class="main_column">
-        <div id="results" style="overflow: hidden">
-          results go here
+  <%= render :partial => "quicksearch_box" %>
+
+      <div id="results" style="overflow: hidden">
+        <div class="main_column">
+        
+          <p>
+            Below are the last few courses you've been active on. If you don't find the course you're
+            looking for then please use the search box above.
+          </p>
+        
+        <%= render :partial => @course_partial, :collection => @courses %>
+              
         </div>
-      
-      </div>
-      <div class="side_column">
-        <%= render :partial => "shared/buttons"%>
+        <div class="side_column">
+          <%= render :partial => "shared/buttons"%>
+          <div class="section clearfix">
+            <h3>Courses Statistics</h3>
+            <div class="bar_chart simple">
+              <h2 class="header">
+                <span class="title"><%= @courses_count -%></span>
+                <span class="title_label">Total Courses</span>
+                <span class="sub_title"/>
+                <div style="clear: left; height: 0px;"/>
+              </h2>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <%= observe_field 'quicksearch_course', 
-  :url => { :controller => :courses, :action => :quicksearch_filter, :only_path => true },
-  :frequency => 1.0,
-  :update => 'results',
-  :with => 'quicksearch_course',
-  :loading => "alert('loading');"
-  %>

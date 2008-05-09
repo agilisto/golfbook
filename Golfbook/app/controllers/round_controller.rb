@@ -14,6 +14,9 @@ class RoundController < ApplicationController
   def create
     @user = current_user
     @round = Round.new(params[:round])
+    if @round.course.nil? && params[:course_id]
+      @round.course = Course.find(params[:course_id])
+    end
   
     @user.post_score(@round)
     # TODO: Failure

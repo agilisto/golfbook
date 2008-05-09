@@ -1,0 +1,31 @@
+<% course = course_postscore %>
+
+<div class="course_list_item clearfix">
+  <div class="profile_img">
+  </div>
+  <h2>
+    <%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+    <span class="big-rating">
+      Current Overall Rating : <%= course.rating %> / 5
+    </span>
+  </h2>
+  
+<% editor_form_for :round, @round, :url => {:controller => :round, :action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
+
+  <%= hidden_field_tag "course_id", course.id %>
+  
+  <%= f.text_field :score %>
+  
+  <%= f.text_area :comments, :rows => 3 %>
+                          
+    <fb:editor-custom label="Date Played">
+      <%= f.date_select :date_played %>
+    </fb:editor-custom>
+  
+    <fb:editor-buttonset>
+      <%= f.submit_tag('Post Score') %>
+    </fb:editor-buttonset>
+  
+<% end %>
+
+</div>

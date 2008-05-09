@@ -1,0 +1,37 @@
+<script>
+<!--
+options = {
+    preMsgTxt: "Start typing a course name for suggestions, eg. Wanderers",	// text to display when nothing has been typed
+    menuOpacity: 94, 			// opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>",	// url to your data source
+      focus: false,				// whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {		// handler for hitting the 'enter' key
+          submitForm2('<%= url_for :controller => :courses, :action => :quicksearch_filter, :only_path => false %>', 'quick_search_box', 'results'); return false;
+      },
+      delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true			// whether or not to clear the text after they hit enter
+  };
+-->
+</script>
+
+    <!-- Search Box -->
+    
+    <form id="quick_search_box">  
+      <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
+      <%= hidden_field_tag :what, @what %>
+      <script>
+    <!--
+      var suggestr = new ajaxSuggestFbml(document.getElementById('course_filter'), options);
+    -->
+    </script>
+      <a href="#" class="inputsubmit" onclick="submitForm2('<%= url_for :controller => :courses, :action => :quicksearch_filter, :only_path => false %>', 'quick_search_box', 'results'); return false;">Search</a> 
+      <div class="clearfix" style="width:300px">
+        <div class="rightcontent">
+          <%= image_tag "progress.gif", :style => "display:none", :id => "progress"%>
+        </div>
+      </div>
+    </form>
+
+    <br/>
+
+    <!-- End Search Box -->

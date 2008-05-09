@@ -629,3 +629,7 @@ ul.scorecard {
 	/* color:#333333; */
 	/* font-size:8px; */
 }
+
+.comments {
+        font-style: italic;
+    }
