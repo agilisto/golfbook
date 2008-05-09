@@ -23,7 +23,7 @@ class RoundController < ApplicationController
 
     update_profile_box(@user.id)
     
-    redirect_to :action => :index
+    redirect_to :action => :index, :user_id => @user.id
     
   end
   
@@ -41,7 +41,7 @@ class RoundController < ApplicationController
   end
 
   def index
-    @user = User.find(:first, :conditions => params[:user_id]) 
+    @user = User.find(params[:user_id])
     @user = current_user if @user.nil?
     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
 
