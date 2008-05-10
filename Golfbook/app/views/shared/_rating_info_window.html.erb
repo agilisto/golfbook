@@ -5,7 +5,7 @@
       <%= "#{player.first_name} #{player.last_name} rated this course #{rating.rating}/5" %>
     </li>
     <li>
-      <%= link_to 'View The Course', url_for_canvas(url_for(:controller => :rateables, :action => :show, :id => rating.rateable.id)), :target => '_top' %>
+      <%= link_to 'View The Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => rating.rateable.id)), :target => '_top' %>
     </li>
   </ul>
 </div>
