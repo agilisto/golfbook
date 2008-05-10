@@ -117,8 +117,7 @@ class MapController < ApplicationController
     @map.event_init @map, "click", js
   end
   
-  def event_map
-    
+  def event_map    
     # get user for centering map
     begin
       @user = User.find params[:id]

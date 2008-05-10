@@ -6,7 +6,6 @@
       <h2>Golfbook</h2>
       <div>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></div>
     </div>
-    <%#= render :partial => 'set_goal'%>
   </div>
 </div>
 
@@ -29,14 +28,15 @@
         <h3>Recent Rounds and Ratings</h3>
         <h4>See what scores other players have posted and courses they've rated</h4><br/>
         <div>	
-          <%= render :partial => 'event_map' %>
+          <%= render :partial => 'event_map', :locals => { :width => 390, :height => 300 } %>
         </div>
+        <p>You can view a larger map <%= link_to 'here.',:controller => :home, :action => :event_map_large %></p>
       </div>
       
       <div class="card small_hold_card clearfix">
         <h3>Recent Courses Played</h3>
         <%= render :partial => 'friend_course', :collection => @recent_courses_played %>
-                        
+                                
       </div>
       
 <%if @user.goal > 0%>
@@ -46,14 +46,14 @@
             <%=@user.goal%> courses. So far you have played <%= link_to @user.courses.length, :controller=>:courses,:action=>:courses_played %>.</p>
           </div>
         <%end%>
-                                            
+                                                  
         <%if @upcoming_games.length > 0%>              
           <div class="card small_hole_card clearfix">
             <h3>Your upcoming games</h3>
             <%= render :partial => 'shared/expanded_upcoming_game', :collection => @upcoming_games %>
           </div>
         <%end%>
-                        
+                              
         <div class="card small_hole_card clearfix">
           <h3>Find the best courses in town!</h3>
           <h4>Read reviews and find out more of the courses in your area</h4><br/>
@@ -78,7 +78,7 @@
       <div class="side_column">
         <%= render :partial => "shared/buttons"%>
         <%= render :partial => 'shared/vitals' %>
-                                          
+                                                
         <br/>
         <div class="section clearfix">
           <h3>Recently Added Courses</h3>

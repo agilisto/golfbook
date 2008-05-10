@@ -1,9 +1,15 @@
 class HomeController < ApplicationController
   
   NEAR_ME = 'near_user'
+  
+  def event_map_large
+    @user = current_user
+    @id = @user.id
+    @fbuser = fbuser
+    render :layout => false
+  end
 
   def index
-    
     @fbuser = fbuser
     @user = current_user
     @id = @user.id

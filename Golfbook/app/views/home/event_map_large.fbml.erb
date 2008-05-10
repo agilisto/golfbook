@@ -1,0 +1,16 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook</h2>
+      <div>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></div>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'home_menu.fbml.erb' %>
+
+<div>
+  <%= render :partial => 'event_map', :locals => { :width => 640, :height => 500 } %>
+</div>
