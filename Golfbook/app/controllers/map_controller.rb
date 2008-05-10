@@ -56,7 +56,7 @@ class MapController < ApplicationController
     @map.event_init @map, :click, js
     
     clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
-        :icon => @lots_icon)
+      :icon => @lots_icon)
     
     @map.overlay_init(clusterer)   
   end
@@ -115,6 +115,22 @@ class MapController < ApplicationController
       map.openInfoWindow(latlng, html)
     }"
     @map.event_init @map, "click", js
+  end
+  
+  def event_map
+    @user = User.find params[:id]
+    @user ||= User.random_user
+    @map = GMap.new("map")
+    @map.control_init(:large_map => false,:map_type => false)
+    @map.center_zoom_init([@user.latitude, @user.longitude], @zoom.to_i)
+    define_event_icons
+    markers = []
+    recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 20, :include => [:course, :user])
+    recent_rounds.each do |round|
+      markers << GMarker.new([round.course.latitude, round.course.longitude], :title => round.course.name, :icon => @icon_tee)
+    end
+    @map.add_markers(markers)
+    @map.center_zoom_init([@user.latitude, @user.longitude], 2)
   end
   
   def near_user
@@ -216,6 +232,14 @@ class MapController < ApplicationController
   end
   
   private
+  def define_event_icons
+    @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'tee.gif'), 
+        :icon_size => GSize.new( 20,21 ), 
+        :icon_anchor => GPoint.new( 25,21 ), 
+        :info_window_anchor => GPoint.new( 25,21 )), "icon_tee")
+    @icon_tee = Variable.new("icon_tee")
+  end
+  
   def define_icons
     # # Define the start and end icons  
     @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'red_flag_hole_icon.png'), 

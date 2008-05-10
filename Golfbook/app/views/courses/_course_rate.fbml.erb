@@ -1,0 +1,15 @@
+<% course = course_rate %>
+
+<div class="course_list_item clearfix">
+  <div class="profile_img">
+  </div>
+  <h2>
+    <%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+    <span class="big-rating">
+      Current Overall Rating : <%= course.rating %> / 5
+    </span>
+  </h2>
+  
+  <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
+    
+</div>
