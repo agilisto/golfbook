@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @fbuser = fbuser
     @user = current_user
     @id = @user.id
-    @action = 'event_map'
+    @action = NEAR_ME
     @recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 6, :include => [:course, :user])
     
     friends_uids = fbsession.friends_get.uid_list
