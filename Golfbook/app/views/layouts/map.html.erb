@@ -1,15 +1,12 @@
 <html>
-	<head>
-		<%= stylesheet_link_tag 'golfbook' %>
-        <%= GMap.header %>
-		<%= javascript_include_tag("clusterer") %>
-        <%= @map.to_html %>
-        <%= javascript_include_tag :defaults %>
-        </head>
-        <body>
-			<div id="map">
-				<%= @map.div %>
-			</div>
-			<%= yield :layout %>
-		</body>
+  <head>
+    <%= stylesheet_link_tag 'golfbook' %>
+    <%= GMap.header %>
+    <%= javascript_include_tag("clusterer") %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+  <%= @map.to_html %>
+  <%= @map.div(:width => 390, :height => 300) %>
+  <body>
 </html>

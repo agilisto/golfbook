@@ -1,0 +1,11 @@
+<div class="info_window" id="info_window_<%= round.id%>">
+  <h4><%= round.course.name %></h4>
+  <ul>
+    <li>
+      <%= "#{player.first_name} #{player.last_name} shot a round of #{round.score}" %>
+    </li>
+    <li>
+      <%= link_to 'View The Course', url_for_canvas(url_for(:controller => :courses, :action => :show, :id => round.course.id)), :target => '_top' %>
+    </li>
+  </ul>
+</div>

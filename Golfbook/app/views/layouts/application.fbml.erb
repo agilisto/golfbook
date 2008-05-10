@@ -3,47 +3,47 @@
 <%= render(:partial => 'shared/style')%>
 <%= yield :header %>
 <style>
-	div#content {
-		background:url(<%= url_for :controller => :images, :action => "golfbook_#{(rand(3)+1).to_s}.jpg", :only_path => false%>) no-repeat left top;
-	}
-	
-	#content .info h2{
-	   font-size: 1.5em;
-	   font-weight:bold;
-	   margin: 2px 0 5px 0;
-	  color:#fff;
-	
-	}
-	#content .info {
-	   padding-bottom:7px;
-	}
-
-	div#content .info a, div#content .info p, div#content .info div{
-	 color: #fff;
-	}
-	div#content .info {
-		padding-left:20px;
-	}
-	.recent_rounds{
-		padding-top:5px;
-	   background-color: #fff;
-	}
+  div#content {
+          background:url(<%= url_for :controller => :images, :action => "golfbook_#{(rand(3)+1).to_s}.jpg", :only_path => false%>) no-repeat left top;
+        }
+        
+        #content .info h2{
+          font-size: 1.5em;
+          font-weight:bold;
+          margin: 2px 0 5px 0;
+          color:#fff;
+          
+        }
+        #content .info {
+          padding-bottom:7px;
+        }
+        
+        div#content .info a, div#content .info p, div#content .info div{
+          color: #fff;
+        }
+        div#content .info {
+          padding-left:20px;
+        }
+        .recent_rounds{
+          padding-top:5px;
+          background-color: #fff;
+        }
 </style>
 
 <div id="content" class="<%= @current %>">
-	
-	<div class="header">
-		<div id="messages">
-	           <%= render :partial => 'shared/messages' %>
-	       </div>
-                
-                <div class="pandemic_bar_wrapper">
-                    <%= render :partial => 'shared/pandemicbar' %>		
-		</div>
-
-		</div>
-	
-	<%= yield :layout %>
+  
+  <div class="header">
+    <div id="messages">
+      <%= render :partial => 'shared/messages' %>
+    </div>
+    
+    <div class="pandemic_bar_wrapper">
+      <%= render :partial => 'shared/pandemicbar' %>		
+    </div>
+    
+  </div>
+  
+<%= yield :layout %>
 
 </div>
 

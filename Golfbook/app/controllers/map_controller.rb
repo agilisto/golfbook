@@ -118,19 +118,73 @@ class MapController < ApplicationController
   end
   
   def event_map
-    @user = User.find params[:id]
-    @user ||= User.random_user
-    @map = GMap.new("map")
-    @map.control_init(:large_map => false,:map_type => false)
-    @map.center_zoom_init([@user.latitude, @user.longitude], @zoom.to_i)
-    define_event_icons
-    markers = []
-    recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 20, :include => [:course, :user])
-    recent_rounds.each do |round|
-      markers << GMarker.new([round.course.latitude, round.course.longitude], :title => round.course.name, :icon => @icon_tee)
+    
+    # get user for centering map
+    begin
+      @user = User.find params[:id]
+      @user ||= User.random_user
+    rescue
+      @user = User.random_user
     end
+    
+    # create map and define icons
+    @map = GMap.new("map")
+    @map.control_init(:small_zoom => true)
+    @map.center_zoom_init([@user.latitude, @user.longitude], 1)
+    define_event_icons
+    
+    # get recent rounds
+    recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 20)
+    
+    # get recent ratings
+    recent_ratings = Rating.find(:all, :order => "ratings.created_at desc", :limit => 20)
+    
+    # get all user info from facebook
+    uids = []
+    recent_rounds.each { |round| uids << round.user.facebook_uid }
+    recent_ratings.each { |rating| uids << rating.user.facebook_uid }
+    uids.uniq!
+    
+    # get player info from FB
+    players_xml = fbsession.users_getInfo(:uids => uids, :fields => ["first_name","last_name"])
+    players = players_xml.user_list
+    
+    # build our marker list
+    markers = []
+    recent_rounds.each do |round|
+      player = nil
+      players.each do |p|
+        player = p if round.user.facebook_uid
+      end
+      info_window = render_to_string :partial => 'shared/round_info_window', :locals => { :round => round, :player => player }
+      marker = GMarker.new([round.course.latitude, round.course.longitude], 
+        :title => round.course.name, 
+        :icon => @icon_tee,
+        :info_window => info_window
+      )
+      markers << marker
+    end
+    
+    recent_ratings.each do |rating|
+      player = nil
+      players.each do |p|
+        player = p if rating.user.facebook_uid
+      end
+      info_window = render_to_string :partial => 'shared/rating_info_window', :locals => { :rating => rating, :player => player }
+      marker = GMarker.new([rating.rateable.latitude, rating.rateable.longitude], 
+        :title => rating.rateable.name, 
+        :icon => @icon_pointy,
+        :info_window => info_window
+      )
+      markers << marker
+    end
+    
+    # cluster the markers
+    #clusterer = Clusterer.new(markers, :max_visible_markers => 5, :icon => @lots_icon)
     @map.add_markers(markers)
-    @map.center_zoom_init([@user.latitude, @user.longitude], 2)
+    #@map.overlay_init(clusterer)
+    
+    render :layout => "map"
   end
   
   def near_user
@@ -237,7 +291,12 @@ class MapController < ApplicationController
         :icon_size => GSize.new( 20,21 ), 
         :icon_anchor => GPoint.new( 25,21 ), 
         :info_window_anchor => GPoint.new( 25,21 )), "icon_tee")
+    @map.icon_global_init(GIcon.new( :image => url_for(:controller => :images, :action => 'pointy.gif'),
+        :icon_size => GSize.new(23,20), 
+        :icon_anchor => GPoint.new(45,45), 
+        :info_window_anchor => GPoint.new(50,45)),"icon_pointy")
     @icon_tee = Variable.new("icon_tee")
+    @icon_pointy = Variable.new('icon_pointy')
   end
   
   def define_icons
