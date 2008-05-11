@@ -11,20 +11,12 @@ class MapController < ApplicationController
   def show
     @user = current_user
     @course = Course.find(params[:id])
-    
-    @map = GMap.new(@size)
+    @map = GMap.new("map")
     @map.add_map_type_init(:G_PHYSICAL_MAP)
     @map.set_map_type_init(:G_SATELLITE_MAP)
-    
     define_icons
-    
-    large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
-    @map.control_init(:large_map => large_map,:map_type => true)
-    logger.info "ZOOM : #{@zoom.to_i}"
-    @map.center_zoom_init([@course.latitude, @course.longitude],@zoom.to_i)
-    #@map.event_init(@map,:moveend,"function(){alert('HOYOYO');}")
-    
-
+    @map.control_init(:small_zoom => true,:map_type => true)
+    @map.center_zoom_init([@course.latitude, @course.longitude], @zoom)
     info_window = render_to_string :partial => 'shared/info_window', :object => @course
     
     js = "function(overlay, latlng)
@@ -35,17 +27,12 @@ class MapController < ApplicationController
     }"
     
     @courses_near = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @course, :limit => DEFAULT_LIMIT)
-    
     markers = []
-
-    
     @courses_near.each do |c|
       @course = c
       info_window = render_to_string :partial => 'shared/info_window', :object => c
-
       marker = GMarker.new([c.latitude, c.longitude],   
         :title => c.name, :icon => @icon_flag, :info_window => info_window)
-
       markers.push(marker)
     end
     
@@ -53,24 +40,22 @@ class MapController < ApplicationController
       :title => @course.name, :info_window => info_window, :icon => @icon_flag)
     markers.push(marker)
   
-    @map.event_init @map, :click, js
+    #@map.event_init @map, :click, js
     
-    clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
-      :icon => @lots_icon)
+    #    clusterer = Clusterer.new(markers, :max_visible_markers => 10, :max_lines_per_info_box => 5,
+    #      :icon => @lots_icon)
+
+    @map.add_markers(markers)
     
-    @map.overlay_init(clusterer)   
+    #@map.overlay_init(clusterer)   
   end
   
   def shownew
     @user = current_user
-    @map = GMap.new(@size)
-    
+    @map = GMap.new("map")
     define_icons
-    
-    large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
-    @map.control_init(:large_map => large_map,:map_type => true)
-    @map.center_zoom_init([params[:lat], params[:lng]],@zoom.to_i)
-
+    @map.control_init(:small_zoom => true,:map_type => true)
+    @map.center_zoom_init([params[:lat], params[:lng]], @zoom)
     marker = GMarker.new([params[:lat], params[:lng]],   
       :title => 'New Course', :icon => @icon_flag)  
     @map.overlay_init(marker)    
@@ -118,8 +103,6 @@ class MapController < ApplicationController
   end
   
   def event_map
-    @map_height, @map_width = params[:height], params[:width]
-    
     # get user for centering map
     begin
       @user = User.find params[:id]
@@ -131,7 +114,7 @@ class MapController < ApplicationController
     # create map and define icons
     @map = GMap.new("map")
     @map.control_init(:small_zoom => true)
-    @map.center_zoom_init([@user.latitude, @user.longitude], 1)
+    @map.center_zoom_init([@user.latitude, @user.longitude], 2)
     define_event_icons
     
     # get recent rounds
@@ -155,7 +138,7 @@ class MapController < ApplicationController
     recent_rounds.each do |round|
       player = nil
       players.each do |p|
-        player = p if round.user.facebook_uid
+        player = p if round.user.facebook_uid == p.uid.to_i
       end
       info_window = render_to_string :partial => 'shared/round_info_window', :locals => { :round => round, :player => player }
       marker = GMarker.new([round.course.latitude, round.course.longitude], 
@@ -197,10 +180,9 @@ class MapController < ApplicationController
     
     @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user, :limit => DEFAULT_LIMIT)
     
-    @map = GMap.new(@size)
-    large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
-    @map.control_init(:large_map => large_map,:map_type => true)
-    @map.center_zoom_init([@user.latitude, @user.longitude], @zoom.to_i)
+    @map = GMap.new("map")
+    @map.control_init(:small_zoom => true,:map_type => true)
+    @map.center_zoom_init([@user.latitude, @user.longitude], @zoom)
 
     define_icons
     
@@ -210,16 +192,6 @@ class MapController < ApplicationController
       @course = c
       info_window = render_to_string :partial => 'shared/info_window', :object => c
 
-      #      tabs = []
-      #      t1 = GInfoWindowTab.new
-      #      t1.tab = 'Info'
-      #      t1.content = info_window
-      #      tabs << t1
-      #      
-      #      t2 = GInfoWindowTab.new
-      #      t2.tab = 'Location'
-      #      tabs << t2
-      #             
       marker = GMarker.new([c.latitude, c.longitude],   
         :title => c.name, :icon => @icon_flag, :info_window => info_window)
 
@@ -245,10 +217,9 @@ class MapController < ApplicationController
     latitude = params["latitude"]
     longitude = params["longitude"]
     @courses = Course.find :all, :origin => [latitude,longitude], :within => DEFAULT_RADIUS
-    @map = GMap.new(@size)
-    large_map = ((@size == 'large') || (@size == 'medium')) ? true : false
-    @map.control_init(:large_map => large_map,:map_type => true)
-    @map.center_zoom_init([latitude, longitude], @zoom.to_i)
+    @map = GMap.new("map")
+    @map.control_init(:small_zoom => true,:map_type => true)
+    @map.center_zoom_init([latitude, longitude], @zoom)
 
     define_icons
     
@@ -290,12 +261,12 @@ class MapController < ApplicationController
   def define_event_icons
     @map.icon_global_init( GIcon.new( :image => url_for(:controller => :images, :action => 'tee.gif'), 
         :icon_size => GSize.new( 20,21 ), 
-        :icon_anchor => GPoint.new( 25,21 ), 
-        :info_window_anchor => GPoint.new( 25,21 )), "icon_tee")
+        :icon_anchor => GPoint.new( 10,10 ), 
+        :info_window_anchor => GPoint.new( 10,10 )), "icon_tee")
     @map.icon_global_init(GIcon.new( :image => url_for(:controller => :images, :action => 'pointy.gif'),
         :icon_size => GSize.new(23,20), 
-        :icon_anchor => GPoint.new(45,45), 
-        :info_window_anchor => GPoint.new(50,45)),"icon_pointy")
+        :icon_anchor => GPoint.new(12,10), 
+        :info_window_anchor => GPoint.new(12,10)),"icon_pointy")
     @icon_tee = Variable.new("icon_tee")
     @icon_pointy = Variable.new('icon_pointy')
   end
@@ -324,12 +295,14 @@ class MapController < ApplicationController
     @blue_icon_flag = Variable.new('blue_icon_flag')
     
   end
+  
   def map_size
-    @size = params[:size] ? params[:size] : 'large'
+    @map_height = params[:height].to_i || 300
+    @map_width = params[:width].to_i || 390
   end
   
   def map_zoom
-    @zoom = params[:zoom] ? params[:zoom] : DEFAULT_ZOOM
+    @zoom = params[:zoom].to_i || DEFAULT_ZOOM
   end
   
 end
