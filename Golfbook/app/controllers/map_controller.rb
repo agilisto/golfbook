@@ -140,13 +140,15 @@ class MapController < ApplicationController
       players.each do |p|
         player = p if round.user.facebook_uid == p.uid.to_i
       end
-      info_window = render_to_string :partial => 'shared/round_info_window', :locals => { :round => round, :player => player }
-      marker = GMarker.new([round.course.latitude, round.course.longitude], 
-        :title => round.course.name, 
-        :icon => @icon_tee,
-        :info_window => info_window
-      )
-      markers << marker
+      unless player.nil?
+        info_window = render_to_string :partial => 'shared/round_info_window', :locals => { :round => round, :player => player }
+        marker = GMarker.new([round.course.latitude, round.course.longitude], 
+          :title => round.course.name, 
+          :icon => @icon_tee,
+          :info_window => info_window
+        )
+        markers << marker
+      end
     end
     
     recent_ratings.each do |rating|
