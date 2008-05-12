@@ -53,6 +53,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'courses', :action => 'players', 
     :only_path => true
       
+  map.course_rounds 'courses/:id/rounds',
+    :controller => 'courses', :action => 'rounds', 
+    :only_path => true
+      
   map.course_have_played '/courses/:id/course_played/', 
     :controller => 'courses', :action => 'course_played', 
     :only_path => true

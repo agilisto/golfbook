@@ -1,0 +1,65 @@
+<%= render :partial => "course_header"%>
+<%= render :partial => 'courses_menu' %>
+
+<div id="page_panel">
+  <div class="courses clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix">Course Players</h2>
+      
+<%@rounds.each do |round|%>
+        <div class="course_list_item clearfix">
+          <div class="profile_img">
+            <fb:profile-pic uid="<%= round.user.facebook_uid%>" linked="true" />
+          </div>
+          <div>
+            <h2>
+            <a href="<%= url_for(:controller => :profile, :action=>:show,:id=> round.user.id) %>">
+              <fb:name uid="<%= round.user.facebook_uid %>" linked="false" useyou="false" />
+            </a>
+            <br>
+            <fb:name uid="<%= round.user.facebook_uid %>" linked="false" possessive="true" firstnameonly="true" capitalize="true" /> 
+            posted a <%= link_to round.score, :controller => :round, :action => :show, :id => round.id %> 
+            <%= time_ago_in_words(round.date_played) %> ago.
+          </div>
+          </h2>
+          <div>
+            <% best_round = round.user.rounds.best(@course) %>
+            <% unless best_round.nil? || round == best_round %>
+              <fb:name uid="<%= round.user.facebook_uid %>" linked="false" possessive="true" firstnameonly="true" capitalize="true" /> best round 
+              on this course was <%= link_to best_round.score, :controller => :round, :action => :show, :id => best_round.id %> 
+              posted <%= time_ago_in_words(best_round.date_played) %> ago.
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+                                                              
+      <%= will_paginate @rounds, :inner_window => 2 %>
+                                                
+    </div>
+    <div class="side_column">
+      <%= render :partial => "shared/course_buttons"%>
+      <%#= render :partial => "shared/buttons"%>
+      <div class="section clearfix">
+        <h3>Share This Course</h3>
+        <fb:share-button class="meta">
+          <meta name="title" content="<%= @course.name %>"/>
+          <link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
+          </fb:share-button>
+        </div>
+        <div class="section clearfix">
+          <%= render :partial => 'course_stats' %>
+        </div>
+        <div class="section clearfix">
+          <%= render :partial => 'course_actions' %>
+        </div>
+        <%if @user.admin%>
+          <div class="section clearfix">
+            <h3>Admin Actions</h3>
+            <div class="communication_item send_message clearfix">
+              <%= link_to 'Edit Course', url_for(:action => :edit, :id => @course.id, :only_path => true) %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>

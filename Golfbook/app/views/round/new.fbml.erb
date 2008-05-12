@@ -1,64 +1,66 @@
 <div class="module clearfix page_panel_header no_border">
-	<div class="header_page_summary clearfix">
-		<div class="thumb">
-			
-		</div>
-		<div class="info">
-			<h2><%= @course.name %></h2>
-			<!--div id="sub_menu">
-				<%= link_to 'Back to My Courses', {:action => :index} %>
-			</div-->			
-		</div>
-	</div>
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+      
+    </div>
+    <div class="info">
+      <h2><%= @course.name %></h2>
+      <!--div id="sub_menu">
+<%= link_to 'Back to My Courses', {:action => :index} %>
+                        </div-->			
+    </div>
+  </div>
 </div>
 <div class="editor_panel clearfix">
-	<div class="main_column clearfix">
-		<h2 class="first_card_section">Post Score</h2>
-		<div class="card small_hole_card">
-			<h3>
-				<%= @course.name %>
-			</h3>
-			  <p>
-			    Enter your round below:
-			  </p>
-			
-			<% unless @round.errors.blank? %>
-				<fb:error>
-					<fb:message>
-						<%= error_messages_for :round %>
-					</fb:message>
-				</fb:error>
-			<% end%>
-
-			<% editor_form_for :round, @round, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
-
-				<%= f.hidden_field :course_id %>
-	
-			    <%= f.text_field :score, :html => {:width => 15} %>
-				
-				<fb:editor-custom label="Date Played">
-					<%= f.date_select :date_played %>
-				</fb:editor-custom>
-				
-				<fb:editor-buttonset>
-					<%= f.submit_tag('Post Score') %>
-				</fb:editor-buttonset>
-		
-			<% end %>
-		</div>
-	</div>
-	<div class="side_column">
-		<div class="section clearfix">
-			<h3>My Vitals</h3>
-			<div class="bar_chart simple">
-				<h2 class="header">
-					<span class="title"><%= @user.rounds.count %></span>
-					<span class="title_label">Rounds Played</span>
-					<span class="sub_title" />
-					<div style="clear: left; height: 0px;"/>
-				
-				</h2>
-			</div>
-		</div>
-	</div>
+  <div class="main_column clearfix">
+    <h2 class="first_card_section">Post Score</h2>
+    <div class="card small_hole_card">
+      <h3>
+        <%= @course.name %>
+      </h3>
+      <p>
+        Enter your round below:
+      </p>
+      
+<% unless @round.errors.blank? %>
+        <fb:error>
+          <fb:message>
+            <%= error_messages_for :round %>
+          </fb:message>
+        </fb:error>
+      <% end%>
+            
+      <% editor_form_for :round, @round, :url => {:action => 'create'}, :html => {:labelwidth => 50}  do  |f| %>
+            
+        <%= f.hidden_field :course_id %>
+                    
+        <%= f.text_field :score, :html => {:width => 15} %>
+      
+        <%= f.text_area :comments, :rows => 3 %>
+                                            
+        <fb:editor-custom label="Date Played">
+          <%= f.date_select :date_played %>
+        </fb:editor-custom>
+      
+        <fb:editor-buttonset>
+          <%= f.submit_tag('Post Score') %>
+        </fb:editor-buttonset>
+      
+<% end %>
+    </div>
+  </div>
+  <div class="side_column">
+    <div class="section clearfix">
+      <h3>My Vitals</h3>
+      <div class="bar_chart simple">
+        <h2 class="header">
+          <span class="title"><%= @user.rounds.count %></span>
+          <span class="title_label">Rounds Played</span>
+          <span class="sub_title" />
+          <div style="clear: left; height: 0px;"/>
+          
+        </h2>
+      </div>
+    </div>
+  </div>
 </div>

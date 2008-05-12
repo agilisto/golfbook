@@ -13,22 +13,24 @@
           </div>
           <div>
             <h2>
-            <a href="<%=url_for(:action=>:show,:id=>user.id)%>">
+            <a href="<%=url_for(:controller=>:profile, :action=>:show,:id=>user.id)%>">
                 <fb:name uid="<%=user.facebook_uid%>" linked="false" useyou="false" />
               </a>
             </div>
             </h2>
             <div>
               <% best_round = user.rounds.best(@course) %>
-              <fb:name uid="<%= user.facebook_uid %>" linked="false" possessive="true" firstnameonly="true" capitalize="true" /> best round 
-              on this course was <%= link_to best_round.score, :controller => :round, :action => :show, :id => best_round.id %> 
-              posted <%= time_ago_in_words(best_round.date_played) %> ago.
+              <% unless best_round.nil? %>
+                <fb:name uid="<%= user.facebook_uid %>" linked="false" possessive="true" firstnameonly="true" capitalize="true" /> best round 
+                on this course was <%= link_to best_round.score, :controller => :round, :action => :show, :id => best_round.id %> 
+                posted <%= time_ago_in_words(best_round.date_played) %> ago.
+              <% end %>
             </div>
           </div>
         <%end%>
-                                                  
+                                                        
         <%= will_paginate @players, :inner_window => 2 %>
-                                    
+                                          
       </div>
       <div class="side_column">
         <%= render :partial => "shared/course_buttons"%>

@@ -80,7 +80,12 @@ class CoursesController < ApplicationController
     
   def players
     @course = Course.find params[:id]
-    @players = User.paginate @course.players, :page => params[:page]
+    @players = User.paginate @course.users, :page => params[:page]
+  end
+  
+  def rounds
+    @course = Course.find params[:id]
+    @rounds = Round.paginate :all, :conditions => [ "course_id = ?", @course.id ], :order => "score asc", :page => params[:page]
   end
   
   def review
