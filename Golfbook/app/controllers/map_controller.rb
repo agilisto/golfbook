@@ -154,7 +154,7 @@ class MapController < ApplicationController
     recent_ratings.each do |rating|
       player = nil
       players.each do |p|
-        player = p if rating.user.facebook_uid
+        player = p if rating.user.facebook_uid == p.uid.to_i
       end
       info_window = render_to_string :partial => 'shared/rating_info_window', :locals => { :rating => rating, :player => player }
       marker = GMarker.new([rating.rateable.latitude, rating.rateable.longitude], 

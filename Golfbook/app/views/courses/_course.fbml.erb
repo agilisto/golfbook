@@ -1,41 +1,45 @@
 <div class="course_list_item clearfix">
-	<div class="profile_img">
-	</div>
-	<h2>
-		<%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
-		<span class="big-rating">
-			Current Overall Rating : <%= course.rating %> / 5
-		</span>
-	</h2>
-
-	<p>
-		<%= truncate course.description, 200 %>
-	</p>
-	
-	<% if !@user.courses.include? course %>
-		<%= link_to 'Played It', course_have_played_url(:id => course.id, :only_path => true) %>
-		<span class="pipe">|</span>
-	<% end %>
-	
-	<%= link_to 'Post Score', course_add_round_url(:id => course.id, :only_path => true) %>
-	
-	<% if !@user.courses_want_to_play.include? course %>
-		<span class="pipe">|</span>
-		<%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>
-	<% end %>
-		<span class="pipe">|</span>
-
-	  <%= link_to 'Host Competition', course_add_competition_url(:id => course.id, :only_path => true) %>
-
-    <%if @user.tours.length > 0%>
-		<span class="pipe">|</span>
-
-	  	<%= link_to 'Add To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
-          <%end%>
+  <div class="profile_img">
+  </div>
+  <h2>
+    <%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
+    <br /><span class="big-rating">
+      Rating : <%= course.rating %> / 5
+      <% unless course.holes.blank? %>
+        , Holes: <%= course.holes %>
+      <% end %>
+      <% unless course.par.blank? %>
+        , Par: <%= course.par %>
+      <% end %>
+    </span>
+  </h2>
+  <p>
+    <%= truncate course.description, 200 %>
+  </p>
+  <% if !@user.courses.include? course %>
+    <%= link_to 'Played It', course_have_played_url(:id => course.id, :only_path => true) %>
+    <span class="pipe">|</span>
+  <% end %>
+              
+  <%= link_to 'Post Score', course_add_round_url(:id => course.id, :only_path => true) %>
+              
+  <% if !@user.courses_want_to_play.include? course %>
+    <span class="pipe">|</span>
+    <%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>
+  <% end %>
+  <span class="pipe">|</span>
   
-		<span class="pipe">|</span>
-
-	  <%= link_to 'Schedule A Game', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
-
-	
+<%= link_to 'Host Competition', course_add_competition_url(:id => course.id, :only_path => true) %>
+  
+<%if @user.tours.length > 0%>
+    <span class="pipe">|</span>
+  
+  <%= link_to 'Add To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
+<%end%>
+    
+  <span class="pipe">|</span>
+  
+<%= link_to 'Schedule A Game', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
+  
+          
 </div>

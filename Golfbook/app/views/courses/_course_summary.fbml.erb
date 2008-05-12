@@ -1,8 +1,14 @@
 <h3 clicktotoggle="course_description">
-	Course Description
+  Course Description
 </h3>
 <div id="course_description">
-	<p>
-		<%= h @course.description %>
-	</p>
+  <% unless @course.holes.blank? %>
+    <p><strong>Holes:</strong> <%= @course.holes%></p>
+  <% end %>
+  <% unless @course.par.blank? %>
+    <p><strong>Par:</strong> <%= @course.par%></p>
+  <% end %>
+  <p>
+    <%= h @course.description %>
+  </p>
 </div>
