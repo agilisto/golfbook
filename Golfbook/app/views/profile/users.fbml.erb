@@ -3,21 +3,21 @@
 <%= render :partial => 'profile_menu'%>
 
 <div class="editor_panel clearfix">
-	<div class="main_column clearfix">
-		<h2 class="first_card_section">Profile Information</h2>
-
-                <%@users.each do |user|%>
-                  <div class="card small_hole_card">
-                            <a href="<%=url_for(:action=>:show,:id=>user.id)%>">
-                                <fb:name uid="<%=user.facebook_uid%>" linked="false" useyou="false" />
-                            </a>
-                            <%if user.admin%> (admin)<%end%>
-                  </div>
-                <%end%>
-                
-                <%= will_paginate @users, :inner_window => 2 %>
-	</div>
-	<div class="side_column">
-		
-	</div>
-</div>
+  <div class="main_column clearfix">
+    <h2 class="first_card_section">Profile Information</h2>
+    
+    <%@users.each do |user|%>
+      <div class="card small_hole_card">
+        <a href="<%=url_for(:action=>:show,:id=>user.id)%>">
+            <fb:name uid="<%=user.facebook_uid%>" linked="false" useyou="false" />
+          </a>
+          <%if user.admin%> (admin)<%end%>
+        </div>
+      <%end%>
+                    
+      <%= will_paginate @users, :inner_window => 2 %>
+    </div>
+    <div class="side_column">
+    
+    </div>
+  </div>

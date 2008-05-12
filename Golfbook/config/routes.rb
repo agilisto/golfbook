@@ -48,6 +48,10 @@ ActionController::Routing::Routes.draw do |map|
   map.user_view_rounds '/profile/:id/rounds', 
     :controller => "profile", :action => "rounds", 
     :only_path => true
+  
+  map.course_players 'courses/:id/players',
+    :controller => 'courses', :action => 'players', 
+    :only_path => true
       
   map.course_have_played '/courses/:id/course_played/', 
     :controller => 'courses', :action => 'course_played', 

@@ -77,7 +77,12 @@ class CoursesController < ApplicationController
     fbsession.feed_publishActionOfUser(:title => "<fb:name /> " + message)
     redirect_to :action => :show, :id => current_user.home_course_id
   end
-
+    
+  def players
+    @course = Course.find params[:id]
+    @players = User.paginate @course.players, :page => params[:page]
+  end
+  
   def review
     @courses_count = Course.count
     @courses = Course.paginate :all, :conditions => 'awaiting_review = true', :page => params[:page], :order => :name #, :include => [:ratings]

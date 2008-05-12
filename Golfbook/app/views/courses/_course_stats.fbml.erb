@@ -1,12 +1,12 @@
 <h3>Course Statistics</h3>
 <div class="bar_chart simple">
-	<h2 class="header">
-		<span class="title" style="clear:left"><%= @course.users.count %></span>
-		<span class="title_label">Total <%= @course.users.count == 1 ? 'Player' : 'Player'.pluralize %></span>
-		<span class="sub_title"/><br/>
-		<span class="title"  style="clear:left"><%= @course.rounds.count %></span>
-		<span class="title_label"><%= @course.rounds.count == 1 ? 'Round' : 'Round'.pluralize %> Played Here</span>
-		<span class="sub_title"/>
-		<div style="clear: left; height: 0px;"/>
-	</h2>
+  <h2 class="header">
+    <span class="title" style="clear:left"><%= @course.users.count %></span>
+    <span class="title_label"><%= link_to @course.users.count == 1 ? 'Player' : 'Player'.pluralize, course_players_path(@course) %></span>
+    <span class="sub_title"/><br/>
+    <span class="title"  style="clear:left"><%= @course.rounds.count %></span>
+    <span class="title_label"><%= @course.rounds.count == 1 ? 'Round' : 'Round'.pluralize %> Played Here</span>
+    <span class="sub_title"/>
+    <div style="clear: left; height: 0px;"/>
+  </h2>
 </div>
