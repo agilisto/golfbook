@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 35) do
+ActiveRecord::Schema.define(:version => 36) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(:version => 35) do
     t.string   "region"
     t.string   "country"
     t.string   "source_reference"
+    t.integer  "holes"
+    t.integer  "par"
   end
 
   create_table "courses2", :force => true do |t|
