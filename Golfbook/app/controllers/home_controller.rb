@@ -9,6 +9,13 @@ class HomeController < ApplicationController
   end
 
   def index
+    
+    @news = {}
+    rss = SimpleRSS.parse open('http://www.pga.com/rss/latest.rss')
+    for i in 0..4
+      @news[rss.items[i].title] = rss.items[i].link
+    end
+    
     @fbuser = fbuser
     @user = current_user
     @id = @user.id
