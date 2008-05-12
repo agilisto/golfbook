@@ -114,7 +114,7 @@ class MapController < ApplicationController
     # create map and define icons
     @map = GMap.new("map")
     @map.control_init(:small_zoom => true)
-    @map.center_zoom_init([@user.latitude, @user.longitude], 2)
+    @map.center_zoom_init([@user.latitude, @user.longitude], 1)
     define_event_icons
     
     # get recent rounds
