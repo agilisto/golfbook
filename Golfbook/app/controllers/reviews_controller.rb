@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
       :body_template => body_template, :body_data => body_data.to_json, 
       :image_1 => image_1, :image_1_link => image_1_link)
       
-    flash[:notice] = "Your review has been added to the course"
+    flash[:notice] = "Your note has been added to the course"
     redirect_to :controller => :courses, :action => :show, :id => @course.id
   end
   

@@ -1,0 +1,55 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>The Clubhouse</h2>
+      <div>Welcome to the Clubhouse- The Golfbook Wall</div>
+    </div>
+  </div>
+</div>
+
+<div class="editor_panel clearfix">
+  <div style="padding-left:10px">
+    <%= render :partial => "shared/course_search_box" %>
+  </div>
+  <div id="results" style="overflow: hidden">
+    <div class="main_column clearfix">
+      
+      <div class="card small_hole_card clearfix">
+        <h3>Golfbook Feed</h3>
+        <h4>The Clubhouse makes it easy to see all the things that are being said on Golfbook.</h4><br/>
+		
+			<fb:wall>
+				<%= render :partial => 'post', :collection => @posts %>
+			</fb:wall>
+			<%= will_paginate @posts, :inner_window => 5 %>
+	  </div>
+    </div>
+
+ 	<div class="side_column">
+	<div class="section clearfix">
+	  <div class="bar_chart simple">
+	    <br />
+			<a class="dh_new_media" href="<%= url_for :controller => :home, :action => :invite %>">
+		      <div class="tr" style="width:160px">
+		        <div class="bl">
+		          <div class="br">
+		            <span>Invite Friends</span>
+		          </div>
+		        </div>
+		      </div>
+		    </a>
+		    <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :schedule %>">
+		      <div class="tr" style="width:160px">
+		        <div class="bl">
+		          <div class="br">
+		            <span>Schedule a Game</span>
+		          </div>
+		        </div>
+		      </div>
+		    </a>
+		    <br /><br />
+	</div>
+</div>
+</div>

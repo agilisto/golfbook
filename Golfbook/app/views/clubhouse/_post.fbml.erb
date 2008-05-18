@@ -1,0 +1,6 @@
+<fb:wallpost uid='<%= post.user.facebook_uid %>' t='<%= post.created_at.to_i %>'>
+	<% if post.reviewable.kind_of? Course %>
+		<h5><%= link_to post.reviewable.name, {:action => :show, :controller => :courses, :id => post.reviewable.id } %></h5>
+		<p><%= post.review %></p>
+	<% end %>
+</fb:wallpost>
