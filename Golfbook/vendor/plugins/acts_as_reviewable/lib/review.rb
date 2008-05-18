@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   
   cattr_reader :per_page
-  @@per_page = 3
+  @@per_page = 30
   
   # Helper class method to lookup all reviews assigned
   # to all reviewable types for a given user.
