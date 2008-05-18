@@ -4,4 +4,8 @@
   <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='My Goals' />
   <fb:tab-item href='<%= url_for :action => :friends, :only_path => true %>' title="Friends On Golfbook" />
   <fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Top Rated Courses' selected='<%= @action == :highest_rated %>'/>
+  <%if @user.admin%>
+  <fb:tab-item href='<%= url_for :controller => :courses, :action => :review %>' title='Review' selected='<%= @action == :review %>'/>
+  <%end%>
+
 </fb:tabs>

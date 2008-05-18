@@ -2,8 +2,6 @@ class CoursesController < ApplicationController
 
   DEFAULT_RADIUS = 20
 
-  before_filter :load_user
-
   # GET /courses
   # GET /courses.xml
   def index
@@ -492,11 +490,5 @@ class CoursesController < ApplicationController
       render :text => "{fortext:#{params[:suggest_typed].to_json},results:#{names.to_json}}"
     end
   end
-
-  private
-  def load_user
-    @user = current_user
-  end
-
 end
 

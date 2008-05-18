@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu, :set_active_submenu
+  before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu, :set_active_submenu, :load_user
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -98,5 +98,11 @@ class ApplicationController < ActionController::Base
     
     [latitude, longitude]
   end
+  
+  private
+  def load_user
+    @user = current_user
+  end
+  
   
 end
