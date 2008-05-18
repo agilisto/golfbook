@@ -27,8 +27,6 @@ class HomeController < ApplicationController
     uids = [ @user.id ]
     users.each { |u| uids << u.id }
 
-    @recent_tours = Tour.find_all_by_user_id uids, :order => :created_at, :limit => 3
-    @recent_competitions = Competition.find_all_by_user_id uids, :order => :created_at, :limit => 3
     @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 6, :include => [:course, :user]
     @recent_courses = Course.recent_additions
     @recent_courses_played = Course.recently_played
@@ -67,7 +65,9 @@ class HomeController < ApplicationController
     friends = friends_xml.user_list
     @users = {}
     friends.each do |f|
-      @users[User.find_by_facebook_uid(f.uid)] = f.name
+      user = User.find_by_facebook_uid(f.uid)
+      next if user.nil?
+      @users[user] = f.name
     end
   end
   

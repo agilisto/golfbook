@@ -16,8 +16,12 @@
   <p>
     <%= truncate course.description, 200 %>
   </p>
+  
+  <%= link_to 'Schedule A Game Here', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
+  <span class="pipe">|</span>
+	
   <% if !@user.courses.include? course %>
-    <%= link_to 'Played It', course_have_played_url(:id => course.id, :only_path => true) %>
+    <%= link_to 'Add to My Courses', course_have_played_url(:id => course.id, :only_path => true) %>
     <span class="pipe">|</span>
   <% end %>
                 
@@ -25,21 +29,17 @@
                 
   <% if !@user.courses_want_to_play.include? course %>
     <span class="pipe">|</span>
-    <%= link_to 'Want to Play', course_add_wishlist_url(:id => course.id, :only_path => true) %>
+    <%= link_to 'Add To My Goals', course_add_wishlist_url(:id => course.id, :only_path => true) %>
   <% end %>
   <span class="pipe">|</span>
   
-<%= link_to 'Host Competition', course_add_competition_url(:id => course.id, :only_path => true) %>
+<%= link_to 'Host A Competition Here', course_add_competition_url(:id => course.id, :only_path => true) %>
   
 <%if @user.tours.length > 0%>
     <span class="pipe">|</span>
   
-  <%= link_to 'Add To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
+  <%= link_to 'Add This Course To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
 <%end%>
     
-  <span class="pipe">|</span>
-  
-<%= link_to 'Schedule A Game', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
-  
           
 </div>

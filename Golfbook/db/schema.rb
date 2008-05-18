@@ -57,18 +57,6 @@ ActiveRecord::Schema.define(:version => 36) do
     t.integer  "par"
   end
 
-  create_table "courses2", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.decimal  "latitude",        :precision => 15, :scale => 10
-    t.decimal  "longitude",       :precision => 15, :scale => 10
-    t.string   "location_text"
-    t.boolean  "awaiting_review",                                 :default => false
-    t.integer  "added_by_id"
-  end
-
   create_table "courses_users", :id => false, :force => true do |t|
     t.integer  "user_id"
     t.integer  "course_id"
@@ -87,22 +75,6 @@ ActiveRecord::Schema.define(:version => 36) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.date     "date_to_play"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "loopr", :force => true do |t|
-    t.integer  "loopr_id",                                       :null => false
-    t.string   "name"
-    t.string   "tel"
-    t.string   "street_address"
-    t.string   "region"
-    t.string   "locality"
-    t.string   "country"
-    t.string   "postal_code"
-    t.text     "description"
-    t.decimal  "latitude",       :precision => 15, :scale => 10
-    t.decimal  "longitude",      :precision => 15, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end

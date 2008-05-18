@@ -3,7 +3,7 @@
 		<fb:profile-pic uid="<%= recent_round_expanded.user.facebook_uid %>" size="square" linked="true" />
 	</div>
 	<div style="float:left">
-			<a href="<%= profile_view_url :id=>recent_round_expanded.user.id, :only_path => true%>">
+			<a href="<%= profile_view_url :id=>recent_round_expanded.user.id, :only_path => true %>">
 				<fb:name uid='<%= recent_round_expanded.user.facebook_uid %>' linked="false" useyou='false' /></a>
 			<br/>
 			<%= link_to truncate(recent_round_expanded.course.name, 20), :controller => :courses, :action => :show, :id => recent_round_expanded.course.id %>
