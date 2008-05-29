@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     end
     def upcoming
       find :all,
+        :conditions => ['date_to_play > :date', {:date => Date.today}],
         :order => 'date_to_play asc',
         :limit => 3
     end
@@ -31,6 +32,7 @@ class User < ActiveRecord::Base
     end
     def upcoming
       find :all,
+        :conditions => ['date_to_play > :date', {:date => Date.today}],
         :order => "date_to_play asc",
         :limit => 3
     end
