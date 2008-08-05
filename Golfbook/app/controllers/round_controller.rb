@@ -52,9 +52,10 @@ class RoundController < ApplicationController
   end
 
   def destroy
-    Round.destroy(params[:id])
+    @round = Round.find(params[:id])
+    @round.destroy
     flash[:notice] = 'Your round has been deleted.'
-    redirect_to :action => :index
+    redirect_to :action => :index, :user_id => @round.user.id
   end
   
 end
