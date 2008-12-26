@@ -26,7 +26,7 @@ class HomeController < ApplicationController
     users = User.find_all_by_facebook_uid friends_uids
     uids = [ @user.id ]
     users.each { |u| uids << u.id }
-
+ 
     @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user]
     @recent_courses = Course.recent_additions
     @recent_courses_played = Course.recently_played
