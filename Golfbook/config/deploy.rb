@@ -2,7 +2,7 @@ require 'erb'
 require 'config/accelerator/accelerator_tasks'
 
 set :application, "Golfbook" #matches names used in smf_template.erb
-set :repository,  "https://code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
+set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -24,6 +24,7 @@ ssh_options[:paranoid] = false
 # your SCM below:
 set :scm, :subversion
 set :domain, 'golfbook.agilisto.com'
+set :scm_password, "deploy"
 
 role :app, domain
 role :web, domain
