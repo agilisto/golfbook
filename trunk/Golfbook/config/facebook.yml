@@ -1,0 +1,32 @@
+development:
+    key: 786bb4519bc7f2b2304e866de0a0b93d
+    secret: 1b9950caa92826ca527d1bcf6907b3f0
+    canvas_path: /golfbookapp_dev/
+    callback_path: /
+    tunnel:
+      username: 993440e2
+      host: golfbook.agilisto.com
+      port: 8889
+      local_port: 3000
+
+test:
+    key: 838e3b71f1bb2379bb1da00638db020e
+    secret: 1fdad4d4f084741b8d588f3c1130988d
+    canvas_path: /golfbookapp/
+    callback_path: /
+    tunnel:
+      username: yourLoginName
+      host: www.yourexternaldomain.com
+      port: 1234
+      local_port: 5678
+
+production:
+    key: afd3d15e326b5858a82623cfb78c9f82
+    secret: 3b2bfddfe5d8b42181f0f0e513081c66
+    canvas_path: /golfbookapp/
+    callback_path: /
+    tunnel:
+      username: yourLoginName
+      host: www.yourexternaldomain.com
+      port: 1234
+      local_port: 5678
