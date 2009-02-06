@@ -27,10 +27,14 @@
       <div class="card small_hole_card clearfix">
         <h3>Recent Rounds and Ratings</h3>
         <h4>See what scores other players have posted and courses they've rated</h4><br/>
-        <div>	
-          <%= render :partial => 'event_map', :locals => { :width => 390, :height => 300 } %>
-        </div>
-        <p>You can view a larger map <%= link_to 'here.',:controller => :home, :action => :event_map_large %></p>
+        <% if @user.location_set? %>
+          <div>
+            <%= render :partial => 'event_map', :locals => { :width => 390, :height => 300 } %>
+          </div>
+          <p>You can view a larger map <%= link_to 'here.',:controller => :home, :action => :event_map_large %></p>
+        <% else %>
+          <p>Set your <%= link_to 'location',:controller => :profile, :action => :index %> to see a map of nearby rounds and ratings.</p>
+        <% end %>
       </div>
       
       <div class="card small_hold_card clearfix">
@@ -57,10 +61,14 @@
         <div class="card small_hole_card clearfix">
           <h3>Find the best courses in town!</h3>
           <h4>Read reviews and find out more of the courses in your area</h4><br/>
-          <div>	
-            <%= render :partial => 'home_map.fbml.erb' %>
-          </div>
-          <p>You can change your home location <%= link_to 'here.',:controller => :profile, :action => :index %></p>
+          <% if @user.location_set? %>
+            <div>
+              <%= render :partial => 'home_map.fbml.erb' %>
+            </div>
+            <p>You can change your home location <%= link_to 'here.',:controller => :profile, :action => :index %></p>
+          <% else %>
+            <p>Set your <%= link_to 'location',:controller => :profile, :action => :index %> to see a map of the best courses nearby.</p>
+          <% end %>
         </div>
       
         <div class="card small_hole_card clearfix">
