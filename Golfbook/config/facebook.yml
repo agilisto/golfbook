@@ -5,7 +5,8 @@ development:
     callback_path: /
     tunnel:
       username: 993440e2
-      host: 993440e2.fb.joyent.us
+#      host: 993440e2.fb.joyent.us
+      host: golfbook.agilisto.com
       port: 8889
       local_port: 3000
 

@@ -4,11 +4,13 @@
 #In production, the app can be accessed through 2 different hosts: thepochisuperstarmegashow.com and exmaple.com. There then needs a 2-key hash. If you deployed to one host, only the API key would be needed (as in development and test).
 
 development:
- # 8888 ABQIAAAAWUQqPNlTTzrMCoGimY0H9xSZEbgOq7W5uakbSjhiaNpwpQgq5xRLzz6G2fUPE6wZQRSVzZdor6HJWg
-  ABQIAAAAWUQqPNlTTzrMCoGimY0H9xRh7JT4s-N3RqcOfo0DSehS4tkv_hTFDZJd9PneEdPfxbsbBdg59augrA
+#  8888 ABQIAAAAWUQqPNlTTzrMCoGimY0H9xSZEbgOq7W5uakbSjhiaNpwpQgq5xRLzz6G2fUPE6wZQRSVzZdor6HJWg
+#  ABQIAAAAWUQqPNlTTzrMCoGimY0H9xRh7JT4s-N3RqcOfo0DSehS4tkv_hTFDZJd9PneEdPfxbsbBdg59augrA
+  ABQIAAAATMosqRENpjENMIJG7U8pYxQ6wyAIfxKEapJZl7YqzTgSQFx0VhQxs40LHDo0ivuaE1OitCcTNbQmRg  #http://golfbook.agilisto.com/
+#  ABQIAAAATMosqRENpjENMIJG7U8pYxRGzW5DsNdEDPXLUm017Zi5NYpY4RSWqB39-TGLtZJLFybe45hC-Mf6bQ #http://apester.dyndns.org
 test:
- ABQIAAAAzMUFFnT9uH0xq39J0Y4kbhTJQa0g3IQ9GZqIMmInSLzwtGDKaBR6j135zrztfTGVOm2QlWnkaidDIQ
+  ABQIAAAAzMUFFnT9uH0xq39J0Y4kbhTJQa0g3IQ9GZqIMmInSLzwtGDKaBR6j135zrztfTGVOm2QlWnkaidDIQ
 
 production:
- ABQIAAAAZqmHlRVVzwc_-txrEAOvERQ6wyAIfxKEapJZl7YqzTgSQFx0VhR_TBLR3JoxCgMOwFDwUbLJqulalQ
+  ABQIAAAAZqmHlRVVzwc_-txrEAOvERQ6wyAIfxKEapJZl7YqzTgSQFx0VhR_TBLR3JoxCgMOwFDwUbLJqulalQ
  
