@@ -1,11 +1,18 @@
 <fb:tabs>
-  <fb:tab-item href='<%= url_for :controller => :home, :action => :index %>' title='Home' selected='<%= @action == HomeController::NEAR_ME %>'/>
-  <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='My Courses' selected='<%= @action == :courses_played %>'/>
-  <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='My Goals' />
-  <fb:tab-item href='<%= url_for :controller => :home, :action => :friends, :only_path => true %>' title="Friends On Golfbook" />
-  <fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Top Rated Courses' selected='<%= @action == :highest_rated %>'/>
-  <%if @user.admin%>
-  <fb:tab-item href='<%= url_for :controller => :courses, :action => :review %>' title='Review' selected='<%= @action == :review %>'/>
-  <%end%>
+  <fb:tab-item href='<%= url_for :controller => :home, :action => :index %>' title='Home' selected='<%= @action == HomeController::NEAR_ME %>' class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :courses, :action => :index %>' title='Course Info' selected='<%= @action == :index %>' class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='Unofficial Handicap' class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :home, :action => :friends, :only_path => true %>' title="Friends" class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :profile, :action => :index, :only_path => true %>' title="Profile" class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :clubhouse, :action => :index, :only_path => true %>' title="Clubhouse" class="fbtab" />
+
+
+  <%#*<fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='My Courses' selected='<%= @action == :courses_played %>'/>%>
+  <%#*<fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='My Goals' />%>
+  <%#*<fb:tab-item href='<%= url_for :controller => :home, :action => :friends, :only_path => true %>' title="Friends On Golfbook" />%>
+  <%#*<fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Top Rated Courses' selected='<%= @action == :highest_rated %>'/>%>
+  <%#if @user.admin%>
+  <%#*<fb:tab-item href='<%= url_for :controller => :courses, :action => :review %>' title='Review' selected='<%= @action == :review %>'/>%>
+  <%#end%>
 
 </fb:tabs>

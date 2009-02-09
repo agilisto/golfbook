@@ -28,19 +28,20 @@
           padding-top:5px;
           background-color: #fff;
         }
+        #content{
+          width:760px;
+        }
 </style>
 
-<div id="content" class="<%= @current %>">
+<div id="content" class="fbbody <%= @current %>" >
   
   <div class="header">
     <div id="messages">
       <%= render :partial => 'shared/messages' %>
     </div>
-    
     <div class="pandemic_bar_wrapper">
-      <%= render :partial => 'shared/pandemicbar' %>		
+      <%#= render :partial => 'shared/pandemicbar' %>
     </div>
-    
   </div>
   
 <%= yield :layout %>

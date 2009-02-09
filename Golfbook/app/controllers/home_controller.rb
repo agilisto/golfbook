@@ -19,20 +19,21 @@ class HomeController < ApplicationController
     @fbuser = fbuser
     @user = current_user
     @id = @user.id
-    @action = NEAR_ME
+    @action = NEAR_ME   #ivor - ?
     @recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user])
     
+    #ivor -> refactor
     friends_uids = fbsession.friends_get.uid_list
     users = User.find_all_by_facebook_uid friends_uids
     uids = [ @user.id ]
     users.each { |u| uids << u.id }
- 
     @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user]
+
     @recent_courses = Course.recent_additions
     @recent_courses_played = Course.recently_played
         
-    @upcoming_games = @user.games.upcoming
-    @user.games_to_play.upcoming.each { |g| @upcoming_games << g }
+#    @upcoming_games = @user.games.upcoming
+#    @user.games_to_play.upcoming.each { |g| @upcoming_games << g }
     
     # causing "stack level too deep" exception
     #@recent_ratings = Course.find_last_rated 3

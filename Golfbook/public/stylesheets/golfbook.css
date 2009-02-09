@@ -19,8 +19,99 @@
 }
 
 */
+
+/* from http://www.devtacular.com/articles/bkonrad/how-to-style-an-application-like-facebook/ */
+
+ /* Default Facebook CSS */
+.fbbody
+{
+    font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+/* Default Anchor Style */
+.fbbody a
+{
+    color: #3b5998;
+    outline-style: none;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+}
+.fbbody a:hover
+{
+    text-decoration: underline;
+}
+/* Facebook Box Styles */
+.fbgreybox
+{
+    background-color: #f7f7f7;
+    border: 1px solid #cccccc;
+    color: #333333;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.fbbluebox
+{
+    background-color: #eceff6;
+    border: 1px solid #d4dae8;
+    color: #333333;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.fbinfobox
+{
+    background-color: #fff9d7;
+    border: 1px solid #e2c822;
+    color: #333333;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.fberrorbox
+{
+    background-color: #ffebe8;
+    border: 1px solid #dd3c10;
+    color: #333333;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+/* Content Divider on White Background */
+.fbcontentdivider
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 520px;
+    height: 1px;
+    background-color: #d8dfea;
+}
+/* Facebook Tab Style */
+.fbtab
+{
+    padding: 8px;
+    background-color: #d8dfea;
+    color: #3b5998;
+    font-weight: bold;
+    float: left;
+    margin-right: 4px;
+    text-decoration: none;
+}
+.fbtab:hover
+{
+    background-color: #3b5998;
+    color: #ffffff;
+    cursor: hand;
+}
+
+/* end of default facebook stuff */
+
+
 body {
-	font-family:verdana,arial,sans-serif;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	/* font-family:verdana,arial,sans-serif; */
 	font-size:10px;
 	padding:0;
 	margin:0;
@@ -194,17 +285,21 @@ html[xmlns] .clearfix {
 }
 
 .main_column {
-	float:left;
+	/*float:left;*/
+    float:right;
 	padding-right:10px;
-	width:430px;
+	width:520px;
 }
 
 .side_column {
 	padding-left:6px;
 	padding-top:0px;
 	vertical-align:top;
-	width:180px;
-	float:right;
+	width:200px;
+	/*float:right;*/
+    float:left;
+    background-color:#f7f7f7;
+    border-right:1px solid #CECFCE;
 }
 .main_column h2.first_card_section {
 	padding-top:0pt;
@@ -296,11 +391,11 @@ html[xmlns] .clearfix {
 }
 
 .main_column .card {
-	background:white none no-repeat scroll 7px;
+	background:#ffffff none no-repeat scroll 7px;
 	border:1px solid #CECFCE;
 	margin:0pt 4px 5px;
 	padding:7px 10px 11px 30px;
-	width:390px;
+	width:480px;
 }
 
 .main_column .card h3 span {
@@ -355,7 +450,8 @@ html[xmlns] .clearfix {
 }
 
 .editor_panel {
-	background:#F7F7F7 none repeat scroll 0%;
+	/*background:#F7F7F7 none repeat scroll 0%;*/
+    background:#ffffff none repeat scroll 0%;
 	padding:10px 0px;}
 
 .main_column .card h3 {
@@ -406,6 +502,9 @@ html[xmlns] .clearfix {
 	text-align:center;
 }
 
+.fbbody .inputbutton, .fbbody .inputbutton a, .fbbody a.inputsubmit{
+  color:#ffffff;
+}
 
 .info_window .info_rating {
 	text-align:right;
@@ -635,4 +734,8 @@ ul.scorecard {
 
 .comments {
         font-style: italic;
+    }
+
+    .side_column h3{
+        background-color:#d8dfea;
     }
