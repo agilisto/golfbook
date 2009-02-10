@@ -44,7 +44,16 @@ class ProfileController < ApplicationController
   def show
     @viewer = current_user
     @user = User.find params[:id]
-    
+
+    if @viewer == @user
+      fql =  "SELECT uid, name FROM user WHERE uid IN" +
+        "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
+        "AND has_added_app = 1"
+      friends_xml = fbsession.fql_query :query => fql
+      @fql_friends = friends_xml.user_list
+      @friends_count = @fql_friends.size
+    end
+
     @entries = []
     @user.competitions.upcoming.each do |e|
       @entries << e if e.open

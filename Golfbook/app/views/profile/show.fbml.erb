@@ -7,24 +7,42 @@
     <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Profile</h2>
 
       <div class="minimal_info_block_container">
-        <fb:if-is-user uid="<%=@user.facebook_uid%>">
           <div class="minimal_info_block small_hole_card">
             <h3>
-              <span><%= link_to 'Home Location (change)', :action => :location %></span>&nbsp;
+              <span>
+                <fb:if-is-user uid="<%=@user.facebook_uid%>">
+                  <%= link_to 'Home Location (change)', :action => :location %>
+                  <fb:else>
+                    Home Location
+                  </fb:else>
+                </fb:if-is-user>
+              </span>&nbsp;
             </h3>
-            <p>This changes your current home location in Golfbook.
+            <p>
               <% if @user.location_set? then %>
-                Your current location is <strong><%= "#{@user.address}" %></strong>
+                <fb:name uid="<%= @user.facebook_uid %>" capitalize="true" possessive="true" linked="false"/> current location is <strong><%= "#{@user.address}" %></strong>
               <% end %>
             </p>
           </div>
-        </fb:if-is-user>
+
+
+        <div class="minimal_info_block small_hole_card">
+          <h3><span><%= link_to 'Recent Rounds Played', :action => :rounds, :id => @user.id %></span>&nbsp;</h3>
+          <%@rounds.each do |round|%>
+            <p>
+              <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
+              - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:courses,:action=>:show,:id=>round.course.id%>
+              <%= time_ago_in_words round.date_played %> ago</span>
+            </p>
+          <%end%>
+        </div>
 
         <div class="minimal_info_block small_hole_card">
           <span><h3>Courses Played</span>&nbsp;</h3>
           <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
         </div>
 
+<!--
         <div class="minimal_info_block small_hole_card">
           <h3><span>Personal Goal</span>&nbsp;</h3>
           <% unless @user.goal == 0 %>
@@ -40,17 +58,6 @@
           <fb:if-is-user uid="<%=@user.facebook_uid%>">
             <p><%=link_to("Set Goal", {:action=>:goal,:id=>@user.id}, {:class=>'inputsubmit'})%></p>
           </fb:if-is-user>
-        </div>
-
-        <div class="minimal_info_block small_hole_card">
-          <h3><span><%= link_to 'Recent Rounds Played', :action => :rounds, :id => @user.id %></span>&nbsp;</h3>
-          <%@rounds.each do |round|%>
-            <p>
-              <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
-              - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:courses,:action=>:show,:id=>round.course.id%>
-              <%= time_ago_in_words round.date_played %> ago</span>
-            </p>
-          <%end%>
         </div>
 
         <div class="minimal_info_block small_hole_card">
@@ -93,22 +100,12 @@
             </p>
           <%end%>
         </div>
+-->
       </div>
     </div>
 
     <div class="side_column">
-      <div class="section clearfix">
-        <h3>Statistics</h3>
-        <div class="bar_chart simple">
-          <h2 class="header">
-            <span class="title"></span>
-            <span class="title_label">
-            <%= link_to "Total Courses Played: #{@user.courses.length}", user_view_courses_path(@user.id) %></span>
-            <span class="sub_title"/>
-            <div style="clear: left; height: 0px;"/>
-          </h2>
-        </div>
-      </div>
+      <%= render :partial => 'shared/vitals' %>
       <%if @viewer.admin%>
         <div class="section clearfix">
           <h3>Admin Actions</h3>

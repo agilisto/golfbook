@@ -7,7 +7,7 @@ development:
       username: 993440e2
 #      host: 993440e2.fb.joyent.us
       host: golfbook.agilisto.com
-      port: 8889
+      port: 8890
       local_port: 3000
 
 test:

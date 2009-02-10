@@ -22,11 +22,11 @@ class HomeController < ApplicationController
     @action = NEAR_ME   #ivor - ?
     @recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user])
     
-    #ivor -> refactor
     friends_uids = fbsession.friends_get.uid_list
     users = User.find_all_by_facebook_uid friends_uids
     uids = [ @user.id ]
     users.each { |u| uids << u.id }
+    @friends_count = users.compact.size
     @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user]
 
     @recent_courses = Course.recent_additions

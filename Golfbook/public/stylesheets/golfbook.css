@@ -302,10 +302,13 @@ html[xmlns] .clearfix {
     border-right:1px solid #CECFCE;
 }
 .main_column h2.first_card_section {
+    color:#666666;
 	padding-top:0pt;
+    padding-bottom:2px;
+    padding-left:2px;
     margin-bottom:10px;
-    border-bottom:1px solid #3b5998;
-    background-color:#eceff6;
+    border-bottom:1px solid #cccccc;
+ /*   background-color:#eceff6; */
 }
 
 .minimal_info_block_container{
@@ -411,7 +414,7 @@ html[xmlns] .clearfix {
 	margin:0pt 4px 5px;
 	padding:7px 10px 11px 30px;
     */
-	width:480px;
+	width:510px;
 }
 
 .main_column .minimal_info_block h3 {

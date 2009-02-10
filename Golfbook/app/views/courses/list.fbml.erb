@@ -20,7 +20,7 @@
       <div id="results" style="overflow: hidden">
         <div class="main_column">
         
-          <h2 class="first_card_section" style="border-bottom:1px solid #3b5998;background-color:#eceff6;"><%= @courses_results_title || 'Results' %></h2>
+          <h2 class="first_card_section"><%= @courses_results_title || 'Results' %></h2>
           <div class="minimal_info_block_container">
             <%= render :partial => 'course', :collection => @courses %>
             <%= will_paginate @courses, :inner_window => 2 if @courses.respond_to?(:page_count) %>

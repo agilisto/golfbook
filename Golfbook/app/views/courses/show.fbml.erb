@@ -5,94 +5,94 @@
   <div class="editor_panel clearfix">
     <div class="main_column clearfix">
       <h2 class="first_card_section clearfix"><%= @course.name %></h2>
-      
-      <%if @user.admin%>
-        <%= render :partial => 'review_course', :object => @course %>
-      <%end%>
+      <div class="minimal_info_block_container">
+        <%if @user.admin%>
+          <%= render :partial => 'review_course', :object => @course %>
+        <%end%>
 
-      <div class="minimal_info_block small_hole_card">
-        <%= render :partial => 'course_summary', :object => @course %>
-      </div>
-
-      <div class="minimal_info_block small_hole_card clearfix">
-        <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
-      </div>
-
-      <div class="minimal_info_block small_hole_card">
-        <%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
-      </div>
-
-      <div class="minimal_info_block small_hole_card">
-        <%= render :partial => 'course_map', :object => @course %>
-      </div>
-
-
-      <div class="minimal_info_block small_hole_card clearfix">
-        <h3 clicktotoggle="course_leaderboard">
-          <span>2008 Leaderboard</span>&nbsp;
-        </h3>
-        <div id="course_leaderboard">
-          <table cellspacing="0" width="100%">
-            <tbody>
-              <tr>
-                <th width="33%">Player</th>
-                <th  width="33%">Score</th>
-                <th>Date</th>
-              </tr>
-              <%= render :partial => 'leaderboard', :collection => @course.rounds.leaderboard %>
-            </tbody>
-          </table>
-          
-        </div>
-      </div>
-      
-      
-      <%if @games.length > 0%>
         <div class="minimal_info_block small_hole_card">
-          <%= render :partial => 'games', :object => @games %>
+          <%= render :partial => 'course_summary', :object => @course %>
         </div>
-      <%end%>
-                                                      
-      
-      <div class="minimal_info_block small_hole_card">
-        <div class="rightcontent">
-          <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
+
+        <div class="minimal_info_block small_hole_card clearfix">
+          <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
         </div>
-        <h3 clicktotoggle="rating">
-          <span>Rate This Course (This is an overall rating)</span>&nbsp;
-        </h3>
-        <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
-      </div>
-      
-      
-      <div class="clearfix minimal_info_block small_hole_card">
-          <h3><span>Players with this Home Course</span>&nbsp;</h3>
-        <%= render :partial => "home_course", :collection => @home_users %>
-      </div>
-      
-      <div class="minimal_info_block small_hole_card">
-        <div id="course_reviews">
-          <h3 clicktotoggle="course_review_wall">
-            <span>Recent Posts</span>&nbsp;
+
+        <div class="minimal_info_block small_hole_card">
+          <%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <%= render :partial => 'course_map', :object => @course %>
+        </div>
+
+
+        <div class="minimal_info_block small_hole_card clearfix">
+          <h3 clicktotoggle="course_leaderboard">
+            <span>2008 Leaderboard</span>&nbsp;
           </h3>
-          <div id="course_review_wall">
-            <fb:wall>
-              <%= render :partial => 'reviews/review', :collection => @reviews %>
-            </fb:wall>
+          <div id="course_leaderboard">
+            <table cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <th width="33%">Player</th>
+                  <th  width="33%">Score</th>
+                  <th>Date</th>
+                </tr>
+                <%= render :partial => 'leaderboard', :collection => @course.rounds.leaderboard %>
+              </tbody>
+            </table>
+
           </div>
-          <%= will_paginate @reviews, :inner_window => 2 %>
+        </div>
+
+
+        <%if @games.length > 0%>
+          <div class="minimal_info_block small_hole_card">
+            <%= render :partial => 'games', :object => @games %>
+          </div>
+        <%end%>
+
+
+        <div class="minimal_info_block small_hole_card">
+          <div class="rightcontent">
+            <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
+          </div>
+          <h3 clicktotoggle="rating">
+            <span>Rate This Course (This is an overall rating)</span>&nbsp;
+          </h3>
+          <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>
+        </div>
+
+
+        <div class="clearfix minimal_info_block small_hole_card">
+            <h3><span>Players with this Home Course</span>&nbsp;</h3>
+          <%= render :partial => "home_course", :collection => @home_users %>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <div id="course_reviews">
+            <h3 clicktotoggle="course_review_wall">
+              <span>Recent Posts</span>&nbsp;
+            </h3>
+            <div id="course_review_wall">
+              <fb:wall>
+                <%= render :partial => 'reviews/review', :collection => @reviews %>
+              </fb:wall>
+            </div>
+            <%= will_paginate @reviews, :inner_window => 2 %>
+          </div>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <%= render :partial => 'reviews/new_review', :object => @review %>
+        </div>
+
+        <div class="card small_hole_card">
+          If you find any inaccuracies with this course please
+          <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
         </div>
       </div>
-      
-      <div class="minimal_info_block small_hole_card">
-        <%= render :partial => 'reviews/new_review', :object => @review %>
-      </div>
-
-      <div class="card small_hole_card">
-        If you find any inaccuracies with this course please
-        <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
-      </div>
-
     </div>
     <div class="side_column">
       <%= render :partial => "shared/course_buttons"%>

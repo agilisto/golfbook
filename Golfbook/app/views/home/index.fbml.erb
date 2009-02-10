@@ -26,21 +26,27 @@
     <div class="main_column clearfix">
 
       <h2 class="first_card_section">Recent Courses Played</h2>
-      <div class="minimal_info_block small_hold_card clearfix">
-        <%#*<h3><span>Recent Courses Played</span>&nbsp;</h3>%>
-        <%= render :partial => 'friend_course', :collection => @recent_courses_played %>
+      <div class="minimal_info_block_container">
+        <div class="minimal_info_block small_hold_card clearfix">
+          <%#*<h3><span>Recent Courses Played</span>&nbsp;</h3>%>
+          <%= render :partial => 'friend_course', :collection => @recent_courses_played %>
+        </div>
       </div>
 
       <h2 class="first_card_section">Where are your friends playing?</h2>
-      <div class="minimal_info_block small_hole_card clearfix">
-        <%#*<h3><span>Where are your friends playing?</span>&nbsp;</h3>%>
-        <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
+      <div class="minimal_info_block_container">
+        <div class="minimal_info_block small_hole_card clearfix">
+          <%#*<h3><span>Where are your friends playing?</span>&nbsp;</h3>%>
+          <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
+        </div>
       </div>
 
       <h2 class="first_card_section">Recently Posted Rounds Worldwide</h2>
-      <div class="minimal_info_block small_hole_card clearfix">
-        <%#*<h3><span>Recently Posted Rounds Worldwide</span>&nbsp;</h3>%>
-        <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
+      <div class="minimal_info_block_container">
+        <div class="minimal_info_block small_hole_card clearfix">
+          <%#*<h3><span>Recently Posted Rounds Worldwide</span>&nbsp;</h3>%>
+          <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
+        </div>
       </div>
 
     </div>

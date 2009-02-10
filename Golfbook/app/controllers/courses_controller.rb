@@ -5,11 +5,11 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @recently_rated_courses = Course.recently_rated(5)  #courses that have recently been rated
-    @recently_reviewed_courses = Course.recently_reviewed(5)  #courses that have recently beed reviewed
+    @recently_rated_courses = Course.recently_rated(3)  #courses that have recently been rated
+    @recently_reviewed_courses = Course.recently_reviewed(3)  #courses that have recently beed reviewed
 
     friends_uids = fbsession.friends_get.uid_list
-    @friends_recent_courses = Course.recently_played_by_friends(friends_uids,5)  #courses where your friends had recently played/reviewed/rated
+    @friends_recent_courses = Course.recently_played_by_friends(friends_uids,3)  #courses where your friends had recently played/reviewed/rated
 
     @courses_count = Course.count
 
