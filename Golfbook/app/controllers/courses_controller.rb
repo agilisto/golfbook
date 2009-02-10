@@ -5,17 +5,33 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @courses_count = Course.count
-    @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
+    @recently_rated_courses = Course.recently_rated(5)  #courses that have recently been rated
+    @recently_reviewed_courses = Course.recently_reviewed(5)  #courses that have recently beed reviewed
 
+    friends_uids = fbsession.friends_get.uid_list
+    @friends_recent_courses = Course.recently_played_by_friends(friends_uids,5)  #courses where your friends had recently played/reviewed/rated
+
+    @courses_count = Course.count
+
+#    @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
     @action = :courses
 
     respond_to do |format|
       format.fbml # index.html.erb
-      format.xml  { render :xml => @courses }
+#      format.xml  { render :xml => @courses }
     end
-
   end
+
+  def list
+    @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
+    @action = :courses
+
+    respond_to do |format|
+      format.fbml
+    end
+  end
+
+
 
   def quicksearch
     @what = params[:what]
@@ -115,7 +131,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     current_user.has_played @course
     flash[:notice] = "#{@course.name} added to your list of played courses."
-    redirect_to :action => :courses_played
+    render :action => :list
   end
 
   def course_played_remote
@@ -127,13 +143,15 @@ class CoursesController < ApplicationController
     end
   end
 
+  #My Courses
   def courses_played
+    @courses_results_title = "My Courses"
     @courses_count = @user.courses.count
     @courses = @user.courses.paginate(:page => params[:page])
     @action = :courses_played
 
     respond_to do |format|
-      format.fbml { render :action => :index}
+      format.fbml { render :action => :list}
       format.xml  { render :xml => @courses }
     end
   end
@@ -150,7 +168,19 @@ class CoursesController < ApplicationController
     end
   end
 
+  def top_rated
+    @courses_results_title = "Top Rated"
+    @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
+    @courses = @courses.sort_by{|x|x.rating}
+    @courses = @courses.paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.fbml {render :action => :list}
+    end
+  end
+
   def highest_rated_loc
+    
     @action = :highest_rated
     courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
     rated = {}
@@ -163,6 +193,7 @@ class CoursesController < ApplicationController
     @courses = []
     arr.each { |a| @courses << a[0] }
     @courses_count = @courses.length
+    render :action => :list
   end
 
   def filter_by_loc_unrated

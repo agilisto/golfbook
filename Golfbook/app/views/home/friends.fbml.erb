@@ -18,21 +18,28 @@
   </div>
   <div id="results" style="overflow: hidden">
     <div class="main_column clearfix">
-      
-<% @users.each do |user, name| %>
-      
-        <div class="card small_hold_card clearfix">
-          <h3><%= link_to name, profile_view_url(:id=> user.id, :only_path => true)  %></h3>
-          <p>
-            <fb:profile-pic uid="<%= user.facebook_uid %>" size="thumb" />
-			<% if user.courses.length > 0 %>
-	            Have played <%= render :partial => 'profile/course_played', :collection => user.courses %>.
-			<% end %>
-          </p>
-        </div>
-      
-<% end %>
-      
+      <h2 class="first_card_section">Friends</h2>
+      <div class="minimal_info_block_container">
+        <% @users.each do |user| %>
+            <div class="minimal_info_block small_hole_card clearfix">
+              <h3><span><%= link_to user.name, profile_view_url(:id=> user.id, :only_path => true)  %></span>&nbsp;</h3>
+              <br clear="both"/>
+              <p>
+                <fb:profile-pic uid="<%= user.facebook_uid %>" size="thumb" />
+                <% if user.courses.length > 0 %>
+                    Have played <%= render :partial => 'profile/course_played', :collection => user.courses %>.
+                <% end %>
+              </p>
+            </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="side_column">
+      <div class="section clearfix">
+        <h3>Friends Sidebar - Content?</h3>
+      </div>
     </div>
   </div>
 </div>

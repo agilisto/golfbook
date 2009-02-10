@@ -5,119 +5,117 @@
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
     <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Profile</h2>
-    
-    <fb:if-is-user uid="<%=@user.facebook_uid%>">
-      <div class="card small_hole_card">
-        <h3>
-          <%= link_to 'Home Location <span>(change)</span>', :action => :location %>
-        </h3>
-        <p>This changes your current home location in Golfbook. 
-          <% if @user.location_set? then %>
-            Your current location is <strong><%= "#{@user.address}" %></strong>
-          <% end %>
-        </p>
-      </div>
-    </fb:if-is-user>
-    
-    <div class="card small_hole_card">
-      <h3>
-        Courses Played
-      </h3>
-      <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
-    </div>    
-    
-    <div class="card small_hole_card">
-      <h3>Personal Goal</h3>
-      <% unless @user.goal == 0 %>
-        <p>
-          <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" firstnameonly="true" possessive="true" capitalize="true" linked="false" /></a> goal is 
-            to play <%=@user.goal%> courses. <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:pronoun uid="<%=@user.facebook_uid%>" capitalize="true" linked="false" /></a>
+
+      <div class="minimal_info_block_container">
+        <fb:if-is-user uid="<%=@user.facebook_uid%>">
+          <div class="minimal_info_block small_hole_card">
+            <h3>
+              <span><%= link_to 'Home Location (change)', :action => :location %></span>&nbsp;
+            </h3>
+            <p>This changes your current home location in Golfbook.
+              <% if @user.location_set? then %>
+                Your current location is <strong><%= "#{@user.address}" %></strong>
+              <% end %>
+            </p>
+          </div>
+        </fb:if-is-user>
+
+        <div class="minimal_info_block small_hole_card">
+          <span><h3>Courses Played</span>&nbsp;</h3>
+          <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <h3><span>Personal Goal</span>&nbsp;</h3>
+          <% unless @user.goal == 0 %>
+            <p>
+              <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" firstnameonly="true" possessive="true" capitalize="true" linked="false" /></a> goal is
+              to play <%=@user.goal%> courses. <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:pronoun uid="<%=@user.facebook_uid%>" capitalize="true" linked="false" /></a>
               has currently played <%=@user.courses.length%> courses.
             </p>
           <% else %>
             <a href="<%=url_for(:action=>:show,:id=>@user.id)%>"><fb:name uid="<%=@user.facebook_uid%>" firstnameonly="true" capitalize="true" linked="false" /></a>
-              has not yet set a goal.
-            <% end %>
-            <fb:if-is-user uid="<%=@user.facebook_uid%>">
-              <p><%=link_to("Set Goal", {:action=>:goal,:id=>@user.id}, {:class=>'inputsubmit'})%></p>
-            </fb:if-is-user>
-          </div>
-    
-          <div class="card small_hole_card">
-            <h3>
-              <%= link_to 'Recent Rounds Played', :action => :rounds, :id => @user.id %>
-            </h3>
-      
-      <%@rounds.each do |round|%>
-              <p>
-                <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
-                - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:courses,:action=>:show,:id=>round.course.id%>
-                <%= time_ago_in_words round.date_played %> ago</span>
-              </p>
-            <%end%>
-                  
-          </div>
-          <div class="card small_hole_card">
-            <h3>
-              <%= link_to 'Upcoming Competitions', :controller => :competitions, :action => :index %>
-            </h3>
-      
-      <%@entries.each do |entry|%>
-              <p>
-                <%= link_to entry.name, :controller => :competitions, :action => :show, :id => entry.id%>
-                - <span style="font-size:9px"><%= entry.start_date.to_formatted_s(:long)%> to 
-                  <%= entry.end_date.to_formatted_s(:long)%></span>
-                  </p>
-                <%end%>
-                  
-              </div>
-              <div class="card small_hole_card">
-                <h3>
-                  <%= link_to 'Upcoming Tours', :controller => :tours, :action => :index %>
-                </h3>
-      
+            has not yet set a goal.
+          <% end %>
+          <fb:if-is-user uid="<%=@user.facebook_uid%>">
+            <p><%=link_to("Set Goal", {:action=>:goal,:id=>@user.id}, {:class=>'inputsubmit'})%></p>
+          </fb:if-is-user>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <h3><span><%= link_to 'Recent Rounds Played', :action => :rounds, :id => @user.id %></span>&nbsp;</h3>
+          <%@rounds.each do |round|%>
+            <p>
+              <b><%= link_to round.score, :controller => :round, :action => :show, :id => round.id%></b>
+              - <span style="font-size:9px"><%=link_to round.course.name, :controller=>:courses,:action=>:show,:id=>round.course.id%>
+              <%= time_ago_in_words round.date_played %> ago</span>
+            </p>
+          <%end%>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <h3>
+            <span><%= link_to 'Upcoming Competitions', :controller => :competitions, :action => :index %></span>&nbsp;
+          </h3>
+
+          <%@entries.each do |entry|%>
+            <p>
+              <%= link_to entry.name, :controller => :competitions, :action => :show, :id => entry.id%>
+              - <span style="font-size:9px"><%= entry.start_date.to_formatted_s(:long)%> to
+              <%= entry.end_date.to_formatted_s(:long)%></span>
+            </p>
+          <%end%>
+        </div>
+
+        <div class="minimal_info_block small_hole_card">
+          <h3>
+            <span><%= link_to 'Upcoming Tours', :controller => :tours, :action => :index %></span>&nbsp;
+          </h3>
+
           <%@tours.each do |tour|%>
-                  <p><%= link_to tour.name, :controller => :tours, :action => :show, :id => tour.id%>
-                    <%names = []
-                    tour.courses.each do |c|
-                      names << c.name
-                    end
-                    if names.length > 0 %>
-                      <!--  - <span style="font-size:9px"><%= names.join(", ")%></span> -->
-                    <%end%>
-                    - <span style="font-size:9px">Owned by <a href="<%=url_for :action=>:show,:id=>tour.user.id%>"><fb:name uid="<%=tour.user.facebook_uid%>" linked="false" /></a></span>
-                    <ul>
-                      <%tour.tour_dates.each do |td|%>
-                        <li style="font-size:9px">
-                          <%= link_to td.course.name, :controller => :courses, :action => :show, :id => td.course.id%>
-                          - <%= td.to_play_at.to_formatted_s(:long) %>
-                        </li>
-                      <%end%>
-                    </ul>
-                  </p>
-                <%end%>
-              </div>
-            </div>
-            <div class="side_column">
-              <div class="section clearfix">
-                <h3>Statistics</h3>
-                <div class="bar_chart simple">
-                  <h2 class="header">
-                    <span class="title"></span>
-                    <span class="title_label">
-                    <%= link_to "Total Courses Played: #{@user.courses.length}", user_view_courses_path(@user.id) %></span>
-                    <span class="sub_title"/>
-                    <div style="clear: left; height: 0px;"/>
-                  </h2>
-                </div>
-              </div>
-              <%if @viewer.admin%>
-                <div class="section clearfix">
-                  <h3>Admin Actions</h3>
-                  <div class="communication_item send_message clearfix">
-                    <%= link_to @user.admin ? 'Remove Admin' : 'Make Admin', url_for(:action => :makeadmin, :id => @user.id, :only_path => true) %>
-                  </div>
-                </div>
+            <p><%= link_to tour.name, :controller => :tours, :action => :show, :id => tour.id%>
+              <%names = []
+              tour.courses.each do |c|
+                names << c.name
+              end
+              if names.length > 0 %>
+                <!--  - <span style="font-size:9px"><%= names.join(", ")%></span> -->
               <%end%>
-            </div>
+              - <span style="font-size:9px">Owned by <a href="<%=url_for :action=>:show,:id=>tour.user.id%>"><fb:name uid="<%=tour.user.facebook_uid%>" linked="false" /></a></span>
+              <ul>
+                <%tour.tour_dates.each do |td|%>
+                  <li style="font-size:9px">
+                    <%= link_to td.course.name, :controller => :courses, :action => :show, :id => td.course.id%>
+                    - <%= td.to_play_at.to_formatted_s(:long) %>
+                  </li>
+                <%end%>
+              </ul>
+            </p>
+          <%end%>
+        </div>
+      </div>
+    </div>
+
+    <div class="side_column">
+      <div class="section clearfix">
+        <h3>Statistics</h3>
+        <div class="bar_chart simple">
+          <h2 class="header">
+            <span class="title"></span>
+            <span class="title_label">
+            <%= link_to "Total Courses Played: #{@user.courses.length}", user_view_courses_path(@user.id) %></span>
+            <span class="sub_title"/>
+            <div style="clear: left; height: 0px;"/>
+          </h2>
+        </div>
+      </div>
+      <%if @viewer.admin%>
+        <div class="section clearfix">
+          <h3>Admin Actions</h3>
+          <div class="communication_item send_message clearfix">
+            <%= link_to @user.admin ? 'Remove Admin' : 'Make Admin', url_for(:action => :makeadmin, :id => @user.id, :only_path => true) %>
           </div>
+        </div>
+      <%end%>
+    </div>
+  </div>

@@ -303,7 +303,15 @@ html[xmlns] .clearfix {
 }
 .main_column h2.first_card_section {
 	padding-top:0pt;
+    margin-bottom:10px;
+    border-bottom:1px solid #3b5998;
+    background-color:#eceff6;
 }
+
+.minimal_info_block_container{
+    padding-left:10px;
+}
+
 .main_column h2 {
 	padding:7px 0pt 6px 10px;
 }
@@ -389,6 +397,63 @@ html[xmlns] .clearfix {
 	height:20px;
 	margin:5px 0pt 0pt 5px;
 }
+
+/* ivor experimental class */
+
+.main_column .minimal_info_block {
+    padding-bottom:15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    clear:both;
+    /*
+    background:#ffffff none no-repeat scroll 7px;
+	border:1px solid #CECFCE;
+	margin:0pt 4px 5px;
+	padding:7px 10px 11px 30px;
+    */
+	width:480px;
+}
+
+.main_column .minimal_info_block h3 {
+    font-size: 13px;
+    color: #333333;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding-top: 15px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #d8dfea;
+
+    /* from divider class */
+    margin-top: -4px;
+    z-index: 0;
+    clear:both;
+}
+
+.main_column .minimal_info_block h3 span {
+
+    line-height: 18px;
+    display: block;
+    float: left;
+    font-size: 11px;
+    background-color: #ffffff;
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    padding-right: 6px;
+    z-index: 2;
+    position: relative;
+    clear:both;
+}
+
+/* end ivor experimental class */
 
 .main_column .card {
 	background:#ffffff none no-repeat scroll 7px;

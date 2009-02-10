@@ -11,15 +11,52 @@ class Course < ActiveRecord::Base
   acts_as_rateable
   acts_as_reviewable
   
-  def self.recently_played
-    find(:all, 
-      :limit => 6,
+  def self.recently_played(facebook_uids = [], num = 6)
+    conditions = facebook_uids.blank? ? nil : ["users.facebook_uid IN (?)",facebook_uids]
+    find(:all,
+      :limit => num,
       :select => 'users.id as user_id, users.facebook_uid as facebook_uid, courses.id as course_id, courses.name as course_name',
       :order => 'courses_users.created_at desc',
-      :joins => [:users]
+      :joins => [:users],
+      :conditions => conditions
       )
   end
+
+  def self.recently_played_by_friends(facebook_uids = [], num = 6)
+    conditions = facebook_uids.blank? ? nil : ["users.facebook_uid IN (?)",facebook_uids]
+    find(:all,
+      :limit => num,
+#      :select => 'users.id as user_id, users.facebook_uid as facebook_uid, courses.id as course_id, courses.name as course_name',
+      :order => 'courses_users.created_at desc',
+      :joins => [:users],
+      :conditions => conditions
+      )
+  end
+
+
   
+  def self.recently_reviewed(num)   #Ivor: This should actually use a sql distinct call
+    recent_reviews = Review.find(:all, :conditions => "reviewable_type = 'Course'", :order => 'created_at desc', :limit => num*2)
+    recent_courses = recent_reviews.collect{|x|x.reviewable}.compact.uniq
+    unless (difs = (num - recent_courses.size)) > 0
+      recent_courses[0..(num - 1)]
+    else
+      extra_reviews = Review.find(:all, :order => 'created_at desc', :limit => num*2, :conditions => ["reviewable_type = 'Course' AND reviewable_id NOT IN (?)",recent_courses.collect{|x|x.id}])
+      recent_courses + extra_reviews.collect{|x|x.reviewable}.compact.uniq[0..difs - 1]
+    end
+  end
+
+  def self.recently_rated(num)
+    recent_ratings = Rating.find(:all, :conditions => "rateable_type = 'Course'", :order => 'created_at desc', :limit => num*2)
+    recent_courses = recent_ratings.collect{|x|x.rateable}.compact.uniq
+    unless (difs = (num - recent_courses.size)) > 0
+      recent_courses[0..(num - 1)]
+    else
+      extra_reviews = Rating.find(:all, :order => 'created_at desc', :limit => num*2, :conditions => ["rateable_type = 'Course' AND rateable_id NOT IN (?)",recent_courses.collect{|x|x.id}])
+      recent_courses + extra_reviews.collect{|x|x.reviewable}.compact.uniq[0..difs - 1]
+    end
+  end
+
   has_many :rounds do
     def recent_rounds(max)
       find :all, :limit => max, :order => 'created_at desc'

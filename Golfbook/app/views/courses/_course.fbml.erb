@@ -1,9 +1,8 @@
-<div class="course_list_item clearfix">
+<div class="minimal_info_block clearfix">
   <div class="profile_img">
   </div>
-  <h2>
-    <%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> 
-    <br /><span class="big-rating">
+    <h3><span><%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> </span>&nbsp;</h3>
+    <span class="big-rating">
       Rating : <%= course.rating %> / 5
       <% unless course.holes.blank? %>
         , Holes: <%= course.holes %>
@@ -12,34 +11,36 @@
         , Par: <%= course.par %>
       <% end %>
     </span>
-  </h2>
   <p>
     <%= truncate course.description, 200 %>
   </p>
   
-  <%= link_to 'Schedule A Game Here', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
-  <span class="pipe">|</span>
-	
-  <% if !@user.courses.include? course %>
-    <%= link_to 'Add to My Courses', course_have_played_url(:id => course.id, :only_path => true) %>
+  <span style="float:right;">
+    <%= link_to 'Schedule A Game Here', url_for(:controller => :courses, :action => :schedule_game, :id => course.id, :only_path => true) %>
     <span class="pipe">|</span>
-  <% end %>
-                
-  <%= link_to 'Post Score', course_add_round_url(:id => course.id, :only_path => true) %>
-                
-  <% if !@user.courses_want_to_play.include? course %>
-    <span class="pipe">|</span>
-    <%= link_to 'Add To My Goals', course_add_wishlist_url(:id => course.id, :only_path => true) %>
-  <% end %>
-  <span class="pipe">|</span>
-  
-<%= link_to 'Host A Competition Here', course_add_competition_url(:id => course.id, :only_path => true) %>
-  
-<%if @user.tours.length > 0%>
-    <span class="pipe">|</span>
-  
-  <%= link_to 'Add This Course To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
-<%end%>
-    
+
+    <% if !@user.courses.include? course %>
+      <%= link_to 'Add to My Courses', course_have_played_url(:id => course.id, :only_path => true) %>
+      <span class="pipe">|</span>
+    <% end %>
+
+    <%= link_to 'Post Score', course_add_round_url(:id => course.id, :only_path => true) %>
+
+    <% if false %>
+      <% if !@user.courses_want_to_play.include? course %>
+        <span class="pipe">|</span>
+        <%= link_to 'Add To My Goals', course_add_wishlist_url(:id => course.id, :only_path => true) %>
+      <% end %>
+      <span class="pipe">|</span>
+
+      <%= link_to 'Host A Competition Here', course_add_competition_url(:id => course.id, :only_path => true) %>
+
+      <%if @user.tours.length > 0%>
+          <span class="pipe">|</span>
+
+        <%= link_to 'Add This Course To A Tour', url_for(:controller => :tours, :action => :add_course_to_tour, :course_id => course.id, :only_path => true) %>
+      <%end%>
+    <% end %>
+  </span>
           
 </div>

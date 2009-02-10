@@ -49,6 +49,8 @@ class User < ActiveRecord::Base
         :order => 'score asc'
     end
   end
+
+  has_one :last_round, :class_name => "Round", :order => 'rounds.created_at desc'
   
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
   
@@ -106,7 +108,10 @@ class User < ActiveRecord::Base
         :joins => ['INNER JOIN courses_users on wishlists.course_id = courses_users.course_id'])
     end
   end
-    
+
+  attr_accessible :name
+  attr_accessor :name
+
   def location_set?
     if self.latitude.nil? 
       false

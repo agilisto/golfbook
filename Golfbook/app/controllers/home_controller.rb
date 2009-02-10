@@ -61,15 +61,18 @@ class HomeController < ApplicationController
     @user = current_user
     fql =  "SELECT uid, name FROM user WHERE uid IN" +
       "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
-      "AND has_added_app = 1" 
+      "AND has_added_app = 1"
     friends_xml = fbsession.fql_query :query => fql
-    friends = friends_xml.user_list
-    @users = {}
-    friends.each do |f|
-      user = User.find_by_facebook_uid(f.uid)
-      next if user.nil?
-      @users[user] = f.name
+    @fql_friends = friends_xml.user_list
+    @users = User.find_all_by_facebook_uid(@fql_friends.collect{|x|x.uid}, :include => :last_round, :order => 'rounds.created_at DESC')
+    @fql_friends.each do |f|
+      (user = @users.detect{|x|x.facebook_uid.to_s == f.uid})
+      user.name = f.name unless user.nil?
+#      user = User.find_by_facebook_uid(f.uid)
+#      next if user.nil?
+#      @users[user] = f.name
     end
+    @users
   end
   
 end

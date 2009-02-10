@@ -4,7 +4,7 @@
     <div class="info">
       <a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
         <!--div id="sub_menu">
-  <%#= link_to 'Map View', {:controller => :home, :action => :index} %>
+  <%= link_to 'Map View', {:controller => :home, :action => :index} %>
                           </div-->			
     </div>
   </div>
@@ -12,30 +12,21 @@
 
   <%= render :partial => 'shared/home_menu' %>
 
-  <div id="page_panel" >
+  <div id="page_panel">
     <div class="editor_panel clearfix">
     
-  <%= render :partial => "shared/course_search_box" %>
+      <%= render :partial => "shared/course_search_box" %>
 
       <div id="results" style="overflow: hidden">
         <div class="main_column">
-
-          <h2 class="first_card_section">Recent Ratings</h2>
+        
+          <h2 class="first_card_section" style="border-bottom:1px solid #3b5998;background-color:#eceff6;"><%= @courses_results_title || 'Results' %></h2>
           <div class="minimal_info_block_container">
-            <%= render :partial => 'course', :collection => @recently_rated_courses %>
+            <%= render :partial => 'course', :collection => @courses %>
+            <%= will_paginate @courses, :inner_window => 2 if @courses.respond_to?(:page_count) %>
           </div>
 
-          <h2 class="first_card_section">Recent Reviews</h2>
-          <div class="minimal_info_block_container">
-            <%= render :partial => 'course', :collection => @recently_rated_courses %>
-          </div>
-
-          <h2 class="first_card_section">Friends Recent Courses</h2>
-          <div class="minimal_info_block_container">
-            <%= render :partial => 'course', :collection => @friends_recent_courses %>
-          </div>
         </div>
-
         <div class="side_column">
           <%= render :partial => "shared/buttons"%>
           <%= render :partial => "left_links" %>

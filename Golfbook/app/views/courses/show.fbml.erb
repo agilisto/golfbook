@@ -2,17 +2,34 @@
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-  <div class="courses clearfix">
+  <div class="editor_panel clearfix">
     <div class="main_column clearfix">
-      <h2 class="first_card_section clearfix">Course Information</h2>
+      <h2 class="first_card_section clearfix"><%= @course.name %></h2>
       
-<%if @user.admin%>
-  <%= render :partial => 'review_course', :object => @course %>
-<%end%>
+      <%if @user.admin%>
+        <%= render :partial => 'review_course', :object => @course %>
+      <%end%>
 
-      <div class="card small_hole_card clearfix">
+      <div class="minimal_info_block small_hole_card">
+        <%= render :partial => 'course_summary', :object => @course %>
+      </div>
+
+      <div class="minimal_info_block small_hole_card clearfix">
+        <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+      </div>
+
+      <div class="minimal_info_block small_hole_card">
+        <%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
+      </div>
+
+      <div class="minimal_info_block small_hole_card">
+        <%= render :partial => 'course_map', :object => @course %>
+      </div>
+
+
+      <div class="minimal_info_block small_hole_card clearfix">
         <h3 clicktotoggle="course_leaderboard">
-          2008 Leaderboard
+          <span>2008 Leaderboard</span>&nbsp;
         </h3>
         <div id="course_leaderboard">
           <table cellspacing="0" width="100%">
@@ -29,52 +46,34 @@
         </div>
       </div>
       
-      <div class="card small_hole_card clearfix">
-        <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
-      </div>
       
-      <div class="card small_hole_card">
-        <%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
-      </div>
-      
-<%if @games.length > 0%>
-        <div class="card small_hole_card">
+      <%if @games.length > 0%>
+        <div class="minimal_info_block small_hole_card">
           <%= render :partial => 'games', :object => @games %>
         </div>
       <%end%>
                                                       
-      <div class="card small_hole_card">
-        <%= render :partial => 'course_summary', :object => @course %>
-      </div>
       
-      <div class="card small_hole_card">
+      <div class="minimal_info_block small_hole_card">
         <div class="rightcontent">
           <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
         </div>
         <h3 clicktotoggle="rating">
-          Rate This Course (This is an overall rating)
+          <span>Rate This Course (This is an overall rating)</span>&nbsp;
         </h3>
         <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
       </div>
       
-      <div class="card small_hole_card">
-        <%= render :partial => 'course_map', :object => @course %>
-      </div>
       
-      <div class="clearfix card small_hole_card">
-        <h3>Players with this Home Course</h3>
+      <div class="clearfix minimal_info_block small_hole_card">
+          <h3><span>Players with this Home Course</span>&nbsp;</h3>
         <%= render :partial => "home_course", :collection => @home_users %>
       </div>
       
-      <div class="card small_hole_card">
-        If you find any inaccuracies with this course please 
-        <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
-      </div>
-      
-      <div class="card small_hole_card">
+      <div class="minimal_info_block small_hole_card">
         <div id="course_reviews">
           <h3 clicktotoggle="course_review_wall">
-            Recent Posts
+            <span>Recent Posts</span>&nbsp;
           </h3>
           <div id="course_review_wall">
             <fb:wall>
@@ -85,10 +84,15 @@
         </div>
       </div>
       
-      <div class="card small_hole_card">
+      <div class="minimal_info_block small_hole_card">
         <%= render :partial => 'reviews/new_review', :object => @review %>
       </div>
-      
+
+      <div class="card small_hole_card">
+        If you find any inaccuracies with this course please
+        <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
+      </div>
+
     </div>
     <div class="side_column">
       <%= render :partial => "shared/course_buttons"%>
