@@ -21,14 +21,18 @@
         <div class="main_column">
 
           <h2 class="first_card_section">Recent Ratings</h2>
-          <div class="minimal_info_block_container">
+          <% simple_info_box_container do %>
             <%= render :partial => 'course', :collection => @recently_rated_courses %>
-          </div>
+          <% end %>
+
+          <br />
 
           <h2 class="first_card_section">Recent Reviews</h2>
           <div class="minimal_info_block_container">
             <%= render :partial => 'course', :collection => @recently_rated_courses %>
           </div>
+
+          <br />
 
           <h2 class="first_card_section">Friends Recent Courses</h2>
           <div class="minimal_info_block_container">
@@ -37,20 +41,7 @@
         </div>
 
         <div class="side_column">
-          <%= render :partial => "shared/buttons"%>
-          <%= render :partial => "left_links" %>
-
-          <div class="section clearfix">
-            <h3>Courses Statistics</h3>
-            <div class="bar_chart simple">
-              <h2 class="header">
-                <span class="title"><%= @courses_count -%></span>
-                <span class="title_label">Total Courses</span>
-                <span class="sub_title"/>
-                <div style="clear: left; height: 0px;"/>
-              </h2>
-            </div>
-          </div>
+          <%= render :partial => 'courses/main_courses_sidecolumn' %>
         </div>
       </div>
     </div>

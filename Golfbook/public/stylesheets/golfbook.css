@@ -106,6 +106,54 @@
     cursor: hand;
 }
 
+img {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-top-color: -moz-use-text-color;
+    border-bottom-color: -moz-use-text-color;
+}
+
+
+.photo_widget img {
+  vertical-align: middle;
+}
+
+.photo_widget a img {
+    background-color: #ffffff;
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    padding-top: 4px;
+    padding-right: 6px;
+    padding-bottom: 0px;
+    padding-left: 2px;
+}
+
+.photo_borders a img {
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: #cccccc;
+    border-bottom-color: #cccccc;
+}
+
+.photo_borders a:hover img{
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: #3b5998;
+    border-bottom-color: #3b5998;
+}
+
 /* end of default facebook stuff */
 
 
@@ -146,7 +194,8 @@ html[xmlns] .clearfix {
 
 
 .pandemic_bar_wrapper {
-	padding-top:15px;
+/*	padding-top:15px; */
+	padding-top:40px;
 }
 
 .pandemic_bar {
@@ -302,7 +351,7 @@ html[xmlns] .clearfix {
     border-right:1px solid #CECFCE;
 }
 .main_column h2.first_card_section {
-    color:#666666;
+    color:#333333;
 	padding-top:0pt;
     padding-bottom:2px;
     padding-left:2px;

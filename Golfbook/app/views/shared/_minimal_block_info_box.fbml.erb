@@ -1,0 +1,18 @@
+<div class="minimal_info_block small_hole_card clearfix"
+   <% if options[:div_id] %>
+     id="<%= options[:div_id] %>"
+   <% end %>>
+  <% if options[:progress_id] %>
+    <div class="rightcontent">
+      <%= image_tag "progress.gif", :style => "display:none", :id => options[:progress_id] %>
+    </div>
+  <% end %>
+  <% unless heading.blank? %>
+    <h3
+      <% if options[:toggle] %>
+        clicktotoggle=<%= options[:toggle] %>
+      <% end %>>
+    <span><%= heading %></span>&nbsp;</h3>
+  <% end %>
+  <%= body %>
+</div>

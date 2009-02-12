@@ -1,5 +1,3 @@
-<div id="course_reviews_add_new">
-  <h3><span>The Wall</span>&nbsp;</h3>
   <h5></h5>
   <% editor_form_for :review, @review, 
     :url => {:controller => :reviews, :action => :create, :id => @course.id }, :labelwidth=>"20"  do  |f| %>
@@ -9,6 +7,4 @@
     <fb:editor-buttonset>
       <%= f.submit_tag('Post This') %>
     </fb:editor-buttonset>
-  
-<% end %>
-</div>
+  <% end %>

@@ -3,38 +3,36 @@
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-  <div class="courses clearfix">
+  <div class="editor_panel clearfix">
     <div class="main_column clearfix">
-      <h2 class="first_card_section clearfix">Course Information</h2>
-      
-      <div class="card small_hole_card clearfix">
-        <h3>Report Inaccuracies For <%=@course.name%></h3>
-
-        <fb:editor action="<%=url_for(:action=>:report_proc)%>">
+      <h2 class="first_card_section clearfix">Inaccuracies</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box("Report Inaccuracies For #{@course.name}") do %>
+          <fb:editor action="<%=url_for(:action=>:report_proc)%>">
 
             <input type="hidden" name="course_id" value="<%=@course.id%>" />
 
-          <fb:editor-textarea label="Comments" name="comments" rows="10" />
+            <fb:editor-textarea label="Comments" name="comments" rows="10" />
         
-          <fb:editor-buttonset>
-            <fb:editor-button value="Send" />
-            <fb:editor-cancel href="<%=url_for(:action=>:show,:id=>@course.id,:only_path=>true)%>" />
+            <fb:editor-buttonset>
+              <fb:editor-button value="Send" />
+              <fb:editor-cancel href="<%=url_for(:action=>:show,:id=>@course.id,:only_path=>true)%>" />
             </fb:editor-buttonset>
-          
+
           </fb:editor>
 
           <%= link_to 'Back', {:action => :show, :id => @course.id} %>
 
-        </div>
-      
-      </div>
-      <div class="side_column">
-        <div class="section clearfix">
-          <h3>Instructions</h3>
-          <p>
-            Please include full details of any inaccuracies you believe exist for this course.
-          </p>
-        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="side_column">
+      <div class="section clearfix">
+        <h3>Instructions</h3>
+        <p>
+          Please include full details of any inaccuracies you believe exist for this course.
+        </p>
       </div>
     </div>
   </div>
+</div>

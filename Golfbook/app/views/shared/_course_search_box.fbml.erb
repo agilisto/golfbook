@@ -48,6 +48,19 @@ options = {
     -->
     </script>
 
+    <span style="float:right;">
+      <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">
+        <div class="tr" style="width:160px">
+          <div class="bl">
+            <div class="br">
+              <span>Post a Score</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </span>
+
+
     <!-- Search Box -->
     <form id="course_search_by_name">  
       <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>

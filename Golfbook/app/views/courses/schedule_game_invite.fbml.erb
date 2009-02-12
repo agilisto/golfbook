@@ -3,35 +3,24 @@
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-	<div class="courses clearfix">
-		<div class="main_column clearfix">
-			<h2 class="first_card_section clearfix">Schedule a Game</h2>
-			
-                        <div class="card small_hole_card">
-                          <fb:request-form 
-                          action="<%=url_for :action => :schedule_game_notify, :game_id => @game.id %>" 
-                          method="POST" 
-                          invite="true" 
-                          type="Golfbook Game" 
-                          content='<fb:notif-subject>You have a new Golfbook game invitation!</fb:notif-subject><fb:notif-email>You have been invited by <fb:name uid="<%=@user.facebook_uid%>" /> to join him playing the <%= link_to h(@course.name),{:action=>:show,:id=>@course.id}%> course on <%= @game.date_to_play.to_formatted_s(:long)%>.<fb:req-choice url="<%=url_for(:action=>:join_game,:id=>@game.id)%>" label="Accept" /></fb:notif-email>You have been invited by <fb:name uid="<%=@user.facebook_uid%>" /> to join him playing the <%= link_to h(@course.name),{:action=>:show,:id=>@course.id}%> course on <%= @game.date_to_play.to_formatted_s(:long)%>.<fb:req-choice url="<%=url_for(:action=>:join_game,:id=>@game.id)%>" label="Accept" />' >
-                              <fb:multi-friend-selector showborder="true" actiontext="Invite your Golfbook friends to join you at <%= @course.name%>" exclude_ids="<%= @friend_ids %>"/> 
-                          </fb:request-form> 
-                        </div>
+  <div class="editor_panel clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix">Schedule a Game</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <fb:request-form
+          action="<%=url_for :action => :schedule_game_notify, :game_id => @game.id %>"
+          method="POST"
+          invite="true"
+          type="Golfbook Game"
+          content='<fb:notif-subject>You have a new Golfbook game invitation!</fb:notif-subject><fb:notif-email>You have been invited by <fb:name uid="<%=@user.facebook_uid%>" /> to join him playing the <%= link_to h(@course.name),{:action=>:show,:id=>@course.id}%> course on <%= @game.date_to_play.to_formatted_s(:long)%>.<fb:req-choice url="<%=url_for(:action=>:join_game,:id=>@game.id)%>" label="Accept" /></fb:notif-email>You have been invited by <fb:name uid="<%=@user.facebook_uid%>" /> to join him playing the <%= link_to h(@course.name),{:action=>:show,:id=>@course.id}%> course on <%= @game.date_to_play.to_formatted_s(:long)%>.<fb:req-choice url="<%=url_for(:action=>:join_game,:id=>@game.id)%>" label="Accept" />' >
+              <fb:multi-friend-selector showborder="true" actiontext="Invite your Golfbook friends to join you at <%= @course.name%>" exclude_ids="<%= @friend_ids %>"/>
+          </fb:request-form>
+        <% end %>
+      <% end %>
 		</div>
 		<div class="side_column">
-			<div class="section clearfix">
-				<%= render :partial => 'course_stats' %>
-			</div>
-			<div class="section clearfix">
-				<%= render :partial => 'course_actions' %>
-			</div>
-			<div class="section clearfix">
-			<h3>Recently Posted Rounds</h3>
-					<ul class="small_list">
-						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
-					</ul>
-				</div>
-
+          <%= render :partial => 'courses/single_course_sidecolumn' %>
 		</div>
 	</div>
 </div>

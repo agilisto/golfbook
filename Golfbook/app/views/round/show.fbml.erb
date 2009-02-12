@@ -4,75 +4,64 @@
   <fb:tab-item href='<%= user_view_rounds_url :only_path => true, :id => @user.id %>' title='Rounds'/>
 </fb:tabs>
 <div id="page_panel">
-  <div class="courses">
+  <div class="editor_panel clearfix">
     <div class="main_column">
+      <% simple_info_box_container do %>
+        <% simple_info_box('Round Information') do %>
+          <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>"><fb:name uid="<%= @round.user.facebook_uid %>" capitalize="true" linked="false" /></a> shot a
+          <strong><%= @round.score %></strong> at
+          <%= link_to(@round.course.name,:controller=>:courses,:action=>:show,:id=>@round.course_id)%> on <%= @round.date_played.to_formatted_s(:long) %>
+        <% end %>
       
-      <div class="card small_hole_card">
-        <h3>Round Information</h3>
-        <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>"><fb:name uid="<%= @round.user.facebook_uid %>" capitalize="true" linked="false" /></a> shot a 
-        <strong><%= @round.score %></strong> at 
-        <%= link_to(@round.course.name,:controller=>:courses,:action=>:show,:id=>@round.course_id)%> on <%= @round.date_played.to_formatted_s(:long) %>
-      </div>
+        <% unless @round.comments.nil? %>
+          <% simple_info_box('Your Comment') do %>
+            <span class="comments"><%= @round.comments %></span>
+          <% end %>
+        <% end %>
+          
+          <% header_var = %{
+              <a href="#{url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)}">
+                <fb:name uid="#{@round.user.facebook_uid}" capitalize="true" linked="false" possessive="true" firstnameonly="true" />
+              </a> 
+              best score at this course
+          } %>
+
+        <% simple_info_box(header_var) do %>
+          <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@best_round.user_id)%>"><fb:name uid="<%= @best_round.user.facebook_uid %>" linked="false" capitalize="true" /></a> shot a
+          <strong><%= @best_round.score %></strong> at
+          <%= link_to(@best_round.course.name,:controller=>:courses,:action=>:show,:id=>@best_round.course_id)%> on <%= @best_round.date_played.to_formatted_s(:long) %>
+        <% end %>
       
-      <% unless @round.comments.nil? %>
-        <div class="card small_hole_card">
-          <h3>Your Comment</h3>
-          <span class="comments"><%= @round.comments %></span>
-        </div>
+        <% simple_info_box('Friends: Recent scores', {:toggle => "course_friends_recent"}) do %>
+          <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+        <% end %>
+      
+        <% simple_info_box('Friends: Best scores', {:toggle => "course_friends_best"}) do %>
+          <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+        <% end %>
+
+        <% simple_info_box do %>
+            <fb:comments xid="round_<%=@round.id%>"
+                         canpost="true"
+                         candelete="false"
+                         returnurl="<%=url_for :controller=>:round,:action=>:show,:id=>@round.id%>">
+              <fb:title>Comment on this round</fb:title>
+            </fb:comments>
+        <% end %>
       <% end %>
-                                    
-      <div class="card small_hole_card">
-        <h3><a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>">
-        <fb:name uid="<%=@round.user.facebook_uid%>" capitalize="true" linked="false" possessive="true" firstnameonly="true" /></a> best score at this course</h3>
-        <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@best_round.user_id)%>"><fb:name uid="<%= @best_round.user.facebook_uid %>" linked="false" capitalize="true" /></a> shot a 
-        <strong><%= @best_round.score %></strong> at 
-        <%= link_to(@best_round.course.name,:controller=>:courses,:action=>:show,:id=>@best_round.course_id)%> on <%= @best_round.date_played.to_formatted_s(:long) %>
-      </div>
-      
-      <div class="card small_hole_card clearfix">
-        <%= render :partial => 'courses/course_friends_recent', :object => @friends_recent_rounds %>
-      </div>
-      
-      <div class="card small_hole_card">
-        <%= render :partial => 'courses/course_friends_best', :object => @friends_best_rounds %>
-      </div>
-      
-      <div class="card small_hole_card">
-        <fb:comments xid="round_<%=@round.id%>" 
-                     canpost="true" 
-                     candelete="false" 
-                     returnurl="<%=url_for :controller=>:round,:action=>:show,:id=>@round.id%>">
-          <fb:title>Comment on this round</fb:title>
-        </fb:comments>
-      </div>
     </div>
     <div class="side_column">
-      <div class="section clearfix">
-        <div class="bar_chart simple">
-          <a class="dh_new_media" href="<%= url_for :controller => :round, :action => :destroy, :id => @round.id %>">
-            <div class="tr" style="width:160px">
-              <div class="bl">
-                <div class="br">
-                  <span>Delete Round</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="section clearfix">
-        <h3>Share This Round</h3>
+      <% vitals_box('Round Actions') do %>
+        <a href="<%= url_for :controller => :round, :action => :destroy, :id => @round.id %>">>Delete Round</a>
+      <% end %>
+      <% vitals_box('Share This Round') do %>
         <fb:share-button class="meta">
           <meta name="title" content="<%= "#{@round.score} at #{@round.course.name}" %>"/>
           <link rel="target_url" href="<%= url_for :controller => :round, :action => :show, :id => @round.id %>"/>
         </fb:share-button>
-      </div>
-      <div class="section clearfix">
-        <%= render :partial => 'courses/course_stats' %>
-      </div>
-      <div class="section clearfix">
-        <%= render :partial => 'courses/course_actions' %>
-      </div>
+      <% end %>
+      <% @course = @round.course %>
+      <%= render :partial => 'courses/single_course_sidecolumn' %>
     </div>
   </div>
 </div>

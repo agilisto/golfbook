@@ -21,27 +21,16 @@
         <div class="main_column">
         
           <h2 class="first_card_section"><%= @courses_results_title || 'Results' %></h2>
-          <div class="minimal_info_block_container">
-            <%= render :partial => 'course', :collection => @courses %>
-            <%= will_paginate @courses, :inner_window => 2 if @courses.respond_to?(:page_count) %>
-          </div>
+          <% simple_info_box_container do %>
+            <% simple_info_box do %>
+              <%= render :partial => 'course', :collection => @courses %>
+              <%= will_paginate @courses, :inner_window => 2 if @courses.respond_to?(:page_count) %>
+            <% end %>
+          <% end %>
 
         </div>
         <div class="side_column">
-          <%= render :partial => "shared/buttons"%>
-          <%= render :partial => "left_links" %>
-
-          <div class="section clearfix">
-            <h3>Courses Statistics</h3>
-            <div class="bar_chart simple">
-              <h2 class="header">
-                <span class="title"><%= @courses_count -%></span>
-                <span class="title_label">Total Courses</span>
-                <span class="sub_title"/>
-                <div style="clear: left; height: 0px;"/>
-              </h2>
-            </div>
-          </div>
+          <%= render :partial => 'courses/main_courses_sidecolumn' %>
         </div>
       </div>
     </div>

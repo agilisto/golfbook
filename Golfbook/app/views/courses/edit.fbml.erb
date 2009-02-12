@@ -1,43 +1,40 @@
 <%= render :partial => "course_header"%>
-
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-  <div class="courses clearfix">
+  <div class="editor_panel clearfix">
     <div class="main_column clearfix">
       <h2 class="first_card_section clearfix">Course Information</h2>
-      
-      <div class="card small_hole_card clearfix">
-        <h3>Edit Course</h3>
-        
-        <%= error_messages_for :course %>
+      <% simple_info_box_container do %>
+        <% simple_info_box('Edit Course') do %>
+          <%= error_messages_for :course %>
 
-        <% editor_form_for :course, @course, :url => {:action => 'update'}, :html => {:labelwidth => 50}  do  |f| %>
+          <% editor_form_for :course, @course, :url => {:action => 'update'}, :html => {:labelwidth => 50}  do  |f| %>
 
-            <%= f.hidden_field :id%>
-            <%= f.text_field :name %>
-            <%= f.text_area :description, :rows => 10 %>
+              <%= f.hidden_field :id%>
+              <%= f.text_field :name %>
+              <%= f.text_area :description, :rows => 10 %>
 
-          <fb:editor-buttonset>
-            <%= f.submit_tag('Update') %>
-            <fb:editor-cancel href="<%=url_for(:action=>:show,:id=>@course.id,:only_path=>true)%>" />
-            </fb:editor-buttonset>
-          <% end %>
+            <fb:editor-buttonset>
+              <%= f.submit_tag('Update') %>
+              <fb:editor-cancel href="<%=url_for(:action=>:show,:id=>@course.id,:only_path=>true)%>" />
+              </fb:editor-buttonset>
+            <% end %>
 
-        <%= link_to 'Back', {:action => :show, :id => @course.id } %>
+          <%= link_to 'Back', {:action => :show, :id => @course.id } %>
 
-        </div>
-      </div>
+        <% end %>
+      <% end %>
+    </div>
 
-      <div class="side_column">
-        <div class="section clearfix">
-          <h3>Instructions</h3>
-          <p>
-            Please enter the details of the course you wish to add. The course
-            information that you submit will be reviewed by an administrator before
-            it is entered into the Golfbook database.
-          </p>
-        </div>
+    <div class="side_column">
+      <% vitals_box('Instructions') do %>
+        <p>
+          Please enter the details of the course you wish to edit. The course
+          information that you submit will be reviewed by an administrator before
+          it is entered into the Golfbook database.
+        </p>
+      <% end %>
       </div>
     </div>
   </div>

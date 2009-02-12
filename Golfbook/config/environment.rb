@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
     :secret      => '3ec6b429e685992b89b30e73e3aed6ace2a3ed3a899d87bf4834b9a9bf1ab9a32f01f9f23054c1149b5fa76749b69273d923b75b2f0cc331b6664959224a76dc'
   }
 
+
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with 'rake db:sessions:create')

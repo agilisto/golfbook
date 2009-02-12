@@ -3,19 +3,18 @@
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-  <div class="courses clearfix">
+  <div class="editor_panel clearfix">
     <div class="main_column clearfix">
       <h2 class="first_card_section clearfix">Course Information</h2>
-      
-      <div class="card small_hole_card clearfix">
-        <h3>New Course</h3>
+      <% simple_info_box_container do %>
+        <% simple_info_box('New Course') do %>
         
-                                  <%= error_messages_for :course %>
-        
-                                  <% editor_form_for :course, @course, :url => {:action => 'create'}, :html => {:labelwidth => 50} do |f| %>
-                                    
-                                        <%= f.hidden_field :longitude %>
-                                        <%= f.hidden_field :latitude %>
+          <%= error_messages_for :course %>
+
+          <% editor_form_for :course, @course, :url => {:action => 'create'}, :html => {:labelwidth => 50} do |f| %>
+
+                <%= f.hidden_field :longitude %>
+                <%= f.hidden_field :latitude %>
           
           <p>
             <%= f.text_field :name %>
@@ -33,22 +32,22 @@
 
           <%= link_to 'Back', {:action => 'index'} %>
 
-        </div>
-      
-        <div class="card small_hole_card">
+        <% end %>
+        <% simple_info_box('Location', :toggle => 'course_map') do %>
           <%= render :partial => 'course_map_new', :object => @course %>
-        </div>
-      
-      </div>
-      <div class="side_column">
-        <div class="section clearfix">
-          <h3>Instructions</h3>
-          <p>
-            Please enter the details of the course you wish to add. The course
-            information that you submit will be reviewed by an administrator before
-            it is entered into the Golfbook database.
-          </p>
-        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="side_column">
+      <div class="section clearfix">
+        <h3>Instructions</h3>
+        <p>
+          Please enter the details of the course you wish to add. The course
+          information that you submit will be reviewed by an administrator before
+          it is entered into the Golfbook database.
+        </p>
       </div>
     </div>
   </div>
+</div>

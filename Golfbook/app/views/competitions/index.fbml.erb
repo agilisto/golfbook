@@ -13,18 +13,12 @@
                               
     </div>
     <div class="side_column">
-      <%= render :partial => "shared/buttons"%>
-      <div class="section clearfix">
-        <h3>Competition Statistics</h3>
-        <div class="bar_chart simple">
-          <h2 class="header">
-            <span class="title"><%= @competitions.length -%></span>
-            <span class="title_label">Total Competitions</span>
-            <span class="sub_title"/>
-            <div style="clear: left; height: 0px;"/>
-          </h2>
-        </div>
-      </div>
+      <% vitals_box("Actions") do%>
+        <%= render :partial => "shared/buttons"%>
+      <% end %>
+      <% vitals_box("Competition Statistics") do %>
+        <%= render :partial => 'competitions/overall_statistics' %>
+      <% end %>
     </div>
   </div>
 </div>

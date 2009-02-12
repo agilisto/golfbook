@@ -1,5 +1,4 @@
-<%= render :partial => "course_header"%>
-
+<%= render :partial => "courses/course_header"%>
 <%= render :partial => 'shared/home_menu' %>
 
 <script>
@@ -17,40 +16,37 @@
     </script>
 
   <div id="page_panel">
-    <div class="courses clearfix">
+    <div class="editor_panel clearfix">
       <div class="main_column clearfix">
         <h2 class="first_card_section clearfix">Course Information</h2>
-      
-        <div class="card small_hole_card">
-          <%= render :partial => 'new_course_map' %>
-        </div>
-      
-        <div class="card small_hole_card clearfix">
-          <h3>New Location</h3>
-          <p>
-            <form id="course_search_by_loc" action="<%= url_for :controller => :courses, :action => :new_map, :only_path => true %>" method="POST">
-              <%= text_field_tag "location", nil, :id => 'i_like_text', :size => 30, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
-              <script>
-                <!--
-                var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options2);
-                -->
-              </script>
-              <br/><input type="submit" class="inputsubmit" value="Jump to City" /> 
-            </form>
-          </p>
-        
-        </div>
-      
+        <% simple_info_box_container do %>
+          <% simple_info_box('Select Course Location') do %>
+            <%= render :partial => 'new_course_map' %>
+          <% end %>
+
+          <% simple_info_box('New Location') do %>
+            <p>
+              <form id="course_search_by_loc" action="<%= url_for :controller => :courses, :action => :new_map, :only_path => true %>" method="POST">
+                <%= text_field_tag "location", nil, :id => 'i_like_text', :size => 30, :class => 'inputtext inputsearch', :style => 'padding-left:20px', :autocomplete =>"off" %>
+                <script>
+                  <!--
+                  var suggestr = new ajaxSuggestFbml(document.getElementById('i_like_text'), options2);
+                  -->
+                </script>
+                <br/><input type="submit" class="inputsubmit" value="Jump to City" />
+              </form>
+            </p>
+          <% end %>
+        <% end %>
       </div>
       <div class="side_column">
-        <div class="section clearfix">
-          <h3>Instructions</h3>
+        <% vitals_box('Instructions') do %>
           <p>The map has been centered on your home location by default.
             You can select a different start location by entering a city name
             below. Drag and zoom the map to find the location of the course you
             wish to add, and then click on the location.
           </p>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

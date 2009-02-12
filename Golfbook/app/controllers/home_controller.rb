@@ -27,10 +27,10 @@ class HomeController < ApplicationController
     uids = [ @user.id ]
     users.each { |u| uids << u.id }
     @friends_count = users.compact.size
-    @recent_friends_rounds = Round.find_all_by_user_id uids, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user]
+    @recent_friends_rounds = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.created_at desc', :conditions => ["rounds.user_id IN (?)",uids])
 
     @recent_courses = Course.recent_additions
-    @recent_courses_played = Course.recently_played
+    @recent_courses_played = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.created_at desc', :conditions => ["rounds.user_id NOT IN (?)",uids])
         
 #    @upcoming_games = @user.games.upcoming
 #    @user.games_to_play.upcoming.each { |g| @upcoming_games << g }

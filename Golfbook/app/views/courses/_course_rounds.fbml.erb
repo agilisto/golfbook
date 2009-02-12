@@ -1,0 +1,45 @@
+<% if course_rounds.first.class == Round %>
+  <% courses = course_rounds.collect{|x|x.course}.compact.uniq %>
+  <% courses.each do |course| %>
+    <% simple_info_box(course.name) do %>
+      <% rounds_for_course = course_rounds.collect{|r| r if (r.course_id == course.id)}.compact %>
+      <div class="leftcontent" style="width:360px;">
+        <ul class="small_list">
+          <%= render :partial => 'shared/recent_round', :collection => rounds_for_course %>
+        </ul>
+      </div>
+      <div class="leftcontent" style="width:140px;">
+        <div class="photo_widget">
+          <% rounds_for_course.each do |round| %>
+            <div style="float:left;" class="photo_borders">
+              <a href="<%= profile_view_url :id=>round.user.id, :only_path => true %>">
+                <fb:profile-pic uid="<%= round.user.facebook_uid %>" size="square" linked="true" />
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <% course_rounds.each do |course| %>
+    <% simple_info_box(course.name) do %>
+      <div class="leftcontent" style="width:360px;">
+        <ul class="small_list">
+          <%= render :partial => 'shared/recent_round', :collection => course.last_four_rounds[0..3] %>
+        </ul>
+      </div>
+      <div class="leftcontent" style="width:140px;">
+        <div class="photo_widget">
+          <% course.last_four_rounds[0..3].each do |round| %>
+            <div style="float:left;" class="photo_borders">
+              <a href="<%= profile_view_url :id=>round.user.id, :only_path => true %>">
+                <fb:profile-pic uid="<%= round.user.facebook_uid %>" size="square" linked="true" />
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

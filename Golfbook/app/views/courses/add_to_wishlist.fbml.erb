@@ -17,13 +17,11 @@
 <div class="editor_panel clearfix">
 	<div class="main_column clearfix">
 		<h2 class="first_card_section">I want to play <%= @course.name %></h2>
-		<div class="card small_hole_card">
-			<h3>
-				<%= @course.name %>
-			</h3>
-			  <p>
-			   Would you like to play the course by a specific date?
-			  </p>
+        <% simple_info_box_container do %>
+          <% simpple_info_box(@course.name) do %>
+            <p>
+             Would you like to play the course by a specific date?
+            </p>
 			
 			<% unless @wishlist.errors.blank? %>
 				<fb:error>
@@ -49,21 +47,10 @@
 		
 			<% end %>
 			<p><strong>Tip:&nbsp;</strong>To set a more general target, use the last day of the week, month or year as your target!</p>
-		</div>
+          <% end %>
+        <% end %>
 	</div>
-		<div class="side_column">
-			<div class="section clearfix">
-				<%= render :partial => 'course_stats' %>
-			</div>
-			<div class="section clearfix">
-				<%= render :partial => 'course_actions' %>
-			</div>
-			<div class="section clearfix">
-			<h3>Recently Posted Rounds</h3>
-					<ul class="small_list">
-						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
-					</ul>
-				</div>
-			</div>
-		</div>
+    <div class="side_column">
+      <%= render :partial => 'courses/single_course_sidecolumn' %>
+    </div>
 </div>

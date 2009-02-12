@@ -5,19 +5,24 @@
 <div class="editor_panel clearfix">
   <div class="main_column clearfix">
     <h2 class="first_card_section">Profile Information</h2>
-    
-    <%@users.each do |user|%>
-      <div class="card small_hole_card">
-        <a href="<%=url_for(:action=>:show,:id=>user.id)%>">
+    <% simple_info_box_container do %>
+      <%@users.each do |user|%>
+        <% simple_info_box do %>
+          <a href="<%=url_for(:action=>:show,:id=>user.id)%>">
             <fb:name uid="<%=user.facebook_uid%>" linked="false" useyou="false" />
           </a>
           <%if user.admin%> (admin)<%end%>
-        </div>
+        <% end %>
       <%end%>
-                    
       <%= will_paginate @users, :inner_window => 2 %>
+    <% end %>
     </div>
     <div class="side_column">
-    
+      <% vitals_box('Vitals') do %>
+        <%= render :partial => 'shared/vitals' %>
+      <% end %>
+      <% vitals_box('Actions') do %>
+        <%= render :partial => 'shared/buttons' %>
+      <% end %>
     </div>
   </div>

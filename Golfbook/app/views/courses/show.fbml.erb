@@ -5,32 +5,32 @@
   <div class="editor_panel clearfix">
     <div class="main_column clearfix">
       <h2 class="first_card_section clearfix"><%= @course.name %></h2>
-      <div class="minimal_info_block_container">
+      <% simple_info_box_container do %>
+
         <%if @user.admin%>
+          <% simplel_info_box('Review Course') do %>
           <%= render :partial => 'review_course', :object => @course %>
+          <% end %>
         <%end%>
 
-        <div class="minimal_info_block small_hole_card">
+        <% simple_info_box('Course Description', {:toggle => "course_description"}) do %>
           <%= render :partial => 'course_summary', :object => @course %>
-        </div>
+        <% end %>
 
-        <div class="minimal_info_block small_hole_card clearfix">
+
+        <% simple_info_box('Friends: Recent scores', {:toggle => "course_friends_recent"}) do %>
           <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
-        </div>
+        <% end %>
 
-        <div class="minimal_info_block small_hole_card">
+        <% simple_info_box('Friends: Best scores', {:toggle => "course_friends_best"}) do %>
           <%= render :partial => 'course_friends_best', :object => @friends_best_rounds %>
-        </div>
+        <% end %>
 
-        <div class="minimal_info_block small_hole_card">
+        <% simple_info_box('Location', {:toggle => "course_map"}) do %>
           <%= render :partial => 'course_map', :object => @course %>
-        </div>
+        <% end %>
 
-
-        <div class="minimal_info_block small_hole_card clearfix">
-          <h3 clicktotoggle="course_leaderboard">
-            <span>2008 Leaderboard</span>&nbsp;
-          </h3>
+        <% simple_info_box('Leaderboard', {:toggle => "course_leaderboard"}) do %>
           <div id="course_leaderboard">
             <table cellspacing="0" width="100%">
               <tbody>
@@ -42,89 +42,44 @@
                 <%= render :partial => 'leaderboard', :collection => @course.rounds.leaderboard %>
               </tbody>
             </table>
-
           </div>
-        </div>
-
+        <% end %>
 
         <%if @games.length > 0%>
-          <div class="minimal_info_block small_hole_card">
+          <% simple_info_box('Upcoming Games', :toggle => 'upcommming_games') do %>
             <%= render :partial => 'games', :object => @games %>
-          </div>
+          <% end %>
         <%end%>
 
-
-        <div class="minimal_info_block small_hole_card">
-          <div class="rightcontent">
-            <%= image_tag "progress.gif", :style => "display:none", :id => "progress1"%>
-          </div>
-          <h3 clicktotoggle="rating">
-            <span>Rate This Course (This is an overall rating)</span>&nbsp;
-          </h3>
+        <% simple_info_box('Rate This Course (This is an overall rating)',:toggle => 'rating', :progress_id => "progress1") do %>
           <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>
-        </div>
+        <% end %>
 
-
-        <div class="clearfix minimal_info_block small_hole_card">
-            <h3><span>Players with this Home Course</span>&nbsp;</h3>
+        <% simple_info_box('Players with this Home Course') do %>
           <%= render :partial => "home_course", :collection => @home_users %>
-        </div>
+        <% end %>
 
-        <div class="minimal_info_block small_hole_card">
-          <div id="course_reviews">
-            <h3 clicktotoggle="course_review_wall">
-              <span>Recent Posts</span>&nbsp;
-            </h3>
+        <% simple_info_box('Recent Posts', :toggle => 'course_review_wall') do %>
             <div id="course_review_wall">
               <fb:wall>
                 <%= render :partial => 'reviews/review', :collection => @reviews %>
               </fb:wall>
             </div>
             <%= will_paginate @reviews, :inner_window => 2 %>
-          </div>
-        </div>
+        <% end %>
 
-        <div class="minimal_info_block small_hole_card">
+        <% simple_info_box('The Wall', :div_id => "course_reviews_add_new") do %>
           <%= render :partial => 'reviews/new_review', :object => @review %>
-        </div>
+        <% end %>
 
         <div class="card small_hole_card">
           If you find any inaccuracies with this course please
           <%=link_to "report them", :action=>:report_course,:id=>@course.id%>.
         </div>
-      </div>
+
+      <% end %>
     </div>
     <div class="side_column">
-      <%= render :partial => "shared/course_buttons"%>
-      <%#= render :partial => "shared/buttons"%>
-      <div class="section clearfix">
-        <h3>Share This Course</h3>
-        <fb:share-button class="meta">
-          <meta name="title" content="<%= @course.name %>"/>
-          <link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
-          </fb:share-button>
-        </div>
-        <div class="section clearfix">
-          <%= render :partial => 'course_stats' %>
-        </div>
-        <div class="section clearfix">
-          <%= render :partial => 'course_actions' %>
-        </div>
-        <%if @user.admin%>
-          <div class="section clearfix">
-            <h3>Admin Actions</h3>
-            <div class="communication_item send_message clearfix">
-              <%= link_to 'Edit Course', url_for(:action => :edit, :id => @course.id, :only_path => true) %>
-            </div>
-          </div>
-        <%end%>
-        <div class="section clearfix">
-          <h3>Recently Posted Rounds</h3>
-          <ul class="small_list">
-            <%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
-          </ul>
-        </div>
-      
-      </div>
+      <%= render :partial => 'courses/single_course_sidecolumn'  %>
     </div>
   </div>

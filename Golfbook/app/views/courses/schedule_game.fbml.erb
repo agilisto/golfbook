@@ -3,49 +3,53 @@
 <%= render :partial => 'shared/home_menu' %>
 
 <div id="page_panel">
-	<div class="courses clearfix">
-		<div class="main_column clearfix">
-			<h2 class="first_card_section clearfix">Schedule a Game</h2>
-			
-			<div class="card small_hole_card">
-				<%= render :partial => 'course_summary', :object => @course %>
-			</div>
+  <div class="editor_panel clearfix">
+    <div class="main_column clearfix">
+        <h2 class="first_card_section clearfix">Schedule a Game</h2>
+        <% simple_info_box_container do %>
 
-                        <div class="card small_hole_card">
-							<p><strong>Tip:&nbsp;</strong>You can invite others to join you on the next page!</p>
-                          <% editor_form_for :game, @game, :url => {:action => "save_game"} do |f| %>
-   
-                            <%= f.hidden_field :course_id %>
-                            <%= f.hidden_field :user_id %>
+          <% simple_info_box('Course Description', {:toggle => "course_description"}) do %>
+            <%= render :partial => 'course_summary', :object => @course %>
+          <% end %>
 
-                            <fb:editor-custom label="Target Date">
-	                            <%= f.date_select :date_to_play %>
-                            </fb:editor-custom>
-							<fb:editor-buttonset>
-                                <%= f.submit_tag('Schedule Game') %>
-                                <fb:editor-cancel href="<%= url_for(:action => :show, :id => @game.course_id)%>">
-                            </fb:editor-buttonset>
+          <% simple_info_box("") do %>
+            <p><strong>Tip:&nbsp;</strong>You can invite others to join you on the next page!</p>
+              <% editor_form_for :game, @game, :url => {:action => "save_game"} do |f| %>
 
-                          <%end%>
-						
-						<p><strong>Tip:&nbsp;</strong>To schedule a game for a more general time in future, use the last day of the week, month or year as your target!</p>
+                <%= f.hidden_field :course_id %>
+                <%= f.hidden_field :user_id %>
 
-                        </div>
-		</div>
-		<div class="side_column">
-			<div class="section clearfix">
-				<%= render :partial => 'course_stats' %>
-			</div>
-			<div class="section clearfix">
-				<%= render :partial => 'course_actions' %>
-			</div>
-			<div class="section clearfix">
-			<h3>Recently Posted Rounds</h3>
-					<ul class="small_list">
-						<%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
-					</ul>
-				</div>
+                <fb:editor-custom label="Target Date">
+                    <%= f.date_select :date_to_play %>
+                </fb:editor-custom>
+                <fb:editor-buttonset>
+                    <%= f.submit_tag('Schedule Game') %>
+                    <fb:editor-cancel href="<%= url_for(:action => :show, :id => @game.course_id)%>">
+                </fb:editor-buttonset>
 
-		</div>
-	</div>
+              <%end%>
+            <p><strong>Tip:&nbsp;</strong>To schedule a game for a more general time in future, use the last day of the week, month or year as your target!</p>
+          <% end %>
+
+        <% end %>
+    </div>
+    <div class="side_column">
+      <% vitals_box('Course Actions') do %>
+        <%= render :partial => "shared/course_buttons"%>
+      <% end %>
+      <% vitals_box('Actions') do %>
+        <%= render :partial => "shared/buttons"%>
+      <% end %>
+
+      <% vitals_box('Course Statistics') do %>
+        <%= render :partial => 'course_stats' %>
+      <% end %>
+
+      <% vitals_box('Recently Posted Rounds') do %>
+        <ul class="small_list">
+          <%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>

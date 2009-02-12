@@ -1,7 +1,4 @@
-<div class="minimal_info_block clearfix">
-  <div class="profile_img">
-  </div>
-    <h3><span><%= link_to h(course.name), {:action => :show, :controller => :courses, :id => course.id }%> </span>&nbsp;</h3>
+<% simple_info_box(link_to(h(course.name), {:action => :show, :controller => :courses, :id => course.id })) do %>
     <span class="big-rating">
       Rating : <%= course.rating %> / 5
       <% unless course.holes.blank? %>
@@ -42,5 +39,4 @@
       <%end%>
     <% end %>
   </span>
-          
-</div>
+<% end %>

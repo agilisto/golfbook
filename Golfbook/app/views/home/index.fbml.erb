@@ -25,52 +25,54 @@
 
     <div class="main_column clearfix">
 
-      <h2 class="first_card_section">Recent Courses Played</h2>
-      <div class="minimal_info_block_container">
-        <div class="minimal_info_block small_hold_card clearfix">
-          <%#*<h3><span>Recent Courses Played</span>&nbsp;</h3>%>
-          <%= render :partial => 'friend_course', :collection => @recent_courses_played %>
-        </div>
-      </div>
-
       <h2 class="first_card_section">Where are your friends playing?</h2>
-      <div class="minimal_info_block_container">
-        <div class="minimal_info_block small_hole_card clearfix">
-          <%#*<h3><span>Where are your friends playing?</span>&nbsp;</h3>%>
-          <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
-        </div>
-      </div>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <%= render :partial => 'courses/course_rounds', :locals => {:course_rounds => @recent_friends_rounds} %>
+        <%#= render :partial => 'shared/recent_round_expanded', :collection => @recent_friends_rounds %>
+        <% end %>
+      <% end %>
 
-      <h2 class="first_card_section">Recently Posted Rounds Worldwide</h2>
-      <div class="minimal_info_block_container">
-        <div class="minimal_info_block small_hole_card clearfix">
-          <%#*<h3><span>Recently Posted Rounds Worldwide</span>&nbsp;</h3>%>
-          <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
-        </div>
-      </div>
+      <h2 class="first_card_section">Recent Courses Played</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <%= render :partial => 'courses/course_rounds', :locals => {:course_rounds => @recent_courses_played} %>
+          <%#= render :partial => 'friend_course', :collection => @recent_courses_played %>
+        <% end %>
+      <% end %>
 
+<!--
+     <h2 class="first_card_section">Recently Posted Rounds Worldwide</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+        <%= render :partial => 'shared/recent_round_expanded', :collection => @recent_rounds %>
+        <% end %>
+      <% end %>
+-->
     </div>
 
     <div class="side_column">
-      <%= render :partial => "shared/buttons"%>
-      <%= render :partial => 'shared/vitals' %>
+      <% vitals_box('Vitals') do %>
+        <%= render :partial => 'shared/vitals' %>
+      <% end %>
 
-      <br/>
-      <div class="section clearfix">
-        <h3>Latest PGA News</h3>
+      <% vitals_box('Actions') do %>
+        <%= render :partial => "shared/buttons"%>
+      <% end %>
+
+      <% vitals_box('Latest PGA News') do %>
         <% @news.each do |title, link| %>
           <%= render :partial => 'shared/pga_news_item', :locals => { :title => title, :link => link } %>
         <% end %>
-      </div>
-      <div class="section clearfix">
-        <h3>Recently Added Courses</h3>
-        <%= render :partial => 'shared/expanded_recent_course', :collection => @recent_courses %>
-      </div>
-      <div class="section clearfix">
-        <h3>Recent Ratings</h3>
-        <%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
-      </div>
+      <% end %>
 
+      <% vitals_box('Recently Added Courses') do %>
+        <%= render :partial => 'shared/expanded_recent_course', :collection => @recent_courses %>
+      <% end %>
+
+      <% vitals_box('Recent Ratings') do %>
+        <%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
+      <% end %>
     </div>
   </div>
 </div>

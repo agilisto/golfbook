@@ -17,41 +17,19 @@
   </div>
   <div id="results" style="overflow: hidden">
     <div class="main_column clearfix">
-      
-      <div class="minimal_info_block small_hole_card clearfix">
-        <h3>Golfbook Feed</h3>
-        <h4>The Clubhouse makes it easy to see all the things that are being said on Golfbook.</h4><br/>
-		
-			<fb:wall>
-				<%= render :partial => 'post', :collection => @posts %>
-			</fb:wall>
-			<%= will_paginate @posts, :inner_window => 5 %>
-	  </div>
-    </div>
+      <% simple_info_box_container do %>
+        <% simple_info_box('Golfbook Feed') do %>
+            <h4>The Clubhouse makes it easy to see all the things that are being said on Golfbook.</h4><br/>
 
+                <fb:wall>
+                    <%= render :partial => 'post', :collection => @posts %>
+                </fb:wall>
+                <%= will_paginate @posts, :inner_window => 5 %>
+        <% end %>
+      <% end %>
+    </div>
  	<div class="side_column">
-	<div class="section clearfix">
-	  <div class="bar_chart simple">
-	    <br />
-			<a class="dh_new_media" href="<%= url_for :controller => :home, :action => :invite %>">
-		      <div class="tr" style="width:160px">
-		        <div class="bl">
-		          <div class="br">
-		            <span>Invite Friends</span>
-		          </div>
-		        </div>
-		      </div>
-		    </a>
-		    <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :schedule %>">
-		      <div class="tr" style="width:160px">
-		        <div class="bl">
-		          <div class="br">
-		            <span>Schedule a Game</span>
-		          </div>
-		        </div>
-		      </div>
-		    </a>
-		    <br /><br />
-	</div>
-</div>
+      <%= render :partial => 'courses/main_courses_sidecolumn' %>
+    </div>
+  </div>
 </div>

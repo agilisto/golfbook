@@ -22,6 +22,10 @@ class Course < ActiveRecord::Base
       )
   end
 
+  def self.recently_played_with_rounds(num = 4)
+    find(:all, :include => :last_four_rounds, :order => 'rounds.created_at desc', :limit => num)
+  end
+
   def self.recently_played_by_friends(facebook_uids = [], num = 6)
     conditions = facebook_uids.blank? ? nil : ["users.facebook_uid IN (?)",facebook_uids]
     find(:all,
@@ -33,8 +37,6 @@ class Course < ActiveRecord::Base
       )
   end
 
-
-  
   def self.recently_reviewed(num)   #Ivor: This should actually use a sql distinct call
     recent_reviews = Review.find(:all, :conditions => "reviewable_type = 'Course'", :order => 'created_at desc', :limit => num*2)
     recent_courses = recent_reviews.collect{|x|x.reviewable}.compact.uniq
@@ -94,6 +96,9 @@ class Course < ActiveRecord::Base
     end
   
   end
+
+  has_many :last_four_rounds, :class_name => "Round", :order => 'created_at desc', :limit => 4
+  has_many :last_four_non_friend_rounds, :class_name => "Round", :order => 'created_at desc', :limit => 4
   
   has_many :players, :through => :rounds, :source => :user, :uniq => true 
   

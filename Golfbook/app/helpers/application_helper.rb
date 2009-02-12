@@ -40,4 +40,20 @@ module ApplicationHelper
      @display_course.nil? == true ? false : true
    end
    
-end
+   def vitals_box(heading = "",&block)
+      body = capture(&block)
+      concat(render(:partial => 'shared/vitals_box', :locals => {:heading => heading, :body => body}), block.binding)
+   end
+
+   def simple_info_box_container(&block)
+     body = capture(&block)
+     concat(%{<div class="minimal_info_block_container">#{body}</div>},block.binding)
+   end
+
+   def simple_info_box(heading = "",options = {}, &block)
+      body = capture(&block)
+      concat(render(:partial => 'shared/minimal_block_info_box', :locals => {:heading => heading, :body => body, :options => options}), block.binding)
+   end
+
+
+ end
