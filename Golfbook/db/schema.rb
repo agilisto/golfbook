@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 37) do
+ActiveRecord::Schema.define(:version => 38) do
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 37) do
     t.string   "source_reference"
     t.integer  "holes"
     t.integer  "par"
+    t.integer  "course_rating"
   end
 
   create_table "courses_users", :id => false, :force => true do |t|
@@ -75,6 +76,15 @@ ActiveRecord::Schema.define(:version => 37) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.date     "date_to_play"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "handicaps", :force => true do |t|
+    t.integer  "value"
+    t.integer  "round_id"
+    t.integer  "user_id"
+    t.integer  "change"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,6 +117,8 @@ ActiveRecord::Schema.define(:version => 37) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "comments"
+    t.integer  "holes"
+    t.integer  "course_rating"
   end
 
   create_table "sessions", :force => true do |t|

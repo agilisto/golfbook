@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.connect "/handicaps", :controller => 'handicaps', :action => "index"
+
   map.resources :walls
 
  

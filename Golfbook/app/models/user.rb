@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   # home course
   belongs_to :home_course, :class_name => "Course"
   
+  has_many :handicaps   #denormalising in this way will make queries easier/faster
+  has_one :current_handicap, :class_name => "Handicap", :order => 'created_at desc'
+  
   has_many :games do
     def for_course course
       find :all, 
@@ -50,7 +53,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_one :last_round, :class_name => "Round", :order => 'rounds.created_at desc'
+  has_one :last_round, :class_name => "Round", :order => 'rounds.date_played desc'
   
   has_many :courses_played, :through => :rounds, :source => :course, :uniq => true
   

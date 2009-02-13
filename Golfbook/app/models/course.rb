@@ -97,9 +97,7 @@ class Course < ActiveRecord::Base
   
   end
 
-  has_many :last_four_rounds, :class_name => "Round", :order => 'created_at desc', :limit => 4
-  has_many :last_four_non_friend_rounds, :class_name => "Round", :order => 'created_at desc', :limit => 4
-  
+  has_many :last_four_rounds, :class_name => "Round", :order => 'rounds.date_played desc', :limit => 4
   has_many :players, :through => :rounds, :source => :user, :uniq => true 
   
   has_many :wishlists
@@ -136,6 +134,10 @@ class Course < ActiveRecord::Base
   def self.recent_additions(options = {})
     limits = {:order => 'created_at desc', :limit => 10}
     recent_courses = Course.find(:all, limits.merge(options))
+  end
+
+  def course_rating
+    read_attribute(:course_rating) || self.par
   end
   
   

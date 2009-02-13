@@ -1,7 +1,7 @@
 <fb:tabs>
   <fb:tab-item href='<%= url_for :controller => :home, :action => :index %>' title='Home' selected='<%= @action == HomeController::NEAR_ME %>' class="fbtab" />
   <fb:tab-item href='<%= url_for :controller => :courses, :action => :index %>' title='Course Info' selected='<%= @action == :index %>' class="fbtab" />
-  <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='Unofficial Handicap' class="fbtab" />
+  <fb:tab-item href='<%= url_for :controller => :handicaps, :action => :index %>' title='Unofficial Handicap' class="fbtab" />
   <fb:tab-item href='<%= url_for :controller => :home, :action => :friends, :only_path => true %>' title="Friends" class="fbtab" />
   <fb:tab-item href='<%= url_for :controller => :profile, :action => :index, :only_path => true %>' title="Profile" class="fbtab" />
   <fb:tab-item href='<%= url_for :controller => :clubhouse, :action => :index, :only_path => true %>' title="Clubhouse" class="fbtab" />
