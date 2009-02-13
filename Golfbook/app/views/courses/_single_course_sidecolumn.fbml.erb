@@ -1,9 +1,5 @@
-<% vitals_box('Course Actions') do %>
-  <%= render :partial => "shared/course_buttons"%>
-<% end %>
-<% vitals_box('Actions') do %>
-  <%= render :partial => "shared/buttons"%>
-<% end %>
+<%= render :partial => "shared/course_buttons"%>
+<%= render :partial => "shared/buttons"%>
 
 <% vitals_box('Share This Course') do %>
   <fb:share-button class="meta">
@@ -12,9 +8,7 @@
   </fb:share-button>
 <% end %>
 
-<% vitals_box('Course Statistics') do %>
-  <%= render :partial => 'course_stats' %>
-<% end %>
+<%= render :partial => 'course_stats' %>
 
 <%if @user.admin%>
   <% vitals_box('Admin Actions') do %>

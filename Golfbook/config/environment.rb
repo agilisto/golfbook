@@ -114,4 +114,4 @@ GeoKit::Geocoders::geocoder_ca = false
 GeoKit::Geocoders::provider_order = [:google,:us]
 
 require 'simple-rss'
-
+require 'handicap_calculator'

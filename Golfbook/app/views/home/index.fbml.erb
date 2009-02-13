@@ -52,13 +52,8 @@
     </div>
 
     <div class="side_column">
-      <% vitals_box('Vitals') do %>
-        <%= render :partial => 'shared/vitals' %>
-      <% end %>
-
-      <% vitals_box('Actions') do %>
-        <%= render :partial => "shared/buttons"%>
-      <% end %>
+      <%= render :partial => 'shared/vitals' %>
+      <%= render :partial => "shared/buttons"%>
 
       <% vitals_box('Latest PGA News') do %>
         <% @news.each do |title, link| %>

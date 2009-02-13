@@ -1,7 +1,9 @@
-    <span class="title" style="clear:left"></span>
-    <span class="title_label"><%= link_to "Players: #{@course.users.count}", course_players_path(@course) %></span>
-    <span class="sub_title"/><br/>
-    <span class="title"  style="clear:left"></span>
-    <span class="title_label"><%= link_to "Rounds: #{@course.rounds.count}", course_rounds_path(@course) %></span>
-    <span class="sub_title"/>
-    <div style="clear: left; height: 0px;"/>
+<% vitals_box('Course Statistics') do %>
+  <span class="title" style="clear:left"></span>
+  <span class="title_label"><%= link_to "Players: #{@course.users.count}", course_players_path(@course) %></span>
+  <span class="sub_title"/><br/>
+  <span class="title"  style="clear:left"></span>
+  <span class="title_label"><%= link_to "Rounds: #{@course.rounds.count}", course_rounds_path(@course) %></span>
+  <span class="sub_title"/>
+  <div style="clear: left; height: 0px;"/>
+<% end %>

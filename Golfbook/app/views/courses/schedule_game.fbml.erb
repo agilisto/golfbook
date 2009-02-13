@@ -34,16 +34,9 @@
         <% end %>
     </div>
     <div class="side_column">
-      <% vitals_box('Course Actions') do %>
-        <%= render :partial => "shared/course_buttons"%>
-      <% end %>
-      <% vitals_box('Actions') do %>
-        <%= render :partial => "shared/buttons"%>
-      <% end %>
-
-      <% vitals_box('Course Statistics') do %>
-        <%= render :partial => 'course_stats' %>
-      <% end %>
+      <%= render :partial => "shared/course_buttons"%>
+      <%= render :partial => "shared/buttons"%>
+      <%= render :partial => 'course_stats' %>
 
       <% vitals_box('Recently Posted Rounds') do %>
         <ul class="small_list">

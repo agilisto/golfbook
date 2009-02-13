@@ -39,11 +39,7 @@
     <% end %>
   </div>
   <div class="side_column">
-    <% vitals_box('Vitals') do %>
-      <%= render :partial => 'shared/vitals' %>
-    <% end %>
-    <% vitals_box('Course Statistics') do %>
-      <%= render :partial => 'courses/course_stats' %>
-    <% end %>
+    <%= render :partial => 'shared/vitals' %>
+    <%= render :partial => 'courses/course_stats' %>
   </div>
 </div>
