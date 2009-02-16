@@ -137,7 +137,7 @@ class Course < ActiveRecord::Base
   end
 
   def course_rating
-    read_attribute(:course_rating) || self.par
+    read_attribute(:course_rating) || 71  #defaults course_rating to 71
   end
   
   

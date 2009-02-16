@@ -1,0 +1,8 @@
+<html>
+  <head>
+    <%= javascript_include_tag url_for(:controller => 'javascripts', :action => 'FusionCharts.js', :only_path => false, :version => Time.now.to_i) %>
+  </head>
+  <body>
+    <%= render_ezgraphix @friend_handicap %>
+  </body>
+</html>

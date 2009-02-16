@@ -11,7 +11,15 @@ class Round < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 25
 
+  before_save :set_holes
+  before_create :set_holes
   after_create :create_handicap
+
+  def set_holes
+    if (read_attribute(:holes).blank?)
+      self.holes = self.course.holes || 18
+    end
+  end
 
   def holes
     read_attribute(:holes) || self.course.holes
@@ -22,18 +30,17 @@ class Round < ActiveRecord::Base
   end
 
   def create_handicap
-    new_handicap_value =  HandicapCalculator.handicap_for(Round.collect_twenty_elligible_rounds_for(1))
-    Handicap.create(:round_id => self.id, :user_id => self.user_id, :value => new_handicap_value, :change => ((new_handicap_value - self.user.current_handicap.value) rescue 0))
+    elligible_rounds = Round.collect_twenty_elligible_rounds_for(self.user_id, self.id)
+    if elligible_rounds.blank?
+      new_handicap_value = nil
+    else
+      new_handicap_value =  HandicapCalculator.handicap_for(elligible_rounds)
+    end
+    Handicap.create(:date_played => self.date_played, :round_id => self.id, :user_id => self.user_id, :value => new_handicap_value, :change => ((new_handicap_value - self.user.current_handicap.value) rescue 0))
   end
 
   def eligible?
-    holes = self.course.holes
-    if holes == 18
-      return true
-    else
-      return false if previous_round.nil?   #first round and number of holes not 18 - thus not elligable
-      ((holes == 9) and (self.course_id == previous_round.course_id))   #for 9 hole rounds to be elligable you need 2 consequative rounds at the same course
-    end
+    (holes == 18)
   end
 
   def previous_round
@@ -41,26 +48,21 @@ class Round < ActiveRecord::Base
   end
 
   #find 20 eligible_rounds and return in the correct format for handicap_calculator
-  def self.collect_twenty_elligible_rounds_for(user_id)
-    reference_round = find(:all, :conditions => ['user_id = ? AND (rounds.holes = 18 OR courses.holes = 18)',user_id], :include => :course, :limit => 20, :order => 'date_played desc').last
-    candidate_rounds = find(:all, :conditions => ['user_id = ? AND date_played >= ?',user_id, reference_round.date_played]).sort_by{|x|x.date_played}.reverse
+  def self.collect_twenty_elligible_rounds_for(user_id, round_id)
+    this_round = find(round_id)
+    #find the first round we can use for calculating handicap - we need the most recent 20 rounds - hence the last of the date_played desc order rounds.
+    if count(:conditions => ['user_id = ? AND rounds.holes = 18 AND date_played <= ?',user_id,this_round.date_played]) > 20
+      reference_round = find(:all, :conditions => ['date_played <= ? AND user_id = ? AND (rounds.holes = 18 OR courses.holes = 18)',this_round.date_played, user_id], :include => :course, :limit => 20, :order => 'date_played desc').last
+    else
+      reference_round = find(:first, :order => 'date_played ASC', :conditions => ['user_id = ? and rounds.holes = 18', user_id])
+    end
+
+    #find the rounds with 18 holes between the reference round and this_round
+    candidate_rounds = find(:all, :conditions => ['date_played <= ? AND user_id = ? AND date_played >= ? AND (rounds.holes = 18 OR courses.holes = 18)',this_round.date_played, user_id, reference_round.date_played], :order => 'rounds.date_played DESC', :include => :course)
     valid_rounds = []
-    nine_hole_rounds = []
     candidate_rounds.each do |round|
-      if round.eligible?
-        if round.holes == 9   #if round has 9 holes and is eligible it means the next round in the array is the other half of the course
-          if nine_hole_rounds.blank?
-            nine_hole_rounds << round
-          else
-            nine_hole_rounds << round
-            combined_round = {:course_par => nine_hole_rounds.collect{|x|x.score}.sum, :round_score => nine_hole_rounds.collect{|x|x.score}.sum, :number_of_holes => 18}
-            nine_hole_rounds.delete_at(0)
-            valid_rounds << combined_round
-            #we are joining these two rounds
-          end
-        else
-          valid_rounds << {:course_par => round.course_rating, :round_score => round.score, :number_of_holes => 18}
-        end
+      if round.eligible?    #this should always be true based on criteria.
+        valid_rounds << {:course_par => round.course_rating, :round_score => round.score, :number_of_holes => 18}
       end
     end
     valid_rounds[0..19]

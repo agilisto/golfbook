@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 38) do
     t.integer  "round_id"
     t.integer  "user_id"
     t.integer  "change"
+    t.date     "date_played"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

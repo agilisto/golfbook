@@ -1,3 +1,4 @@
+<% firstnameonly ||= false %>
 <li>
 	<h1><%= link_to recent_round.score.to_s, :controller => :round, :action => :show, :id => recent_round.id %></h1>&nbsp;
 	<% if display_course %>
@@ -5,8 +6,8 @@
 	<% end %>&nbsp;
         <span class="name" style="font-size:9px">
           <a href="<%= profile_view_url :id=>recent_round.user.id, :only_path => true%>">
-            <fb:name uid='<%= recent_round.user.facebook_uid %>' linked="false" useyou='false' />
+            <fb:name uid='<%= recent_round.user.facebook_uid %>' linked="false" useyou='false' firstnameonly="<%= firstnameonly ? true : false %>"/>
           </a>
-          <%= time_ago_in_words(recent_round.created_at) %> ago
+          <%= time_ago_in_words(recent_round.date_played) %> ago
         </span>
 </li>

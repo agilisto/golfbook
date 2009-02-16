@@ -5,6 +5,7 @@ class CreateHandicaps < ActiveRecord::Migration
       t.column :round_id, :integer
       t.column :user_id, :integer
       t.column :change, :integer
+      t.column :date_played, :date
 
       t.timestamps
     end

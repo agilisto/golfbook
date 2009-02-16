@@ -47,6 +47,7 @@ class HandicapCalculator
   ]
 
   @@number_of_differentials_table = [
+    {:number_of_differentials => 1, :number_of_rounds => [1,5]},
     {:number_of_differentials => 2, :number_of_rounds => [6,7]},
     {:number_of_differentials => 4, :number_of_rounds => [8,9]},
     {:number_of_differentials => 5, :number_of_rounds => [10,11]},
@@ -63,6 +64,7 @@ class HandicapCalculator
 
   #currently we are using 2*9 holes to count as round - this is against the regulations - we should determine if a round is elligable before we sent it here...
   def self.handicap_for(rounds)
+    puts "#{rounds.size} number of rounds passed along."
     raise "Please provide the last 5-20 rounds in the format [{:course_par => 72, :round_score => 82, :number_of_holes => 18},{},{}...{}]" if (rounds.size > 20 || rounds.blank?)
     raise "Number of holes must be 18 or 9" if rounds.detect{|x|(x[:number_of_holes] != 18) && (x[:number_of_holes] != 9)}
     #we are actually interested in the difference between the round_score and the course_par

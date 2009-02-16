@@ -115,6 +115,10 @@ class User < ActiveRecord::Base
   attr_accessible :name
   attr_accessor :name
 
+  def handicap_on(date)
+    self.handicaps.find(:first, :conditions => ['handicaps.date_played <= ?',date], :order => 'handicaps.date_played desc')
+  end
+
   def location_set?
     if self.latitude.nil? 
       false

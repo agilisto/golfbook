@@ -1,0 +1,2 @@
+module EzgraphicsHelper
+end

@@ -11,4 +11,24 @@
 
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
-<p>This view still needs to be developer. See jump-chart for suggestion.</p>
+<div class="editor_panel clearfix">
+  <div class="main_column clearfix">
+    <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Handicap</h2>
+    <fb:iframe src="<%= url_for :controller => 'ezgraphics', :action => 'my_handicap', :id => @user.id, :only_path => false %>" frameborder=1 scrolling="no"  height=300 width=500>
+    </fb:iframe>
+    <fb:iframe src="<%= url_for :controller => 'ezgraphics', :action => 'friends_handicap', :id => @user.id, :only_path => false %>" height=300 width=500 frameborder=1 scrolling="no">
+    </fb:iframe>
+  </div>
+  <div class="side_column">
+    <% vitals_box('My Rounds') do %>
+      <ul class="small_list">
+        <%= render :partial => 'shared/recent_round', :collection => @my_rounds, :locals => {:firstnameonly => true} %>
+      </ul>
+    <% end %>
+    <% vitals_box('Friends Rounds') do %>
+      <ul class="small_list">
+        <%= render :partial => 'shared/recent_round', :collection => @friends_rounds, :locals => {:firstnameonly => true} %>
+      </ul>
+    <% end %>
+  </div>
+</div>
