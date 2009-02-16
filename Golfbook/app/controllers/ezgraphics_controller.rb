@@ -31,7 +31,7 @@ class EzgraphicsController < ApplicationController
     @friend_handicap.categories = categories
     data = []
     users.each do |u|
-      data << {:options => {:seriesname => u.id}, :series => (categories.collect{|x|(u.handicap_on(x).value rescue 0) + 1000})}
+      data << {:options => {:seriesname => u.id}, :series => (categories.collect{|x|(u.handicap_on(x).value rescue nil)})}
     end
     @friend_handicap.data = data
     render :layout => false
