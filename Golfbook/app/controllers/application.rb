@@ -20,10 +20,11 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user
-    if @user.nil?
-      @user = User.find_or_create_by_facebook_uid(fbsession.session_user_id)
-    end
-    @user
+#    if @user.nil?
+#      @user =
+     @current_user ||= User.find_or_create_by_facebook_uid(fbsession.session_user_id)
+#    end
+#    @user
   end
   
   private
@@ -97,6 +98,12 @@ class ApplicationController < ActionController::Base
     end
     
     [latitude, longitude]
+  end
+
+  def get_friends_for_facebook_uid(facebook_uid)
+    fql = "SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = #{facebook_uid})"
+    friends_xml = fbsession.fql_query :query => fql
+    Hpricot.XML(friends_xml.to_s).search("//uid").collect{|node|node.inner_html}
   end
   
   private

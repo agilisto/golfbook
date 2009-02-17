@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.connect "/handicaps", :controller => 'handicaps', :action => "index"
+  map.connect "/handicaps/:id", :controller => 'handicaps', :id => :id
   map.connect "ezgraphics/my_handicap", :controller => 'ezgraphics', :action => 'my_handicap'
   map.connect "ezgraphics/friends_handicap", :controller => 'ezgraphics', :action => 'friends_handicap'
 

@@ -1,11 +1,17 @@
 <% vitals_box('Vitals') do %>
   <div class="clearfix">
     <span class="title"></span>
-    <span class="title_label"><%= link_to "Handicap: 17", "#" %></span>
+    <span class="title_label"><%= link_to "Handicap: 17", {:controller => :handicaps, :id => @user.id} %></span>
   </div>
   <div class="clearfix">
     <span class="title"></span>
-    <span class="title_label"><%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %></span>
+    <span class="title_label">
+      <% if @user.location_set? %>
+        <%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %>
+      <% else %>
+        Course: none yet.
+      <% end %>
+    </span>
   </div>
   <% unless @friends_count.blank? %>
     <div class="clearfix">

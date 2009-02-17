@@ -31,11 +31,6 @@ class HomeController < ApplicationController
     @recent_courses = Course.recent_additions
     @recent_courses_played = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.date_played desc', :conditions => ["rounds.user_id NOT IN (?)",uids])
         
-#    @upcoming_games = @user.games.upcoming
-#    @user.games_to_play.upcoming.each { |g| @upcoming_games << g }
-    
-    # causing "stack level too deep" exception
-    #@recent_ratings = Course.find_last_rated 3
     @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 10 #, :include => [:user]
   end
   
@@ -67,9 +62,6 @@ class HomeController < ApplicationController
     @fql_friends.each do |f|
       (user = @users.detect{|x|x.facebook_uid.to_s == f.uid})
       user.name = f.name unless user.nil?
-#      user = User.find_by_facebook_uid(f.uid)
-#      next if user.nil?
-#      @users[user] = f.name
     end
     @users
   end

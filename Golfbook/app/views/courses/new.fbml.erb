@@ -19,10 +19,19 @@
           <p>
             <%= f.text_field :name %>
           </p>
-        
           <p>
             <%= f.text_area :description, :rows => 10 %>
           </p>
+          <p>
+            <%= f.text_field :holes, :rows => 10 %>
+          </p>
+          <p>
+            <%= f.text_field :par, :rows => 10 %>
+          </p>
+          <p>
+            <%= f.text_field :course_rating, :rows => 10 %>
+          </p>
+
         
           <fb:editor-buttonset>
             <%= f.submit_tag('Create') %>

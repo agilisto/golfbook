@@ -5,6 +5,10 @@
   <% unless @course.par.blank? %>
     <p><strong>Par:</strong> <%= @course.par%></p>
   <% end %>
+  <% unless @course.course_rating.blank? %>
+    <p><strong>Course Rating:</strong> <%= @course.course_rating %></p>
+  <% end %>
+
   <p>
     <%= h @course.description %>
   </p>

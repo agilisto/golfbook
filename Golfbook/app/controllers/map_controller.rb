@@ -63,7 +63,7 @@ class MapController < ApplicationController
   
   def newmap
     @user = current_user
-    
+
     if params.include? 'location'
       RAILS_DEFAULT_LOGGER.debug "Looking up location.."
       # Try GeoKit First
@@ -89,10 +89,10 @@ class MapController < ApplicationController
       @latitude, @longitude = @user.latitude, @user.longitude
     end
     
-    @map = GMap.new(@size)
+    @map = GMap.new("new_course_map_div")   #@size
     define_icons
     @map.control_init(:large_map => true, :map_type => true)
-    @map.center_zoom_init([@latitude, @longitude], @zoom.to_i)
+    @map.center_zoom_init([@latitude, @longitude], @zoom)
     js = "function(overlay, latlng)
     {
       if ( overlay != null ) return; 
@@ -299,12 +299,20 @@ class MapController < ApplicationController
   end
   
   def map_size
-    @map_height = params[:height].to_i || 300
-    @map_width = params[:width].to_i || 390
+    @map_height = params[:height].blank? ? 300 : params[:height].to_i
+    @map_width = params[:width].blank? ? 390 : params[:width].to_i
   end
   
   def map_zoom
-    @zoom = params[:zoom].to_i || DEFAULT_ZOOM
+    @zoom = params[:zoom].blank? ? DEFAULT_ZOOM : params[:zoom].to_i
   end
-  
+
+  def rescue_action(exception)
+    puts "=================="
+    puts exception.message
+    puts exception.backtrace.join("\n")
+    puts "=================="
+    throw exception
+  end
+
 end
