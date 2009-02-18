@@ -45,6 +45,12 @@
           </div>
         <% end %>
 
+        <% simple_info_box("Caddies") do %>
+          <% caddies = @course.caddies.sort_by{|x|x.rating}.reverse[0..2] %>
+          <%= render :partial => 'courses/caddy', :collection => caddies %>
+        <span style="float:right;"><%= link_to 'more', :controller => 'courses', :action => 'caddies', :id => @course.id %></span>
+        <% end %>
+
         <%if @games.length > 0%>
           <% simple_info_box('Upcoming Games', :toggle => 'upcommming_games') do %>
             <%= render :partial => 'games', :object => @games %>

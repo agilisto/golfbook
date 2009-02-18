@@ -3,6 +3,8 @@
   <br /><br />
   <%= link_to 'Schedule A Game Here', url_for(:controller => :courses, :action => :schedule_game, :id => @course.id, :only_path => true) %>
   <br /><br />
+  <%= link_to 'Caddies', url_for(:controller => :courses, :action => :caddies, :id => @course.id, :only_path => true) %>
+  <br /><br />
   <%if !@course.awaiting_review%>
     <%unless @user.has_played_course? @course%>
       <%= link_to 'Add to My Courses', course_have_played_url(:id => @course.id, :only_path => true) %>

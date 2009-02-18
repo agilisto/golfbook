@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
   belongs_to :added_by, :class_name => "User", :foreign_key => "added_by_id"
   
   has_many :tours, :through => :tour_dates
+  has_many :caddies
   
   acts_as_mappable :lat_column_name => 'latitude', :lng_column_name => 'longitude'
   acts_as_rateable

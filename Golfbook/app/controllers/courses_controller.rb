@@ -31,8 +31,6 @@ class CoursesController < ApplicationController
     end
   end
 
-
-
   def quicksearch
     @what = params[:what]
     @user = current_user
@@ -282,8 +280,27 @@ class CoursesController < ApplicationController
       format.fbml # show.html.erb
       format.xml  { render :xml => @course }
     end
-
   end
+
+  def caddies
+    @course = Course.find(params[:id], :include => :caddies)
+    @recent_rounds = @course.rounds.recent_rounds(10)
+    @caddy = Caddy.new(:course_id => @course.id)
+  end
+
+  def add_caddy
+    @caddy = Caddy.new(params[:caddy])
+    if @caddy.save
+      flash[:notice] = 'The caddie was successfully added.'
+      redirect_to :action => :caddies, :id => @caddy.course_id
+    else
+      @course = Course.find(params[:caddy][:course_id], :include => :caddies)
+      @recent_rounds = @course.rounds.recent_rounds(10)
+      flash[:error] = 'The caddie could not be added.'
+      render :action => :caddies
+    end
+  end
+
 
   def new_map
     @course = Course.new

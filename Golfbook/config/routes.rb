@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/handicaps/:id", :controller => 'handicaps', :id => :id
   map.connect "ezgraphics/my_handicap", :controller => 'ezgraphics', :action => 'my_handicap'
   map.connect "ezgraphics/friends_handicap", :controller => 'ezgraphics', :action => 'friends_handicap'
+  map.connect "/courses/:id/caddies", :controller => "courses", :action => 'caddies'
 
   map.resources :walls
 

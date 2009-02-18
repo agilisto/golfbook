@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 38) do
+ActiveRecord::Schema.define(:version => 39) do
+
+  create_table "caddies", :force => true do |t|
+    t.integer  "course_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "competition_rounds", :force => true do |t|
     t.integer  "competition_id"

@@ -1,0 +1,40 @@
+<%= render :partial => "course_header"%>
+
+<%= render :partial => 'shared/home_menu' %>
+
+<div id="page_panel">
+  <div class="editor_panel clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix"><%= @course.name %> Caddies</h2>
+      <% simple_info_box_container do %>
+        <% unless @course.caddies.blank? %>
+          <% simple_info_box('Caddies') do %>
+              <%= render :partial => 'courses/caddy', :collection => @course.caddies %>
+          <% end %>
+        <% end %>
+
+        <% simple_info_box('New Caddie') do %>
+
+          <%= error_messages_for :caddy %>
+
+          <% editor_form_for :caddy, @caddy, :url => {:action => 'add_caddy'}, :html => {:labelwidth => 50} do |f| %>
+            <%= f.hidden_field :course_id, :value => @course.id %>
+            <p><%= f.text_field :first_name %></p>
+            <p><%= f.text_field :last_name %></p>
+
+            <fb:editor-buttonset>
+              <%= f.submit_tag('Create') %>
+              <!-- <fb:editor-cancel href="<%=url_for(:action=>:caddies,:only_path=>true)%>" /> -->
+            </fb:editor-buttonset>
+          <% end %>
+
+          <%= link_to 'Back to Course', {:action => 'show', :id => @course.id} %>
+
+        <% end %>
+      <% end %>
+    </div>
+    <div class="side_column">
+      <%= render :partial => 'courses/single_course_sidecolumn'  %>
+    </div>
+  </div>
+</div>
