@@ -729,7 +729,7 @@ ul.scorecard {
      width: 150px;
      height: 30px;
      position: relative;
-     background: url(http://993440e2.fb.joyent.us/images/star_rating.gif) top left repeat-x;        
+     background: url(http://golfbook.agilisto.com/images/star_rating.gif) top left repeat-x;
  }
  .star-rating li{
      padding:0px;
@@ -749,7 +749,7 @@ ul.scorecard {
      padding: 0px;
  }
  .star-rating li a:hover{
-     background: url(http://993440e2.fb.joyent.us/images/star_rating.gif) left center;
+     background: url(http://golfbook.agilisto.com/images/star_rating.gif) left center;
      z-index: 2;
      left: 0px;
      border:none;
@@ -785,7 +785,7 @@ ul.scorecard {
      width: 150px;
  }
  .star-rating li.current-rating{
-     background: url(http://993440e2.fb.joyent.us/images/star_rating.gif) left bottom;
+     background: url(http://golfbook.agilisto.com/images/star_rating.gif) left bottom;
      position: absolute;
      height: 30px;
      display: block;
@@ -794,7 +794,7 @@ ul.scorecard {
  }
 
 .star-rating li.current-rating-rated {
-  background: url(http://993440e2.fb.joyent.us/images/star_rating.gif) left bottom;
+  background: url(http://golfbook.agilisto.com/images/star_rating.gif) left bottom;
   position: absolute;
   height: 30px;
   display: block;

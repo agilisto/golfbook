@@ -9,7 +9,6 @@
       Current Overall Rating : <%= course.rating %> / 5
     </span>
   </h2>
-  
-  <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>  
-    
+
+  <%= rating_box(@course) %>
 </div>

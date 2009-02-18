@@ -48,7 +48,7 @@
         <% simple_info_box("Caddies") do %>
           <% caddies = @course.caddies.sort_by{|x|x.rating}.reverse[0..2] %>
           <%= render :partial => 'courses/caddy', :collection => caddies %>
-        <span style="float:right;"><%= link_to 'more', :controller => 'courses', :action => 'caddies', :id => @course.id %></span>
+          <span style="float:right;"><%= link_to 'more', :controller => 'courses', :action => 'caddies', :id => @course.id %></span>
         <% end %>
 
         <%if @games.length > 0%>
@@ -58,7 +58,7 @@
         <%end%>
 
         <% simple_info_box('Rate This Course (This is an overall rating)',:toggle => 'rating', :progress_id => "progress1") do %>
-          <%= render :partial => "ratings/rate", :locals => { :asset => @course } %>
+          <%= rating_box(@course) %>
         <% end %>
 
         <% simple_info_box('Players with this Home Course') do %>

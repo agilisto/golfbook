@@ -1,7 +1,30 @@
-<div id="rating">
+<% rating_id = "rating_#{asset.class.name}_#{asset.id}" -%>
+<div id="rating_<%= rating_id %>">
+  <script>
+    <!--
+    function do_ajax_for_<%= rating_id %> (rating_number) {
+      Animation(document.getElementById('progress1')).show().go();
+      var ajax = new Ajax();
+      ajax.responseType = Ajax.FBML;
+      ajax.ondone = function(data){
+                                    document.getElementById('<%= "#{asset.class.name}_#{asset.id}" %>').setInnerFBML(data);
+                                    Animation(document.getElementById('progress1')).hide().go();
+                                  }
+      ajax.post('<%= url_for :controller => :rating,
+                                   :action => :rate,
+                                   :only_path => false,
+                                   :id => asset.id,
+                                   :rateable_type => asset.class.to_s %>',{"rating" : rating_number});return false;
+    }
+  //--></script>
+  <% message ||= nil %>
+  <% unless message.blank?  %>
+    <center><%= message %></center>
+    <br />
+  <% end %>
   <% @convert = %w[one two three four five] %>
   <div id="star-ratings-block-<%= asset.id %>" class="star-ratings-block">
-    This course is currently rated  <%= number_with_precision(asset.rating, 1) %>/5 (That's from a total of <%= asset.ratings.size %> votes)<br />
+    This <%= asset.class.name.downcase %> is currently rated  <%= number_with_precision(asset.rating, 1) %>/5 (That's from a total of <%= asset.ratings.size %> votes)<br />
     <ul class='star-rating'>
       <li class='current-rating' style='width:<%= (asset.rating * 30).to_i -%>px;'>
         Currently rated  <%= number_with_precision(asset.rating, 1) %>/5 
@@ -9,16 +32,9 @@
       <form id="form_rate">  
         <% 1.upto(5) do |x| -%>
           <li>
-            <a href="#" class='<%= "#{@convert[x-1]}-stars"%>' 
-              onclick="rateCourse('rating', '<%= url_for :controller => :rating,
-                                                         :action => :rate,
-                                                         :only_path => false,
-                                                         :id => asset.id,
-                                                         :rating => x,
-                                                         :rateable_type => asset.class.to_s %>', 'form_rate', 'rating'); return false;"
-              name="#{pluralize(x,'star')} out of 5" title=<%= "Rate this a #{x} out of 5"%>><%"#{x}"%></a> 
+            <a href="#rating" class='<%= "#{@convert[x-1]}-stars"%>' onclick="do_ajax_for_<%= rating_id %>(<%= x %>);" name=<%= "#{pluralize(x,'star')} out of 5" %> title=<%= "Rate this a #{x} out of 5" %>><%"#{x}"%></a>
           </li>
-        <% end -%>
+          <% end -%>
       </form>
     </ul>    
   </div>

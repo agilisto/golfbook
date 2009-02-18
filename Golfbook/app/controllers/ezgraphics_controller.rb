@@ -4,7 +4,6 @@ class EzgraphicsController < ApplicationController
 
   def my_handicap
 #    @fbuser = fbuser
-#    @fbuser = fbuser
     @user = User.find(params[:id])  #current_user ||
 
     @my_handicap = Ezgraphix::Graphic.new(:w => 500, :h => 400, :c_type => 'line', :div_name => 'my_handicap',

@@ -8,8 +8,8 @@
       <h2 class="first_card_section clearfix"><%= @course.name %> Caddies</h2>
       <% simple_info_box_container do %>
         <% unless @course.caddies.blank? %>
-          <% simple_info_box('Caddies') do %>
-              <%= render :partial => 'courses/caddy', :collection => @course.caddies %>
+          <% simple_info_box('Caddies', {:progress_id => 'progress1'}) do %>
+              <%= render :partial => 'courses/caddy', :collection => @course.caddies.sort_by{|x|x.rating}.reverse %>
           <% end %>
         <% end %>
 

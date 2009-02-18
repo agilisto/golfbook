@@ -55,5 +55,9 @@ module ApplicationHelper
       concat(render(:partial => 'shared/minimal_block_info_box', :locals => {:heading => heading, :body => body, :options => options}), block.binding)
    end
 
+   def rating_box(asset)
+     rate_block = render(:partial => 'ratings/rate', :locals => { :asset => asset}, :layout => false)
+     %{<div id="#{asset.class.name}_#{asset.id}">#{rate_block}</div>}
+   end
 
  end
