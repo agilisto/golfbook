@@ -350,9 +350,9 @@ html[xmlns] .clearfix {
     background-color:#f7f7f7;
     border-right:1px solid #CECFCE;
 }
-.main_column h2.first_card_section {
+.editor_panel h2, .main_column h2.first_card_section, .side_column h2 {
     color:#333333;
-	padding-top:0pt;
+    padding-top:0pt;
     padding-bottom:2px;
     padding-left:2px;
     margin-bottom:10px;
@@ -853,6 +853,41 @@ ul.scorecard {
         font-style: italic;
     }
 
-    .side_column h3{
-        background-color:#d8dfea;
-    }
+.side_column h3{
+    background-color:#d8dfea;
+}
+
+.full_width_table_container{
+    width:100%;
+    background-color:#f7f7f7;
+    border:#aaaaaa;
+    border-top:1px solid #aaaaaa;
+    border-bottom:1px solid #aaaaaa;
+    padding-top:5px;
+    margin-bottom:5px;
+}
+
+
+.full_width_table_container table{
+    width:720px;
+    background-color:#ffffff;
+    margin:20px;
+    border:1px solid #aaaaaa;
+}
+
+.full_width_table_container table th{
+    background-color:#e0e0e0;
+    font-size:80%;
+    font-weight:bold;
+    border-top:1px solid #aaaaaa;
+    border-bottom:1px solid #aaaaaa;
+    border-left:1px solid #bababa;
+    border-right:1px solid #bababa;
+    line-height:1.5;
+}
+
+.full_width_table_container table td{
+    border-bottom:1px solid #f0f0f0;
+    line-height:1.7;
+}
+

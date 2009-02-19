@@ -1,0 +1,38 @@
+<% show_names ||= false %>
+      <center>
+        <table cellspacing=0 cellpadding=4 >
+          <tr>
+            <% if show_names %>
+              <th>Name</th>
+            <% end %>
+            <th>Course</th>
+            <th>Date Played</th>
+            <th>Par</th>
+            <th>Course Rating</th>
+            <th>Score (difference)</th>
+            <th>Handicap</th>
+            <th>Change</th>
+          </tr>
+          <% rounds.each do |r| %>
+          <tr>
+            <% if show_names %>
+              <td><a href="<%= url_for(:controller => :profile, :action => :show, :id => r.user_id) %>"><fb:name firstnameonly=true uid="<%= r.user.facebook_uid %>" linked=false/></a></td>
+            <% end %>
+            <td><a href="<%= url_for(:controller => :courses, :action => :show, :id => r.course_id) %>"><%= r.course.name %></a></td>
+            <td><%= r.date_played.to_s(:long) %></td>
+            <td><center><%= r.course.par %></center></td>
+            <td><center><%= r.course_rating %></center></td>
+            <td><center><%= r.score %> (<%= r.score - r.course_rating %>)</center></td>
+            <td><center><%= r.handicap.value %></center></td>
+            <td><center><%= r.handicap.change %></center></td>
+          </tr>
+          <% end %>
+          <tr>
+            <% if show_names %>
+              <th colspan=8>&nbsp;</th>
+            <% else %>
+            <th colspan=7>&nbsp;</th>
+            <% end %>
+          </tr>
+        </table>
+      </center>

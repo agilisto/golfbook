@@ -9,31 +9,23 @@
   </div>
 </div>
 
+
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
-  <div class="main_column clearfix">
-    <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Handicap</h2>
-    <fb:iframe name='myhandicapframe' src="<%= url_for :controller => 'ezgraphics', :action => 'my_handicap', :id => @user.id, :friends => @uids, :only_path => false %>" frameborder=0 scrolling="no" height=400 width=500 >
-    </fb:iframe>
-    <% unless @uids.blank? %>
-      <h2 class="first_card_section">Friend's Handicaps</h2>
-      <fb:iframe name='friendhandicapframe' src="<%= url_for :controller => 'ezgraphics', :action => 'friends_handicap', :id => @uids, :only_path => false %>" height=400 width=500 frameborder=0 scrolling="no">
-      </fb:iframe>
-    <% end %>
+  <div style="width:100%;clear:both;" class="clearfix">
+    <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.value %></font></div>
   </div>
-  <div class="side_column">
-    <% vitals_box('My Rounds') do %>
-      <ul class="small_list">
-        <%= render :partial => 'shared/recent_round', :collection => @my_rounds, :locals => {:firstnameonly => true} %>
-      </ul>
-    <% end %>
+  <br clear="all" />
+  <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Handicap</h2>
+  <fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>" frameborder=0 scrolling="no" height=300 width=700 ></fb:iframe>
+  <br clear="all"/>
+  <div class="full_width_table_container">
+    <h2><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Rounds</h2>
+    <%= render :partial => 'round/round_table', :locals => {:rounds => @my_rounds, :show_names => false} %>
+    <h2>Friend Rounds</h2>
     <% unless @friends_rounds.blank? %>
-      <% vitals_box('Friends Rounds') do %>
-        <ul class="small_list">
-          <%= render :partial => 'shared/recent_round', :collection => @friends_rounds, :locals => {:firstnameonly => true} %>
-        </ul>
-      <% end %>
+      <%= render :partial => 'round/round_table', :locals => {:rounds => @friends_rounds, :show_names => true} %>
     <% end %>
   </div>
 </div>

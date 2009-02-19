@@ -5,5 +5,8 @@ class Caddy < ActiveRecord::Base
 
   acts_as_rateable
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 
 end

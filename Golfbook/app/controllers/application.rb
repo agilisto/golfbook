@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   #protect_from_forgery # :secret => 'ab3cdc368e4e352eebd96b713dae6028'
 
-  DEFAULT_FIELDS =  ["first_name", "last_name"]
+  DEFAULT_FIELDS =  ["first_name", "last_name", "uid"]
 
   def fbuser(fields = [])
     fields = DEFAULT_FIELDS | fields
@@ -101,9 +101,15 @@ class ApplicationController < ActionController::Base
   end
 
   def get_friends_for_facebook_uid(facebook_uid)
-    fql = "SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = #{facebook_uid})"
+    fql = "SELECT uid, name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = #{facebook_uid}) AND has_added_app = 1 OR uid = #{facebook_uid}"
     friends_xml = fbsession.fql_query :query => fql
-    Hpricot.XML(friends_xml.to_s).search("//uid").collect{|node|node.inner_html}
+    Hpricot.XML(friends_xml.to_s).search("//user").collect{|node|[node.search("/name").inner_html,node.search("/uid").inner_html]}
+  end
+
+  def get_me_and_friend_info(my_facebook_uid, friends_facebook_uid)
+    fql = "SELECT uid, name FROM user WHERE uid IN (#{my_facebook_uid},#{friends_facebook_uid})"
+    friends_xml = fbsession.fql_query :query => fql
+    Hpricot.XML(friends_xml.to_s).search("//user").collect{|node|[node.search("/name").inner_html,node.search("/uid").inner_html]}
   end
   
   private

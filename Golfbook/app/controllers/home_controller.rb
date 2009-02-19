@@ -66,4 +66,14 @@ class HomeController < ApplicationController
     @users
   end
   
+  private
+  def rescue_action(exception)
+    puts "=================="
+    puts exception.message
+    puts exception.backtrace.join("\n")
+    puts "=================="
+    throw exception
+  end
+
+
 end
