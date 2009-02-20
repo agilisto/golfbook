@@ -8,7 +8,7 @@ ssh_options[:paranoid] = false
 default_run_options[:pty] = true
 set :repository, "git@github.com:agilisto/golfbook.git" #GitHub clone URL
 set :scm, "git"
-#set :scm_passphrase, "p3nqu1n" #This is the passphrase for the ssh key on the server deployed to
+set :scm_passphrase, "p3nqu1n" #This is the passphrase for the ssh key on the server deployed to
 set :branch, "master"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
