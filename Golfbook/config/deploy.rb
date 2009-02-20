@@ -25,6 +25,8 @@ set :service_name, application
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false 
 
+set :domain, 'golfbook.agilisto.com'
+
 # comment out if it gives you trouble. newest net/ssh needs this set.
 #ssh_options[:paranoid] = false
 #ssh_options[:forward_agent] = true
