@@ -17,6 +17,13 @@ test:
   username: root
   password: 
 
+staging:
+  adapter: mysql
+  database: nine93440e2_golfbook_staging
+  timeout: 5000
+  username: root
+  password: d8yx8sp9u4
+
 production:
   adapter: mysql
   database: nine93440e2_golfbook_production

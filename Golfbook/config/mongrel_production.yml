@@ -1,0 +1,8 @@
+port: "8000"
+environment: production
+address: 127.0.0.1
+pid_file: /home/993440e2/web/Golfbook/shared/pids/mongrel.pid
+log_file: /home/993440e2/web/Golfbook/shared/log/mongrel.log
+servers: 9
+docroot: /home/993440e2/web/Golfbook/current/public
+cwd: /home/993440e2/web/Golfbook/current

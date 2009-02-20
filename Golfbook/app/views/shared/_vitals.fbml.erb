@@ -6,7 +6,7 @@
   <div class="clearfix">
     <span class="title"></span>
     <span class="title_label">
-      <% if @user.location_set? %>
+      <% unless @user.home_course.blank? %>
         <%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %>
       <% else %>
         Course: none yet.
