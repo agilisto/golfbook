@@ -45,8 +45,8 @@ set :deploy_via, :remote_cache
 set :domain, 'golfbook.agilisto.com'
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
-ssh_options[:paranoid] = false
-ssh_options[:forward_agent] = true
+#ssh_options[:paranoid] = false
+#ssh_options[:forward_agent] = true
 
 
 role :app, domain
@@ -112,7 +112,7 @@ end
 #    #create_sym
 #end
 
-deploy.task :after_update_code, :roles => [:web] do
+deploy.task :after_update_code, :roles => :web do
   desc "Copying the right mongrel cluster config for the current stage environment."
   run "cp -f #{release_path}/config/mongrel_#{stage}.yml #{release_path}/config/mongrel_cluster.yml"
 end

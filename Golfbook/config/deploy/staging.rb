@@ -15,6 +15,9 @@ set :deploy_via, :remote_cache
 #
 #########################################################################################################
 set :domain, 'golfbook.agilisto.com'
+set :smf_process_user, 'root'
+set :smf_process_group, 'root'
+
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
 ssh_options[:paranoid] = false
@@ -42,8 +45,9 @@ deploy.task :stop do
 end
 
 namespace :accelerator do
-task :create_vhost, :roles => :web do
-  puts "not creating vhost for staging."
+  task :create_vhost, :roles => :web do
+    puts "not creating vhost for staging."
+  end
 end
 
 task :tail_log, :roles => :app do
