@@ -25,25 +25,6 @@ set :service_name, application
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false 
 
-#
-# GitHub settings #######################################################################################
-default_run_options[:pty] = true
-set :repository, "git@github.com:agilisto/golfbook.git" #GitHub clone URL
-set :scm, "git"
-#set :scm_passphrase, "p3nqu1n" #This is the passphrase for the ssh key on the server deployed to
-set :branch, "master"
-set :scm_verbose, true
-#
-#########################################################################################################
-
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-#set :scm_password, "deploy"
-set :scm, :git
-set :branch, :master
-set :deploy_via, :remote_cache
-set :domain, 'golfbook.agilisto.com'
-
 # comment out if it gives you trouble. newest net/ssh needs this set.
 #ssh_options[:paranoid] = false
 #ssh_options[:forward_agent] = true
