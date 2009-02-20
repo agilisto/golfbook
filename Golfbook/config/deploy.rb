@@ -1,5 +1,8 @@
 require 'erb'
 require 'config/accelerator/accelerator_tasks'
+
+set :stages, %w(staging production)
+set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
 
