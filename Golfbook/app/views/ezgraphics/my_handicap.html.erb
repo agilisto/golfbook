@@ -3,6 +3,33 @@
     <%= javascript_include_tag url_for(:controller => 'javascripts', :action => 'FusionCharts.js', :only_path => false, :version => Time.now.to_i) %>
   </head>
   <body>
-    <%= render_ezgraphix @handicap_chart %>
+    <style>
+      a{
+        cursor: pointer;
+        color: #3b5998;
+        outline-style: none;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: bold;
+      }
+
+      a:hover{
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+    function toggle(obj) {
+            var el = document.getElementById(obj);
+            el.style.display = (el.style.display != 'none' ? 'none' : '' );
+    }
+    </script>
+    <a href="#" id="rounds_link" onclick="toggle('handicap_chart');toggle('round_chart');toggle('rounds_link');toggle('handicaps_link');">View Rounds</a>
+    <a href="#" style="display:none;" id="handicaps_link" onclick="toggle('handicap_chart');toggle('round_chart');toggle('rounds_link');toggle('handicaps_link');">View Handicaps</a>
+    <div id="handicap_chart">
+      <%= render_ezgraphix @handicap_chart %>
+    </div>
+    <div style="display:none;" id="round_chart">
+      <%= render_ezgraphix @round_chart %>
+    </div>
   </body>
 </html>

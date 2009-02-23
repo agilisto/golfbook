@@ -17,8 +17,10 @@
     <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.value %></font></div>
   </div>
   <br clear="all" />
-  <h2 class="first_card_section"><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Handicap</h2>
-  <fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>" frameborder=0 scrolling="no" height=300 width=700 ></fb:iframe>
+  <fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>?user_id=<%= @user.id %>" frameborder=0 scrolling="no" height=400 width=700 ></fb:iframe>
+  <% unless @friends_rounds.blank? %>
+    <span style="float:right;"><a href="<%= url_for(:controller => 'handicaps', :action => 'friends', :id => @user.id) %>">Choose Friends to Chart</a></span><br />
+  <% end %>
   <br clear="all"/>
   <div class="full_width_table_container">
     <h2><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Rounds</h2>

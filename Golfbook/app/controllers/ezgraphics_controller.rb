@@ -4,6 +4,7 @@ class EzgraphicsController < ApplicationController
 
   def my_handicap
     #getting the friends and their names - passed in via params[:id]
+    @user = User.find(params[:user_id])
     friend_array = params[:id].split("/")
     names = []
     uids = []
@@ -17,7 +18,24 @@ class EzgraphicsController < ApplicationController
     @friends = User.find_all_by_facebook_uid(uids)
 
     #charting stuff from here on down
-    @handicap_chart = Ezgraphix::Graphic.new(:w => 700, :h => 300, :c_type => 'msline', :div_name => 'friend_handicap', :multiple => "true",
+    @round_chart = Ezgraphix::Graphic.new(:w => 700, :h => 300, :c_type => 'msline', :caption => "Recent Rounds", :div_name => 'round_differentials', :multiple => "true",
+                                              :rotate => 1, :values => 1, :y_name => 'Rounds', :precision => 0)
+
+    rounds = @user.rounds.find(:all, :order => 'date_played desc', :limit => 10)
+    rounds.reverse!
+    @round_chart.categories = rounds.collect{|x|x.date_played}
+    data = []
+    data << {:options => {:seriesname => "Scores"}, :series => rounds.collect{|x|x.score}}
+    data << {:options => {:seriesname => "Course Ratings"}, :series => rounds.collect{|x|x.course_rating}}
+
+#    rounds.each do |r|
+#      data[r.date_played] = (r.score - r.course_rating)
+#    end
+
+
+    @round_chart.data = data
+
+    @handicap_chart = Ezgraphix::Graphic.new(:w => 700, :h => 300, :c_type => 'msline', :caption => "Handicaps", :div_name => 'friend_handicap', :multiple => "true",
                                               :rotate => 1, :values => 1, :y_name => 'Handicap', :precision => 0, 'yaxisminvalue' => -8, 'yaxismaxvalue' => 38)
     categories = get_dates
     @handicap_chart.categories = categories
