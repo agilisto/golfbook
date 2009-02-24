@@ -1,0 +1,16 @@
+<%= render :partial => 'shared/vitals' %>
+<%= render :partial => "shared/buttons"%>
+
+<% vitals_box('Latest PGA News') do %>
+  <% @news.each do |title, link| %>
+    <%= render :partial => 'shared/pga_news_item', :locals => { :title => title, :link => link } %>
+  <% end %>
+<% end %>
+
+<% vitals_box('Recently Added Courses') do %>
+  <%= render :partial => 'shared/expanded_recent_course', :collection => @recent_courses %>
+<% end %>
+
+<% vitals_box('Recent Ratings') do %>
+  <%= render :partial => 'shared/expanded_rating', :collection => @recent_ratings %>
+<% end %>

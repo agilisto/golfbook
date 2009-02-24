@@ -5,15 +5,13 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
+    sidebar :course_main
     @recently_rated_courses = Course.recently_rated(3)  #courses that have recently been rated
     @recently_reviewed_courses = Course.recently_reviewed(3)  #courses that have recently beed reviewed
 
     friends_uids = fbsession.friends_get.uid_list
     @friends_recent_courses = Course.recently_played_by_friends(friends_uids,3)  #courses where your friends had recently played/reviewed/rated
 
-    @courses_count = Course.count
-
-#    @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
     @action = :courses
 
     respond_to do |format|
@@ -23,6 +21,7 @@ class CoursesController < ApplicationController
   end
 
   def list
+    sidebar :course_main
     @courses = Course.paginate :all, :conditions => 'awaiting_review = false', :page => params[:page], :order => :name #, :include => [:ratings]
     @action = :courses
 
@@ -32,6 +31,7 @@ class CoursesController < ApplicationController
   end
 
   def quicksearch
+    sidebar :course_main
     @what = params[:what]
     @user = current_user
 
@@ -129,7 +129,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     current_user.has_played @course
     flash[:notice] = "#{@course.name} added to your list of played courses."
-    render :action => :list
+    redirect_to :action => :courses_played
   end
 
   def course_played_remote
@@ -143,6 +143,7 @@ class CoursesController < ApplicationController
 
   #My Courses
   def courses_played
+    sidebar :course_main
     @courses_results_title = "My Courses"
     @courses_count = @user.courses.count
     @courses = @user.courses.paginate(:page => params[:page])
@@ -167,6 +168,7 @@ class CoursesController < ApplicationController
   end
 
   def top_rated
+    sidebar :course_main
     @courses_results_title = "Top Rated"
     @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
     @courses = @courses.sort_by{|x|x.rating}
@@ -178,7 +180,7 @@ class CoursesController < ApplicationController
   end
 
   def highest_rated_loc
-    
+    sidebar :course_main
     @action = :highest_rated
     courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
     rated = {}
@@ -195,6 +197,7 @@ class CoursesController < ApplicationController
   end
 
   def filter_by_loc_unrated
+    sidebar :course_main
     @location = params["location"]
     logger.debug "Geocoding location: #{@location}"
     @latitude, @longitude = geocode_location @location
@@ -233,6 +236,7 @@ class CoursesController < ApplicationController
   end
 
   def filter_by_loc
+    sidebar :course_main
     @location = params["location"]
     RAILS_DEFAULT_LOGGER.debug "Checking location: #{@location}"
     courses = Course.find :all, :origin => @location, :within => DEFAULT_RADIUS
@@ -257,8 +261,6 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     # @geolocations = @course.calc_geolocations(true)
-
-    @recent_rounds = @course.rounds.recent_rounds(10)
     @action = :course
 
     uids = fbsession.friends_get.uid_list
@@ -276,6 +278,7 @@ class CoursesController < ApplicationController
 
     @home_users = User.find_all_by_home_course_id @course.id
 
+    sidebar :course_specific
     respond_to do |format|
       format.fbml # show.html.erb
       format.xml  { render :xml => @course }
@@ -284,8 +287,8 @@ class CoursesController < ApplicationController
 
   def caddies
     @course = Course.find(params[:id], :include => :caddies)
-    @recent_rounds = @course.rounds.recent_rounds(10)
     @caddy = Caddy.new(:course_id => @course.id)
+    sidebar :course_specific
   end
 
   def add_caddy
@@ -297,18 +300,21 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:caddy][:course_id], :include => :caddies)
       @recent_rounds = @course.rounds.recent_rounds(10)
       flash[:error] = 'The caddie could not be added.'
+      sidebar :course_specific
       render :action => :caddies
     end
   end
 
 
   def new_map
+    sidebar :course_main
     @course = Course.new
   end
 
   # GET /courses/new
   # GET /courses/new.xml
   def new
+    sidebar :course_main
     @course = Course.new(:latitude=>params[:lat],:longitude=>params[:lng])
     @nearby_courses = Course.find :all, :origin => [params[:lat],params[:lng]], :within => DEFAULT_RADIUS
     respond_to do |format|
@@ -320,6 +326,7 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+    sidebar :course_specific
   end
 
   # POST /courses
@@ -339,10 +346,10 @@ class CoursesController < ApplicationController
         admins.each { |a| uids << a.facebook_uid }
         message = "has submitted a new course for review - <a href='#{url_for(:controller=>:courses,:action=>:show,:id=>@course.id)}'>#{@course.name}</a>"
         fbsession.notifications_send :to_ids => uids.join(","), :notification => message
-
         format.fbml { redirect_to :action => 'show', :id => @course.id }
         format.xml  { render :xml => @course, :status => :created, :location => @course }
       else
+        sidebar :course_main
         format.fbml { render :action => "new" }
         format.xml  { render :xml => @course.errors, :status => :unprocessable_entity }
       end
@@ -361,6 +368,7 @@ class CoursesController < ApplicationController
         format.fbml { redirect_to(:action => :show, :id => @course.id) }
         format.xml  { head :ok }
       else
+        sidebar :course_specific
         format.fbml { render :action => "edit" }
         format.xml  { render :xml => @course.errors, :status => :unprocessable_entity }
       end
@@ -380,6 +388,7 @@ class CoursesController < ApplicationController
   end
 
   def search
+    sidebar :courses_main
     @action = :search
     @courses_count = current_user.courses.count
 
@@ -402,10 +411,12 @@ class CoursesController < ApplicationController
     @courses_count = @courses.length
     @courses = Course.paginate @courses, :page => params[:page], :order => :name
     request.format = :fbml
+    sidebar :course_main
     render :layout => false
   end
 
   def search_results
+    sidebar :courses_main
     course = params[:course]
     course_name = course["course_name"]
     #@courses = Course.find :all, :conditions => ["name like :name and awaiting_review = false", {:name => "%" + course_name + "%"}] #, :include => [:ratings]
@@ -422,18 +433,21 @@ class CoursesController < ApplicationController
 
   def schedule_game
     @course = Course.find params[:id]
+    sidebar :course_specific
     @game = Game.new(:user => @user, :course => @course)
     @recent_rounds = @course.rounds.recent_rounds(10)
   end
 
   def schedule_game_notify
     @game = Game.find params[:game_id]
-
+    @course = @game.course
     email_body =  render_to_string :partial => 'emails/schedule_game_invite', :locals => {:game => @game}
 
     fbsession.notifications_sendemail :recipients => params[:ids], :subject => "Golfbook Game Invite",
       :fbml => email_body
     flash[:notice] = "Your friends have been invited"
+
+    sidebar :course_specific
     redirect_to :action => :show, :id => @game.course.id
   end
 
@@ -450,6 +464,8 @@ class CoursesController < ApplicationController
   def schedule_game_invite
     @game = Game.find params[:id]
     @course = @game.course
+    sidebar :course_specific
+
     @recent_rounds = @course.rounds.recent_rounds(10)
 
     # get all friends who DON'T have the app installed
@@ -509,6 +525,7 @@ class CoursesController < ApplicationController
   def report_course
     @user = current_user
     @course = Course.find params[:id]
+    sidebar :course_specific
   end
 
   def report_proc
@@ -538,5 +555,16 @@ class CoursesController < ApplicationController
       render :text => "{fortext:#{params[:suggest_typed].to_json},results:#{names.to_json}}"
     end
   end
+
+  private
+  def rescue_action(exception)
+    puts "=================="
+    puts exception.message
+    puts exception.backtrace.join("\n")
+    puts "=================="
+    throw exception
+  end
+
+
 end
 

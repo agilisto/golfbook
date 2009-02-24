@@ -9,13 +9,8 @@ class HomeController < ApplicationController
   end
 
   def index
-    
-    @news = {}
-    rss = SimpleRSS.parse open('http://www.pga.com/rss/latest.rss')
-    for i in 0..4
-      @news[rss.items[i].title] = rss.items[i].link
-    end
-    
+    sidebar :home
+
     @fbuser = fbuser
     @user = current_user
     @id = @user.id
@@ -28,10 +23,7 @@ class HomeController < ApplicationController
     @friends_count = users.compact.size
     @recent_friends_rounds = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.date_played desc', :conditions => ["rounds.user_id IN (?)",uids])
 
-    @recent_courses = Course.recent_additions
     @recent_courses_played = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.date_played desc', :conditions => ["rounds.user_id NOT IN (?)",uids])
-        
-    @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 10 #, :include => [:user]
   end
   
   def invite
@@ -49,6 +41,7 @@ class HomeController < ApplicationController
       @friend_ids << uid
     end
     @friend_ids = @friend_ids.join(',')
+    sidebar :profile
   end
   
   def friends
@@ -64,6 +57,7 @@ class HomeController < ApplicationController
       user.name = f.name unless user.nil?
     end
     @users
+    sidebar :home
   end
   
   private

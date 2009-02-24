@@ -35,6 +35,7 @@ class RoundController < ApplicationController
     uids = fbsession.friends_get.uid_list
     @friends_recent_rounds = @course.rounds.by_facebook_uids(uids) 
     @friends_best_rounds = @course.rounds.best_rounds_by_facebook_uids(uids)
+    sidebar :course_specific
   end
 
   def update

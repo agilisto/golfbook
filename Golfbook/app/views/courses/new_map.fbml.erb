@@ -20,6 +20,14 @@
       <div class="main_column clearfix">
         <h2 class="first_card_section clearfix">Course Information</h2>
         <% simple_info_box_container do %>
+          <% simple_info_box('Instructions') do %>
+            <p>
+              The map has been centered on your home location by default.
+              You can select a different start location by entering a city name
+              below. Drag and zoom the map to find the location of the course you
+              wish to add, and then click on the location.
+            </p>
+          <% end %>
           <% simple_info_box('Select Course Location') do %>
             <%= render :partial => 'new_course_map' %>
           <% end %>
@@ -40,13 +48,7 @@
         <% end %>
       </div>
       <div class="side_column">
-        <% vitals_box('Instructions') do %>
-          <p>The map has been centered on your home location by default.
-            You can select a different start location by entering a city name
-            below. Drag and zoom the map to find the location of the course you
-            wish to add, and then click on the location.
-          </p>
-        <% end %>
+        <%= @sidebar_content %>
       </div>
     </div>
   </div>

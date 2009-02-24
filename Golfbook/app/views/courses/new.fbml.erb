@@ -5,12 +5,21 @@
 <div id="page_panel">
   <div class="editor_panel clearfix">
     <div class="main_column clearfix">
-      <h2 class="first_card_section clearfix">Nearby Courses</h2>
+      <h2 class="first_card_section clearfix">Instructions</h2>
       <% simple_info_box_container do %>
-        <% simple_info_box('Could the course you want to add be one of these?', :toggle => "courses_container") do %>
-          <div id="courses_container">
-            <%= render :partial => 'course', :collection => @nearby_courses %>
-          </div>
+        <% unless @nearby_courses.blank? %>
+          <% simple_info_box('<a href="#courses_container">Click to view nearby courses - perhaps the course has already been added.<a>', :toggle => "courses_container") do %>
+            <div id="courses_container" style="display:none;">
+              <%= render :partial => 'course', :collection => @nearby_courses %>
+            </div>
+          <% end %>
+        <% end %>
+        <% simple_info_box do %>
+          <p>
+            If you are sure the course has not been added before, please enter the details of the course you wish to add. The course
+            information that you submit will be reviewed by an administrator before
+            it is entered into the Golfbook database.
+          </p>
         <% end %>
       <% end %>
       <h2 class="first_card_section clearfix">Course Information</h2>
@@ -57,14 +66,7 @@
     </div>
 
     <div class="side_column">
-      <div class="section clearfix">
-        <h3>Instructions</h3>
-        <p>
-          Please enter the details of the course you wish to add. The course
-          information that you submit will be reviewed by an administrator before
-          it is entered into the Golfbook database.
-        </p>
-      </div>
+      <%= @sidebar_content %>
     </div>
   </div>
 </div>

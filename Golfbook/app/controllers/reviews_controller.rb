@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @course = @review.reviewable
     @recent_rounds = @course.rounds.recent_rounds(10)
+    sidebar :course_specific
   end
   
 end

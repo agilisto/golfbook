@@ -14,15 +14,5 @@
   <%end%>
 </div>
 <div class="side_column">
-  <div class="section clearfix">
-    <h3>Courses Statistics</h3>
-    <div class="bar_chart simple">
-      <h2 class="header">
-        <span class="title"><%= @courses_count -%></span>
-        <span class="title_label"><%= pluralize(@courses_count, 'Result')%></span>
-        <span class="sub_title"/>
-        <div style="clear: left; height: 0px;"/>
-      </h2>
-    </div>
-  </div>
+  <%= @sidebar_content %>
 </div>

@@ -116,6 +116,34 @@ class ApplicationController < ActionController::Base
   def load_user
     @user = current_user
   end
-  
+
+  def sidebar(sidebar_symbol)
+    case sidebar_symbol
+    when :home
+      @news = {}
+      rss = SimpleRSS.parse open('http://www.pga.com/rss/latest.rss')
+      for i in 0..4
+        @news[rss.items[i].title] = rss.items[i].link
+      end
+      load_user if @user.blank?
+      @recent_courses = Course.recent_additions
+      @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 10 #, :include => [:user]
+      @sidebar_content = render_to_string(:partial => 'shared/home_sidebar')
+    when :course_main
+      @courses_count = Course.count
+      load_user if @user.blank?
+      @sidebar_content = render_to_string(:partial => 'shared/courses_main_sidebar')
+    when :course_specific
+      @course ||= Course.find(params[:id])
+      @recent_rounds = @course.rounds.recent_rounds(10)
+      @sidebar_content = render_to_string(:partial => 'shared/course_specific_sidebar')
+    when :profile
+      load_user if @user.blank?
+      @viewer = current_user
+      @sidebar_content = render_to_string(:partial => 'shared/profile_sidebar')
+    else
+      raise "Tried to call sidebar with #{sidebar_symbol}"
+    end
+  end
   
 end
