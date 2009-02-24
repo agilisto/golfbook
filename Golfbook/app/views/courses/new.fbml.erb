@@ -5,6 +5,14 @@
 <div id="page_panel">
   <div class="editor_panel clearfix">
     <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix">Nearby Courses</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box('Could the course you want to add be one of these?', :toggle => "courses_container") do %>
+          <div id="courses_container">
+            <%= render :partial => 'course', :collection => @nearby_courses %>
+          </div>
+        <% end %>
+      <% end %>
       <h2 class="first_card_section clearfix">Course Information</h2>
       <% simple_info_box_container do %>
         <% simple_info_box('New Course') do %>

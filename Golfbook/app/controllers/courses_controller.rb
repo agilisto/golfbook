@@ -310,7 +310,7 @@ class CoursesController < ApplicationController
   # GET /courses/new.xml
   def new
     @course = Course.new(:latitude=>params[:lat],:longitude=>params[:lng])
-
+    @nearby_courses = Course.find :all, :origin => [params[:lat],params[:lng]], :within => DEFAULT_RADIUS
     respond_to do |format|
       format.fbml # new.html.erb
       format.xml  { render :xml => @course }

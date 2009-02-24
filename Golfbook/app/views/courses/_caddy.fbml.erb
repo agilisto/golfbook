@@ -1,4 +1,7 @@
 <div id="caddy<%= caddy.id %>" class="clearfix">
 <span style="float:right"><%= rating_box(caddy) %></span>
-<p><%= caddy.first_name %> <%= caddy.last_name %></p>
+<p>
+  <%= caddy.first_name %> <%= caddy.last_name %><br />
+  <%= link_to caddy.course.name, :controller => 'courses', :action => 'show', :id => caddy.course_id %>
+</p>
 </div>

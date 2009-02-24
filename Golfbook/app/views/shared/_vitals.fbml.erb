@@ -1,7 +1,7 @@
 <% vitals_box('Vitals') do %>
   <div class="clearfix">
     <span class="title"></span>
-    <span class="title_label"><%= link_to "Handicap: 17", {:controller => :handicaps, :id => @user.id} %></span>
+    <span class="title_label"><%= link_to "Handicap: #{@user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %></span>
   </div>
   <div class="clearfix">
     <span class="title"></span>

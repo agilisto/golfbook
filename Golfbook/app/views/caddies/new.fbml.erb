@@ -1,0 +1,103 @@
+<script>
+<!--
+options = {
+    preMsgTxt: "Start typing a course name for suggestions, eg. Wanderers",	// text to display when nothing has been typed
+    menuOpacity: 94, 			// opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>",	// url to your data source
+      focus: false,				// whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {		// handler for hitting the 'enter' key
+          submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search_by_name', 'results'); return false;
+      },
+      delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true			// whether or not to clear the text after they hit enter
+  };
+
+    //			function enterSubmit(obj, options)
+    //			{
+    //				this.obj = obj;
+    //				this.options = options;
+    //				// Setup the events we're listening to
+    //				this.obj.addEventListener('keypress', this.onkeypress.bind(this));
+    //			};
+
+    //			enterSubmit.prototype.onkeypress = function(event) {
+    //				switch (event.keyCode)
+    //					{
+    //						case 9: // tab
+    //						case 13: // enter
+    //							event.preventDefault();
+    //							this.options.onEnter(event);
+    //							break;
+    //						default:
+    //							break;
+    //					}
+    //			};
+
+    -->
+</script>
+
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook</h2>
+      <div>Welcome to Golfbook <%= "#{@fbuser.first_name}"%></div>
+    </div>
+  </div>
+</div>
+
+
+<%= render :partial => 'shared/home_menu' %>
+
+<div id="page_panel">
+  <div class="editor_panel clearfix">
+    <div class="main_column clearfix">
+      <h2 class="first_card_section clearfix">Adding a new Caddy</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box('New Caddie') do %>
+
+          <%= error_messages_for :caddy %>
+
+          <% editor_form_for :caddy, @caddy, :url => {:controller => :caddies, :action => 'create'}, :html => {:labelwidth => 50} do |f| %>
+            <p><%= f.text_field :first_name %></p>
+            <p><%= f.text_field :last_name %></p>
+            <p>
+              <table class="editorkit" style="width:400px;">
+                <tbody>
+                <tr>
+                  <th><label style="width:50px;">Course:</label></th>
+                  <td class="editorkit_row">
+                    <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
+                  </td>
+                  <td class="right_padding"></td>
+                </tr>
+                <tr>
+                  <th>&nbsp;</th>
+                  <td class="editorkit_row">
+                    <fb:editor_buttonset>
+                      <fb:editor_button name="commit" value="Submit" />
+                    </fb:editor_buttonset>
+                  </td>
+                  <td class="right_padding"></td>
+                </tr>
+                </tbody>
+              </table>
+            </p>
+            
+              <script>
+                <!--
+                //var submitter = new enterSubmit(document.getElementById('course_filter'), options);
+                var suggestr = new ajaxSuggestFbml(document.getElementById('course_filter'), options);
+                -->
+            </script>
+          
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="side_column">
+      <p>need to render something in the side_column...</p>
+    </div>
+  </div>
+</div>
