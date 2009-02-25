@@ -10,6 +10,20 @@ development:
       port: 8889
       local_port: 3000
 
+#just adding this for the sake of capistrano throwing an error when trying to migrate
+staging:
+    key: 786bb4519bc7f2b2304e866de0a0b93d
+    secret: 1b9950caa92826ca527d1bcf6907b3f0
+    canvas_path: /golfbookapp_dev/
+    callback_path: /
+    tunnel:
+      username: 993440e2
+#      host: 993440e2.fb.joyent.us
+      host: golfbook.agilisto.com
+      port: 8889
+      local_port: 3000
+
+
 test:
     key: 838e3b71f1bb2379bb1da00638db020e
     secret: 1fdad4d4f084741b8d588f3c1130988d
