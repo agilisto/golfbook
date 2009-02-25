@@ -2,6 +2,7 @@ set :application, "GolfbookDev" #matches names used in smf_template.erb
 
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false
+set :rails_env, "staging"
 
 #
 # GitHub settings #######################################################################################
