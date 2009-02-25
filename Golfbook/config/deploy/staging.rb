@@ -17,8 +17,8 @@ set :deploy_via, :remote_cache
 
 #########################################################################################################
 set :domain, 'golfbook.agilisto.com'
-set :smf_process_user, 'root'
-set :smf_process_group, 'root'
+set :smf_process_user, '993440e2'
+set :smf_process_group, '993440e2'
 
 # Settings to make app run from ./Golfbook ##############################################################
 #_cset(:release_path)      { File.join(releases_path, release_name) }
