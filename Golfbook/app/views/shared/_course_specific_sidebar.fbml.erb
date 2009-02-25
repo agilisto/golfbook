@@ -1,16 +1,16 @@
 <%= render :partial => "shared/course_buttons"%>
 <%= render :partial => "shared/buttons"%>
 
-<% vitals_box('Share This Course') do %>
-  <fb:share-button class="meta">
-    <meta name="title" content="<%= @course.name %>"/>
-    <link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
-  </fb:share-button>
+<% vitals_box('Share This Course',{:class => 'section'}) do %>
+    <fb:share-button class="meta">
+      <meta name="title" content="<%= @course.name %>"/>
+      <link rel="target_url" href="<%= url_for(:controller => :courses, :action => :show, :id => @course.id)%>"/>
+    </fb:share-button>
 <% end %>
 
-<%= render :partial => 'course_stats' %>
+<%= render :partial => 'courses/course_stats' %>
 
-<%if @user.admin%>
+<%if @current_user.admin? %>
   <% vitals_box('Admin Actions') do %>
     <div class="communication_item send_message clearfix">
       <%= link_to 'Edit Course', url_for(:action => :edit, :id => @course.id, :only_path => true) %>
@@ -19,7 +19,5 @@
 <%end%>
 
 <% vitals_box('Recently Posted Rounds') do %>
-        <ul class="small_list">
-          <%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
-        </ul>
+  <%= render :partial => 'shared/recent_round', :collection => @recent_rounds %>
 <% end %>

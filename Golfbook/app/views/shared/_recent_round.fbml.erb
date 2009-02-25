@@ -1,13 +1,13 @@
 <% firstnameonly ||= false %>
-<li>
-	<h1><%= link_to recent_round.score.to_s, :controller => :round, :action => :show, :id => recent_round.id %></h1>&nbsp;
+<div class="vitality_text_block">
+	<%= link_to recent_round.score.to_s, :controller => :round, :action => :show, :id => recent_round.id %>&nbsp;
 	<% if display_course %>
 		&nbsp;<span class="course" style="font-size:11px;font-weight:bold"><%= link_to recent_round.course.name, :controller => :courses, :action => :show, :id => recent_round.course.id %>&nbsp;</span>&nbsp;
 	<% end %>&nbsp;
         <span class="name" style="font-size:9px">
           <a href="<%= profile_view_url :id=>recent_round.user.id, :only_path => true%>">
             <fb:name uid='<%= recent_round.user.facebook_uid %>' linked="false" useyou='false' firstnameonly="<%= firstnameonly ? true : false %>"/>
-          </a>
+          </a><br />
           <%= time_ago_in_words(recent_round.date_played) %> ago
         </span>
-</li>
+</div>

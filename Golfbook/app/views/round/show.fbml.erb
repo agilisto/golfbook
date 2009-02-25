@@ -6,8 +6,9 @@
 <div id="page_panel">
   <div class="editor_panel clearfix">
     <div class="main_column">
+      <h2>Round Information</h2>
       <% simple_info_box_container do %>
-        <% simple_info_box('Round Information') do %>
+        <% simple_info_box do %>
           <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)%>"><fb:name uid="<%= @round.user.facebook_uid %>" capitalize="true" linked="false" /></a> shot a
           <strong><%= @round.score %></strong> at
           <%= link_to(@round.course.name,:controller=>:courses,:action=>:show,:id=>@round.course_id)%> on <%= @round.date_played.to_formatted_s(:long) %>
@@ -33,11 +34,11 @@
         <% end %>
       
         <% simple_info_box('Friends: Recent scores', {:toggle => "course_friends_recent"}) do %>
-          <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+          <%= render :partial => 'courses/course_friends_recent', :object => @friends_recent_rounds %>
         <% end %>
       
         <% simple_info_box('Friends: Best scores', {:toggle => "course_friends_best"}) do %>
-          <%= render :partial => 'course_friends_recent', :object => @friends_recent_rounds %>
+          <%= render :partial => 'courses/course_friends_recent', :object => @friends_recent_rounds %>
         <% end %>
 
         <% simple_info_box do %>
@@ -52,9 +53,9 @@
     </div>
     <div class="side_column">
       <% vitals_box('Round Actions') do %>
-        <a href="<%= url_for :controller => :round, :action => :destroy, :id => @round.id %>">>Delete Round</a>
+        <a href="<%= url_for :controller => :round, :action => :destroy, :id => @round.id %>">Delete Round</a>
       <% end %>
-      <% vitals_box('Share This Round') do %>
+      <% vitals_box('Share This Round',{:class => 'section'}) do %>
         <fb:share-button class="meta">
           <meta name="title" content="<%= "#{@round.score} at #{@round.course.name}" %>"/>
           <link rel="target_url" href="<%= url_for :controller => :round, :action => :show, :id => @round.id %>"/>

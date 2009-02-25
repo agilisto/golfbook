@@ -48,7 +48,7 @@
           <div class="section clearfix">
             <%= render :partial => 'course_actions' %>
           </div>
-          <%if @user.admin%>
+          <%if @current_user.admin? %>
             <div class="section clearfix">
               <h3>Admin Actions</h3>
               <div class="communication_item send_message clearfix">

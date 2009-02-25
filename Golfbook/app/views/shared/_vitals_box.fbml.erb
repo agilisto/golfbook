@@ -1,8 +1,7 @@
-<div class="section clearfix">
+<% the_class = options[:class] || "vitality" %>
+<div class="<%= the_class %> clearfix">
 <h3 class="box_header"><%= heading %></h3>
   <div class="bar_chart simple">
-    <h2 class="header">
-      <%= body %>
-    </h2>
+    <%= body %>
   </div>
 </div>

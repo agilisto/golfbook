@@ -24,7 +24,46 @@
   <div id="results" style="overflow: hidden">
 
     <div class="main_column clearfix">
-
+      <p>
+        Duis sit amet odio. Maecenas condimentum tempus neque. Nulla tellus mauris, feugiat at,
+        porta ut, sagittis eget, sapien. Ut augue neque, porta eu, venenatis interdum, fermentum et, augue.
+        Sed eget mi. Sed non arcu. Integer sed odio. Nulla commodo, leo ac pellentesque condimentum
+      </p>
+      <h2 class="first_card_section">Course Information</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <div style="float:left;" class="photo_borders photo_widget">
+            <p>
+              <%= link_to(image_tag("golf_course.jpg", :height => 100, :width => 150, :style => 'float:left;margin:10px;'), :controller => 'courses', :action => 'index') %>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Quisque iaculis volutpat diam. Donec tincidunt arcu facilisis velit.
+              Duis sit amet odio. Maecenas condimentum tempus neque. Nulla tellus mauris, feugiat at,
+              porta ut, sagittis eget, sapien. Ut augue neque, porta eu, venenatis interdum, fermentum et, augue.
+              Sed eget mi. Sed non arcu. Integer sed odio. Nulla commodo, leo ac pellentesque condimentum,
+              risus lacus pharetra lorem, non dignissim pede elit vel augue. Phasellus turpis magna,
+              scelerisque sed, dictum non, consequat sit amet, leo.
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+      <h2 class="first_card_section">Unofficial Handicap</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <div style="float:left;" class="photo_borders photo_widget">
+            <p>
+              <%= link_to(image_tag("chart.jpg", :height => 100, :width => 150, :style => 'float:left;margin:10px;'), :controller => 'handicaps', :action => 'index') %>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Quisque iaculis volutpat diam. Donec tincidunt arcu facilisis velit.
+              Duis sit amet odio. Maecenas condimentum tempus neque. Nulla tellus mauris, feugiat at,
+              porta ut, sagittis eget, sapien. Ut augue neque, porta eu, venenatis interdum, fermentum et, augue.
+              Sed eget mi. Sed non arcu. Integer sed odio. Nulla commodo, leo ac pellentesque condimentum,
+              risus lacus pharetra lorem, non dignissim pede elit vel augue. Phasellus turpis magna,
+              scelerisque sed, dictum non, consequat sit amet, leo.
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+<!--
       <h2 class="first_card_section">Where are your friends playing?</h2>
       <% simple_info_box_container do %>
         <% simple_info_box do %>
@@ -40,6 +79,8 @@
           <%#= render :partial => 'friend_course', :collection => @recent_courses_played %>
         <% end %>
       <% end %>
+
+-->
     </div>
 
     <div class="side_column">

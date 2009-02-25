@@ -349,6 +349,7 @@ html[xmlns] .clearfix {
     float:left;
     background-color:#f7f7f7;
     border-right:1px solid #CECFCE;
+    border-bottom:1px solid #94a3c4;
 }
 .editor_panel h2, .main_column h2.first_card_section, .side_column h2 {
     color:#333333;
@@ -369,7 +370,8 @@ html[xmlns] .clearfix {
 }
 
 .side_column .section {
-	margin-bottom:20px;
+	margin-bottom:5px;
+        border-top:1px solid #94a3c4;
 }
 
 .section h3 {
@@ -891,3 +893,37 @@ ul.scorecard {
     line-height:1.7;
 }
 
+.vitality{
+    border-top:1px solid #94a3c4;
+    padding-bottom:5px;
+}
+
+.vitality h3 {
+    background:#d8dfea none repeat scroll 0%;
+    font-size:11px;
+    margin-bottom:12px;
+    padding:4px 6px;
+}
+
+.vitality a{
+    padding:5px;
+    display:block;
+    width:90%;
+    border-bottom:1px solid #d8dfea;
+}
+
+.vitality_text_block{
+    padding:5px;
+    width:90%;
+    border-bottom:1px solid #d8dfea;
+}
+
+.vitality_text_block a{
+    display:inline;
+    color: #3b5998;
+    outline-style: none;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    border:none;
+}

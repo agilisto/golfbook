@@ -1,33 +1,14 @@
 <% vitals_box('Vitals') do %>
-  <div class="clearfix">
-    <span class="title"></span>
-    <span class="title_label"><%= link_to "Handicap: #{@user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %></span>
-  </div>
-  <div class="clearfix">
-    <span class="title"></span>
-    <span class="title_label">
+  <%= link_to "Handicap: #{@user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %>
       <% unless @user.home_course.blank? %>
         <%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %>
       <% else %>
         Course: none yet.
       <% end %>
-    </span>
-  </div>
   <% unless @friends_count.blank? %>
-    <div class="clearfix">
-      <span class="title"></span>
-      <span class="title_label"><%= link_to "Golfbook Friends: #{@friends_count}", :controller => :home, :action => :friends %></span>
-    </div>
+    <%= link_to "Golfbook Friends: #{@friends_count}", :controller => :home, :action => :friends %>
   <% end %>
-  <div class="clearfix">
-    <span class="title"></span>
-    <span class="title_label"><%= link_to "Rounds Played: #{@user.rounds.count}", user_view_rounds_url(:id => @user.id, :only_path => true) %></span>
-  </div>
-  <div class="clearfix">
-    <span class="sub_title"/>
-    <span class="title" style="clear:left;"></span>
-    <span class="title_label"><%= link_to "Courses Played: #{@user.courses.count}", :controller => :courses, :action => :courses_played %></span>
-    <span class="sub_title"/>
-  </div>
+  <%= link_to "Rounds Played: #{@user.rounds.count}", user_view_rounds_url(:id => @user.id, :only_path => true) %>
+  <%= link_to "Courses Played: #{@user.courses.count}", :controller => :courses, :action => :courses_played %>
   <div style="clear: left; height: 0px;"/>
 <% end %>

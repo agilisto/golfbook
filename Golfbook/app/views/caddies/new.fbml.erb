@@ -97,7 +97,10 @@ options = {
       <% end %>
     </div>
     <div class="side_column">
-      <p>need to render something in the side_column...</p>
+      <% vitals_box('Caddies') do %>
+        <%= link_to 'Add a Caddy', :controller => 'caddies', :action => 'new' %>
+      <% end %>
+      <%= @sidebar_content %>
     </div>
   </div>
 </div>

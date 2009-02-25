@@ -1,14 +1,10 @@
 <% vitals_box('Actions') do %>
   <% unless @user.home_course.nil? %>
     <a href="<%= url_for :controller => :courses, :action => :show, :id => @user.home_course_id %>">Go to Home Course</a>
-    <br /><br />
     <% end %>
     <a href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">Post a Score</a>
-    <br /><br />
     <a href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :schedule %>">Schedule a Game</a>
-    <br /><br />
     <a href="<%= url_for :controller => :home, :action => :invite %>">Invite Friends</a>
-    <br /><br />
     <a href="<%= url_for :controller => :courses, :action => :new_map %>">Add a Course</a>
 
   <% if false %>

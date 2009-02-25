@@ -4,7 +4,7 @@
 <%if @viewer.admin%>
   <% vitals_box('Acmin Actions') do %>
     <div class="communication_item send_message clearfix">
-      <%= link_to @user.admin ? 'Remove Admin' : 'Make Admin', url_for(:action => :makeadmin, :id => @user.id, :only_path => true) %>
+      <%= link_to @current_user.admin? ? 'Remove Admin' : 'Make Admin', url_for(:action => :makeadmin, :id => @user.id, :only_path => true) %>
     </div>
   <% end %>
 <%end%>

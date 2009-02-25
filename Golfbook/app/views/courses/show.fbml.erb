@@ -7,7 +7,7 @@
       <h2 class="first_card_section clearfix"><%= @course.name %></h2>
       <% simple_info_box_container do %>
 
-        <%if @user.admin%>
+        <%if @current_user.admin? %>
           <% simple_info_box('Review Course') do %>
           <%= render :partial => 'review_course', :object => @course %>
           <% end %>

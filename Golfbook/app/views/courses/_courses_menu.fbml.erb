@@ -3,7 +3,7 @@
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='My Courses' selected='<%= @action == :courses_played %>'/>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Highest Rated' selected='<%= @action == :highest_rated %>'/>
     <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='My Goals' selected='<%= @action == :wishlist %>'/>
-    <%if @user.admin%>
+    <%if @current_user.admin? %>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :review %>' title='Review' selected='<%= @action == :review %>'/>
     <%end%>
     <!--fb:tab-item href='<%= url_for :controller => :courses, :action => :search %>' title='Search' selected='<%= @action == :search %>'/-->
