@@ -14,19 +14,16 @@ set :branch, "master"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
 
-
 #########################################################################################################
 set :domain, 'golfbookdev.agilisto.com'
 set :smf_process_user, '993440e2'
 set :smf_process_group, '993440e2'
 
 # Settings to make app run from ./Golfbook ##############################################################
-#_cset(:release_path)      { File.join(releases_path, release_name) }
-#_cset(:current_release)   { File.join(releases_path, releases.last) }
-#_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
 #set :repository_cache, "cached-copy" #/Golfbook"   #this will hopefully make the repo copy to cacehd-copy but the copy process copy from cached-copy/Golfbook, alternatively it will make the repo deploy to shared/cached-copy/Golfbook leaving ./Golfbook from there...
 #########################################################################################################
 
+set :git_shallow_clone, 1
 
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
