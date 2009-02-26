@@ -24,8 +24,8 @@ set :smf_process_group, '993440e2'
 
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
-ssh_options[:paranoid] = false
-ssh_options[:forward_agent] = true
+#ssh_options[:paranoid] = false
+#ssh_options[:forward_agent] = true
 
 role :app, domain
 role :web, domain
