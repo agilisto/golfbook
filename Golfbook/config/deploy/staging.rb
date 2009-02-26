@@ -16,7 +16,7 @@ set :deploy_via, :remote_cache
 
 
 #########################################################################################################
-set :domain, 'golfbook.agilisto.com'
+set :domain, 'golfbookdev.agilisto.com'
 set :smf_process_user, '993440e2'
 set :smf_process_group, '993440e2'
 
@@ -37,28 +37,9 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-set :server_name, key_name + ".joyent.us"
-set :server_alias, "*." + key_name + ".joyent.us"
-
-#no need to restart apache
-deploy.task :restart do
-    accelerator.smf_restart
-#    accelerator.restart_apache
-end
-deploy.task :start do
-    accelerator.smf_start
-#    accelerator.restart_apache
-end
-deploy.task :stop do
-    accelerator.smf_stop
-#    accelerator.restart_apache
-end
-
-namespace :accelerator do
-  task :create_vhost, :roles => :web do
-    puts "not creating vhost for staging."
-  end
-end
+set :server_name, 'golfbookdev.agilisto.com'
+#set :server_name, key_name + ".joyent.us"
+#set :server_alias, "*." + key_name + ".joyent.us"
 
 task :tail_log, :roles => :app do
     stream "tail -f #{shared_path}/log/staging.log"

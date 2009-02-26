@@ -3,6 +3,6 @@ environment: staging
 address: 127.0.0.1
 pid_file: /home/993440e2/web/GolfbookDev/shared/pids/mongrel.pid
 log_file: /home/993440e2/web/GolfbookDev/shared/log/mongrel.log
-servers: 1
+servers: 2
 docroot: /home/993440e2/web/GolfbookDev/current/public
 cwd: /home/993440e2/web/GolfbookDev/current
