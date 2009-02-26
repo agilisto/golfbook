@@ -1,8 +1,8 @@
+set :application, "GolfbookDev"
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false
 set :rails_env, "staging"
 
-set :application, "GolfbookDev"
 #
 # GitHub settings #######################################################################################
 default_run_options[:pty] = true

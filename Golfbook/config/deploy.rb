@@ -6,7 +6,7 @@ require 'erb'
 require 'config/accelerator/accelerator_tasks'
 
 
-#set :application, "GolfbookDev" #matches names used in smf_template.erb    #this is moved to production.rb
+set :application, "GolfbookDev" #matches names used in smf_template.erb    #this is moved to production.rb
 #set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 # If you aren't deploying to /u/apps/#{application} on the target
