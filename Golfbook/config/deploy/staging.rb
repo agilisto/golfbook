@@ -24,7 +24,7 @@ set :smf_process_group, '993440e2'
 #_cset(:release_path)      { File.join(releases_path, release_name) }
 #_cset(:current_release)   { File.join(releases_path, releases.last) }
 #_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-set :repository_cache, "cached-copy/Golfbook"   #this will hopefully make the repo copy to cacehd-copy but the copy process copy from cached-copy/Golfbook, alternatively it will make the repo deploy to shared/cached-copy/Golfbook leaving ./Golfbook from there...
+set :repository_cache, "cached-copy" #/Golfbook"   #this will hopefully make the repo copy to cacehd-copy but the copy process copy from cached-copy/Golfbook, alternatively it will make the repo deploy to shared/cached-copy/Golfbook leaving ./Golfbook from there...
 #########################################################################################################
 
 
