@@ -1,23 +1,22 @@
-set :application, "GolfbookDev" #matches names used in smf_template.erb
-
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false
 set :rails_env, "staging"
 
+set :application, "GolfbookDev"
 #
 # GitHub settings #######################################################################################
 default_run_options[:pty] = true
 set :repository, "git@github.com:agilisto/golfbook.git" #GitHub clone URL
 set :scm, "git"
 set :scm_passphrase, "p3nqu1n" #This is the passphrase for the ssh key on the server deployed to
-set :branch, "origin/master"
+set :branch, "master"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
 
 #########################################################################################################
 set :domain, 'golfbookdev.agilisto.com'
-set :smf_process_user, 'root'
-set :smf_process_group, 'root'
+set :smf_process_user, '993440e2'
+set :smf_process_group, '993440e2'
 
 # Settings to make app run from ./Golfbook ##############################################################
 #set :repository_cache, "cached-copy/Golfbook"   #this will hopefully make the repo copy to cacehd-copy but the copy process copy from cached-copy/Golfbook, alternatively it will make the repo deploy to shared/cached-copy/Golfbook leaving ./Golfbook from there...
