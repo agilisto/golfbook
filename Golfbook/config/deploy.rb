@@ -1,12 +1,12 @@
+require 'erb'
+require 'config/accelerator/accelerator_tasks'
 
 set :stages, %w(staging production)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
-require 'erb'
-require 'config/accelerator/accelerator_tasks'
 
 
-set :application, "GolfbookDev" #matches names used in smf_template.erb    #this is moved to production.rb
+set :application, "GolfbookDev" #matches names used in smf_template.erb
 #set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 # If you aren't deploying to /u/apps/#{application} on the target
@@ -24,6 +24,8 @@ set :smf_process_group, 'root'
 set :service_name, application
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false 
+
+set :domain, 'golfbook.agilisto.com'
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
 #ssh_options[:paranoid] = false
