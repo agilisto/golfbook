@@ -6,7 +6,7 @@ set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
 
-set :application, "Golfbook" #matches names used in smf_template.erb
+set :application, "Golfbook" #matches names used in smf_template.erb    #this is moved to production.rb
 #set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 # If you aren't deploying to /u/apps/#{application} on the target
@@ -36,8 +36,8 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-set :server_name, key_name + ".joyent.us"
-set :server_alias, "*." + key_name + ".joyent.us"
+#set :server_name, key_name + ".joyent.us"
+#set :server_alias, "*." + key_name + ".joyent.us"
 
 # Example dependancies
 # depend :remote, :command, :gem
