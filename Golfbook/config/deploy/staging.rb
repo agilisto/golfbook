@@ -1,6 +1,7 @@
 set :application, "GolfbookDev" #matches names used in smf_template.erb
 
 set :working_directory, "#{deploy_to}/current"
+ssh_options[:paranoid] = false
 set :rails_env, "staging"
 
 #
@@ -36,8 +37,14 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-set :server_name, key_name + ".joyent.us"
-set :server_alias, "*." + key_name + ".joyent.us"
+set :server_name, "golfbookdev.joyent.us"
+#set :server_alias, "*." + key_name + ".joyent.us"
+
+namespace :accelerator do
+  task :setup_smf_and_vhost do
+    puts "not creating vhost and smf on setup anymore for staging."
+  end
+end
 
 task :tail_log, :roles => :app do
     stream "tail -f #{shared_path}/log/staging.log"
