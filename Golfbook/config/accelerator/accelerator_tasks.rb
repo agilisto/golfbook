@@ -26,7 +26,7 @@ Capistrano::Configuration.instance(:must_exist).load do
             puts "START PORT #{start_port}"
             puts "end port should be - #{start_port + cluster_info['servers'].to_i - 1}"
             end_port = start_port + cluster_info['servers'].to_i - 1
-            put "END PORT #{end_port}"
+            puts "END PORT #{end_port}"
             public_path = "#{current_path}/public"
 
             template = File.read("config/accelerator/apache_vhost.erb")
