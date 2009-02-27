@@ -54,7 +54,7 @@ class Round < ActiveRecord::Base
     if count(:conditions => ['user_id = ? AND rounds.holes = 18 AND date_played <= ?',user_id,this_round.date_played]) > 20
       reference_round = find(:all, :conditions => ['date_played <= ? AND user_id = ? AND (rounds.holes = 18 OR courses.holes = 18)',this_round.date_played, user_id], :include => :course, :limit => 20, :order => 'date_played desc').last
     else
-      reference_round = find(:first, :order => 'date_played ASC', :conditions => ['user_id = ? and rounds.holes = 18', user_id])
+      reference_round = find(:first, :order => 'date_played ASC', :conditions => ['user_id = ? and rounds.holes = 18', user_id]) || this_round
     end
 
     #find the rounds with 18 holes between the reference round and this_round
