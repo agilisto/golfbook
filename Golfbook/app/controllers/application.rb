@@ -132,6 +132,7 @@ class ApplicationController < ActionController::Base
     when :course_main
       @courses_count = Course.count
       load_user if @user.blank?
+      request.format = :fbml
       @sidebar_content = render_to_string(:partial => 'shared/courses_main_sidebar')
     when :course_specific
       @course ||= Course.find(params[:id])
