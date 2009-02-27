@@ -24,7 +24,7 @@ set :smf_process_group, 'root'
 #_cset(:release_path)      { File.join(releases_path, release_name) }
 #_cset(:current_release)   { File.join(releases_path, releases.last) }
 #_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
+#set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
 #########################################################################################################
 
 
@@ -51,3 +51,31 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
+
+module Capistrano
+  module Deploy
+    module Strategy
+
+      # Implements the deployment strategy that keeps a cached checkout of
+      # the source code on each remote server. Each deploy simply updates the
+      # cached checkout, and then does a copy from the cached copy to the
+      # final deployment location.
+      class RemoteCache < Remote
+        private
+
+
+        def copy_repository_cache
+            logger.trace "copying the cached version to #{configuration[:release_path]}"
+            if copy_exclude.empty?
+              run "cp -RPp #{repository_cache}/Golfbook #{configuration[:release_path]} && #{mark}"
+            else
+              exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
+              run "rsync -lrp #{exclusions} #{repository_cache}/Golfbook/* #{configuration[:release_path]} && #{mark}"
+            end
+          end
+
+      end
+
+    end
+  end
+end
