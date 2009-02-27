@@ -24,7 +24,7 @@ set :smf_process_group, 'root'
 #_cset(:release_path)      { File.join(releases_path, release_name) }
 #_cset(:current_release)   { File.join(releases_path, releases.last) }
 #_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-#set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
+set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
 #########################################################################################################
 
 
