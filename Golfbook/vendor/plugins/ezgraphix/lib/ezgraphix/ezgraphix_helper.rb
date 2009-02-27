@@ -17,7 +17,9 @@ module EzgraphixHelper
   def render_ezgraphix(g)
     style = get_style(g)
     xml_data = g.to_xml
-    h = Hpricot("<div id='#{g.div_name}'></div>\n <script type='text/javascript'> var ezChart = new FusionCharts('#{f_type(g.c_type)}', '#{g.div_name}', '#{g.w}', '#{g.h}','0','0'); ezChart.setDataXML('#{xml_data}'); ezChart.render('#{g.div_name}');</script>")
+    xml_data = xml_data.gsub("\"","&quot;")
+    logger.info xml_data
+    h = Hpricot("<div id='#{g.div_name}'></div>\n <script type='text/javascript'> var ezChart = new FusionCharts('#{f_type(g.c_type)}', '#{g.div_name}', '#{g.w}', '#{g.h}','0','0',true); ezChart.setDataXML('#{xml_data}'); ezChart.render('#{g.div_name}');</script>")
     h.to_html
   end
   
