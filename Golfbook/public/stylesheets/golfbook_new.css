@@ -223,7 +223,6 @@ html[xmlns] .clearfix {
 }
 
 .pandemic_bar li {
-	border-color:#898989 rgb(137, 137, 137) rgb(137, 137, 137) -moz-use-text-color;
 	border-style:solid solid solid none;
 	border-width:1px 1px 1px 0pt;
 	float:left;
@@ -456,16 +455,8 @@ html[xmlns] .clearfix {
 
 .main_column .minimal_info_block {
     padding-bottom:15px;
-    overflow-x: hidden;
-    overflow-y: hidden;
     clear:both;
-    /*
-    background:#ffffff none no-repeat scroll 7px;
-	border:1px solid #CECFCE;
-	margin:0pt 4px 5px;
-	padding:7px 10px 11px 30px;
-    */
-	width:510px;
+    width:510px;
 }
 
 .main_column .minimal_info_block h3 {

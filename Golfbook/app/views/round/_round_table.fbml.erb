@@ -22,7 +22,7 @@
             <td><%= r.date_played.to_s(:long) %></td>
             <td><center><%= r.course.par %></center></td>
             <td><center><%= r.course_rating %></center></td>
-            <td><center><%= r.score %> (<%= r.score - r.course_rating %>)</center></td>
+            <td><center><%= r.score %> (<%= r.score - r.par %>)</center></td>
             <td><center><%= r.handicap.value %></center></td>
             <td><center><%= r.handicap.change %></center></td>
           </tr>
