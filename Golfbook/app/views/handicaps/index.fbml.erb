@@ -14,7 +14,7 @@
 
 <div class="editor_panel clearfix">
   <div style="width:100%;clear:both;" class="clearfix">
-    <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.value || "More round data required." %></font></div>
+    <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.blank? ? "More round data required." : @user.current_handicap.value %></font></div>
   </div>
   <br clear="all" />
   <!--<fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>?user_id=<%= @user.id %>&friend_ids=<%= @fql_friends %>" frameborder=0 scrolling="no" height=400 width=700 ></fb:iframe> -->

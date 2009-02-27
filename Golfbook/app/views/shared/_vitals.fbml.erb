@@ -1,5 +1,5 @@
 <% vitals_box('Vitals') do %>
-  <%= link_to "Handicap: #{@user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %>
+  <%= link_to "Handicap: #{@user.current_handicap.blank? ? '-' : @user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %>
       <% unless @user.home_course.blank? %>
         <%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %>
       <% else %>

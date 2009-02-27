@@ -23,8 +23,8 @@
             <td><center><%= r.course.par %></center></td>
             <td><center><%= r.course_rating %></center></td>
             <td><center><%= r.score %> (<%= r.score - (r.course.par || r.course.course_rating) %>)</center></td>
-            <td><center><%= r.handicap.value %></center></td>
-            <td><center><%= r.handicap.change %></center></td>
+            <td><center><%= r.handicap.blank? ? "-" : r.handicap.value %></center></td>
+            <td><center><%= r.handicap.blank? ? "-" : r.handicap.change %></center></td>
           </tr>
           <% end %>
           <tr>
