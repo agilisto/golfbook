@@ -1,3 +1,9 @@
+#Things to do before deploying to a specific environment.
+#Copy the relevant mongrel_#{stage}.yml to mongrel_cluster.yml
+#change the application name to 'GolfbookDev' for staging and 'Golfbook' for production.
+
+
+
 require 'erb'
 require 'config/accelerator/accelerator_tasks'
 
@@ -5,8 +11,12 @@ set :stages, %w(staging production)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
-
+#For staging:
 set :application, "GolfbookDev" #matches names used in smf_template.erb
+#For production:
+#set application, 'Golfbook'
+
+
 #set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 # If you aren't deploying to /u/apps/#{application} on the target
@@ -125,3 +135,24 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
+
+
+##NB! To allow for deployment from subdirectory of git repo - add this to your capistrano remote_cache.rb copy_repository_cache method.
+#          def copy_repository_cache
+#            logger.trace "copying the cached version to #{configuration[:release_path]}"
+#            if configuration[:application].include?("Golfbook") && configuration[:scm] == "git"
+#                if copy_exclude.empty?
+#                run "cp -RPp #{repository_cache}/Golfbook #{configuration[:release_path]} && #{mark}"
+#                else
+#                exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
+#                run "rsync -lrp #{exclusions} #{repository_cache}/Golfbook/* #{configuration[:release_path]} && #{mark}"
+#                end
+#            else
+#                if copy_exclude.empty?
+#                run "cp -RPp #{repository_cache} #{configuration[:release_path]} && #{mark}"
+#                else
+#                exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
+#                run "rsync -lrp #{exclusions} #{repository_cache}/* #{configuration[:release_path]} && #{mark}"
+#                end
+#            end
+#          end

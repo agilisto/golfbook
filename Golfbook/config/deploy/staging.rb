@@ -1,8 +1,8 @@
 set :application, "GolfbookDev" #matches names used in smf_template.erb
+set :rails_env, "staging"
 
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false
-set :rails_env, "staging"
 
 #
 # GitHub settings #######################################################################################
@@ -51,31 +51,3 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
-
-module Capistrano
-  module Deploy
-    module Strategy
-
-      # Implements the deployment strategy that keeps a cached checkout of
-      # the source code on each remote server. Each deploy simply updates the
-      # cached checkout, and then does a copy from the cached copy to the
-      # final deployment location.
-      class RemoteCache < Remote
-        private
-
-
-        def copy_repository_cache
-            logger.trace "copying the cached version to #{configuration[:release_path]}"
-            if copy_exclude.empty?
-              run "cp -RPp #{repository_cache}/Golfbook #{configuration[:release_path]} && #{mark}"
-            else
-              exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
-              run "rsync -lrp #{exclusions} #{repository_cache}/Golfbook/* #{configuration[:release_path]} && #{mark}"
-            end
-          end
-
-      end
-
-    end
-  end
-end
