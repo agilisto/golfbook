@@ -24,5 +24,6 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-set :server_name, key_name + ".joyent.us"
-set :server_alias, "*." + key_name + ".joyent.us"
+#set :server_name, key_name + ".joyent.us"
+#set :server_alias, "*." + key_name + ".joyent.us"
+set :server_name, golfbook.agilisto.com

@@ -17,7 +17,8 @@
     <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.value %></font></div>
   </div>
   <br clear="all" />
-  <fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>?user_id=<%= @user.id %>" frameborder=0 scrolling="no" height=400 width=700 ></fb:iframe>
+  <!--<fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @fql_friends, :only_path => false) %>?user_id=<%= @user.id %>&friend_ids=<%= @fql_friends %>" frameborder=0 scrolling="no" height=400 width=700 ></fb:iframe> -->
+  <fb:iframe name='myhandicapframe' src="<%= url_for(:controller => 'ezgraphics', :action => 'my_handicap', :id => @user.id, :only_path => false, :friend_ids => @fql_friends_hash) %>" frameborder=0 scrolling="no" height=400 width=700 ></fb:iframe>
   <% unless @friends_rounds.blank? %>
     <span style="float:right;"><a href="<%= url_for(:controller => 'handicaps', :action => 'friends', :id => @user.id) %>">Choose Friends to Chart</a></span><br />
   <% end %>

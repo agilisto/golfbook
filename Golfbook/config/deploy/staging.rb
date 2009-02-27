@@ -17,14 +17,14 @@ set :deploy_via, :remote_cache
 
 #########################################################################################################
 set :domain, 'golfbook.agilisto.com'
-set :smf_process_user, '993440e2'
-set :smf_process_group, '993440e2'
+set :smf_process_user, 'root'
+set :smf_process_group, 'root'
 
 # Settings to make app run from ./Golfbook ##############################################################
 #_cset(:release_path)      { File.join(releases_path, release_name) }
 #_cset(:current_release)   { File.join(releases_path, releases.last) }
 #_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-set :repository_cache, "cached-copy/Golfbook"   #this will hopefully make the repo copy to cacehd-copy but the copy process copy from cached-copy/Golfbook, alternatively it will make the repo deploy to shared/cached-copy/Golfbook leaving ./Golfbook from there...
+#set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
 #########################################################################################################
 
 
@@ -37,7 +37,7 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-set :server_name, "golfbookdev.joyent.us"
+set :server_name, "golfbookdev.agilisto.com"
 #set :server_alias, "*." + key_name + ".joyent.us"
 
 namespace :accelerator do

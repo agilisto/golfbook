@@ -19,6 +19,10 @@ class HandicapsController < ApplicationController
     else  #only show user and the user bein viewed on the graph
       @fql_friends = get_me_and_friend_info(current_user.facebook_uid, @user.facebook_uid)
     end
+    @fql_friends_hash = {}
+    @fql_friends.each do |f|
+      @fql_friends_hash[f[0]] = f[1]
+    end
   end
 
   def friends

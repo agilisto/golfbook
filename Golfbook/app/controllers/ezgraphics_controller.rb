@@ -4,16 +4,14 @@ class EzgraphicsController < ApplicationController
 
   def my_handicap
     #getting the friends and their names - passed in via params[:id]
-    @user = User.find(params[:user_id])
-    friend_array = params[:id].split("/")
+    @user = User.find(params[:id])
+    friend_array = params[:friend_ids]
     names = []
     uids = []
-    friend_array.each_with_index do |x,i|
-      if i.even?
-        names << x
-      else
-        uids << x
-      end
+    #there was some last minute refatoring happening here...hence the horrible code.
+    friend_array.keys.each do |k|
+      names << k
+      uids << friend_array[k]
     end
     @friends = User.find_all_by_facebook_uid(uids)
 
