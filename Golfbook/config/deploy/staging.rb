@@ -13,8 +13,6 @@ set :scm_passphrase, "p3nqu1n" #This is the passphrase for the ssh key on the se
 set :branch, "master"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
-
-
 #########################################################################################################
 set :domain, 'golfbook.agilisto.com'
 set :smf_process_user, 'root'

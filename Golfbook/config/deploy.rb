@@ -12,7 +12,7 @@ set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
 #For staging:
-set :application, "GolfbookDev" #matches names used in smf_template.erb
+set :application, "Golfbook" #matches names used in smf_template.erb
 #For production:
 #set application, 'Golfbook'
 
