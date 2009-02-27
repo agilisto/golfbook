@@ -13,6 +13,7 @@ class EzgraphicsController < ApplicationController
       names << k
       uids << friend_array[k]
     end
+
     @friends = User.find_all_by_facebook_uid(uids)
 
     #charting stuff from here on down
@@ -26,10 +27,6 @@ class EzgraphicsController < ApplicationController
     data << {:options => {:seriesname => "Scores"}, :series => rounds.collect{|x|x.score}}
     data << {:options => {:seriesname => "Course Ratings"}, :series => rounds.collect{|x|x.course_rating}}
 
-#    rounds.each do |r|
-#      data[r.date_played] = (r.score - r.course_rating)
-#    end
-
 
     @round_chart.data = data
 
@@ -42,6 +39,7 @@ class EzgraphicsController < ApplicationController
       data << {:options => {:seriesname => (names[uids.index(friend.facebook_uid.to_s)])}, :series => categories.collect{|x|(friend.handicap_on(x).value rescue nil)}}
     end
     @handicap_chart.data = data
+
     render :layout => false
   end
 
