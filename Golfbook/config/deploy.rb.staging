@@ -125,7 +125,6 @@ end
 
 after :deploy, 'deploy:cleanup'
 
-
 ##NB! To allow for deployment from subdirectory of git repo - add this to your capistrano remote_cache.rb copy_repository_cache method.
 #          def copy_repository_cache
 #            logger.trace "copying the cached version to #{configuration[:release_path]}"

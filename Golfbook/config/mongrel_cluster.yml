@@ -1,8 +1,8 @@
-port: "8000"
-environment: production
+port: "8020"
+environment: staging
 address: 127.0.0.1
-pid_file: /home/993440e2/web/Golfbook/shared/pids/mongrel.pid
-log_file: /home/993440e2/web/Golfbook/shared/log/mongrel.log
-servers: 9
-docroot: /home/993440e2/web/Golfbook/current/public
-cwd: /home/993440e2/web/Golfbook/current
+pid_file: /home/993440e2/web/GolfbookDev/shared/pids/mongrel.pid
+log_file: /home/993440e2/web/GolfbookDev/shared/log/mongrel.log
+servers: 3
+docroot: /home/993440e2/web/GolfbookDev/current/public
+cwd: /home/993440e2/web/GolfbookDev/current

@@ -3,15 +3,18 @@ namespace :agilisto do
   task :deploy_to_rails_env => :environment do
     if ['staging','production'].include?(RAILS_ENV)
       puts 'Deploying to ' + RAILS_ENV
-      cmd = "rake agilisto:copy_appropriate_files"
-      exec cmd
-      cmd = "cap #{RAILS_ENV} deploy:cold"  #deploys and runs necessary migrations.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:create_smf"  #creates the service for smf.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:create_vhost"  #creates the service for smf.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:smf_restart"  #creates the service for smf.
+      'rake agilisto:copy_appropriate_files'
+      if RAILS_ENV == 'staging'
+        `cap staging deploy:cold`
+        `cap staging accelerator:create_smf`
+        `cap staging accelerator:create_vhost`
+        `cap staging accelerator:smf_restart`
+      elsif RAILS_ENV == 'production'
+        `cap production deploy:cold`
+        `cap production accelerator:create_smf`
+        `cap production accelerator:create_vhost`
+        `cap production accelerator:smf_restart`
+      end
     else
       puts 'dont know what to do with RAILS_ENV=' + RAILS_ENV
     end
@@ -21,20 +24,20 @@ namespace :agilisto do
   task :deploy_to_rails_env_first_time => :environment do
     if ['staging','production'].include?(RAILS_ENV)
       puts 'Deploying to ' + RAILS_ENV
-      cmd = "rake agilisto:copy_appropriate_files"
-      exec cmd
-      cmd = "cap #{RAILS_ENV} deploy:setup"  #deploys and runs necessary migrations.
-      exec cmd
-##This is happening in the accelerator task after deploy:setup now.
-#      cmd = "cap #{RAILS_ENV} accelerator:chown_directory"  #deploys and runs necessary migrations.
-#      exec cmd
-      cmd = "cap #{RAILS_ENV} deploy:cold"  #deploys and runs necessary migrations.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:create_smf"  #creates the service for smf.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:create_vhost"  #creates the service for smf.
-      exec cmd
-      cmd = "cap #{RAILS_ENV} accelerator:smf_restart"  #creates the service for smf.
+      `rake agilisto:copy_appropriate_files`
+      if RAILS_ENV == 'staging'
+        `cap staging deploy:setup`
+        `cap staging deploy:cold`
+        `cap staging accelerator:create_smf`
+        `cap staging accelerator:create_vhost`
+        `cap staging accelerator:smf_restart`
+      elsif RAILS_ENV == 'production'
+        `cap production deploy:setup`
+        `cap production deploy:cold`
+        `cap production accelerator:create_smf`
+        `cap production accelerator:create_vhost`
+        `cap production accelerator:smf_restart`
+      end
     else
       puts 'dont know what to do with RAILS_ENV=' + RAILS_ENV
     end
