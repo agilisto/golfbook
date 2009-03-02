@@ -34,9 +34,10 @@ class Round < ActiveRecord::Base
     if elligible_rounds.blank?
       new_handicap_value = nil
     else
-      new_handicap_value =  HandicapCalculator.handicap_for(elligible_rounds)
+      new_handicap_value =  HandicapCalculator.handicap_for(elligible_rounds, user.gender)
     end
-    Handicap.create(:date_played => self.date_played, :round_id => self.id, :user_id => self.user_id, :value => new_handicap_value, :change => ((new_handicap_value - self.user.current_handicap.value) rescue 0))
+    change = (new_handicap_value.nil? ? nil : ((new_handicap_value - self.user.handicap_on(Date.today).value) rescue nil))
+    Handicap.create(:date_played => self.date_played, :round_id => self.id, :user_id => self.user_id, :value => new_handicap_value, :change => change)
   end
 
   def eligible?
@@ -66,5 +67,12 @@ class Round < ActiveRecord::Base
       end
     end
     valid_rounds[0..19]
+  end
+
+  def self.recreate_handicaps
+    Handicap.destroy_all
+    find(:all, :order => 'rounds.date_played ASC', :include => [:user, :course]).each do |r|
+      r.create_handicap
+    end
   end
 end

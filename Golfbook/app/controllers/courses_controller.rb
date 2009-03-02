@@ -53,6 +53,7 @@ class CoursesController < ApplicationController
     @user.rounds.recent(5).each do |round|
       @courses << round.course
     end
+    @courses.uniq!
   end
 
   def quicksearch_filter

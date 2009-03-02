@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   #protect_from_forgery # :secret => 'ab3cdc368e4e352eebd96b713dae6028'
 
-  DEFAULT_FIELDS =  ["first_name", "last_name", "uid"]
+  DEFAULT_FIELDS =  ["first_name", "last_name", "uid","sex"]
 
   def fbuser(fields = [])
     fields = DEFAULT_FIELDS | fields

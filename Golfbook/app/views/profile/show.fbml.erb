@@ -38,6 +38,12 @@
             <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
           <% end %>
 
+          <% if @user == @current_user %>
+            <% simple_info_box('Gender (only visible to you)') do %>
+            Golfbook (Social Golf) uses your gender information to calculate the maximum handicap. We currently have your gender as <b><%= @current_user.gender %></b>. Click <%= link_to 'here', :controller => 'profile', :action => 'gender_toggle' %> to change it.
+            <% end %>
+          <% end %>
+
       <% end %>
     </div>
 

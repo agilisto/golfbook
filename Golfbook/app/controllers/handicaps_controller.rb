@@ -3,7 +3,7 @@ class HandicapsController < ApplicationController
   def index
     @fbuser = fbuser
     @user = User.find(params[:id]) rescue current_user
-    @my_rounds = @user.rounds.find(:all, :order => 'rounds.date_played desc', :limit => 15, :include => [:course, :handicap])
+    @my_rounds = @user.rounds.find(:all, :order => 'rounds.date_played desc, rounds.created_at desc', :limit => 15, :include => [:course, :handicap])
     if Hpricot::XML(@fbuser.raw_xml).search("//uid").first.inner_html == @user.facebook_uid.to_s #show user and all their friends on graph
       @fql_friends = get_friends_for_facebook_uid(@user.facebook_uid)
       users = User.find_all_by_facebook_uid(@fql_friends.collect{|x|x[1]}).compact.uniq

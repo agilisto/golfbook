@@ -165,7 +165,7 @@ class User < ActiveRecord::Base
 
   def post_score(round)
     has_played(round.course)
-    self.rounds << round
+    self.rounds << round  #saves the round.
   end
   
   def has_played_course?(course)
@@ -185,5 +185,18 @@ class User < ActiveRecord::Base
     return if self.courses_want_to_play.include?(course)
     self.courses_want_to_play << course
   end
-  
+
+  def recreate_handicaps
+    self.handicaps.each{|x|x.destroy}
+    self.rounds.find(:all, :order => 'date_played ASC', :include => [:course]).each{|r|r.create_handicap}
+  end
+
+  def toggle_gender!
+    toggle!(:female)
+    recreate_handicaps  #if the user's gender was wrong then the maximum handicap is also wrong - hence the need to recreate handicaps.
+  end
+
+  def gender
+    female? ? 'female' : 'male'
+  end
 end

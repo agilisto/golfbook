@@ -13,6 +13,7 @@
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
+  <%= render :partial => "shared/course_search_box" %>
   <div style="width:100%;clear:both;" class="clearfix">
     <div style="float:right;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.blank? ? "More round data required." : @user.current_handicap.value %></font></div>
   </div>

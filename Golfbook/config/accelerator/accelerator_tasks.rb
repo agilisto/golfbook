@@ -80,9 +80,15 @@ Capistrano::Configuration.instance(:must_exist).load do
             create_vhost
         end
 
+        desc "Chown the new directory to belong to user"
+        task :chown_directory, :roles => :app do
+            sudo "chown -R #{user}:#{user} #{deploy_to}"
+        end
+
     end
 
     after 'deploy:setup', 'accelerator:setup_smf_and_vhost'
+    after 'deploy:setup', 'accelerator:chown_directory'
     after 'deploy', 'accelerator:smf_restart'
 end
 

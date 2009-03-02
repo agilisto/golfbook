@@ -299,8 +299,8 @@ class MapController < ApplicationController
   end
   
   def map_size
-    @map_height = params[:height].blank? ? 300 : params[:height].to_i
-    @map_width = params[:width].blank? ? 390 : params[:width].to_i
+    @map_height = params[:height].blank? ? 400 : params[:height].to_i
+    @map_width = params[:width].blank? ? 500 : params[:width].to_i
   end
   
   def map_zoom

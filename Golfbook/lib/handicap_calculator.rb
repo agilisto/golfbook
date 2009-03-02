@@ -1,5 +1,6 @@
 class HandicapCalculator
 
+  @@gender_maximums = {'male' => 24, 'female' => 36}
   @@handicap_differentials = [
     {:handicap => -6, :range => [-55, -1000000]},
     {:handicap => -5, :range => [-45, -54]},
@@ -63,28 +64,35 @@ class HandicapCalculator
   end
 
   #currently we are using 2*9 holes to count as round - this is against the regulations - we should determine if a round is elligable before we sent it here...
-  def self.handicap_for(rounds)
+  def self.handicap_for(rounds, gender = 'male')
     puts "#{rounds.size} number of rounds passed along."
     raise "Please provide the last 5-20 rounds in the format [{:course_par => 72, :round_score => 82, :number_of_holes => 18},{},{}...{}]" if (rounds.size > 20 || rounds.blank?)
     raise "Number of holes must be 18 or 9" if rounds.detect{|x|(x[:number_of_holes] != 18) && (x[:number_of_holes] != 9)}
-    #we are actually interested in the difference between the round_score and the course_par
-    rounds = rounds.collect{|x|(x[:number_of_holes] == 18) ? (x[:round_score] - x[:course_par]) : (x[:round_score] - x[:course_par]) * 2}
-    #we only use the smallest differentials
-    rounds.sort!
-    puts rounds.inspect
-    #look up number of differentials to use from @@number_of_differentials_table
-    diffs_to_use = @@number_of_differentials_table.detect{|x|fall_in_range(x[:number_of_rounds],rounds.size)}[:number_of_differentials]
-    puts diffs_to_use
-    #if less than 10, work out the average for the differs then * 10
-    total_score = (diffs_to_use == 10) ? rounds[0..20].sum : (rounds[0..(diffs_to_use - 1)].sum / diffs_to_use)*10.0
-    puts total_score
-    #then, lookup that value in @@handicap_differentials and return the handicap    
-    handicap = @@handicap_differentials.detect{|x|fall_in_range(x[:range],total_score)}[:handicap]
+    if rounds.size <= 5
+      return nil
+    else
+      #we are actually interested in the difference between the round_score and the course_par
+      rounds = rounds.collect{|x|(x[:number_of_holes] == 18) ? (x[:round_score] - x[:course_par]) : (x[:round_score] - x[:course_par]) * 2}
+      #we only use the smallest differentials
+      rounds.sort!
+      puts rounds.inspect
+      #look up number of differentials to use from @@number_of_differentials_table
+      diffs_to_use = @@number_of_differentials_table.detect{|x|fall_in_range(x[:number_of_rounds],rounds.size)}[:number_of_differentials]
+      puts diffs_to_use
+      #if less than 10, work out the average for the differs then * 10
+      total_score = (diffs_to_use == 10) ? rounds[0..20].sum : (rounds[0..(diffs_to_use - 1)].sum / diffs_to_use)*10.0
+      puts total_score
+      #then, lookup that value in @@handicap_differentials and return the handicap    
+      handicap = @@handicap_differentials.detect{|x|fall_in_range(x[:range],total_score)}[:handicap]
+      [@@gender_maximums[gender],handicap].min  #if the calculated handicap is more than the maximum for the gender then return the gender maximum.
+    end
   end
 
   def self.fall_in_range(range, value)
     (range.min <= value) && (range.max >= value)
   end
+
+
 
 end
 

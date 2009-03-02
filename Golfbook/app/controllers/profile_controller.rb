@@ -99,6 +99,12 @@ class ProfileController < ApplicationController
       render :action => :location
     end
   end
+
+  def gender_toggle
+    current_user.toggle_gender!
+    flash[:notice] = 'Thank you. Your gender has been updated. Your handicap has been recalculated.'
+    redirect_to :action => 'show', :id => current_user.id
+  end
   
   private 
   def geocode_user
