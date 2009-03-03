@@ -1,0 +1,19 @@
+--- 
+development: 
+  course_rated: 
+  caddy_rated: 
+  round_posted: "72195866275"
+  course_added: 
+  caddy_added: 
+production: 
+  course_rated: 
+  caddy_rated: 
+  round_posted: 
+  course_added: 
+  caddy_added: 
+staging: 
+  course_rated: 
+  caddy_rated: 
+  round_posted: 
+  course_added: 
+  caddy_added: 

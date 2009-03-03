@@ -37,6 +37,11 @@ class RatingController < ApplicationController
     # logger.debug "Publish Templatized Action Result : #{result}"
 
     message = "Thank you for rating!"
+    if @asset.is_a?(Course)
+      publish_course_rated_action(@asset.id, rating.rating)
+    elsif @asset.is_a?(Caddy)
+      publish_caddy_rated_action(@asset.id, rating.rating)
+    end
     the_response = render_to_string(:partial => 'ratings/rate', :locals => { :asset => @asset, :message => message}, :layout => false)
     render :text => the_response  #"<div>Thank you for rating this course!</div>"
   end

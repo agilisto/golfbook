@@ -339,6 +339,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
+        publish_course_added_action(@course.id)
         flash[:notice] = 'Your course was submitted for review.'
 
         # send notifications to admins

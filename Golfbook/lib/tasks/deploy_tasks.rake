@@ -2,8 +2,7 @@ namespace :agilisto do
   desc 'do all the steps needed to deploy to staging or production'
   task :deploy_to_rails_env => :environment do
     if ['staging','production'].include?(RAILS_ENV)
-      puts 'Deploying to ' + RAILS_ENV
-      'rake agilisto:copy_appropriate_files'
+      `rake agilisto:copy_appropriate_files`
       if RAILS_ENV == 'staging'
         `cap staging deploy:cold`
         `cap staging accelerator:create_smf`
@@ -45,11 +44,11 @@ namespace :agilisto do
 
   desc 'copy the appropriate deploy.rb file'
   task :copy_appropriate_files => :environment do
-    puts 'copying files for ' + RAILS_ENV
     if RAILS_ENV == 'staging'
       `cp config/deploy.rb.staging config/deploy.rb`
       `cp config/mongrel_staging.yml config/mongrel_cluster.yml`
     elsif RAILS_ENV == 'production'
+      puts 'hello from production'
       `cp config/deploy.rb.production config/deploy.rb`
       `cp config/mongrel_production.yml config/mongrel_cluster.yml`
     else
