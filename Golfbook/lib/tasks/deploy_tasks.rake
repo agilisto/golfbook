@@ -4,6 +4,7 @@ namespace :agilisto do
     if ['staging','production'].include?(RAILS_ENV)
       `rake agilisto:copy_appropriate_files`
       if RAILS_ENV == 'staging'
+        `cap staging accelerator:smf_stop`
         `cap staging deploy:cold`
         `cap staging accelerator:create_smf`
         `cap staging accelerator:create_vhost`
