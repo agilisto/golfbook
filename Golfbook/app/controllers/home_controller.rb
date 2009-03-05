@@ -15,26 +15,15 @@ class HomeController < ApplicationController
 
     @fbuser = fbuser
     @user = current_user
-#    @id = @user.id
-#    @action = NEAR_ME   #ivor - ?
-#    @recent_rounds = Round.find(:all, :order => 'rounds.created_at desc', :limit => 12, :include => [:course, :user])
-#
-#    friends_uids = fbsession.friends_get.uid_list
-#    users = User.find_all_by_facebook_uid friends_uids
-#    uids = users.collect{ |u| u.id } + [@user.id]
-#    @friends_count = users.compact.size
-#    @recent_friends_rounds = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.date_played desc', :conditions => ["rounds.user_id IN (?)",uids])
-#    @recent_courses_played = Course.find(:all, :limit => 3, :include => :last_four_rounds, :order => 'rounds.date_played desc', :conditions => ["rounds.user_id NOT IN (?)",uids])
+
+    update_profile_box(@user.id)
+
   end
   
   def tab
     @fbuser = fbuser
     @user = current_user
     request.format = :fbml
-
-    logger.info "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    logger.info params[:activity]
-    logger.info "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
     if params[:activity]
       friends_uids = fbsession.friends_get.uid_list
