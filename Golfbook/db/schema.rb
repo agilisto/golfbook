@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 40) do
+ActiveRecord::Schema.define(:version => 42) do
 
   create_table "caddies", :force => true do |t|
     t.integer  "course_id"
@@ -94,6 +94,22 @@ ActiveRecord::Schema.define(:version => 40) do
     t.integer  "user_id"
     t.integer  "change"
     t.date     "date_played"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photo_assets", :force => true do |t|
+    t.string   "asset_type"
+    t.integer  "asset_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "fb_album_id"
+    t.string   "fb_photo_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

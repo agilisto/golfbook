@@ -1,0 +1,35 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook - Photos</h2>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'shared/home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+  <div id="results" style="overflow: hidden">
+
+    <div class="main_column clearfix">
+      <h2 class="first_card_section">Your Golfbook Photos</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+            <% @photos.each do |p| %>
+              <div style="float:left;width:220px;height:150px;">
+                <fb:photo pid="<%= p.fb_photo_id %>" size="a"/>
+                <br />
+                <%= link_to 'Identify Objects', :controller => 'photos', :action => 'identify', :id => p.id %>
+              </div>
+            <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="side_column">
+      <%= @sidebar_content %>
+    </div>
+  </div>
+</div>

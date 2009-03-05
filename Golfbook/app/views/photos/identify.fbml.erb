@@ -1,0 +1,83 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook - Photos</h2>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'shared/home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+  <div id="results" style="overflow: hidden">
+
+    <div class="main_column clearfix">
+      <h2 class="first_card_section">Identifying Objects</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box('Instructions') do %>
+          <p>
+            <div style="float:left:"><fb:photo pid="<%= @photo.fb_photo_id %>" size="a"/></div>
+            We have selected some recent rounds, your courses and your facebook friends. Please select the items that are in this photo.
+          </p>
+        <% end %>
+        <% form_tag do %>
+          <%= hidden_field_tag :photo_id, @photo.id %>
+          <% simple_info_box('Courses') do %>
+            <table width="100%">
+              <% @courses.in_groups_of(2).each do |c_grouping| %>
+                <% c1, c2 = c_grouping[0], c_grouping[1] %>
+                <tr>
+                  <td align="center">
+                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}" %>&nbsp;&nbsp;<b><%= c1.name %></b>
+                  </td>
+                  <td align="center">
+                    <% unless c2.blank? %>
+                      <%= check_box_tag "assets[]", "#{c2.class.name}_#{c2.id}" %>&nbsp;&nbsp;<b><%= c2.name %></b>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          <% end %>
+          <% simple_info_box('Friends') do %>
+            <table width="100%">
+              <% @friends.in_groups_of(2).each do |f_grouping| %>
+                <tr>
+                  <% f1, f2 = f_grouping[0], f_grouping[1] %>
+                  <td align="center">
+                    <%= check_box_tag "assets[]", "#{f1.class.name}_#{f1.id}" %>&nbsp;&nbsp;<b><fb:name linked="false" uid="<%= f1.facebook_uid %>">
+                  </td>
+                  <td align="center">
+                    <% unless f2.blank? %>
+                      <%= check_box_tag "assets[]", "#{f2.class.name}_#{f2.id}" %>&nbsp;&nbsp;<b><fb:name linked="false" uid="<%= f2.facebook_uid %>">
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          <% end %>
+          <% simple_info_box('Rounds') do %>
+            <table width="100%">
+              <% @rounds.each do |r| %>
+              <tr>
+                <td align="center">
+                  <%= check_box_tag "assets[]", "#{r.class.name}_#{r.id}" %>&nbsp;&nbsp;<b><%= r.score %></b> at <b><%= r.course.name %></b>, on <%= r.date_played.to_s(:long) %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          <% end %>
+          <% simple_info_box do %>
+            <%= submit_tag 'Identify'  %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="side_column">
+      <%= @sidebar_content %>
+    </div>
+  </div>
+</div>

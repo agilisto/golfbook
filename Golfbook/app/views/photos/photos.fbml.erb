@@ -1,0 +1,43 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Golfbook - Photos</h2>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'shared/home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+  <div id="results" style="overflow: hidden">
+
+    <div class="main_column clearfix">
+      <h2 class="first_card_section">Your Albums</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box('Instructions') do %>
+          <p>
+            <fb:application-name/> allows you to add photos from your existing facebook albums. You can identify courses, rounds and friends in these photos which allows us to display these photos in relevant places within <fb:application />.
+          </p>
+          <p>Step 2: Choose the photos that you would like to add to <fb:application-name/>.</p>
+        <% end %>
+        <% simple_info_box do %>
+          <center>
+            <% form_tag({:controller => :photos, :action => :create}) do %>
+              <% @photos.each do |p| %>
+              <div style="float:left;width:220px;height:150px;"><fb:photo pid="<%= p.pid %>" size="a"/><%= check_box_tag 'photos[]', p.pid %></div>
+              <% end %>
+              <%= hidden_field_tag :album_id, @album_id %>
+              <%= submit_tag('Add Photos') %>
+            <% end %>
+          </center>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="side_column">
+      <%= @sidebar_content %>
+    </div>
+  </div>
+</div>
