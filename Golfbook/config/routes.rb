@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "ezgraphics/friends_handicap", :controller => 'ezgraphics', :action => 'friends_handicap'
   map.connect "/courses/:id/caddies", :controller => "courses", :action => 'caddies'
 
+  map.tab "tab", :controller => 'home', :action => 'tab'
+  map.tab_friend_activity "tab_friend_activity", :controller => 'home', :action => 'tab_friend_activity'
+
   map.resources :walls
 
  

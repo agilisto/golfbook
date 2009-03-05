@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   belongs_to :home_course, :class_name => "Course"
   
   has_many :handicaps   #denormalising in this way will make queries easier/faster
-  has_one :current_handicap, :class_name => "Handicap", :order => 'date_played desc'
+  has_one :current_handicap, :class_name => "Handicap", :order => 'date_played desc, created_at desc'
 
   has_many :games do
     def for_course course
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   
   has_many :rounds do
     def recent max
-      find :all, :order => 'date_played desc', :limit => max
+      find :all, :order => 'date_played desc, created_at desc', :limit => max
     end
     def best(course)
       find :first,

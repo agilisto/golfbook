@@ -1,0 +1,23 @@
+<%= render(:partial => 'shared/style')%>
+
+<div class="editor_panel clearfix">
+  <div style="padding-left:10px">
+    <span style="float:right;">
+      <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">
+        <div class="tr" style="width:160px">
+          <div class="bl">
+            <div class="br">
+              <span>Post a Score</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </span>
+  </div>
+  <br clear="all"/>
+  <%= render :partial => 'shared/profile_tab_menu.fbml.erb' %>
+  <br clear="all"/>
+  <br clear="all"/>
+
+  <%= yield %>
+</div>

@@ -1,0 +1,22 @@
+<fb:mobile>
+  <table>
+    <tr>
+      <td>Current Handicap:</td>
+      <td><%= user.current_handicap.value %></td>
+    </tr>
+    <tr>
+      <td colspan=2><%= link_to 'Post Score', :controller => 'round', :action => 'new' %></td>
+    </tr>
+    <tr>
+      <td colspan=2>Recent Rounds:</td>
+    </tr>
+    <% unless recent_rounds.blank? %>
+      <% recent_rounds.each do |r| %>
+      <tr>
+        <td><%= r.course.name %></td>
+        <td><%= r.score %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+</fb:mobile>

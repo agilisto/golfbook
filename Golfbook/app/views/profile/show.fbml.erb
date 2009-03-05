@@ -35,7 +35,7 @@
           <% end %>
 
           <% simple_info_box('Courses Played') do %>
-            <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> have played <%= render :partial => 'course_played', :collection => @user.courses %>.
+            <fb:name uid="<%=@user.facebook_uid%>" capitalize="true" linked="false"/> has played <%= render :partial => 'course_played', :collection => @user.courses %>.
           <% end %>
 
           <% if @user == @current_user %>

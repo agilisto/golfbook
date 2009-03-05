@@ -3,6 +3,8 @@
 
 class ApplicationController < ActionController::Base
   include FeedPublisher
+  include ProfilePublisher
+
   helper :all # include all helpers, all the time
   before_filter :require_facebook_install, :adjust_format_for_facebook, :set_active_menu, :set_active_submenu, :load_user
   
@@ -46,15 +48,6 @@ class ApplicationController < ActionController::Base
   end
   
   def set_active_submenu
-  end
-  
-  def update_profile_box user_id
-    user = User.find user_id
-    recent_rounds = user.rounds.recent(3)
-    upcoming_games = user.games.upcoming
-    #profile_action = "<a href='#{url_for(:controller=>:profile,:action=>:show,:id=>user.id)}'>View My Golfbook Profile</a>"
-    profile_box = render_to_string(:partial => 'shared/profile_box', :locals => { :user => user, :recent_rounds => recent_rounds, :upcoming_games => upcoming_games })
-    fbsession.profile_setFBML({:profile => profile_box, :uid => user.facebook_uid})
   end
   
   def url_for_canvas(path)
@@ -147,5 +140,71 @@ class ApplicationController < ActionController::Base
       raise "Tried to call sidebar with #{sidebar_symbol}"
     end
   end
-  
+
+  def tab_user
+    User.find_by_facebook_uid(fbparams['profile_id'])
+  end
+
+#  def tab_fbuser(fields = [])
+#    fields = DEFAULT_FIELDS | fields
+#
+#    if @tab_fbuser.nil?
+#      @tab_fbuser = tab_fbsession.users_getInfo(:uids => fbsession.session_user_id, :fields => fields)
+#    end
+#  end
+#
+#
+#  def tab_fbsession
+#    facebookUserId = fbparams['profile_user']
+#    facebookSessionKey = fbparams['profile_session_key']
+#    expirationTime = fbparams['expires']
+#
+#    if (facebookUserId and facebookSessionKey and expirationTime)
+#      fbsession_holder.activate_with_previous_session(facebookSessionKey, facebookUserId, expirationTime)
+#      RAILS_DEFAULT_LOGGER.debug "** RFACEBOOK INFO: Activated session from inside the canvas (user=#{facebookUserId}, session_key=#{facebookSessionKey}, expires=#{expirationTime})"
+#    end
+#
+#    RAILS_DEFAULT_LOGGER.debug fbsession_holder.inspect
+#    return fbsession_holder
+#  end
+
+  def fbsession
+
+    # do a check to ensure that we nil out the fbsession_holder in case there is a new user visiting
+    if session[:_rfacebook_fbsession_holder] and fbparams["session_key"] and session[:_rfacebook_fbsession_holder].session_key != fbparams["session_key"]
+      session[:_rfacebook_fbsession_holder] = nil
+    end
+
+    # if we have verified fb_sig_* params, we should be able to activate the session here
+    if (!fbsession_holder.ready? and facebook_platform_signature_verified?)
+      # then try to activate the session somehow (or retrieve from previous state)
+      # these might be nil
+      facebookUserId = fbparams["user"] || fbparams['profile_user']
+      facebookSessionKey = fbparams["session_key"] || fbparams['profile_session_key']
+      expirationTime = fbparams["expires"]
+
+      # activate the session if we got all the pieces of information we needed
+      if (facebookUserId and facebookSessionKey and expirationTime)
+        fbsession_holder.activate_with_previous_session(facebookSessionKey, facebookUserId, expirationTime)
+        RAILS_DEFAULT_LOGGER.debug "** RFACEBOOK INFO: Activated session from inside the canvas (user=#{facebookUserId}, session_key=#{facebookSessionKey}, expires=#{expirationTime})"
+
+      # warn that we couldn't get a valid Facebook session since we were missing data
+      else
+        RAILS_DEFAULT_LOGGER.debug "** RFACEBOOK WARNING: Tried to get a valid Facebook session from POST params, but failed"
+      end
+    end
+
+    # if we still don't have a session, check the Rails session
+    # (used for external and iframe apps when fb_sig POST params weren't present)
+    if (!fbsession_holder.ready? and session[:_rfacebook_fbsession_holder] and session[:_rfacebook_fbsession_holder].ready?)
+      RAILS_DEFAULT_LOGGER.debug "** RFACEBOOK INFO: grabbing Facebook session from Rails session"
+      @fbsession_holder = session[:_rfacebook_fbsession_holder]
+      @fbsession_holder.logger = RAILS_DEFAULT_LOGGER
+    end
+
+    # if all went well, we should definitely have a valid Facebook session object
+    return fbsession_holder
+  end
+
+
 end

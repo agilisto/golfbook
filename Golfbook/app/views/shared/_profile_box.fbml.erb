@@ -1,16 +1,20 @@
-<table>
-  <tr>
-    <td rowspan="4" valign="top"><%=image_tag "gb.png", :align=>"left"%></td>
-    <td>
-      <h3>Recent happenings for <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>user.id,:only_path=>true)%>"><fb:name uid="<%=user.facebook_uid%>" linked="false" /></a>
-        on <a href="<%=url_for(:controller=>:home,:action=>:index,:only_path=>true)%>">Golfbook</a></h3>
+<fb:wide>
+  <table width="100%">
+    <tr>
+      <td valign="top"><%=image_tag "gb.png", :align=>"left"%></td>
+      <td><h1>Handicap: <%= user.current_handicap.value %></h1></td>
+    <tr>
+      <td colspan=2>
+        <h3>Recent happenings for <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>user.id,:only_path=>true)%>"><fb:name uid="<%=user.facebook_uid%>" linked="false" /></a>
+          on <a href="<%=url_for(:controller=>:home,:action=>:index,:only_path=>true)%>">Golfbook</a></h3>
       </td>
     </tr>
     <tr><td>&nbsp;</td></tr>
-    <tr>
-      <td>
-        <h4>Upcoming Games</h4>
-        <ul>
+    <% unless upcoming_games.blank? %>
+      <tr>
+        <td>
+          <h4>Upcoming Games</h4>
+          <ul>
           <%if upcoming_games.length > 0%>
               <%upcoming_games.each do |game|%>
               <li><%=link_to game.course.name, url_for(:controller=>:courses,:action=>:show,:id=>game.course_id,:only_path=>true)%>
@@ -22,20 +26,53 @@
           </ul>
         </td>
       </tr>
-      <tr>
-        <td>
-          <h4>Recent Rounds</h4>
-          <ul>
+    <% end %>
+    <tr>
+      <td colspan=2>
+        <h4>Recent Rounds</h4>
+        <ul>
           <%if recent_rounds.length > 0%>
             <%recent_rounds.each do |round|%>
-              <li><span style="font-weight:bold;font-size:12px"><%= link_to round.score.to_s, :controller => :round, :action => :show, :id => round.id %></span>
-                <%=link_to round.course.name, url_for(:controller=>:courses,:action=>:show,:id=>round.course_id,:only_path=>true)%>
-                on <%=round.date_played.to_formatted_s(:long) %><br/></li>
-              <%end%>
-              <%else%>
-                <li>No recent rounds.</li>
-                <%end%>
-            </ul>
-          </td>
+              <li><span style="font-weight:bold;font-size:12px"><%= link_to round.score.to_s, :controller => :round, :action => :show, :id => round.id %></span> at 
+              <%=link_to round.course.name, url_for(:controller=>:courses,:action=>:show,:id=>round.course_id,:only_path=>true)%>
+              on <%=round.date_played.to_formatted_s(:long) %><br/></li>
+            <%end%>
+          <%else%>
+            <li>No recent rounds.</li>
+          <%end%>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2 text-align="center">
+        <div style="border:1px solid #d8dfea;text-align:center;"><%= link_to 'View Golfbook Profile', :controller => 'profile', :action => 'show', :id => @user.id %></div>
+      </td>
+    </tr>
+  </table>
+</fb:wide>
+
+<fb:narrow>
+  <table width="100%">
+    <tr>
+      <td valign="top"><%=image_tag "gb.png", :align=>"left"%></td>
+      <td><h2>Handicap: <%= user.current_handicap.value %></h2></td>
+    </tr>
+    <tr>
+      <td colspan=2><h2>Recent Rounds</h2></td>
+    </tr>
+    <% unless recent_rounds.blank? %>
+      <% recent_rounds.each do |r| %>
+        <tr>
+          <td align="right" colspan=2><%= render(:partial => 'shared/recent_round', :locals => {:recent_round => r}) %></td>
         </tr>
-      </table>
+      <% end %>
+    <% else %>
+      <tr><td colspan=2>No Recent Rounds.</td></tr>
+    <% end %>
+    <tr>
+      <td colspan=2>
+        <div style="border:1px solid #d8dfea;text-align:center;"><%= link_to 'View Golfbook Profile', :controller => 'profile', :action => 'show', :id => @user.id %></div>
+      </td>
+    </tr>
+  </table>
+</fb:narrow>

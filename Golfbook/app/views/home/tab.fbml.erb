@@ -1,0 +1,4 @@
+<div class="full_width_table_container">
+  <h2><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Recent Rounds</h2>
+  <%= render :partial => 'round/round_table', :locals => {:rounds => @my_rounds, :show_names => false} %>
+</div>

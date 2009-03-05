@@ -1,4 +1,5 @@
-<% vitals_box('Vitals') do %>
+<% header_var = '<fb:name possessive="true" capitalize="true" uid="' + @user.facebook_uid.to_s + '"/> Vitals' %>
+<% vitals_box(header_var) do %>
   <%= link_to "Handicap: #{@user.current_handicap.blank? ? '-' : @user.current_handicap.value}", {:controller => :handicaps, :id => @user.id} %>
       <% unless @user.home_course.blank? %>
         <%= link_to "Course: #{@user.home_course.name}", :controller => 'courses', :action => :show, :id => @user.home_course.id %>
@@ -6,9 +7,9 @@
         Course: none yet.
       <% end %>
   <% unless @friends_count.blank? %>
-    <%= link_to "Golfbook Friends: #{@friends_count}", :controller => :home, :action => :friends %>
+    <%= link_to "Golfbook Friends: #{@friends_count}", :controller => :home, :action => :friends, :id => @user.id %>
   <% end %>
   <%= link_to "Rounds Played: #{@user.rounds.count}", user_view_rounds_url(:id => @user.id, :only_path => true) %>
-  <%= link_to "Courses Played: #{@user.courses.count}", :controller => :courses, :action => :courses_played %>
+  <%= link_to "Courses Played: #{@user.courses.count}", :controller => :courses, :action => :courses_played, :id => @user.id %>
   <div style="clear: left; height: 0px;"/>
 <% end %>

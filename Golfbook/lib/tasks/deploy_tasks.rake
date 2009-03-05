@@ -1,3 +1,8 @@
+#I found issues with the git deployment - issueing this command on the server helped
+#git clone  --depth 1 git@github.com:agilisto/golfbook.git /home/993440e2/web/GolfbookDev/shared/cached-copy && cd /home/993440e2/web/GolfbookDev/shared/cached-copy && git checkout  -b deploy 92c395818853e0926135c127019083bb4d098105
+#I copied that from the capistrano script - the command that contains this line was giving the trouble.
+
+
 namespace :agilisto do
   desc 'do all the steps needed to deploy to staging or production'
   task :deploy_to_rails_env => :environment do
@@ -9,11 +14,13 @@ namespace :agilisto do
         `cap staging accelerator:create_smf`
         `cap staging accelerator:create_vhost`
         `cap staging accelerator:smf_restart`
+        `cap staging accelerator:restart_apache`
       elsif RAILS_ENV == 'production'
         `cap production deploy:cold`
         `cap production accelerator:create_smf`
         `cap production accelerator:create_vhost`
         `cap production accelerator:smf_restart`
+        `cap production accelerator:restart_apache`
       end
     else
       puts 'dont know what to do with RAILS_ENV=' + RAILS_ENV
@@ -31,12 +38,14 @@ namespace :agilisto do
         `cap staging accelerator:create_smf`
         `cap staging accelerator:create_vhost`
         `cap staging accelerator:smf_restart`
+        `cap staging accelerator:restart_apache`
       elsif RAILS_ENV == 'production'
         `cap production deploy:setup`
         `cap production deploy:cold`
         `cap production accelerator:create_smf`
         `cap production accelerator:create_vhost`
         `cap production accelerator:smf_restart`
+        `cap production accelerator:restart_apache`
       end
     else
       puts 'dont know what to do with RAILS_ENV=' + RAILS_ENV

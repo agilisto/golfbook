@@ -144,6 +144,7 @@ class CoursesController < ApplicationController
 
   #My Courses
   def courses_played
+    @user = User.find(params[:id]) rescue current_user
     sidebar :course_main
     @courses_results_title = "My Courses"
     @courses_count = @user.courses.count

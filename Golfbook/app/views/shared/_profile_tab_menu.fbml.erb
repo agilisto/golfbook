@@ -1,0 +1,50 @@
+<style>
+.simple_horizontal_list li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+</style>
+
+<ul class="PillFilter_pillfilter Tabset_tabset">
+  <li class="PillFilter_filter Tabset_selected">
+    <a href="<%= tab_path %>">
+      <div class="tl">
+        <div class="tr">
+          <div class="br">
+            <div class="bl">
+              <fb:name possessive="true" uid="<%= @user.facebook_uid %>" capitalize="true"/> Recent Rounds
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+  <li class="PillFilter_filter">
+    <a href="<%= tab_path(:activity => true) %>">
+      <div class="tl">
+        <div class="tr">
+          <div class="br">
+            <div class="bl">
+              Other Recent Activity
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+  <li class="PillFilter_filter">
+    <a href="href='<%= url_for :controller => :home, :action => :index %>' title='Home' selected='<%= @action == HomeController::NEAR_ME %>'">
+    <div class="tl">
+      <div class="tr">
+        <div class="br">
+          <div class="bl">
+            Go to App.
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
+  </li>
+</ul>
