@@ -1,6 +1,6 @@
 <fb:tabs>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :index %>' title='All Courses' selected='<%= @action == :courses %>'/>
-    <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played %>' title='My Courses' selected='<%= @action == :courses_played %>'/>
+    <fb:tab-item href='<%= url_for :controller => :courses, :action => :courses_played, :id => @current_user.id %>' title='My Courses' selected='<%= @action == :courses_played %>'/>
     <fb:tab-item href='<%= url_for :controller => :courses, :action => :highest_rated_loc %>' title='Highest Rated' selected='<%= @action == :highest_rated %>'/>
     <fb:tab-item href='<%= url_for :controller => :wishlist, :action => :index %>' title='My Goals' selected='<%= @action == :wishlist %>'/>
     <%if @current_user.admin? %>

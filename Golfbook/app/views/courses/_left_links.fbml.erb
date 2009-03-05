@@ -1,5 +1,5 @@
 <div class="communication_item send_message clearfix">
-  <%= link_to "My Courses", :controller => :courses, :action => :courses_played %>
+  <%= link_to "My Courses", :controller => :courses, :action => :courses_played, :id => @current_user.id %>
 </div>
 <div class="communication_item send_message clearfix">
   <%= link_to "Top Rated", :controller => :courses, :action => :top_rated %>

@@ -146,7 +146,8 @@ class CoursesController < ApplicationController
   def courses_played
     @user = User.find(params[:id]) rescue current_user
     sidebar :course_main
-    @courses_results_title = "My Courses"
+    name = %{<fb:name uid="#{@user.facebook_uid}" capitalize="true" possessive="true" linked="false"/>}
+    @courses_results_title = "#{name} Courses"
     @courses_count = @user.courses.count
     @courses = @user.courses.paginate(:page => params[:page])
     @action = :courses_played
