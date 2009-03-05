@@ -1,4 +1,8 @@
 <div class="full_width_table_container">
   <h2><fb:name uid="<%=@user.facebook_uid%>" capitalize="true" possessive="true" linked="false"/> Recent Rounds</h2>
+  <div style="width:100%;clear:both;" class="clearfix">
+    <div style="float:right;padding-right:23px;"><font size=4>Current Handicap: </font><font size=6><%= @user.current_handicap.blank? ? "More round data required." : @user.current_handicap.value %></font></div>
+  </div>
+  <br clear="all" />
   <%= render :partial => 'round/round_table', :locals => {:rounds => @my_rounds, :show_names => false} %>
 </div>

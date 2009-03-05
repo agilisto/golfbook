@@ -1,23 +1,27 @@
 <%= render(:partial => 'shared/style')%>
 
 <div class="editor_panel clearfix">
-  <div style="padding-left:10px">
-    <span style="float:right;">
-      <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">
-        <div class="tr" style="width:160px">
-          <div class="bl">
-            <div class="br">
-              <span>Post a Score</span>
+  <% if false %>
+    <div style="padding-left:10px">
+      <span style="float:right;">
+        <a class="dh_new_media" href="<%= url_for :controller => :courses, :action => :quicksearch, :what => :score %>">
+          <div class="tr" style="width:160px">
+            <div class="bl">
+              <div class="br">
+                <span>Post a Score</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </span>
-  </div>
-  <br clear="all"/>
-  <%= render :partial => 'shared/profile_tab_menu.fbml.erb' %>
-  <br clear="all"/>
-  <br clear="all"/>
+        </a>
+      </span>
+    </div>
+    <br clear="all"/>
+    <%= render :partial => 'shared/profile_tab_menu.fbml.erb' %>
+    <br clear="all"/>
+    <br clear="all"/>
+  <% end %>
 
   <%= yield %>
+  <br clear="all"/>
+  <div style="border:1px solid #d8dfea;text-align:center;"><%= link_to 'View Golfbook Profile', :controller => 'profile', :action => 'show', :id => @user.id %></div>
 </div>
