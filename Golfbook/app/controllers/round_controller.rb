@@ -37,7 +37,8 @@ class RoundController < ApplicationController
   end
   
   def show
-    @round = Round.find(params[:id]) 
+    @round = Round.find(params[:id])
+    @photos = PhotoAsset.photos_for(@round, 8)
     @user = @round.user
     @course = @round.course
     @best_round = @user.rounds.best(@course)

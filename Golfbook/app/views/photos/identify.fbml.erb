@@ -23,18 +23,18 @@
           </p>
         <% end %>
         <% form_tag do %>
-          <%= hidden_field_tag :photo_id, @photo.id %>
+          <%= hidden_field_tag :id, @photo.id %>
           <% simple_info_box('Courses') do %>
             <table width="100%">
               <% @courses.in_groups_of(2).each do |c_grouping| %>
                 <% c1, c2 = c_grouping[0], c_grouping[1] %>
                 <tr>
                   <td align="center">
-                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}", :checked => @photo.has_asset?(c1) %>&nbsp;&nbsp;<b><%= c1.name %></b>
+                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}", @photo.has_asset?(c1) %>&nbsp;&nbsp;<b><%= c1.name %></b>
                   </td>
                   <td align="center">
                     <% unless c2.blank? %>
-                      <%= check_box_tag "assets[]", "#{c2.class.name}_#{c2.id}" %>&nbsp;&nbsp;<b><%= c2.name %></b>
+                      <%= check_box_tag "assets[]", "#{c2.class.name}_#{c2.id}", @photo.has_asset?(c2) %>&nbsp;&nbsp;<b><%= c2.name %></b>
                     <% end %>
                   </td>
                 </tr>
@@ -47,11 +47,11 @@
                 <tr>
                   <% f1, f2 = f_grouping[0], f_grouping[1] %>
                   <td align="center">
-                    <%= check_box_tag "assets[]", "#{f1.class.name}_#{f1.id}" %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f1.facebook_uid %>"/>
+                    <%= check_box_tag "assets[]", "#{f1.class.name}_#{f1.id}", @photo.has_asset?(f1) %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f1.facebook_uid %>"/>
                   </td>
                   <td align="center">
                     <% unless f2.blank? %>
-                      <%= check_box_tag "assets[]", "#{f2.class.name}_#{f2.id}" %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f2.facebook_uid %>"/>
+                      <%= check_box_tag "assets[]", "#{f2.class.name}_#{f2.id}", @photo.has_asset?(f2) %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f2.facebook_uid %>"/>
                     <% end %>
                   </td>
                 </tr>
@@ -63,7 +63,7 @@
               <% @rounds.each do |r| %>
               <tr>
                 <td align="center">
-                  <%= check_box_tag "assets[]", "#{r.class.name}_#{r.id}" %>&nbsp;&nbsp;<b><%= r.score %></b> at <b><%= r.course.name %></b>, on <%= r.date_played.to_s(:long) %>
+                  <%= check_box_tag "assets[]", "#{r.class.name}_#{r.id}", @photo.has_asset?(r) %>&nbsp;&nbsp;<b><%= r.score %></b> at <b><%= r.course.name %></b>, on <%= r.date_played.to_s(:long) %>
                 </td>
               </tr>
               <% end %>
@@ -77,6 +77,7 @@
     </div>
 
     <div class="side_column">
+      <%= render :partial => 'photos/actions' %>
       <%= @sidebar_content %>
     </div>
   </div>

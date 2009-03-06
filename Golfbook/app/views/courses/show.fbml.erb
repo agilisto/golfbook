@@ -45,6 +45,10 @@
           </div>
         <% end %>
 
+        <% simple_info_box('Course Photos') do %>
+          <%= render :partial => 'photos/photos_main_column', :locals => {:photos => @photos} %>
+        <% end %>
+
         <% simple_info_box("Caddies") do %>
           <% caddies = @course.caddies.sort_by{|x|x.rating}.reverse[0..2] %>
           <%= render :partial => 'courses/caddy', :collection => caddies %>

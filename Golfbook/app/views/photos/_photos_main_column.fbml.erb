@@ -1,0 +1,7 @@
+<% unless photos.blank? %>
+  <% photos.each do |p| %>
+    <div class="photo_borders photo_widget" style="float:left;height:110px;padding:9px;"><a href="<%= url_for(:controller => 'photos', :action => 'show', :id => p.id) %>"><center><fb:photo height="100px" width="100px" linked="false" pid="<%= p.fb_photo_id %>"/></center></a></div>
+  <% end %>
+<% else %>
+  <p>No photos yet</p>
+<% end %>

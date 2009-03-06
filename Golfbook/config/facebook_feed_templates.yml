@@ -1,19 +1,23 @@
 --- 
 development: 
-  course_rated: 
+  photo_added: "72936236275"
   caddy_rated: 
-  round_posted: "72195866275"
-  course_added: 
+  course_rated: 
+  round_posted: 
+  asset_identified: "72949966275"
   caddy_added: 
+  course_added: 
 production: 
-  course_rated: 
+  photo_added: 
   caddy_rated: 
+  course_rated: 
   round_posted: 
-  course_added: 
   caddy_added: 
+  course_added: 
 staging: 
-  course_rated: 
+  photo_added: 
   caddy_rated: 
+  course_rated: 
   round_posted: 
-  course_added: 
   caddy_added: 
+  course_added: 

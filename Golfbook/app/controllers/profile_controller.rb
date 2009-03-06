@@ -44,6 +44,7 @@ class ProfileController < ApplicationController
   def show
     @viewer = current_user
     @user = User.find params[:id]
+    @photos = PhotoAsset.photos_for(@user, 8)
     sidebar :profile
     
     if @viewer == @user

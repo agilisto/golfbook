@@ -115,10 +115,9 @@ module FeedPublisher
     bundle_id = @@template_config[RAILS_ENV]['round_posted']
     if bundle_id.blank?
       one_line_story_templates = [ '{*actor*} posted a {*round*} of {*score*} at {*course*} on {*application*}', '{*actor*} posted a {*round*} of {*score*} on {*application*}', '{*actor*} posted a round on {*application*}']
-      short_story_templates = [ { :template_title => '{*actor*} posted a {*round*} of {*score*} on {*application*}', :template_body => '{*actor*} played the {*round*} at {*course*}. This {*effect*} his unofficial handicap which is currently {*handicap*}. <br />Comment: "{*comment*}"' },
-                                { :template_title => '{*actor*} posted a {*round*} on {*application*}', :template_body => 'The score of {*score*} {*effect*} his unofficial handicap. <br />Comment: {*comment*}' },
-                                { :template_title => '{*actor*} posted a {*round*} of {*score*}', :template_body => '{*comment*}' }
-                                
+      short_story_templates = [ { :template_title => '{*actor*} posted a {*round*} of {*score*} on {*application*}', :template_body => '{*actor*} played the {*round*} at {*course*}. This {*effect*} his unofficial handicap which is currently {*handicap*}. <br /><fb:pronoun uid="{*user_id*}" possessive="true"/> comment: "{*comment*}"' },
+                                { :template_title => '{*actor*} posted a {*round*} on {*application*}', :template_body => 'The score of {*score*} {*effect*} his unofficial handicap. <br /><fb:pronoun uid="{*user_id*}" possessive="true"/> comment: {*comment*}' },
+                                { :template_title => '{*actor*} posted a {*round*} of {*score*}', :template_body => '<fb:pronoun uid="{*user_id*}" possessive="true"/> {*comment*}' }
                               ]
       response = fbsession.feed_registerTemplateBundle( :one_line_story_templates => one_line_story_templates.to_json, :short_story_templates => short_story_templates.to_json)
       bundle_id = response.to_s
@@ -140,7 +139,9 @@ module FeedPublisher
     application = %{<a href="#{url_for(:controller => 'home')}">#{(RAILS_ENV == 'production') ? 'Social Golf' : 'Golf Development'}</a>}
     score = @round.score
     handicap = @round.handicap.value
-    effect = if @round.handicap.change < 0
+    effect = if @round.handicap.nil? or @round.handicap.change.nil?
+              "did not change"
+            elsif @round.handicap.change < 0
               "lowered"
             elsif @round.handicap.change > 0
               "raised"
@@ -148,6 +149,7 @@ module FeedPublisher
               "did not change"
             end
     response = fbsession.feed_publishUserAction(:template_bundle_id => bundle_id, :template_data => {:course => course, 
+                                                                                                      :user_id => @round.user.facebook_uid,
                                                                                                       :application => application,
                                                                                                       :score => score,
                                                                                                       :handicap => handicap,
@@ -156,6 +158,74 @@ module FeedPublisher
                                                                                                       :comment => comment}.to_json)
   end
   #END OF POSTING A NEW ROUND
+
+  #ADDING A PHOTO
+  def register_photo_added_bundle
+    bundle_id = @@template_config[RAILS_ENV]['photo_added']
+    if bundle_id.blank?
+      one_line_story_templates = ['{*actor*} added photos on <fb:application-name/>.' ]
+      short_story_templates = [ { :template_title => '{*actor*} added photos on <fb:application-name/>.', :template_body => "" }]     #<br />Visit {*actor*}'s {*photos*} on <fb:application-name />.
+      response = fbsession.feed_registerTemplateBundle( :one_line_story_templates => one_line_story_templates.to_json, :short_story_templates => short_story_templates.to_json)
+      bundle_id = response.to_s
+      @@template_config[RAILS_ENV]['photo_added'] = bundle_id
+      File.open("#{RAILS_ROOT}/config/facebook_feed_templates.yml",'w') do |file|
+        file.write @@template_config.to_yaml
+      end
+    end
+    return bundle_id
+  end
+
+  def publish_photo_added_action(photo_ids)
+    bundle_id = register_photo_added_bundle
+    @photos = Photo.find(photo_ids)
+    @user = @photos.first.user
+    photos = %{<a href="#{url_for(:controller => 'photos', :action => 'index', :user_id => @photos.first.user_id)}">photos</a>}
+    fb_photos = fbsession.photos_get(:pids => [@photos.collect{|x|x.fb_photo_id}]).photo_list
+    images = []
+    @photos.each do |p|
+      images << {:src => fb_photos.detect{|x|x.pid == p.fb_photo_id}.src, :href => url_for(:controller => 'photos', :action => 'show', :id => p.id)}
+    end
+    response = fbsession.feed_publishUserAction(:template_bundle_id => bundle_id, :template_data => {:images => images}.to_json)
+  end
+  #END OF ADDING A PHOTO
+
+#ADDING A PHOTO
+  def register_asset_identified_bundle
+    bundle_id = @@template_config[RAILS_ENV]['asset_identified']
+    if bundle_id.blank?
+      one_line_story_templates = ["{*actor*} tagged {*object*} in photos on <fb:application-name/>","{*actor*} tagged in photos on <fb:application-name/>"]
+      short_story_templates = [ { :template_title => '{*actor*} tagged {*object*} in photos on <fb:application-name/>', :template_body => "" }, 
+                                {:template_title => "{*actor*} tagged in photos on <fb:application-name/>", :template_body => ""}]
+      response = fbsession.feed_registerTemplateBundle( :one_line_story_templates => one_line_story_templates.to_json, :short_story_templates => short_story_templates.to_json)
+      bundle_id = response.to_s
+      @@template_config[RAILS_ENV]['asset_identified'] = bundle_id
+      File.open("#{RAILS_ROOT}/config/facebook_feed_templates.yml",'w') do |file|
+        file.write @@template_config.to_yaml
+      end
+    end
+    return bundle_id
+  end
+
+  def publish_asset_identified_action(photo_asset_id)
+    bundle_id = register_asset_identified_bundle
+    photo_asset = PhotoAsset.find(photo_asset_id)
+    photo = photo_asset.photo
+    @asset = photo_asset.asset
+    if @asset.is_a?(User)
+      object = %{<a href="#{url_for(:controller => 'profile', :action => 'show', :id => @asset.id)}"><fb:name linked="false" uid="#{@asset.facebook_uid}" /></a>}
+    elsif @asset.is_a?(Round)
+      object = %{<a href="#{url_for(:controller => 'round', :action => 'show', :id => @asset.id)}">a round of golf</a>}
+    elsif @asset.is_a?(Course)
+      object = %{<a href="#{url_for(:controller => 'courses', :action => 'show', :id => @asset.id)}">#{@asset.name}</a>}
+    end
+    fb_photos = fbsession.photos_get(:pids => [photo.fb_photo_id]).photo_list
+    images = []
+    images << {:src => fb_photos.detect{|x|x.pid == photo.fb_photo_id}.src, :href => url_for(:controller => 'photos', :action => 'show', :id => photo.id)}
+
+    response = fbsession.feed_publishUserAction(:template_bundle_id => bundle_id, :template_data => {:images => images, :object => object}.to_json)
+  end
+  #END OF ADDING A PHOTO
+
 
 
 end

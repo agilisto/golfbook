@@ -1,0 +1,4 @@
+<% vitals_box('Photo Actions') do %>
+  <a href="<%= url_for :controller => :photos, :action => :index, :user_id => @user.id %>">My Photos</a>
+  <a href="<%= url_for :controller => :photos, :action => :albums %>">Add Photos</a>
+<% end %>

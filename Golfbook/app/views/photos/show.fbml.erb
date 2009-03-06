@@ -1,0 +1,31 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb">
+    </div>
+    <div class="info">
+      <h2>Photos</h2>
+      <div>&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+
+<%= render :partial => 'shared/home_menu.fbml.erb' %>
+
+<div class="editor_panel clearfix">
+  <div class="full_width_table_container">
+    <h2><fb:name uid="<%=@photo.user.facebook_uid %>" capitalize="true" possessive="true" linked="false"/> Photo</h2>
+    <center>
+      <div class="photo_borders photo_widget">
+        <a href="#" onclick="return false;"><fb:photo pid="<%= @photo.fb_photo_id %>"/></a>
+      </div>
+      <br clear="all" />
+    </center>
+      <fb:comments xid="photo_<%=@photo.id%>"
+                   canpost="true"
+                   candelete="false"
+                   returnurl="<%=url_for :controller=>:photos,:action=>:show,:id=>@photo.id%>">
+        <fb:title>Comment on this Photo</fb:title>
+      </fb:comments>
+  </div>
+</div>

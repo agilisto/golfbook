@@ -1,0 +1,6 @@
+<% title ||= "Photos"  %>
+<% vitals_box(title) do %>
+  <% photos.each do |p| %>
+  <div class="photo_borders photo_widget" style="width:100px;float:left;height:80px;"><a href="<%= url_for(:controller => 'photos', :action => 'show', :id => p.id) %>"><center><fb:photo size="thumb" linked="false" pid="<%= p.fb_photo_id %>"/></center></a></div>
+  <% end %>
+<% end %>

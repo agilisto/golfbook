@@ -20,7 +20,11 @@
           <% end %>
         <% end %>
           
-          <% header_var = %{
+        <% simple_info_box('Round Photos') do %>
+          <%= render :partial => 'photos/photos_main_column', :locals => {:photos => @photos} %>
+        <% end %>
+
+        <% header_var = %{
               <a href="#{url_for(:controller=>:profile,:action=>:show,:id=>@round.user_id)}">
                 <fb:name uid="#{@round.user.facebook_uid}" capitalize="true" linked="false" possessive="true" firstnameonly="true" />
               </a> 

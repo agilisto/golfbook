@@ -263,6 +263,7 @@ class CoursesController < ApplicationController
   # GET /courses/1.xml
   def show
     @course = Course.find(params[:id])
+    @photos = PhotoAsset.photos_for(@course, 8)
     # @geolocations = @course.calc_geolocations(true)
     @action = :course
 
