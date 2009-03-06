@@ -18,7 +18,7 @@
       <% simple_info_box_container do %>
         <% simple_info_box('Instructions') do %>
           <p>
-            <div style="float:left:"><fb:photo pid="<%= @photo.fb_photo_id %>" size="a"/></div>
+            <div style="float:left;"><fb:photo pid="<%= @photo.fb_photo_id %>" size="a"/></div>
             We have selected some recent rounds, your courses and your facebook friends. Please select the items that are in this photo.
           </p>
         <% end %>
@@ -30,7 +30,7 @@
                 <% c1, c2 = c_grouping[0], c_grouping[1] %>
                 <tr>
                   <td align="center">
-                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}" %>&nbsp;&nbsp;<b><%= c1.name %></b>
+                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}", :checked => @photo.has_asset?(c1) %>&nbsp;&nbsp;<b><%= c1.name %></b>
                   </td>
                   <td align="center">
                     <% unless c2.blank? %>
@@ -47,11 +47,11 @@
                 <tr>
                   <% f1, f2 = f_grouping[0], f_grouping[1] %>
                   <td align="center">
-                    <%= check_box_tag "assets[]", "#{f1.class.name}_#{f1.id}" %>&nbsp;&nbsp;<b><fb:name linked="false" uid="<%= f1.facebook_uid %>">
+                    <%= check_box_tag "assets[]", "#{f1.class.name}_#{f1.id}" %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f1.facebook_uid %>"/>
                   </td>
                   <td align="center">
                     <% unless f2.blank? %>
-                      <%= check_box_tag "assets[]", "#{f2.class.name}_#{f2.id}" %>&nbsp;&nbsp;<b><fb:name linked="false" uid="<%= f2.facebook_uid %>">
+                      <%= check_box_tag "assets[]", "#{f2.class.name}_#{f2.id}" %>&nbsp;&nbsp;<fb:name linked="false" uid="<%= f2.facebook_uid %>"/>
                     <% end %>
                   </td>
                 </tr>
