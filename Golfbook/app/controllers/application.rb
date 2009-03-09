@@ -122,7 +122,7 @@ class ApplicationController < ActionController::Base
       load_user if @user.blank?
       @recent_courses = Course.recent_additions
       @recent_ratings = Rating.find :all, :order => "ratings.created_at desc", :limit => 10 #, :include => [:user]
-      @photos = Photo.find(:all, :limit => 6, :order => 'created_at desc')
+      @sidebar_photos = Photo.find(:all, :limit => 6, :order => 'created_at desc')
       @sidebar_content = render_to_string(:partial => 'shared/home_sidebar')
     when :course_main
       @courses_count = Course.count

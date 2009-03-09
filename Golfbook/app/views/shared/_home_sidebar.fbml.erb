@@ -1,6 +1,6 @@
 <%= render :partial => 'shared/vitals' %>
 <%= render :partial => "shared/buttons"%>
-<%= render :partial => "photos/sidebar_photos", :locals => {:title => 'Recent Photos', :photos => @photos} %>
+<%= render :partial => "photos/sidebar_photos", :locals => {:title => 'Recent Photos', :photos => @sidebar_photos} %>
 <% vitals_box('Latest PGA News') do %>
   <% @news.each do |title, link| %>
     <%= render :partial => 'shared/pga_news_item', :locals => { :title => title, :link => link } %>

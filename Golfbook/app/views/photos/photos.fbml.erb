@@ -26,7 +26,7 @@
           <center>
             <% form_tag({:controller => :photos, :action => :create}) do %>
               <% @photos.each do |p| %>
-              <div style="float:left;width:220px;height:150px;"><fb:photo pid="<%= p.pid %>" size="a"/><%= check_box_tag 'photos[]', p.pid %></div>
+                <div style="float:left;width:220px;height:150px;"><fb:photo pid="<%= p.pid %>" size="a"/><%= check_box_tag 'photos[]', p.pid %></div>
               <% end %>
               <%= hidden_field_tag :album_id, @album_id %>
               <%= submit_tag('Add Photos') %>
