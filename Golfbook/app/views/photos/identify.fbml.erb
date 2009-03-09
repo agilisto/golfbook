@@ -1,13 +1,4 @@
-<div class="module clearfix page_panel_header no_border">
-  <div class="header_page_summary clearfix">
-    <div class="thumb">
-    </div>
-    <div class="info">
-      <h2>Golfbook - Photos</h2>
-    </div>
-  </div>
-</div>
-
+<%= render :partial => 'photos/photos_header' %>
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
@@ -17,10 +8,14 @@
       <h2 class="first_card_section">Identifying Objects</h2>
       <% simple_info_box_container do %>
         <% simple_info_box('Instructions') do %>
-          <p>
-            <div style="float:left;"><fb:photo pid="<%= @photo.fb_photo_id %>" size="a"/></div>
-            We have selected some recent rounds, your courses and your facebook friends. Please select the items that are in this photo.
-          </p>
+            <div style="float:left;width:200px;" class="photo_borders photo_widget">
+              <a href="<%= url_for(:controller => 'photos', :action => 'show', :id => @photo.id) %>">
+                <fb:photo pid="<%= @photo.fb_photo_id %>" size="a"/>
+              </a>
+            </div>
+            <div style="float:left;width:300px;">
+              We have selected some recent rounds, your courses and your facebook friends. Please select the items that are in this photo.
+            </div>
         <% end %>
         <% form_tag do %>
           <%= hidden_field_tag :id, @photo.id %>

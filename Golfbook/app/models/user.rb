@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #PHOTOS
   has_many :photo_assets, :as => :asset
   has_many :photos, :through => :photo_assets
+  has_many :activities
 
   has_many :submitted_photos, :class_name => "Photo", :foreign_key => :user_id
 

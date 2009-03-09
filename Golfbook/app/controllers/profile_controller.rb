@@ -81,6 +81,7 @@ class ProfileController < ApplicationController
     @user = User.find params[:id]
     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
     @action = :rounds
+    sidebar :course_main
   end
 
   def location

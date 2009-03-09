@@ -15,6 +15,8 @@ class RatingController < ApplicationController
     @asset.save
     @asset = params["rateable_type"].classify.constantize.find(params[:id])
 
+    Activity.log_activity(rating, Activity::RATED, @current_user.id)
+
 #     # this is not allowed anymore.
 #    title_template = render_to_string :partial => 'feeds/course_rated_title'
 #    body_template = render_to_string :partial => 'feeds/course_rated_body'

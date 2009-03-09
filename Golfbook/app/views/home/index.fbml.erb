@@ -53,6 +53,12 @@
           </div>
         <% end %>
       <% end %>
+      <h2 class="first_card_section">Recent Activity</h2>
+      <% simple_info_box_container do %>
+        <% simple_info_box do %>
+          <%= render :partial => 'shared/activity', :collection => @activities %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="side_column">

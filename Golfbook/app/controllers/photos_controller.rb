@@ -3,9 +3,10 @@ class PhotosController < ApplicationController
   def index
     sidebar :home
     if params[:user_id]
-      @photos = @current_user.submitted_photos.find(:all, :order => 'created_at desc', :limit => 20)    #TODO: paginate this rather.
+      @user = User.find(params[:user_id])
+      @photos = @user.submitted_photos.paginate(:page => params[:page], :order => 'created_at desc')    #TODO: paginate this rather.
     else
-      @photos = Photo.find(:all, :order => 'created_at desc', :limit => 20)
+      @photos = Photo.paginate(:page => params[:page], :order => 'created_at desc')
     end
   end
 
@@ -32,8 +33,11 @@ class PhotosController < ApplicationController
   def create
     photos = []
     params['photos'].each do |pid|
-      photos << Photo.find_or_create_by_fb_photo_id(pid, {:fb_album_id => params["album_id"], :user_id => @user.id})
+      new_photo = Photo.find_or_create_by_fb_photo_id(pid, {:fb_album_id => params["album_id"], :user_id => @user.id})
+      Activity.log_activity(new_photo, Activity::ADDED, @current_user.id)
+      photos << new_photo
     end
+
     publish_photo_added_action(photos.collect{|x|x.id})
     sidebar :home
     redirect_to :action => 'index'
@@ -45,7 +49,7 @@ class PhotosController < ApplicationController
 
   def identify
     sidebar :home
-    @photo = @current_user.submitted_photos.find(params[:id])
+    @photo = Photo.find(params[:id])
     unless params[:assets]
       if @photo
         @rounds = @current_user.rounds.recent(10)
@@ -67,7 +71,7 @@ class PhotosController < ApplicationController
         asset_type, asset_id = asset_param.split("_")
         @photo_assets << PhotoAsset.create(:asset_type => asset_type, :asset_id => asset_id, :photo_id => @photo.id)
       end
-
+      Activit.log_activity(@photo, Activity::IDENTIFIED, @current_user.id)
       @photo_assets.each do |p|
         publish_asset_identified_action(p.id)
       end

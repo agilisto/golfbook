@@ -1,8 +1,5 @@
 <%= render :partial => 'round_header' %>
-<fb:tabs>
-  <fb:tab-item href='#' title='Round Info' selected='true'/>
-  <fb:tab-item href='<%= user_view_rounds_url :only_path => true, :id => @user.id %>' title='Rounds'/>
-</fb:tabs>
+<%= render :partial => 'shared/home_menu' %>
 <div id="page_panel">
   <div class="editor_panel clearfix">
     <div class="main_column">

@@ -16,7 +16,9 @@ class CaddiesController < ApplicationController
     @course = Course.find_by_name(params["course_filter"])
     @caddy = Caddy.new(params[:caddy])
     @caddy.course = @course
+
     if @caddy.save
+      Activity.log_activity(@caddy, Activity::ADDED, @current_user.id)
       redirect_to :action => 'index'
     else
       render :action => 'new'

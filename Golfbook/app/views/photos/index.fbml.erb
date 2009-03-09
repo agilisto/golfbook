@@ -1,13 +1,4 @@
-<div class="module clearfix page_panel_header no_border">
-  <div class="header_page_summary clearfix">
-    <div class="thumb">
-    </div>
-    <div class="info">
-      <h2>Golfbook - Photos</h2>
-    </div>
-  </div>
-</div>
-
+<%= render :partial => 'photos_header' %>
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
 <div class="editor_panel clearfix">
@@ -23,12 +14,17 @@
         <% end %>
         <% simple_info_box do %>
           <% @photos.each do |p| %>
-            <div style="float:left;width:220px;height:150px;">
-              <fb:photo pid="<%= p.fb_photo_id %>" size="a"/>
-              <br />
-              <%= link_to 'Identify Objects', :controller => 'photos', :action => 'identify', :id => p.id %>
+            <div style="float:left;width:220px;height:165px;">
+              <div class="photo_borders photo_widget" height="140px">
+                <center>
+                  <a href="<%= url_for(:controller => 'photos', :action => 'show', :id => p.id) %>"><fb:photo pid="<%= p.fb_photo_id %>" size="a"/></a>
+                </center>
+                <center><%= link_to 'Identify Objects', :controller => 'photos', :action => 'identify', :id => p.id %></center>
+              </div>
             </div>
           <% end %>
+          <br clear="all"/>
+          <%= will_paginate @photos %>
         <% end %>
       <% end %>
     </div>

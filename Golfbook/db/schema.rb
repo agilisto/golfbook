@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 42) do
+ActiveRecord::Schema.define(:version => 43) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "target_type"
+    t.integer  "target_id"
+    t.string   "verb"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "caddies", :force => true do |t|
     t.integer  "course_id"

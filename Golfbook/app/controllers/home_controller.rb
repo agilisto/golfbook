@@ -15,6 +15,7 @@ class HomeController < ApplicationController
 
     @fbuser = fbuser
     @user = current_user
+    @activities = Activity.find(:all, :order => 'created_at desc', :limit => 25)
 
     update_profile_box(@user.id)
 

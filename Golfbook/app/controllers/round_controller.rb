@@ -22,10 +22,8 @@ class RoundController < ApplicationController
     # TODO: Failure
 
     publish_round_posted_action(@round.id)
-
-#    publish_round(@round.id)
-
     update_profile_box(@user.id)
+    Activity.log_activity(@round, Activity::POSTED, @current_user.id)
 
     redirect_to :action => :index, :user_id => @user.id
     
@@ -55,6 +53,8 @@ class RoundController < ApplicationController
     @user = User.find(params[:user_id])
     @user = current_user if @user.nil?
     @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'date_played desc' 
+
+    sidebar :course_main
 
     respond_to do |format|
       format.fbml 

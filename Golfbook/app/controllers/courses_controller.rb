@@ -298,6 +298,7 @@ class CoursesController < ApplicationController
   def add_caddy
     @caddy = Caddy.new(params[:caddy])
     if @caddy.save
+      Activity.log_activity(@caddy, Activity::ADDED, @current_user.id)
       flash[:notice] = 'The caddie was successfully added.'
       redirect_to :action => :caddies, :id => @caddy.course_id
     else
@@ -342,6 +343,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
+        Activity.log_activity(@course, Activity::ADDED, @current_user.id)
         publish_course_added_action(@course.id)
         flash[:notice] = 'Your course was submitted for review.'
 

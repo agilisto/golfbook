@@ -1,12 +1,4 @@
-<div class="module clearfix page_panel_header no_border">
-  <div class="header_page_summary clearfix">
-    <div class="thumb"></div>
-    <div class="info">
-		<a href="<%= url_for(:action => :index)%>">
-			<h2>Courses</h2></a>
-  </div>
-</div>
-
+<%= render :partial => 'courses/courses_header' %>
 <div style="clear:both;">
   <%= render :partial => 'shared/home_menu' %>
 </div>

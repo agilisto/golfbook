@@ -1,11 +1,10 @@
 <div class="module clearfix page_panel_header no_border">
   <div class="header_page_summary clearfix">
     <div class="thumb">
-
     </div>
     <div class="info">
-      <h2><fb:name linked="false" uid="<%= @user.facebook_uid %>"shownetwork="true" useyou="false" /></h2>
-      <div>Rounds</div>
+      <h2><fb:application-name linked="false"/></h2>
+      <div><a href="<%= url_for(:action => :index)%>">Courses Info</a></div>
     </div>
   </div>
 </div>

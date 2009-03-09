@@ -1,10 +1,13 @@
 <div class="module clearfix page_panel_header no_border">
 	<div class="header_page_summary clearfix">
-		<div class="thumb">
-			<fb:profile-pic uid="<%= @user.facebook_uid %>" size="square" linked="true" />
-		</div>
-		<div class="info">
-			<h2><fb:name uid="<%= @user.facebook_uid %>" shownetwork="true" useyou="false" /></h2>
-		</div>
+          <div class="thumb">
+            <fb:profile-pic uid="<%= @user.facebook_uid %>" size="square" linked="true" />
+          </div>
+          <div class="info">
+            <h2><fb:application-name /></h2>
+            <div>
+              <fb:name uid="<%= @user.facebook_uid %>" linked="false" shownetwork="true" useyou="false" />
+            </div>
+          </div>
 	</div>
 </div>

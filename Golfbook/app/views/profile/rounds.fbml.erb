@@ -3,25 +3,12 @@
 <%= render :partial => 'shared/home_menu'%>
 
 <div class="editor_panel clearfix">
-	<div class="main_column clearfix">
-		<h2 class="first_card_section">Rounds Played by <fb:name uid="<%= @user.facebook_uid %>" useyou="false"/></h2>
-
-                    <%= render :partial => 'round/round', :collection => @rounds %>
-
-                    <%= will_paginate @rounds, :inner_window => 2 %>
-
-	</div>
-	<div class="side_column">
-		<div class="section clearfix">
-			<h3>Courses Statistics</h3>
-			<div class="bar_chart simple">
-				<h2 class="header">
-					<span class="title"></span>
-					<span class="title_label">Total Courses: <%=@user.courses.count%></span>
-					<span class="sub_title"/>
-					<div style="clear: left; height: 0px;"/>
-				</h2>
-			</div>
-		</div>
-	</div>
+  <div class="main_column clearfix">
+    <h2 class="first_card_section">Rounds Played by <fb:name uid="<%= @user.facebook_uid %>" useyou="false"/></h2>
+      <%= render :partial => 'round/round', :collection => @rounds %>
+      <%= will_paginate @rounds, :inner_window => 2 %>
+  </div>
+  <div class="side_column">
+    <%= @sidebar_content %>
+  </div>
 </div>
