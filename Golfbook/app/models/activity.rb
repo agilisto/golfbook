@@ -33,4 +33,10 @@ class Activity < ActiveRecord::Base
     Activity.log_activity(target, verb, user_id)
   end
 
+  def self.backdate
+    Round.find(:all, :order => 'created_at asc').each do |r|
+      self.create(:target_type => "Round", :target_id => r.id, :created_at => r.created_at, :user_id => r.user_id, :verb => Activity::POSTED)
+    end
+  end
+
 end
