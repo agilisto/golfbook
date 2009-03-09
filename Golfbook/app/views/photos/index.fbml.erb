@@ -16,14 +16,19 @@
     <div class="main_column clearfix">
       <h2 class="first_card_section">Your Golfbook Photos</h2>
       <% simple_info_box_container do %>
+        <% simple_info_box('How it works') do %>
+          <fb:application-name/> allows you to select photos that you have already uploaded to be 'added'. 
+          You can then identify courses, rounds and friends in the photos so it can be shown on the relevant pages on <fb:application-name/>.
+          You can only use albums that are visible to everyone.
+        <% end %>
         <% simple_info_box do %>
-            <% @photos.each do |p| %>
-              <div style="float:left;width:220px;height:150px;">
-                <fb:photo pid="<%= p.fb_photo_id %>" size="a"/>
-                <br />
-                <%= link_to 'Identify Objects', :controller => 'photos', :action => 'identify', :id => p.id %>
-              </div>
-            <% end %>
+          <% @photos.each do |p| %>
+            <div style="float:left;width:220px;height:150px;">
+              <fb:photo pid="<%= p.fb_photo_id %>" size="a"/>
+              <br />
+              <%= link_to 'Identify Objects', :controller => 'photos', :action => 'identify', :id => p.id %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
