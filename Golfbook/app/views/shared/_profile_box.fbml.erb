@@ -55,7 +55,7 @@
   <table width="100%">
     <tr>
       <td valign="top"><%=image_tag "gb.png", :align=>"left"%></td>
-      <td><h2>Handicap: <%= user.current_handicap.value %></h2></td>
+      <td><h2>Handicap: <%= user.current_handicap.value rescue "-" %></h2></td>
     </tr>
     <tr>
       <td colspan=2><h2>Recent Rounds</h2></td>
