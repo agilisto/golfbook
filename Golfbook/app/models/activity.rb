@@ -8,7 +8,10 @@ class Activity < ActiveRecord::Base
   IDENTIFIED = 'identified'
 
   def self.log_activity(target, verb, user_id)
-    self.create(:target_type => target.class.name, :target_id => target.id, :user_id => user_id, :verb => verb) rescue nil
+    target = target.class.find(target.id) rescue nil
+    unless target.blank?
+      self.create(:target_type => target.class.name, :target_id => target.id, :user_id => user_id, :verb => verb) rescue nil
+    end
   end
 
 
