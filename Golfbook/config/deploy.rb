@@ -1,8 +1,10 @@
-##THIS IS THE STAGING DEPLOY.RB FILE
+##THIS IS THE PRODUCTION DEPLOY.RB FILE
 
 #Things to do before deploying to a specific environment.
 #Copy the relevant mongrel_#{stage}.yml to mongrel_cluster.yml
 #change the application name to 'GolfbookDev' for staging and 'Golfbook' for production.
+
+
 
 require 'erb'
 require 'config/accelerator/accelerator_tasks'
@@ -12,9 +14,9 @@ set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
 #For staging:
-set :application, "GolfbookDev" #matches names used in smf_template.erb
+#set :application, "GolfbookDev" #matches names used in smf_template.erb
 #For production:
-#set application, 'Golfbook'
+set :application, 'Golfbook'
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -32,7 +34,7 @@ set :service_name, application
 set :working_directory, "#{deploy_to}/current"
 ssh_options[:paranoid] = false 
 
-set :domain, 'golfbookdev.agilisto.com'
+set :domain, 'golfbook.agilisto.com'
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
 #ssh_options[:paranoid] = false
@@ -93,7 +95,12 @@ task :create_sym do
     #sudo "chmod 775  #{deploy_to} "
 end
 
-#this happens on the server.
+#desc "tasks to run after checkout"
+#task :after_update_code do
+#    #update_rails
+#    #create_sym
+#end
+
 deploy.task :after_update_code, :roles => :web do
   desc "Copying the right mongrel cluster config for the current stage environment."
   run "cp -f #{release_path}/config/mongrel_#{stage}.yml #{release_path}/config/mongrel_cluster.yml"
@@ -124,6 +131,7 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
+
 
 ##NB! To allow for deployment from subdirectory of git repo - add this to your capistrano remote_cache.rb copy_repository_cache method.
 #          def copy_repository_cache

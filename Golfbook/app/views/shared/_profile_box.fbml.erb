@@ -2,7 +2,7 @@
   <table width="100%">
     <tr>
       <td valign="top"><%=image_tag "gb.png", :align=>"left"%></td>
-      <td><h1>Handicap: <%= user.current_handicap.value %></h1></td>
+      <td><h1>Handicap: <%= user.current_handicap.value rescue "-" %></h1></td>
     <tr>
       <td colspan=2>
         <h3>Recent happenings for <a href="<%=url_for(:controller=>:profile,:action=>:show,:id=>user.id,:only_path=>true)%>"><fb:name uid="<%=user.facebook_uid%>" linked="false" /></a>

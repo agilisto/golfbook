@@ -111,8 +111,6 @@ img {
     border-bottom-width: 0px;
     border-top-style: none;
     border-bottom-style: none;
-    border-top-color: -moz-use-text-color;
-    border-bottom-color: -moz-use-text-color;
 }
 
 
@@ -137,21 +135,17 @@ img {
     padding-right: 3px;
     padding-bottom: 3px;
     padding-left: 3px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-top-color: #cccccc;
-    border-bottom-color: #cccccc;
+    border: 1px solid #cccccc;
 }
 
 .photo_borders a:hover img{
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-top-color: #3b5998;
-    border-bottom-color: #3b5998;
+    border: 1px solid #3b5998;
+}
+
+.vitality .photo_borders a{
+    width:auto;
+    display:inline;
+    border:none;
 }
 
 /* end of default facebook stuff */
