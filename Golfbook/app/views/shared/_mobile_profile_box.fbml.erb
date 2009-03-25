@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td>Current Handicap:</td>
-      <td><%= user.current_handicap.value %></td>
+      <td><%= user.current_handicap.value rescue "-" %></td>
     </tr>
     <tr>
       <td colspan=2><%= link_to 'Post Score', :controller => 'round', :action => 'new' %></td>
