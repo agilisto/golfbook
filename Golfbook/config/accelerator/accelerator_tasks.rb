@@ -13,6 +13,21 @@ Capistrano::Configuration.instance(:must_exist).load do
 
         end
 
+        desc  "Creates and Apache 2.2 compatible vhost.conf file for passenger"
+        task :create_passenger_vhost, :roles => :web do
+          public_ip = ""
+          run "ifconfig -a | ggrep -A1 e1000g0 | grep inet | awk '{print $2}'" do |ch, st, data|
+              public_ip = data.gsub(/[\r\n]/, "")
+          end
+
+          template = File.read("config/accelerator/apache_passenger_vhost.erb")
+          buffer = ERB.new(template).result(binding)
+          put buffer, "#{shared_path}/#{application}-apache-vhost.conf"
+
+          sudo "cp #{shared_path}/#{application}-apache-vhost.conf /opt/local/etc/httpd/virtualhosts/#{application}.conf"
+          restart_apache
+        end
+
         desc "Creates an Apache 2.2 compatible virtual host configuration file"
         task :create_vhost, :roles => :web do
             public_ip = ""

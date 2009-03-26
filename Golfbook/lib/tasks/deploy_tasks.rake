@@ -9,11 +9,7 @@ namespace :agilisto do
     if ['staging','production'].include?(RAILS_ENV)
       `rake agilisto:copy_appropriate_files`
       if RAILS_ENV == 'staging'
-        `cap staging accelerator:smf_stop`
         `cap staging deploy:cold`
-        `cap staging accelerator:create_smf`
-        `cap staging accelerator:create_vhost`
-        `cap staging accelerator:smf_restart`
         `cap staging accelerator:restart_apache`
       elsif RAILS_ENV == 'production'
         `cap production deploy:cold`
@@ -35,9 +31,6 @@ namespace :agilisto do
       if RAILS_ENV == 'staging'
         `cap staging deploy:setup`
         `cap staging deploy:cold`
-        `cap staging accelerator:create_smf`
-        `cap staging accelerator:create_vhost`
-        `cap staging accelerator:smf_restart`
         `cap staging accelerator:restart_apache`
       elsif RAILS_ENV == 'production'
         `cap production deploy:setup`
@@ -56,7 +49,6 @@ namespace :agilisto do
   task :copy_appropriate_files => :environment do
     if RAILS_ENV == 'staging'
       `cp config/deploy.rb.staging config/deploy.rb`
-      `cp config/mongrel_staging.yml config/mongrel_cluster.yml`
     elsif RAILS_ENV == 'production'
       puts 'hello from production'
       `cp config/deploy.rb.production config/deploy.rb`

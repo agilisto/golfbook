@@ -23,7 +23,6 @@ set :smf_process_group, 'root'
 #_cset(:release_path)      { File.join(releases_path, release_name) }
 #_cset(:current_release)   { File.join(releases_path, releases.last) }
 #_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-#set :repository_cache, "cached-copy/Golfbook"   #override copy_respository_cache in remote_cache.rb in capistrano. then this will not be necessary - otherwise first comment out, deploy:cold, then do with this.
 #########################################################################################################
 
 
@@ -50,6 +49,6 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
-after 'deploy:cold', 'accelerator:create_smf'
-after 'deploy:cold', 'accelerator:create_vhost'
-after 'deploy:cold', 'accelerator:smf_restart'
+#after 'deploy:cold', 'accelerator:create_smf'
+after 'deploy:cold', 'accelerator:create_passenger_vhost'
+#after 'deploy:cold', 'accelerator:smf_restart'
