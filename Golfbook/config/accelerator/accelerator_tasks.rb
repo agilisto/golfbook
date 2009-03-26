@@ -24,6 +24,8 @@ Capistrano::Configuration.instance(:must_exist).load do
           buffer = ERB.new(template).result(binding)
           put buffer, "#{shared_path}/#{application}-apache-vhost.conf"
 
+          public_path = "#{current_path}/public"
+     
           sudo "cp #{shared_path}/#{application}-apache-vhost.conf /opt/local/etc/httpd/virtualhosts/#{application}.conf"
           restart_apache
         end
