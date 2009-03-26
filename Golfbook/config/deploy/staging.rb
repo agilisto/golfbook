@@ -48,6 +48,4 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
-#after 'deploy:cold', 'accelerator:create_smf'
 after 'deploy:cold', 'accelerator:create_passenger_vhost'
-#after 'deploy:cold', 'accelerator:smf_restart'
