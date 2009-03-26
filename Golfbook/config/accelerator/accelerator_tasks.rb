@@ -20,12 +20,12 @@ Capistrano::Configuration.instance(:must_exist).load do
               public_ip = data.gsub(/[\r\n]/, "")
           end
 
+          public_path = "#{current_path}/public"
+
           template = File.read("config/accelerator/apache_passenger_vhost.erb")
           buffer = ERB.new(template).result(binding)
           put buffer, "#{shared_path}/#{application}-apache-vhost.conf"
 
-          public_path = "#{current_path}/public"
-     
           sudo "cp #{shared_path}/#{application}-apache-vhost.conf /opt/local/etc/httpd/virtualhosts/#{application}.conf"
           restart_apache
         end
