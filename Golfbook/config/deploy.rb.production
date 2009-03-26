@@ -56,36 +56,6 @@ role :db,  domain, :primary => true
 
 desc "update vendor rails"
 
-task :update_rails do
-    # get the version of edge rails that the user is currently using
-    #for entry in Dir.entries("./vendor/rails")
-    #    puts entry.to_s
-    #    if entry[/\REVISION_\d+/]
-    #        local_revision  = entry.sub("REVISION_","")
-    #    end
-    #end
-    
-    local_revision = "8434"
-
-    # update to that revision
-    puts local_revision
-
-    # get rid of the current rails dir
-    if File.exist?("#{deploy_to}/shared/rails")
-
-        # check current version
-        for entry in Dir.entries("#{deploy_to}/shared/rails")
-            if entry[/\REVISION_\d+/]
-                deployed_revision  = entry.sub("REVISION_","")
-            end
-        end
-        sudo "rm -rf #{deploy_to}/shared/rails"
-    end
-
-    # check out edge rails
-    sudo "svn co http://dev.rubyonrails.org/svn/rails/trunk #{deploy_to}/shared/rails --revision=" + local_revision
-end
-
 desc "create symlinks from rails dir into project"
 task :create_sym do
     sudo "ln -nfs #{shared_path}/rails #{release_path}/vendor/rails"
@@ -93,33 +63,6 @@ task :create_sym do
     #sudo "chown -R mongrel:www  #{deploy_to} "
     #sudo "chown -R mongrel:www  #{shared_path} "	
     #sudo "chmod 775  #{deploy_to} "
-end
-
-#desc "tasks to run after checkout"
-#task :after_update_code do
-#    #update_rails
-#    #create_sym
-#end
-
-deploy.task :after_update_code, :roles => :web do
-  desc "Copying the right mongrel cluster config for the current stage environment."
-  run "cp -f #{release_path}/config/mongrel_#{stage}.yml #{release_path}/config/mongrel_cluster.yml"
-end
-
-
-deploy.task :restart do
-    accelerator.smf_restart
-    accelerator.restart_apache
-end
-
-deploy.task :start do
-    accelerator.smf_start
-    accelerator.restart_apache
-end
-
-deploy.task :stop do
-    accelerator.smf_stop
-    accelerator.restart_apache
 end
 
 deploy.task :destroy do
@@ -131,24 +74,4 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
-
-
-##NB! To allow for deployment from subdirectory of git repo - add this to your capistrano remote_cache.rb copy_repository_cache method.
-#          def copy_repository_cache
-#            logger.trace "copying the cached version to #{configuration[:release_path]}"
-#            if configuration[:application].include?("Golfbook") && configuration[:scm] == "git"
-#                if copy_exclude.empty?
-#                run "cp -RPp #{repository_cache}/Golfbook #{configuration[:release_path]} && #{mark}"
-#                else
-#                exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
-#                run "rsync -lrp #{exclusions} #{repository_cache}/Golfbook/* #{configuration[:release_path]} && #{mark}"
-#                end
-#            else
-#                if copy_exclude.empty?
-#                run "cp -RPp #{repository_cache} #{configuration[:release_path]} && #{mark}"
-#                else
-#                exclusions = copy_exclude.map { |e| "--exclude=\"#{e}\"" }.join(' ')
-#                run "rsync -lrp #{exclusions} #{repository_cache}/* #{configuration[:release_path]} && #{mark}"
-#                end
-#            end
-#          end
+after 'deploy:cold', 'deploy:cleanup'

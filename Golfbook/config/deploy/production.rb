@@ -1,4 +1,6 @@
 set :application, "Golfbook" #matches names used in smf_template.erb
+set :rails_env, "production"
+
 #set :repository,  "https://cap@code.agilisto.com:8443/svn/golfbook/trunk/Golfbook"
 
 set :deploy_to, "/home/993440e2/web/#{application}"
@@ -53,3 +55,4 @@ task :tail_log, :roles => :app do
 end
 
 after :deploy, 'deploy:cleanup'
+after 'deploy:cold', 'accelerator:create_passenger_vhost'

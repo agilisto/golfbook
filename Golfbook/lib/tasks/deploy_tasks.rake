@@ -13,9 +13,9 @@ namespace :agilisto do
         `cap staging accelerator:restart_apache`
       elsif RAILS_ENV == 'production'
         `cap production deploy:cold`
-        `cap production accelerator:create_smf`
-        `cap production accelerator:create_vhost`
-        `cap production accelerator:smf_restart`
+#        `cap production accelerator:create_smf`
+#        `cap production accelerator:create_vhost`
+#        `cap production accelerator:smf_restart`
         `cap production accelerator:restart_apache`
       end
     else
@@ -35,9 +35,9 @@ namespace :agilisto do
       elsif RAILS_ENV == 'production'
         `cap production deploy:setup`
         `cap production deploy:cold`
-        `cap production accelerator:create_smf`
-        `cap production accelerator:create_vhost`
-        `cap production accelerator:smf_restart`
+#        `cap production accelerator:create_smf`
+#        `cap production accelerator:create_vhost`
+#        `cap production accelerator:smf_restart`
         `cap production accelerator:restart_apache`
       end
     else
@@ -52,7 +52,7 @@ namespace :agilisto do
     elsif RAILS_ENV == 'production'
       puts 'hello from production'
       `cp config/deploy.rb.production config/deploy.rb`
-      `cp config/mongrel_production.yml config/mongrel_cluster.yml`
+#      `cp config/mongrel_production.yml config/mongrel_cluster.yml`
     else
       puts 'RAILS_ENV= something other than staging or production...? ' + RAILS_ENV
     end

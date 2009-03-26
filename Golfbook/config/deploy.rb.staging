@@ -90,3 +90,4 @@ end
 ########################
 
 after :deploy, 'deploy:cleanup'
+after 'deploy:cold', 'deploy:cleanup'

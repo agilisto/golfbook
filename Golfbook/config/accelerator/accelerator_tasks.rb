@@ -20,7 +20,7 @@ Capistrano::Configuration.instance(:must_exist).load do
               public_ip = data.gsub(/[\r\n]/, "")
           end
 
-          public_path = "#{current_path}/public"
+          public_path = "#{working_directory}/public"
 
           template = File.read("config/accelerator/apache_passenger_vhost.erb")
           buffer = ERB.new(template).result(binding)
