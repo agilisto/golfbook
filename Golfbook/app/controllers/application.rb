@@ -207,5 +207,4 @@ class ApplicationController < ActionController::Base
     return fbsession_holder
   end
 
-
 end

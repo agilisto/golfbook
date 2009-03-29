@@ -15,16 +15,6 @@ set :scm_verbose, true
 set :deploy_via, :remote_cache
 #########################################################################################################
 set :domain, 'golfbookdev.agilisto.com'
-set :smf_process_user, 'root'
-set :smf_process_group, 'root'
-
-# Settings to make app run from ./Golfbook ##############################################################
-#_cset(:release_path)      { File.join(releases_path, release_name) }
-#_cset(:current_release)   { File.join(releases_path, releases.last) }
-#_cset(:previous_release)  { File.join(releases_path, releases[-2]) }
-#########################################################################################################
-
-
 
 # comment out if it gives you trouble. newest net/ssh needs this set.
 ssh_options[:paranoid] = false

@@ -65,6 +65,18 @@ task :create_sym do
     #sudo "chmod 775  #{deploy_to} "
 end
 
+########################
+#Deploy from suburl of main repo url
+########################
+desc 'Restructures current release directory and installs plugins'
+task :before_finalize_update, :roles => :app do
+  restructure_current_release
+end
+def restructure_current_release
+  sudo "mv #{current_release}/Golfbook/* #{current_release}"
+  sudo "rm -rf Golfbook"
+end
+
 deploy.task :destroy do
     sudo "rm -rf #{deploy_to}"
 end
@@ -72,6 +84,23 @@ end
 task :tail_log, :roles => :app do
     stream "tail -f #{shared_path}/log/production.log"
 end
+
+########################
+#Passenger
+########################
+#This will restart the passenger app
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+end
+########################
 
 after :deploy, 'deploy:cleanup'
 after 'deploy:cold', 'deploy:cleanup'
