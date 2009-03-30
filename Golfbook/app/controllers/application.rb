@@ -42,9 +42,9 @@ class ApplicationController < ActionController::Base
   end
 
   #overriding the rfacebook rescue_action so that I can include hoptoad notification
-  def rescue_action_with_rfacebook(exception)
+  def rescue_action(exception)
     # render a special backtrace for canvas pages
-    notify_hoptoad(exception)
+    puts notify_hoptoad(exception).inspect
     if in_facebook_canvas?
       render(:text => "#{facebook_debug_panel}#{facebook_canvas_backtrace(exception)}")
 
