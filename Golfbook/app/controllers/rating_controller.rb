@@ -50,13 +50,13 @@ class RatingController < ApplicationController
   
   # rfacebook breaks this outside of the canvas, hence this method so i 
    # can see what is going on
-   def rescue_action(exception)
-       puts "=================="
-       puts exception.message
-       puts exception.backtrace.join("\n")
-       puts "=================="
-       throw exception
-   end
+#   def rescue_action(exception)
+#       puts "=================="
+#       puts exception.message
+#       puts exception.backtrace.join("\n")
+#       puts "=================="
+#       throw exception
+#   end
    
    private
    def set_response_type

@@ -563,14 +563,14 @@ class CoursesController < ApplicationController
     end
   end
 
-  private
-  def rescue_action(exception)
-    puts "=================="
-    puts exception.message
-    puts exception.backtrace.join("\n")
-    puts "=================="
-    throw exception
-  end
+#  private
+#  def rescue_action(exception)
+#    puts "=================="
+#    puts exception.message
+#    puts exception.backtrace.join("\n")
+#    puts "=================="
+#    throw exception
+#  end
 
 
 end

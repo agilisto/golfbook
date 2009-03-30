@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include HoptoadNotifier::Catcher
   include FeedPublisher
   include ProfilePublisher
 
@@ -38,6 +39,19 @@ class ApplicationController < ActionController::Base
   end
       
   def finish_facebook_login
+  end
+
+  #overriding the rfacebook rescue_action so that I can include hoptoad notification
+  def rescue_action_with_rfacebook(exception)
+    # render a special backtrace for canvas pages
+    notify_hoptoad(exception)
+    if in_facebook_canvas?
+      render(:text => "#{facebook_debug_panel}#{facebook_canvas_backtrace(exception)}")
+
+    # all other pages get the default rescue behavior
+    else
+      rescue_action_without_rfacebook(exception)
+    end
   end
   
   protected

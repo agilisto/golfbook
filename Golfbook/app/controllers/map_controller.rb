@@ -248,16 +248,6 @@ class MapController < ApplicationController
     
     @map.overlay_init clusterer
   end
-
-  # rfacebook breaks this outside of the canvas, hence this method so i 
-  # can see what is going on
-  def rescue_action(exception)
-    puts "=================="
-    puts exception.message
-    puts exception.backtrace.join("\n")
-    puts "=================="
-    throw exception
-  end
   
   private
   def define_event_icons
@@ -307,12 +297,12 @@ class MapController < ApplicationController
     @zoom = params[:zoom].blank? ? DEFAULT_ZOOM : params[:zoom].to_i
   end
 
-  def rescue_action(exception)
-    puts "=================="
-    puts exception.message
-    puts exception.backtrace.join("\n")
-    puts "=================="
-    throw exception
-  end
+#  def rescue_action(exception)
+#    puts "=================="
+#    puts exception.message
+#    puts exception.backtrace.join("\n")
+#    puts "=================="
+#    throw exception
+#  end
 
 end
