@@ -126,6 +126,8 @@ class ApplicationController < ActionController::Base
   end
 
   def sidebar(sidebar_symbol)
+    old_format = request.format
+    request.format = :fbml
     case sidebar_symbol
     when :home
       @news = {}
@@ -154,6 +156,8 @@ class ApplicationController < ActionController::Base
     else
       raise "Tried to call sidebar with #{sidebar_symbol}"
     end
+    request.format = old_format
+    true
   end
 
   def tab_user

@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
     @recently_rated_courses = Course.recently_rated(3)  #courses that have recently been rated
     @recently_reviewed_courses = Course.recently_reviewed(3)  #courses that have recently beed reviewed
 
-    friends_uids = fbsession.friends_get.uid_list
+    friends_uids = fbsession.friends_get.uid_list rescue nil
     @friends_recent_courses = Course.recently_played_by_friends(friends_uids,3)  #courses where your friends had recently played/reviewed/rated
 
     @action = :courses
@@ -450,10 +450,13 @@ class CoursesController < ApplicationController
     @course = @game.course
     email_body =  render_to_string :partial => 'emails/schedule_game_invite', :locals => {:game => @game}
 
-    fbsession.notifications_sendemail :recipients => params[:ids], :subject => "Golfbook Game Invite",
-      :fbml => email_body
-    flash[:notice] = "Your friends have been invited"
-
+    unless params[:ids].blank?
+      fbsession.notifications_sendemail :recipients => params[:ids], :subject => "Golfbook Game Invite",
+        :fbml => email_body
+      flash[:notice] = "Your friends have been invited"
+    else
+      flash[:notice] = "You did not invite any friends to join you."
+    end
     sidebar :course_specific
     redirect_to :action => :show, :id => @game.course.id
   end
