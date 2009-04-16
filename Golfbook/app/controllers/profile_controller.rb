@@ -91,9 +91,11 @@ class ProfileController < ApplicationController
   
   def process_location
     @user = User.find_or_initialize_by_facebook_uid(fbsession.session_user_id)
-    @user.update_attributes(params[:user])
+    @user.address = params[:user][:address]
+    @user.save
     if @user.geocode then
-      @user.save!
+      puts "made it past geocode!"
+      puts @user.save!
       flash[:notice] = "Your location has been saved"
       redirect_to :action => :index
     else
