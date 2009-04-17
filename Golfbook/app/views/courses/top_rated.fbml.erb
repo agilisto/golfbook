@@ -1,0 +1,45 @@
+<div class="module clearfix page_panel_header no_border">
+  <div class="header_page_summary clearfix">
+    <div class="thumb"></div>
+    <div class="info">
+      <a href="<%= url_for(:action => :index)%>"><h2>Courses</h2></a>
+        <!--div id="sub_menu">
+  <%= link_to 'Map View', {:controller => :home, :action => :index} %>
+                          </div-->
+    </div>
+  </div>
+</div>
+
+  <%= render :partial => 'shared/home_menu' %>
+
+  <div id="page_panel">
+    <div class="editor_panel clearfix">
+
+      <%= render :partial => "shared/course_search_box" %>
+
+      <div id="results" style="overflow: hidden">
+        <div class="main_column">
+
+          <h2 class="first_card_section"><%= 'Top Rated' %></h2>
+          <% simple_info_box_container do %>
+            <% simple_info_box('Nearby') do %>
+              <% unless @nearby_courses.blank? %>
+                <%= render :partial => 'course', :collection => @nearby_courses %>
+                <%= will_paginate @nearby_courses, :param_name => :nearby_page, :inner_window => 2 if @nearby_courses.respond_to?(:page_count) %>
+              <% else %>
+                <p>There are no rated courses near your home location.</p>
+              <% end %>
+            <% end %>
+            <% simple_info_box('Overall') do %>
+              <%= render :partial => 'course', :collection => @courses %>
+              <%= will_paginate @courses, :inner_window => 2 if @courses.respond_to?(:page_count) %>
+            <% end %>
+          <% end %>
+
+        </div>
+        <div class="side_column">
+          <%= @sidebar_content %>
+        </div>
+      </div>
+    </div>
+  </div>

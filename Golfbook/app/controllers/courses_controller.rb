@@ -173,13 +173,14 @@ class CoursesController < ApplicationController
   def top_rated
     sidebar :course_main
     @courses_results_title = "Top Rated"
-#    @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
-#    @courses = @courses.sort_by{|x|x.rating}.reverse
-#    @courses = @courses.paginate(:page => params[:page])
-    @courses = Course.top_paginated_by_ratings(:page => params[:page])
+    @nearby_courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
+    @nearby_courses = @nearby_courses.delete_if{|y|y.rating <= 0.0}.sort_by{|x|x.rating}.reverse
+    @nearby_courses = @nearby_courses.paginate(:page => params[:nearby_page])
+
+    @courses = Course.top_paginated_by_rating(:page => params[:page])
 
     respond_to do |format|
-      format.fbml {render :action => :list}
+      format.fbml #{render :action => :list}
     end
   end
 
