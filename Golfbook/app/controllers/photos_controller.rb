@@ -31,9 +31,14 @@ class PhotosController < ApplicationController
   end
   
   def create
+    album_id = params["album_id"]
     photos = []
     params['photos'].each do |pid|
-      new_photo = Photo.find_or_create_by_fb_photo_id(pid, {:fb_album_id => params["album_id"], :user_id => @user.id})
+      new_photo = Photo.find_or_initialize_by_fb_photo_id(pid)
+      new_photo.fb_album_id = album_id
+      new_photo.user_id = @current_user.id
+      new_photo.save
+      puts new_photo.inspect
       Activity.log_activity(new_photo, Activity::ADDED, @current_user.id)
       photos << new_photo
     end
@@ -59,18 +64,20 @@ class PhotosController < ApplicationController
           "AND has_added_app = 1"
         friends_xml = fbsession.fql_query :query => fql
         @fql_friends = friends_xml.user_list
-        @friends = User.find_all_by_facebook_uid(@fql_friends.collect{|x|x.uid})
+        @friends = User.find_all_by_facebook_uid(@fql_friends.collect{|x|x.uid}) + [current_user]
       else
         flash[:notice] = 'The photo could not be found.'
         redirect_to :action => 'index'
       end
     else  #this is with the form submitted
+      @course = Course.find_by_name(params["course_filter"])
       @photo.photo_assets.destroy_all
       @photo_assets = []
       params['assets'].each do |asset_param|
         asset_type, asset_id = asset_param.split("_")
         @photo_assets << PhotoAsset.create(:asset_type => asset_type, :asset_id => asset_id, :photo_id => @photo.id)
       end
+      @photo_assets << PhotoAsset.create(:asset_type => "Course", :asset_id => @course.id, :photo_id => @photo.id) unless @course.blank?
       Activity.log_activity(@photo, Activity::IDENTIFIED, @current_user.id)
       @photo_assets.each do |p|
         publish_asset_identified_action(p.id)

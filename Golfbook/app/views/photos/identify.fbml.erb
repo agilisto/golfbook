@@ -1,3 +1,42 @@
+<script>
+<!--
+options = {
+    preMsgTxt: "Start typing a course name for suggestions, eg. Wanderers",	// text to display when nothing has been typed
+    menuOpacity: 94, 			// opacity of the menu
+    ajaxUrl: "<%= url_for(:only_path => false, :controller => :courses, :action => :lookup)%>",	// url to your data source
+      focus: false,				// whether or not to auto-focus the textbox upon creation
+      onEnter: function(event) {		// handler for hitting the 'enter' key
+          submitForm('<%= url_for :controller => :courses, :action => :filter_by_name, :only_path => false %>', 'course_search_by_name', 'results'); return false;
+      },
+      delayTime: 350,				// amount of idle time after a keypress before making the ajax call
+      clearOnEnter: true			// whether or not to clear the text after they hit enter
+  };
+
+    //			function enterSubmit(obj, options)
+    //			{
+    //				this.obj = obj;
+    //				this.options = options;
+    //				// Setup the events we're listening to
+    //				this.obj.addEventListener('keypress', this.onkeypress.bind(this));
+    //			};
+
+    //			enterSubmit.prototype.onkeypress = function(event) {
+    //				switch (event.keyCode)
+    //					{
+    //						case 9: // tab
+    //						case 13: // enter
+    //							event.preventDefault();
+    //							this.options.onEnter(event);
+    //							break;
+    //						default:
+    //							break;
+    //					}
+    //			};
+
+    -->
+</script>
+
+
 <%= render :partial => 'photos/photos_header' %>
 <%= render :partial => 'shared/home_menu.fbml.erb' %>
 
@@ -19,21 +58,13 @@
         <% end %>
         <% form_tag do %>
           <%= hidden_field_tag :id, @photo.id %>
-          <% simple_info_box('Courses') do %>
+          <% simple_info_box('Course') do %>
             <table width="100%">
-              <% @courses.in_groups_of(2).each do |c_grouping| %>
-                <% c1, c2 = c_grouping[0], c_grouping[1] %>
-                <tr>
-                  <td align="center">
-                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}", @photo.has_asset?(c1) %>&nbsp;&nbsp;<b><%= c1.name %></b>
-                  </td>
-                  <td align="center">
-                    <% unless c2.blank? %>
-                      <%= check_box_tag "assets[]", "#{c2.class.name}_#{c2.id}", @photo.has_asset?(c2) %>&nbsp;&nbsp;<b><%= c2.name %></b>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
+              <tr>
+                <td class="editorkit_row">
+                  <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
+                </td>
+              </tr>
             </table>
           <% end %>
           <% simple_info_box('Friends') do %>
