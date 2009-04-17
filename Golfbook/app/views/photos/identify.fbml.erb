@@ -61,10 +61,23 @@ options = {
           <% simple_info_box('Course') do %>
             <table width="100%">
               <tr>
-                <td class="editorkit_row">
+                <td class="editorkit_row" colspan=2>
                   <%= text_field_tag "course_filter", nil, :size => 40, :class => 'inputtext inputsearch', :autocomplete =>"off" %>
                 </td>
               </tr>
+              <% @courses.in_groups_of(2).each do |c_grouping| %>
+              <% c1, c2 = c_grouping[0], c_grouping[1] %>
+                <tr>
+                  <td align="center">
+                    <%= check_box_tag "assets[]", "#{c1.class.name}_#{c1.id}", @photo.has_asset?(c1) %>&nbsp;&nbsp;<b><%= c1.name %></b>
+                  </td>
+                  <td align="center">
+                    <% unless c2.blank? %>
+                      <%= check_box_tag "assets[]", "#{c2.class.name}_#{c2.id}", @photo.has_asset?(c2) %>&nbsp;&nbsp;<b><%= c2.name %></b>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
             </table>
           <% end %>
             <script>

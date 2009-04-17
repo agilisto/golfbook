@@ -58,7 +58,7 @@ class PhotosController < ApplicationController
     unless params[:assets]
       if @photo
         @rounds = @current_user.rounds.recent(10)
-        @courses = @current_user.courses_played
+        @courses = @photo.courses
         fql =  "SELECT uid, name FROM user WHERE uid IN" +
           "(SELECT uid2 FROM friend WHERE uid1 = #{@user.facebook_uid}) " +
           "AND has_added_app = 1"

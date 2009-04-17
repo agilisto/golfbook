@@ -14,4 +14,8 @@ class Photo < ActiveRecord::Base
     PhotoAsset.find(:first, :conditions => ['photo_id = ? AND asset_type = ? AND asset_id = ?',self.id, asset.class.name, asset.id])
   end
 
+  def courses
+    PhotoAsset.find(:all, :conditions => ["photo_id = ? and asset_type = 'Course'",self.id]).collect{|x|x.asset}.flatten.compact.uniq
+  end
+
 end
