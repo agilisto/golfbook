@@ -3,7 +3,7 @@
   <% if activity.target_type == "Course" && activity.verb == Activity::ADDED %>
     <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
       <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'show', :id => activity.target_id %> to courses.</p>
+      </a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'show', :id => activity.target_id %> to courses <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
 
   <% elsif activity.target_type == "Rating" %>
     <% rating = Rating.find(activity.target_id) %>
@@ -12,20 +12,21 @@
       <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
         <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
       </a>
-      rated <%= link_to rateable.name, :controller => rating.rateable_type.constantize.table_name, :action => 'show', :id => rating.rateable_id %>
+      rated <%= link_to rateable.name, :controller => rating.rateable_type.constantize.table_name, :action => 'show', :id => rating.rateable_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
     </p>
     <br clear="all"/>
     <span><%= rating_box(rateable) %></span>
 
   <% elsif activity.target_type == "Caddy" && activity.verb == Activity::ADDED %>
     <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-    <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/></a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'index' %> to caddies.</p>
+    <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/></a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'index' %> to caddies <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
 
   <% elsif activity.target_type == "Round" && activity.verb == Activity::POSTED %>
     <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
       <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
       </a>
-      posted a round of <%= link_to activity.target.score, :controller => 'round', :action => 'show', :id => activity.target_id %>.</p>
+    posted a round of <%= link_to activity.target.score, :controller => 'round', :action => 'show', :id => activity.target_id %> on 
+    <%= link_to activity.target.course.name, :controller => :courses, :action => :show, :id => activity.target.course_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
 
   <% elsif activity.target_type == "Photo" && activity.verb == Activity::POSTED %>
     <p>
@@ -37,7 +38,7 @@
       <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
         <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
       </a>
-      added a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %>.</p>
+      added a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
 
   <% elsif activity.target_type == "Photo" && activity.verb == Activity::IDENTIFIED %>
       <span style="float:left;" class="photo_borders photo_widget">
@@ -48,7 +49,7 @@
       <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
         <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
       </a>
-      identified objects in <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %>.</p>
+      identified objects in <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
   <% end %>
   </div>
 <% end %>
