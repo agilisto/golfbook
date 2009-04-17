@@ -13,6 +13,12 @@ module Juixe
           include Juixe::Acts::Rateable::InstanceMethods
           extend Juixe::Acts::Rateable::SingletonMethods
         end
+
+        def top_paginated_by_rating(options = {})
+          the_sql = "SELECT avg(rating) as avg_rating, rateable_id as id FROM ratings WHERE rateable_type = 'Course' GROUP BY rateable_id ORDER BY avg_rating DESC"
+          top_rated_items = find_by_sql(the_sql)
+          paginate top_rated_items, :page => options[:page]
+        end
       end
       
       # This module contains class methods

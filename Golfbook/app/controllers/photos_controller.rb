@@ -71,7 +71,7 @@ class PhotosController < ApplicationController
         asset_type, asset_id = asset_param.split("_")
         @photo_assets << PhotoAsset.create(:asset_type => asset_type, :asset_id => asset_id, :photo_id => @photo.id)
       end
-      Activit.log_activity(@photo, Activity::IDENTIFIED, @current_user.id)
+      Activity.log_activity(@photo, Activity::IDENTIFIED, @current_user.id)
       @photo_assets.each do |p|
         publish_asset_identified_action(p.id)
       end
