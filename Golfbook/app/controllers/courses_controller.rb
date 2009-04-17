@@ -174,7 +174,7 @@ class CoursesController < ApplicationController
     sidebar :course_main
     @courses_results_title = "Top Rated"
     @courses = Course.find(:all, :within => DEFAULT_RADIUS, :origin => @user)
-    @courses = @courses.sort_by{|x|x.rating}
+    @courses = @courses.sort_by{|x|x.rating}.reverse
     @courses = @courses.paginate(:page => params[:page])
 
     respond_to do |format|
