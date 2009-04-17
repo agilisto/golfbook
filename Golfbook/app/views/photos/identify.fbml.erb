@@ -67,6 +67,12 @@ options = {
               </tr>
             </table>
           <% end %>
+            <script>
+                <!--
+                //var submitter = new enterSubmit(document.getElementById('course_filter'), options);
+                var suggestr = new ajaxSuggestFbml(document.getElementById('course_filter'), options);
+                -->
+            </script>
           <% simple_info_box('Friends') do %>
             <table width="100%">
               <% @friends.in_groups_of(2).each do |f_grouping| %>
