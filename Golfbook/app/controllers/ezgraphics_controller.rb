@@ -9,9 +9,11 @@ class EzgraphicsController < ApplicationController
     names = []
     uids = []
     #there was some last minute refatoring happening here...hence the horrible code.
-    friend_array.keys.each do |k|
-      names << k
-      uids << friend_array[k]
+    unless friends_array.blank?
+      friend_array.keys.each do |k|
+        names << k
+        uids << friend_array[k]
+      end
     end
 
     @friends = User.find_all_by_facebook_uid(uids)
