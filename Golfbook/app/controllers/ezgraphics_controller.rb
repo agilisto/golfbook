@@ -5,11 +5,11 @@ class EzgraphicsController < ApplicationController
   def my_handicap
     #getting the friends and their names - passed in via params[:id]
     @user = User.find(params[:id])
-    friend_array = params[:friend_ids]
+    friend_array = params[:friend_ids] || []
     names = []
     uids = []
     #there was some last minute refatoring happening here...hence the horrible code.
-    unless friends_array.blank?
+    unless friend_array.blank?
       friend_array.keys.each do |k|
         names << k
         uids << friend_array[k]
