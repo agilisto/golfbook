@@ -18,4 +18,12 @@ class Photo < ActiveRecord::Base
     PhotoAsset.find(:all, :conditions => ["photo_id = ? and asset_type = 'Course'",self.id]).collect{|x|x.asset}.flatten.compact.uniq
   end
 
+  def rounds
+    PhotoAsset.find(:all, :conditions => ["photo_id = ? and asset_type = 'Round'",self.id]).collect{|x|x.asset}.flatten.compact.uniq
+  end
+
+  def users
+    PhotoAsset.find(:all, :conditions => ["photo_id = ? and asset_type = 'User'",self.id]).collect{|x|x.asset}.flatten.compact.uniq
+  end
+
 end
