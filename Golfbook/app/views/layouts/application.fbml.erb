@@ -40,8 +40,9 @@
 <div id="content" class="fbbody <%= @current %>" >
   
   <div class="header">
+    <div style="float:right;padding:10px;"><%= link_to(image_tag("callaway_logo.jpg"),"http://www.facebook.com/pages/Callaway-Golf-Women-One-Game/63425163653") %></div>
     <div class="pandemic_bar_wrapper">
-      <%#= render :partial => 'shared/pandemicbar' %>
+      
     </div>
   </div>
 <%= yield :layout %>
