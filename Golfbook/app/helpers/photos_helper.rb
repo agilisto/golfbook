@@ -16,7 +16,7 @@ module PhotosHelper
     end
     #some person identified <here we add the response/>
     if response.size == 1
-      response.to_s
+      response.to_s.sub("1 ","a ")
     else
       response[0..-2].join(", ").gsub("1 ","a ") + " and " + 
         response.last.to_s.sub("1 ","a ")
