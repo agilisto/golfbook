@@ -38,6 +38,7 @@
           <fb:photo size="small" pid="<%= activity.target.fb_photo_id %>"/>
         </a>
       </span>
+      <br clear="all"/>
     <% end %>
 
   <% elsif activity.target_type == "Photo" && activity.verb == Activity::IDENTIFIED %>
@@ -50,6 +51,7 @@
           <fb:photo size="small" pid="<%= activity.target.fb_photo_id %>"/>
         </a>
       </span>
+      <br clear="all"/>
     <% end %>
   <% else %>
     <%= debug activity %>
