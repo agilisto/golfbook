@@ -60,4 +60,10 @@ module ApplicationHelper
      %{<div id="#{asset.class.name}_#{asset.id}">#{rate_block}</div>}
    end
 
+   def activity_box(user_id, &block)
+     user = User.find(user_id)
+     body = capture(&block)
+     concat(render(:partial => 'shared/activity_template', :locals => {:user => user, :body => body}), block.binding)
+   end
+
  end

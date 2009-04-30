@@ -1,0 +1,19 @@
+<div style="width:70px;float:left;">
+  <!-- <div class="photo_borders photo_widget"> -->
+    <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => user.id) %>" class="UIIntentionalStory_Pic">
+      <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+        <fb:profile-pic uid="<%= user.facebook_uid %>" size="square" linked="false" class='UIRoundedImage_Image'/>
+        <span class="UIRoundedImage_Corners">
+          <img src="http://static.ak.fbcdn.net/images/ui/UIRoundedImage.png" class="UIRoundedImage_CornersSprite"/>
+        </span>
+      </span>
+    </a>
+
+  <!--</div> -->
+</div>
+<div style="padding:5px;width:430px;float:left;font-size:13px;">
+    <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => user.id) %>" style="font-size:13px;">
+      <fb:name linked="false" capitalize="true" uid="<%= user.facebook_uid %>"/>
+    </a>
+    <%= body %>
+</div>

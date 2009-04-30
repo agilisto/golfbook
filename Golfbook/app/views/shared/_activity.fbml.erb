@@ -1,55 +1,55 @@
 <% unless activity.target.blank? %>
   <div style="padding:5px;width:100%;clear:both;float:left;border-bottom:1px solid #d8dfea;">
   <% if activity.target_type == "Course" && activity.verb == Activity::ADDED %>
-    <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-      <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'show', :id => activity.target_id %> to courses <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
+    <% activity_box(activity.user_id) do %>
+      <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
+        <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
+      </a>
+      added <%= link_to activity.target.name, :controller => 'courses', :action => 'show', :id => activity.target_id %> to courses <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
+    <% end %>
 
   <% elsif activity.target_type == "Rating" %>
-    <% rating = Rating.find(activity.target_id) %>
-    <% rateable = rating.rateable %>
-    <p>
-      <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-        <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a>
+    <% activity_box(activity.user_id) do %>
+      <% rating = Rating.find(activity.target_id) %>
+      <% rateable = rating.rateable %>
       rated <%= link_to rateable.name, :controller => rating.rateable_type.constantize.table_name, :action => 'show', :id => rating.rateable_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
-    </p>
-    <br clear="all"/>
-    <span><%= rating_box(rateable) %></span>
+      <br clear="all"/>
+      <span><%= rating_box(rateable) %></span>
+    <% end %>
 
   <% elsif activity.target_type == "Caddy" && activity.verb == Activity::ADDED %>
-    <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-    <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/></a> added <%= link_to activity.target.name, :controller => 'courses', :action => 'index' %> to caddies <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
+    <% activity_box(activity.user_id) do %>
+      added <%= link_to activity.target.name, :controller => 'courses', :action => 'index' %> to caddies <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.    
+    <% end %>
 
   <% elsif activity.target_type == "Round" && activity.verb == Activity::POSTED %>
-    <p><a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-      <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a>
-    posted a round of <%= link_to activity.target.score, :controller => 'round', :action => 'show', :id => activity.target_id %> on 
-    <%= link_to activity.target.course.name, :controller => :courses, :action => :show, :id => activity.target.course_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
+    <% activity_box(activity.user_id) do %>
+      posted a round of <%= link_to activity.target.score, :controller => 'round', :action => 'show', :id => activity.target_id %> on
+      <%= link_to activity.target.course.name, :controller => :courses, :action => :show, :id => activity.target.course_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
+    <% end %>
 
   <% elsif activity.target_type == "Photo" && activity.verb == Activity::POSTED %>
-    <p>
+    <% activity_box(activity.user_id) do %>
       <span style="float:left;" class="photo_borders photo_widget">
         <a href="<%= url_for(:controller => 'photos', :action => 'show', :id => activity.target_id) %>">
           <fb:photo size="thumb" pid="<%= activity.target.fb_photo_id %>"/>
         </a>
       </span>&nbsp;&nbsp;
-      <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-        <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a>
-      added a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
+      added a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
+    <% end %>
 
   <% elsif activity.target_type == "Photo" && activity.verb == Activity::IDENTIFIED %>
+    <% activity_box(activity.user_id) do %>
+      identified <%= photo_activity_description_of_objects(activity.target) %> in a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.
+      <br clear="all"/>
+      <br clear="all"/>
       <span style="float:left;" class="photo_borders photo_widget">
         <a href="<%= url_for(:controller => 'photos', :action => 'show', :id => activity.target_id) %>">
-          <fb:photo size="thumb" pid="<%= activity.target.fb_photo_id %>"/>
+          <fb:photo size="small" pid="<%= activity.target.fb_photo_id %>"/>
         </a>
-      </span>&nbsp;&nbsp;
-      <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-        <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a>
-      identified <%= photo_activity_description_of_objects(activity.target) %> in a <%= link_to 'photo', :controller => 'photos', :action => 'show', :id => activity.target_id %> <%= time_ago_in_words(activity.created_at.to_s(:long)) %> ago.</p>
+      </span>
+    <% end %>
+
   <% end %>
   </div>
 <% end %>
