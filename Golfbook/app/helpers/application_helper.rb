@@ -39,7 +39,7 @@ module ApplicationHelper
    def display_course
      @display_course.nil? == true ? false : true
    end
-   
+
    def vitals_box(heading = "",options = {}, &block)
       body = capture(&block)
       concat(render(:partial => 'shared/vitals_box', :locals => {:heading => heading, :body => body, :options => options}), block.binding)
