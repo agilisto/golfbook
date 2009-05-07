@@ -2,9 +2,6 @@
   <div style="padding:5px;width:100%;clear:both;float:left;border-bottom:1px solid #d8dfea;padding-bottom:10px;">
   <% if activity.target_type == "Course" && activity.verb == Activity::ADDED %>
     <% activity_box(activity) do %>
-      <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => activity.user_id) %>">
-        <fb:name linked="false" capitalize="true" uid="<%= activity.user.facebook_uid %>"/>
-      </a>
       added <%= link_to activity.target.name, :controller => 'courses', :action => 'show', :id => activity.target_id %> to courses.
     <% end %>
 
