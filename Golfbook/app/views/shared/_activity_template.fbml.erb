@@ -1,4 +1,4 @@
-<div style="width:70px;float:left;padding:5px;">
+<div style="width:70px;float:left;">
     <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => user.id) %>" class="UIIntentionalStory_Pic">
       <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
         <fb:profile-pic uid="<%= user.facebook_uid %>" size="square" linked="false" class='UIRoundedImage_Image'/>
@@ -8,7 +8,7 @@
       </span>
     </a>
 </div>
-<div style="padding:5px;width:430px;float:right;font-size:13px;">
+<div style="width:430px;float:right;font-size:13px;">
     <a href="<%= url_for(:controller => 'profile', :action => 'show', :id => user.id) %>" style="font-size:13px;">
       <fb:name linked="false" capitalize="true" uid="<%= user.facebook_uid %>"/>
     </a>
@@ -18,4 +18,5 @@
       <%= time_ago_in_words(date.to_s(:long)) %> ago.
     </span>
 </div>
+<br clear="all"/>
 <br clear="all"/>
