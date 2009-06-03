@@ -1,0 +1,1012 @@
+# Logfile created on Wed Jun 03 21:22:02 +0200 2009** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:23:51) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x2228308 @filter=:require_facebook_install>] rendered_or_redirected.
+Completed in 0.00078 (1275 reqs/sec) | Rendering: 0.00007 (8%) | DB: 0.00000 (0%) | 200 OK [http://golfbook.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:23:59) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "auth_token"=>"804a61d8ec5e6a1ab28fa6cd4b359ab4", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to activate a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - auth.getSession({:auth_token=>"804a61d8ec5e6a1ab28fa6cd4b359ab4"}) - making remote call
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+  [4;36;1mUser Columns (0.070372)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.016258)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCourse Load (0.046042)[0m   [0;1mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;35;1mRating Load (0.074364)[0m   [0mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;36;1mPhoto Load (0.000000)[0m   [0;1mMysql::Error: Table 'golfbook_development.photos' doesn't exist: SELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'golfbook_development.photos' doesn't exist: SELECT * FROM `photos`    ORDER BY created_at desc LIMIT 6):
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb:150:in `log'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/mysql_adapter.rb:281:in `execute'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/mysql_adapter.rb:481:in `select'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:53:in `select_all'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:74:in `cache_sql'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:53:in `select_all'
+    /vendor/rails/activerecord/lib/active_record/base.rb:532:in `find_by_sql'
+    /vendor/rails/activerecord/lib/active_record/base.rb:1233:in `find_every'
+    /vendor/rails/activerecord/lib/active_record/base.rb:503:in `find'
+    /app/controllers/application.rb:141:in `sidebar'
+    /app/controllers/home_controller.rb:14:in `index'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+Rendering /Users/armanddp/Sites/golfbook/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000230)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.046594)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000108)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000089)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000086)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000043)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateHandicaps (38)
+  [4;35;1mSQL (0.068009)[0m   [0mCREATE TABLE `handicaps` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `value` int(11) DEFAULT NULL, `round_id` int(11) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `change` int(11) DEFAULT NULL, `date_played` date DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.115623)[0m   [0;1mALTER TABLE `rounds` ADD `holes` int(11)[0m
+  [4;35;1mSQL (0.040335)[0m   [0mALTER TABLE `rounds` ADD `course_rating` int(11)[0m
+  [4;36;1mSQL (0.012074)[0m   [0;1mALTER TABLE `courses` ADD `course_rating` int(11)[0m
+  [4;35;1mSQL (0.002310)[0m   [0mUPDATE schema_info SET version = 38[0m
+  [4;36;1mSQL (0.000171)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateCaddies (39)
+  [4;35;1mSQL (0.060686)[0m   [0mCREATE TABLE `caddies` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `course_id` int(11) DEFAULT NULL, `first_name` varchar(255) DEFAULT NULL, `last_name` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000486)[0m   [0;1mUPDATE schema_info SET version = 39[0m
+  [4;35;1mSQL (0.000208)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to GenderForUsers (40)
+  [4;36;1mSQL (0.007968)[0m   [0;1mALTER TABLE `users` ADD `female` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (0.000357)[0m   [0mUPDATE schema_info SET version = 40[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePhotos (41)
+  [4;35;1mSQL (0.002770)[0m   [0mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `fb_album_id` varchar(255) DEFAULT NULL, `fb_photo_id` varchar(255) DEFAULT NULL, `user_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mUPDATE schema_info SET version = 41[0m
+  [4;35;1mSQL (0.000165)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreatePhotoAssets (42)
+  [4;36;1mSQL (0.003976)[0m   [0;1mCREATE TABLE `photo_assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `asset_type` varchar(255) DEFAULT NULL, `asset_id` int(11) DEFAULT NULL, `photo_id` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000423)[0m   [0mUPDATE schema_info SET version = 42[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateActivities (43)
+  [4;35;1mSQL (0.004385)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `target_type` varchar(255) DEFAULT NULL, `target_id` int(11) DEFAULT NULL, `verb` varchar(255) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mUPDATE schema_info SET version = 43[0m
+  [4;35;1mSQL (0.000280)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.019232)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001840)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.020647)[0m   [0;1mdescribe `activities`[0m
+  [4;35;1mSQL (0.001132)[0m   [0mSHOW KEYS FROM `activities`[0m
+  [4;36;1mSQL (0.001422)[0m   [0;1mSHOW FIELDS FROM `caddies`[0m
+  [4;35;1mSQL (0.001967)[0m   [0mdescribe `caddies`[0m
+  [4;36;1mSQL (0.001126)[0m   [0;1mSHOW KEYS FROM `caddies`[0m
+  [4;35;1mSQL (0.030042)[0m   [0mSHOW FIELDS FROM `competition_rounds`[0m
+  [4;36;1mSQL (0.003127)[0m   [0;1mdescribe `competition_rounds`[0m
+  [4;35;1mSQL (0.002293)[0m   [0mSHOW KEYS FROM `competition_rounds`[0m
+  [4;36;1mSQL (0.003806)[0m   [0;1mSHOW FIELDS FROM `competitions`[0m
+  [4;35;1mSQL (0.002900)[0m   [0mdescribe `competitions`[0m
+  [4;36;1mSQL (0.001186)[0m   [0;1mSHOW KEYS FROM `competitions`[0m
+  [4;35;1mSQL (0.012159)[0m   [0mSHOW FIELDS FROM `competitors`[0m
+  [4;36;1mSQL (0.002321)[0m   [0;1mdescribe `competitors`[0m
+  [4;35;1mSQL (0.001085)[0m   [0mSHOW KEYS FROM `competitors`[0m
+  [4;36;1mSQL (0.002126)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.004290)[0m   [0mdescribe `courses`[0m
+  [4;36;1mSQL (0.000597)[0m   [0;1mSHOW KEYS FROM `courses`[0m
+  [4;35;1mSQL (0.098869)[0m   [0mSHOW FIELDS FROM `courses_users`[0m
+  [4;36;1mSQL (0.061061)[0m   [0;1mdescribe `courses_users`[0m
+  [4;35;1mSQL (0.000473)[0m   [0mSHOW KEYS FROM `courses_users`[0m
+  [4;36;1mSQL (0.003404)[0m   [0;1mSHOW FIELDS FROM `game_players`[0m
+  [4;35;1mSQL (0.002475)[0m   [0mdescribe `game_players`[0m
+  [4;36;1mSQL (0.000388)[0m   [0;1mSHOW KEYS FROM `game_players`[0m
+  [4;35;1mSQL (0.003194)[0m   [0mSHOW FIELDS FROM `games`[0m
+  [4;36;1mSQL (0.002276)[0m   [0;1mdescribe `games`[0m
+  [4;35;1mSQL (0.000768)[0m   [0mSHOW KEYS FROM `games`[0m
+  [4;36;1mSQL (0.001643)[0m   [0;1mSHOW FIELDS FROM `handicaps`[0m
+  [4;35;1mSQL (0.002601)[0m   [0mdescribe `handicaps`[0m
+  [4;36;1mSQL (0.000793)[0m   [0;1mSHOW KEYS FROM `handicaps`[0m
+  [4;35;1mSQL (0.001590)[0m   [0mSHOW FIELDS FROM `photo_assets`[0m
+  [4;36;1mSQL (0.002164)[0m   [0;1mdescribe `photo_assets`[0m
+  [4;35;1mSQL (0.000800)[0m   [0mSHOW KEYS FROM `photo_assets`[0m
+  [4;36;1mSQL (0.001573)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mSQL (0.002488)[0m   [0mdescribe `photos`[0m
+  [4;36;1mSQL (0.000851)[0m   [0;1mSHOW KEYS FROM `photos`[0m
+  [4;35;1mSQL (0.036479)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.002078)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.001629)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (0.005879)[0m   [0;1mSHOW FIELDS FROM `reviews`[0m
+  [4;35;1mSQL (0.001904)[0m   [0mdescribe `reviews`[0m
+  [4;36;1mSQL (0.000740)[0m   [0;1mSHOW KEYS FROM `reviews`[0m
+  [4;35;1mSQL (0.002038)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.002874)[0m   [0;1mdescribe `rounds`[0m
+  [4;35;1mSQL (0.000712)[0m   [0mSHOW KEYS FROM `rounds`[0m
+  [4;36;1mSQL (0.001602)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (0.001951)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (0.001002)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (0.003498)[0m   [0mSHOW FIELDS FROM `tour_dates`[0m
+  [4;36;1mSQL (0.002258)[0m   [0;1mdescribe `tour_dates`[0m
+  [4;35;1mSQL (0.000441)[0m   [0mSHOW KEYS FROM `tour_dates`[0m
+  [4;36;1mSQL (0.003395)[0m   [0;1mSHOW FIELDS FROM `tour_players`[0m
+  [4;35;1mSQL (0.001849)[0m   [0mdescribe `tour_players`[0m
+  [4;36;1mSQL (0.034658)[0m   [0;1mSHOW KEYS FROM `tour_players`[0m
+  [4;35;1mSQL (0.004154)[0m   [0mSHOW FIELDS FROM `tours`[0m
+  [4;36;1mSQL (0.002272)[0m   [0;1mdescribe `tours`[0m
+  [4;35;1mSQL (0.000765)[0m   [0mSHOW KEYS FROM `tours`[0m
+  [4;36;1mSQL (0.002574)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.004050)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.074654)[0m   [0mSHOW FIELDS FROM `walls`[0m
+  [4;36;1mSQL (0.001285)[0m   [0;1mdescribe `walls`[0m
+  [4;35;1mSQL (0.000914)[0m   [0mSHOW KEYS FROM `walls`[0m
+  [4;36;1mSQL (0.003337)[0m   [0;1mSHOW FIELDS FROM `wishlists`[0m
+  [4;35;1mSQL (0.002922)[0m   [0mdescribe `wishlists`[0m
+  [4;36;1mSQL (0.001074)[0m   [0;1mSHOW KEYS FROM `wishlists`[0m
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:26:04) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "auth_token"=>"804a61d8ec5e6a1ab28fa6cd4b359ab4", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to activate a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - auth.getSession({:auth_token=>"804a61d8ec5e6a1ab28fa6cd4b359ab4"}) - making remote call
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - remote call failed (100: Invalid parameter)
+** RFACEBOOK INFO: Tried to use a stale auth_token (Invalid parameter)
+** RFACEBOOK WARNING: Tried to activate (or re-activate) a Facebook session with auth_token and failed
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: Redirecting to login for external app
+** RFACEBOOK INFO: iframe redirect to http://www.facebook.com/login.php?v=1.0&api_key=786bb4519bc7f2b2304e866de0a0b93d
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x2228790 @filter=:require_facebook_install>] rendered_or_redirected.
+Completed in 2.09741 (0 reqs/sec) | Rendering: 0.00005 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/?auth_token=804a61d8ec5e6a1ab28fa6cd4b359ab4]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:26:12) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "auth_token"=>"0dab2639070c386a302f0fe3603981cc", "controller"=>"home"}
+** RFACEBOOK INFO: attempting to activate a new Facebook session from auth_token
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - auth.getSession({:auth_token=>"0dab2639070c386a302f0fe3603981cc"}) - making remote call
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+  [4;36;1mUser Columns (0.002721)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000506)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCourse Load (0.000377)[0m   [0;1mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;35;1mRating Load (0.000140)[0m   [0mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;36;1mPhoto Load (0.000298)[0m   [0;1mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;35;1mHandicap Load (0.000656)[0m   [0mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;36;1mRound Columns (0.002030)[0m   [0;1mSHOW FIELDS FROM `rounds`[0m
+  [4;35;1mSQL (0.044476)[0m   [0mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;36;1mCourse Columns (0.001903)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.003397)[0m   [0mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00250)
+Rendered shared/_vitals (0.08646)
+Rendered shared/_vitals_box (0.00021)
+Rendered shared/_buttons (0.00611)
+Rendered shared/_vitals_box (0.00020)
+Rendered photos/_sidebar_photos (0.02673)
+Rendered shared/_pga_news_item (0.00108)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_home_sidebar (0.16627)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;36;1mActivity Load (0.000425)[0m   [0;1mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;35;1mHandicap Columns (0.001818)[0m   [0mSHOW FIELDS FROM `handicaps`[0m
+  [4;36;1mUser Load Including Associations (0.012419)[0m   [0;1mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRound Load (0.000471)[0m   [0mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;36;1mGame Load (0.000579)[0m   [0;1mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.16665)
+Rendered shared/_mobile_profile_box (0.32257)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00197)
+Rendered shared/_home_menu.fbml.erb (0.01193)
+Rendered shared/_course_search_box (0.02228)
+Rendered shared/_minimal_block_info_box (0.00239)
+Rendered shared/_minimal_block_info_box (0.00028)
+Rendered shared/_minimal_block_info_box (0.00023)
+Rendered shared/_style (0.00925)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 13.31797 (0 reqs/sec) | Rendering: 0.10969 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/?auth_token=0dab2639070c386a302f0fe3603981cc]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:27:18) [POST]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"fb_sig_time"=>"1244057233.6042", "fb_sig"=>"f8dbedc3c52fd0d338f273e30d35161a", "fb_sig_app_id"=>"9383236275", "fb_sig_in_new_facebook"=>"1", "fb_sig_locale"=>"en_US", "action"=>"index", "fb_sig_session_key"=>"2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"home", "fb_sig_expires"=>"1244062800", "fb_sig_added"=>"1", "fb_sig_friends"=>"5242171,22402522,69203521,308500055,500051116,500920743,500926915,501319654,504189445,504503972,504805629,505005608,506628630,509315588,514056834,515304129,516777203,517661462,519823568,519972132,521235142,521853744,522006836,522695882,523814223,524097405,524562084,524846350,525015013,525296280,525647106,526216220,526522603,526541561,526556112,527792891,528235937,528426610,529223059,530558059,531455311,531766759,532328574,533110933,533192737,534488137,534621231,534661935,535968168,536449438,537101524,537531638,537946588,538408824,540612000,541007323,542441718,542953874,543277175,543611433,543698244,543730074,543834419,544773940,544961337,545407889,545566670,545616544,545681675,546091716,547635875,548266426,548352006,548390449,548846894,549116014,549591638,549931606,550765248,552692014,552706617,552743294,553106081,555756007,555845760,556253973,557435551,558816171,559065780,563255638,564610223,565175960,565797014,566420412,566950167,566996921,567055336,567597253,568757638,569479489,571327989,571486346,571587153,571905119,572021489,572526435,573463351,573960002,574600148,574614016,575417256,575773759,575888222,576622670,577531467,578135051,578791404,578910585,579376420,579536252,579700169,580115066,580285529,580371112,580928242,581357278,581715945,581990348,582560451,584805394,585075708,585970588,586207138,586315725,586325733,586988522,587498477,587613658,587701122,590581471,591921448,592931203,593106722,594002281,595811504,601702036,603036550,603576577,605325404,606426167,607117451,607568272,607966666,608191836,608482512,609011049,609083477,609487208,609640518,610132792,610575927,611065439,611956229,612391070,613520258,613536063,613615139,614145473,614793215,615055963,616988142,617296559,618197106,618461223,619660567,621317600,621571470,623393277,623506486,623611195,624192655,624641945,626053692,626587058,626626849,626955849,627333059,627416508,627940952,628201628,628411840,629803222,631171118,634506859,636012119,636639248,637578686,640465794,640996598,644483935,644556555,645202027,645512108,648526995,649795778,650922790,652941531,655367135,656098132,656116298,656333519,656955446,660145338,660256288,660936058,660941267,662892654,663892216,665391382,666950755,667368988,667375285,667666416,668059528,669150002,669278979,669301245,669843593,670235253,670885046,671067031,671645816,671739478,672090495,672731280,672810049,673268454,673355776,674501583,674718684,677840835,678117353,679672726,679781785,679924327,680869010,681051687,681106318,681651470,681841063,681894808,682056185,682086267,682290939,683547666,683637300,684215139,684400770,686416719,686577790,687953465,688381128,688795293,689180307,689230806,689497815,689837027,691682465,692110179,692211088,693435930,694411069,696066567,696108085,696487785,697108032,698185670,698539368,700341824,700435776,700536458,700837947,700906536,701406967,702568041,703086550,703525727,703771385,703909645,704727256,706222132,706785626,708635831,709167266,710505352,711530094,712738836,712921260,713691516,714541259,714735046,715770168,716021479,716361290,716543108,716760032,717312106,717317062,717971340,718570253,719480572,719539975,719705531,720210925,720978409,721370250,721422034,721440275,723216059,725681030,729111120,731966822,732705623,734083242,734321235,734757553,740345308,740406270,740450147,741605691,745365643,745707621,746761040,748610890,748670791,749900607,750162456,751340774,753255954,754108984,754367316,755841973,757588806,761090354,775314253,780716912,780969011,785535530,786840971,787334294,791667532,798525122,801545005,801895407,803125120,804450430,804590297,807135472,816318915,818687066,819660380,819785462,829585327,833835450,834150528,835020023,835768761,836204615,838625292,839684367,846849597,848620116,856610642,859024177,859835531,862200240,863815654,865005647,866550144,877800416,880660289,883080296,884885513,886095726,891005576,893785272,904085564,1028128265,1033686957,1038924684,1050170010,1061552251,1123549608,1151282775,1166261268,1174816447,1253311372,1263433138,1272476038,1295788184,1297767053,1329520826,1344956837,1345602864,1359970737,1360689709,1364741721,1384434488,1386129388,1413781970,1427394437,1500771316,1517710525,1644841350", "fb_sig_api_key"=>"786bb4519bc7f2b2304e866de0a0b93d", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_user"=>"579040750", "fb_sig_profile_update_time"=>"1241462825"}
+** RFACEBOOK INFO: Activated session from inside the canvas (user=579040750, session_key=2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750, expires=1244062800)
+  [4;35;1mUser Columns (0.002612)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000482)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;35;1mCourse Load (0.000118)[0m   [0mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;36;1mRating Load (0.000082)[0m   [0;1mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;35;1mPhoto Load (0.000161)[0m   [0mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;36;1mHandicap Load (0.000142)[0m   [0;1mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;35;1mRound Columns (0.002721)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.048305)[0m   [0;1mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;35;1mCourse Columns (0.021214)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.001317)[0m   [0;1mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_vitals (0.08839)
+Rendered shared/_vitals_box (0.00019)
+Rendered shared/_buttons (0.00163)
+Rendered shared/_vitals_box (0.00016)
+Rendered photos/_sidebar_photos (0.00060)
+Rendered shared/_pga_news_item (0.00017)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.09388)
+Rendered shared/_home_sidebar (0.18804)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;35;1mActivity Load (0.000104)[0m   [0mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;36;1mHandicap Columns (0.002324)[0m   [0;1mSHOW FIELDS FROM `handicaps`[0m
+  [4;35;1mUser Load Including Associations (0.000124)[0m   [0mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;36;1mRound Load (0.000109)[0m   [0;1mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;35;1mGame Load (0.000138)[0m   [0mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00343)
+Rendered shared/_mobile_profile_box (0.00051)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"http://apps.facebook.com/golfbookapp_dev/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00016)
+Rendered shared/_home_menu.fbml.erb (0.00133)
+Rendered shared/_course_search_box (0.00148)
+Rendered shared/_minimal_block_info_box (0.00019)
+Rendered shared/_minimal_block_info_box (0.00017)
+Rendered shared/_minimal_block_info_box (0.00016)
+Rendered shared/_style (0.00045)
+Completed in 16.64986 (0 reqs/sec) | Rendering: 0.00961 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:27:54) [POST]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"fb_sig_time"=>"1244057269.2345", "fb_sig"=>"d5229f93c8198f86b9e490c2c038bf76", "fb_sig_app_id"=>"9383236275", "fb_sig_in_new_facebook"=>"1", "fb_sig_locale"=>"en_US", "action"=>"index", "fb_sig_session_key"=>"2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"home", "fb_sig_expires"=>"1244062800", "fb_sig_added"=>"1", "fb_sig_friends"=>"5242171,22402522,69203521,308500055,500051116,500920743,500926915,501319654,504189445,504503972,504805629,505005608,506628630,509315588,514056834,515304129,516777203,517661462,519823568,519972132,521235142,521853744,522006836,522695882,523814223,524097405,524562084,524846350,525015013,525296280,525647106,526216220,526522603,526541561,526556112,527792891,528235937,528426610,529223059,530558059,531455311,531766759,532328574,533110933,533192737,534488137,534621231,534661935,535968168,536449438,537101524,537531638,537946588,538408824,540612000,541007323,542441718,542953874,543277175,543583643,543611433,543698244,543730074,543834419,544773940,544961337,545407889,545566670,545616544,545681675,546091716,547635875,548266426,548352006,548390449,548846894,549116014,549591638,549931606,550765248,552692014,552706617,552743294,553106081,555756007,555845760,556253973,557435551,558816171,559065780,563255638,564610223,565175960,565797014,566420412,566950167,566996921,567055336,567597253,568757638,569479489,571327989,571486346,571587153,571905119,572021489,572526435,573463351,573960002,574600148,574614016,575417256,575773759,575888222,576622670,577531467,578135051,578791404,578910585,579376420,579536252,579700169,580115066,580285529,580371112,580928242,581357278,581715945,581990348,582560451,584805394,585075708,585970588,586207138,586315725,586325733,586988522,587498477,587613658,587701122,590581471,591921448,592931203,593106722,594002281,595811504,601702036,603036550,603576577,605325404,606426167,607117451,607568272,607966666,608191836,608482512,609011049,609083477,609487208,609640518,610132792,610575927,611065439,611956229,612391070,613520258,613536063,613615139,614145473,614793215,615055963,616988142,617296559,618197106,618461223,619660567,621317600,621571470,623393277,623506486,623611195,624192655,624641945,626053692,626587058,626626849,626955849,627333059,627416508,627940952,628201628,628411840,629803222,631171118,634506859,636012119,636639248,637578686,640465794,640996598,644483935,644556555,645202027,645512108,648526995,649795778,650922790,652941531,655367135,656098132,656116298,656333519,656955446,660145338,660256288,660936058,660941267,662892654,663892216,665391382,666950755,667368988,667375285,667666416,668059528,669150002,669278979,669301245,669843593,670235253,670885046,671067031,671645816,671739478,672090495,672731280,672810049,673268454,673355776,674501583,674718684,677840835,678117353,679672726,679781785,679924327,680869010,681051687,681106318,681651470,681841063,681894808,682056185,682086267,682290939,683547666,683637300,684215139,684400770,686416719,686577790,687953465,688381128,688795293,689180307,689230806,689497815,689837027,691682465,692110179,692211088,693435930,694411069,696066567,696108085,696487785,697108032,698185670,698539368,700341824,700435776,700536458,700837947,700906536,701406967,702568041,703086550,703525727,703771385,703909645,704727256,706222132,706785626,708635831,709167266,710505352,711530094,712738836,712921260,713691516,714541259,714735046,715770168,716021479,716361290,716543108,716760032,717312106,717317062,717971340,718570253,719480572,719539975,719705531,720210925,720978409,721370250,721422034,721440275,723216059,725681030,729111120,731966822,732705623,734083242,734321235,734757553,740345308,740406270,740450147,741605691,745365643,745707621,746761040,748610890,748670791,749900607,750162456,751340774,753255954,754108984,754367316,755841973,757588806,761090354,775314253,780716912,780969011,785535530,786840971,787334294,791667532,798525122,801545005,801895407,803125120,804450430,804590297,807135472,816318915,818687066,819660380,819785462,829585327,833835450,834150528,835020023,835768761,836204615,838625292,839684367,846849597,848620116,856610642,859024177,859835531,862200240,863815654,865005647,866550144,877800416,880660289,883080296,884885513,886095726,891005576,893785272,904085564,1028128265,1033686957,1038924684,1050170010,1061552251,1123549608,1151282775,1166261268,1174816447,1253311372,1263433138,1272476038,1295788184,1297767053,1329520826,1344956837,1345602864,1359970737,1360689709,1364741721,1384434488,1386129388,1413781970,1427394437,1500771316,1517710525,1644841350", "fb_sig_api_key"=>"786bb4519bc7f2b2304e866de0a0b93d", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_user"=>"579040750", "fb_sig_profile_update_time"=>"1241462825"}
+** RFACEBOOK INFO: Activated session from inside the canvas (user=579040750, session_key=2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750, expires=1244062800)
+  [4;36;1mUser Columns (0.002362)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000183)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCourse Load (0.000116)[0m   [0;1mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;35;1mRating Load (0.000078)[0m   [0mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;36;1mPhoto Load (0.005668)[0m   [0;1mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;35;1mHandicap Load (0.002412)[0m   [0mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;36;1mRound Columns (0.009824)[0m   [0;1mSHOW FIELDS FROM `rounds`[0m
+  [4;35;1mSQL (0.011133)[0m   [0mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;36;1mCourse Columns (0.018555)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.000351)[0m   [0mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_vitals (0.06417)
+Rendered shared/_vitals_box (0.00017)
+Rendered shared/_buttons (0.00161)
+Rendered shared/_vitals_box (0.00017)
+Rendered photos/_sidebar_photos (0.00082)
+Rendered shared/_pga_news_item (0.00018)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_home_sidebar (0.07926)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;36;1mActivity Load (0.000115)[0m   [0;1mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;35;1mHandicap Columns (0.002479)[0m   [0mSHOW FIELDS FROM `handicaps`[0m
+  [4;36;1mUser Load Including Associations (0.000768)[0m   [0;1mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRound Load (0.000112)[0m   [0mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;36;1mGame Load (0.000169)[0m   [0;1mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00135)
+Rendered shared/_mobile_profile_box (0.00048)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"http://apps.facebook.com/golfbookapp_dev/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00023)
+Rendered shared/_home_menu.fbml.erb (0.00180)
+Rendered shared/_course_search_box (0.00205)
+Rendered shared/_minimal_block_info_box (0.00032)
+Rendered shared/_minimal_block_info_box (0.00027)
+Rendered shared/_minimal_block_info_box (0.00019)
+Rendered shared/_style (0.00062)
+Completed in 17.76414 (0 reqs/sec) | Rendering: 0.01273 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:30:19) [POST]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"fb_sig_time"=>"1244057417.047", "fb_sig"=>"08de73f8f7b38401a61bdd3c72fb4da7", "fb_sig_app_id"=>"9383236275", "fb_sig_in_new_facebook"=>"1", "fb_sig_locale"=>"en_US", "action"=>"index", "fb_sig_session_key"=>"2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"home", "fb_sig_expires"=>"1244062800", "fb_sig_added"=>"1", "fb_sig_friends"=>"5242171,22402522,69203521,308500055,500051116,500920743,500926915,501319654,504189445,504503972,504805629,505005608,506628630,509315588,514056834,515304129,516777203,517661462,519823568,519972132,521235142,521853744,522006836,522695882,523814223,524097405,524562084,524846350,525015013,525296280,525647106,526216220,526522603,526541561,526556112,527792891,528235937,528426610,529223059,530558059,531455311,531766759,532328574,533110933,533192737,534488137,534621231,534661935,535968168,536449438,537101524,537531638,537946588,538408824,540612000,541007323,542441718,542953874,543277175,543583643,543611433,543698244,543730074,543834419,544773940,544961337,545407889,545566670,545616544,545681675,546091716,547635875,548266426,548352006,548390449,548846894,549116014,549591638,549931606,550765248,552692014,552706617,552743294,553106081,555756007,555845760,556253973,557435551,558816171,559065780,563255638,564610223,565175960,565797014,566420412,566950167,566996921,567055336,567597253,568757638,569479489,571327989,571486346,571587153,571905119,572021489,572526435,573463351,573960002,574600148,574614016,575417256,575773759,575888222,576622670,577531467,578135051,578791404,578910585,579376420,579536252,579700169,580115066,580285529,580371112,580928242,581357278,581715945,581990348,582560451,584805394,585075708,585970588,586207138,586315725,586325733,586988522,587498477,587613658,587701122,590581471,591921448,592931203,593106722,594002281,595811504,601702036,603036550,603576577,605325404,606426167,607117451,607568272,607966666,608191836,608482512,609011049,609083477,609487208,609640518,610132792,610575927,611065439,611956229,612391070,613520258,613536063,613615139,614145473,614793215,615055963,616988142,617296559,618197106,618461223,619660567,621317600,621571470,623393277,623506486,623611195,624192655,624641945,626053692,626587058,626626849,626955849,627333059,627416508,627940952,628201628,628411840,629803222,631171118,634506859,636012119,636639248,637578686,640465794,640996598,644483935,644556555,645202027,645512108,648526995,649795778,650922790,652941531,655367135,656098132,656116298,656333519,656955446,660145338,660256288,660936058,660941267,662892654,663892216,665391382,666950755,667368988,667375285,667666416,668059528,669150002,669278979,669301245,669843593,670235253,670885046,671067031,671645816,671739478,672090495,672731280,672810049,673268454,673355776,674501583,674718684,677840835,678117353,679672726,679781785,679924327,680869010,681051687,681106318,681651470,681841063,681894808,682056185,682086267,682290939,683547666,683637300,684215139,684400770,686416719,686577790,687953465,688381128,688795293,689180307,689230806,689497815,689837027,691682465,692110179,692211088,693435930,694411069,696066567,696108085,696487785,697108032,698185670,698539368,700341824,700435776,700536458,700837947,700906536,701406967,702568041,703086550,703525727,703771385,703909645,704727256,706222132,706785626,708635831,709167266,710505352,711530094,712738836,712921260,713691516,714541259,714735046,715770168,716021479,716361290,716543108,716760032,717312106,717317062,717971340,718570253,719480572,719539975,719705531,720210925,720978409,721370250,721422034,721440275,723216059,725681030,729111120,731966822,732705623,734083242,734321235,734757553,740345308,740406270,740450147,741605691,745365643,745707621,746761040,748610890,748670791,749900607,750162456,751340774,753255954,754108984,754367316,755841973,757588806,761090354,775314253,780716912,780969011,785535530,786840971,787334294,791667532,798525122,801545005,801895407,803125120,804450430,804590297,807135472,816318915,818687066,819660380,819785462,829585327,833835450,834150528,835020023,835768761,836204615,838625292,839684367,846849597,848620116,856610642,859024177,859835531,862200240,863815654,865005647,866550144,877800416,880660289,883080296,884885513,886095726,891005576,893785272,904085564,1028128265,1033686957,1038924684,1050170010,1061552251,1123549608,1151282775,1166261268,1174816447,1253311372,1263433138,1272476038,1295788184,1297767053,1329520826,1344956837,1345602864,1359970737,1360689709,1364741721,1384434488,1386129388,1413781970,1427394437,1500771316,1517710525,1644841350", "fb_sig_api_key"=>"786bb4519bc7f2b2304e866de0a0b93d", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_user"=>"579040750", "fb_sig_profile_update_time"=>"1241462825"}
+** RFACEBOOK INFO: Activated session from inside the canvas (user=579040750, session_key=2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750, expires=1244062800)
+  [4;35;1mUser Columns (0.002516)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001565)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;35;1mCourse Load (0.000117)[0m   [0mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;36;1mRating Load (0.000093)[0m   [0;1mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;35;1mPhoto Load (0.000144)[0m   [0mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;36;1mHandicap Load (0.002353)[0m   [0;1mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;35;1mRound Columns (0.003416)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;35;1mCourse Columns (0.002340)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.000199)[0m   [0;1mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00023)
+Rendered shared/_vitals (0.02253)
+Rendered shared/_vitals_box (0.00017)
+Rendered shared/_buttons (0.00159)
+Rendered shared/_vitals_box (0.00015)
+Rendered photos/_sidebar_photos (0.00061)
+Rendered shared/_pga_news_item (0.00017)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00021)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_vitals_box (0.00116)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00023)
+Rendered shared/_home_sidebar (0.02941)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;35;1mActivity Load (0.000138)[0m   [0mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;36;1mHandicap Columns (0.002511)[0m   [0;1mSHOW FIELDS FROM `handicaps`[0m
+  [4;35;1mUser Load Including Associations (0.000210)[0m   [0mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;36;1mRound Load (0.000120)[0m   [0;1mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;35;1mGame Load (0.000374)[0m   [0mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00139)
+Rendered shared/_mobile_profile_box (0.00047)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"http://apps.facebook.com/golfbookapp_dev/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00017)
+Rendered shared/_home_menu.fbml.erb (0.00141)
+Rendered shared/_course_search_box (0.00152)
+Rendered shared/_minimal_block_info_box (0.00479)
+Rendered shared/_minimal_block_info_box (0.00017)
+Rendered shared/_minimal_block_info_box (0.00017)
+Rendered shared/_style (0.00044)
+Completed in 9.31558 (0 reqs/sec) | Rendering: 0.01429 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:31:04) [POST]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"fb_sig_time"=>"1244057461.7384", "fb_sig"=>"4b975143bb353822d6936fbd30389698", "fb_sig_app_id"=>"9383236275", "fb_sig_in_new_facebook"=>"1", "fb_sig_locale"=>"en_US", "action"=>"index", "fb_sig_session_key"=>"2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"home", "fb_sig_expires"=>"1244062800", "fb_sig_added"=>"1", "fb_sig_friends"=>"5242171,22402522,69203521,308500055,500051116,500920743,500926915,501319654,504189445,504503972,504805629,505005608,506628630,509315588,514056834,515304129,516777203,517661462,519823568,519972132,521235142,521853744,522006836,522695882,523814223,524097405,524562084,524846350,525015013,525296280,525647106,526216220,526522603,526541561,526556112,527792891,528235937,528426610,529223059,530558059,531455311,531766759,532328574,533110933,533192737,534488137,534621231,534661935,535968168,536449438,537101524,537531638,537946588,538408824,540612000,541007323,542441718,542953874,543277175,543583643,543611433,543698244,543730074,543834419,544773940,544961337,545407889,545566670,545616544,545681675,546091716,547635875,548266426,548352006,548390449,548846894,549116014,549591638,549931606,550765248,552692014,552706617,552743294,553106081,555756007,555845760,556253973,557435551,558816171,559065780,563255638,564610223,565175960,565797014,566420412,566950167,566996921,567055336,567597253,568757638,569479489,571327989,571486346,571587153,571905119,572021489,572526435,573463351,573960002,574600148,574614016,575417256,575773759,575888222,576622670,577531467,578135051,578791404,578910585,579376420,579536252,579700169,580115066,580285529,580371112,580928242,581357278,581715945,581990348,582560451,584805394,585075708,585970588,586207138,586315725,586325733,586988522,587498477,587613658,587701122,590581471,591921448,592931203,593106722,594002281,595811504,601702036,603036550,603576577,605325404,606426167,607117451,607568272,607966666,608191836,608482512,609011049,609083477,609487208,609640518,610132792,610575927,611065439,611956229,612391070,613520258,613536063,613615139,614145473,614793215,615055963,616988142,617296559,618197106,618461223,619660567,621317600,621571470,623393277,623506486,623611195,624192655,624641945,626053692,626587058,626626849,626955849,627333059,627416508,627940952,628201628,628411840,629803222,631171118,634506859,636012119,636639248,637578686,640465794,640996598,644483935,644556555,645202027,645512108,648526995,649795778,650922790,652941531,655367135,656098132,656116298,656333519,656955446,660145338,660256288,660936058,660941267,662892654,663892216,665391382,666950755,667368988,667375285,667666416,668059528,669150002,669278979,669301245,669843593,670235253,670885046,671067031,671645816,671739478,672090495,672731280,672810049,673268454,673355776,674501583,674718684,677840835,678117353,679672726,679781785,679924327,680869010,681051687,681106318,681651470,681841063,681894808,682056185,682086267,682290939,683547666,683637300,684215139,684400770,686416719,686577790,687953465,688381128,688795293,689180307,689230806,689497815,689837027,691682465,692110179,692211088,693435930,694411069,696066567,696108085,696487785,697108032,698185670,698539368,700341824,700435776,700536458,700837947,700906536,701406967,702568041,703086550,703525727,703771385,703909645,704727256,706222132,706785626,708635831,709167266,710505352,711530094,712738836,712921260,713691516,714541259,714735046,715770168,716021479,716361290,716543108,716760032,717312106,717317062,717971340,718570253,719480572,719539975,719705531,720210925,720978409,721370250,721422034,721440275,723216059,725681030,729111120,731966822,732705623,734083242,734321235,734757553,740345308,740406270,740450147,741605691,745365643,745707621,746761040,748610890,748670791,749900607,750162456,751340774,753255954,754108984,754367316,755841973,757588806,761090354,775314253,780716912,780969011,785535530,786840971,787334294,791667532,798525122,801545005,801895407,803125120,804450430,804590297,807135472,816318915,818687066,819660380,819785462,829585327,833835450,834150528,835020023,835768761,836204615,838625292,839684367,846849597,848620116,856610642,859024177,859835531,862200240,863815654,865005647,866550144,877800416,880660289,883080296,884885513,886095726,891005576,893785272,904085564,1028128265,1033686957,1038924684,1050170010,1061552251,1123549608,1151282775,1166261268,1174816447,1253311372,1263433138,1272476038,1295788184,1297767053,1329520826,1344956837,1345602864,1359970737,1360689709,1364741721,1384434488,1386129388,1413781970,1427394437,1500771316,1517710525,1644841350", "fb_sig_api_key"=>"786bb4519bc7f2b2304e866de0a0b93d", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_user"=>"579040750", "fb_sig_profile_update_time"=>"1241462825"}
+** RFACEBOOK INFO: Activated session from inside the canvas (user=579040750, session_key=2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750, expires=1244062800)
+  [4;36;1mUser Columns (0.002917)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000180)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCourse Load (0.000124)[0m   [0;1mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;35;1mRating Load (0.000091)[0m   [0mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;36;1mPhoto Load (0.000118)[0m   [0;1mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;35;1mHandicap Load (0.000148)[0m   [0mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;36;1mRound Columns (0.002942)[0m   [0;1mSHOW FIELDS FROM `rounds`[0m
+  [4;35;1mSQL (0.000550)[0m   [0mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;36;1mCourse Columns (0.001931)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.000487)[0m   [0mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00023)
+Rendered shared/_vitals (0.02057)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_buttons (0.00168)
+Rendered shared/_vitals_box (0.00035)
+Rendered photos/_sidebar_photos (0.00103)
+Rendered shared/_pga_news_item (0.00026)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_vitals_box (0.00019)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00015)
+Rendered shared/_home_sidebar (0.02693)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;36;1mActivity Load (0.000149)[0m   [0;1mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;35;1mHandicap Columns (0.002564)[0m   [0mSHOW FIELDS FROM `handicaps`[0m
+  [4;36;1mUser Load Including Associations (0.000359)[0m   [0;1mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRound Load (0.000151)[0m   [0mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;36;1mGame Load (0.000419)[0m   [0;1mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00158)
+Rendered shared/_mobile_profile_box (0.00052)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"http://apps.facebook.com/golfbookapp_dev/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00016)
+Rendered shared/_home_menu.fbml.erb (0.00124)
+Rendered shared/_course_search_box (0.00145)
+Rendered shared/_minimal_block_info_box (0.00018)
+Rendered shared/_minimal_block_info_box (0.00023)
+Rendered shared/_minimal_block_info_box (0.00016)
+Rendered shared/_style (0.00045)
+Completed in 45.26597 (0 reqs/sec) | Rendering: 0.00877 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:32:41) [POST]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"fb_sig_time"=>"1244057555.144", "fb_sig"=>"0abc244f56873a987b1817015c4a7e70", "fb_sig_app_id"=>"9383236275", "fb_sig_in_new_facebook"=>"1", "fb_sig_locale"=>"en_US", "action"=>"index", "fb_sig_session_key"=>"2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"home", "fb_sig_expires"=>"1244062800", "fb_sig_added"=>"1", "fb_sig_friends"=>"5242171,22402522,69203521,308500055,500051116,500920743,500926915,501319654,504189445,504503972,504805629,505005608,506628630,509315588,514056834,515304129,516777203,517661462,519823568,519972132,521235142,521853744,522006836,522695882,523814223,524097405,524562084,524846350,525015013,525296280,525647106,526216220,526522603,526541561,526556112,527792891,528235937,528426610,529223059,530558059,531455311,531766759,532328574,533110933,533192737,534488137,534621231,534661935,535968168,536449438,537101524,537531638,537946588,538408824,540612000,541007323,542441718,542953874,543277175,543583643,543611433,543698244,543730074,543834419,544773940,544961337,545407889,545566670,545616544,545681675,546091716,547635875,548266426,548352006,548390449,548846894,549116014,549591638,549931606,550765248,552692014,552706617,552743294,553106081,555756007,555845760,556253973,557435551,558816171,559065780,563255638,564610223,565175960,565797014,566420412,566950167,566996921,567055336,567597253,568757638,569479489,571327989,571486346,571587153,571905119,572021489,572526435,573463351,573960002,574600148,574614016,575417256,575773759,575888222,576622670,577531467,578135051,578791404,578910585,579376420,579536252,579700169,580115066,580285529,580371112,580928242,581357278,581715945,581990348,582560451,584805394,585075708,585970588,586207138,586315725,586325733,586988522,587498477,587613658,587701122,590581471,591921448,592931203,593106722,594002281,595811504,601702036,603036550,603576577,605325404,606426167,607117451,607568272,607966666,608191836,608482512,609011049,609083477,609487208,609640518,610132792,610575927,611065439,611956229,612391070,613520258,613536063,613615139,614145473,614793215,615055963,616988142,617296559,618197106,618461223,619660567,621317600,621571470,623393277,623506486,623611195,624192655,624641945,626053692,626587058,626626849,626955849,627333059,627416508,627940952,628201628,628411840,629803222,631171118,634506859,636012119,636639248,637578686,640465794,640996598,644483935,644556555,645202027,645512108,648526995,649795778,650922790,652941531,655367135,656098132,656116298,656333519,656955446,660145338,660256288,660936058,660941267,662892654,663892216,665391382,666950755,667368988,667375285,667666416,668059528,669150002,669278979,669301245,669843593,670235253,670885046,671067031,671645816,671739478,672090495,672731280,672810049,673268454,673355776,674501583,674718684,677840835,678117353,679672726,679781785,679924327,680869010,681051687,681106318,681651470,681841063,681894808,682056185,682086267,682290939,683547666,683637300,684215139,684400770,686416719,686577790,687953465,688381128,688795293,689180307,689230806,689497815,689837027,691682465,692110179,692211088,693435930,694411069,696066567,696108085,696487785,697108032,698185670,698539368,700341824,700435776,700536458,700837947,700906536,701406967,702568041,703086550,703525727,703771385,703909645,704727256,706222132,706785626,708635831,709167266,710505352,711530094,712738836,712921260,713691516,714541259,714735046,715770168,716021479,716361290,716543108,716760032,717312106,717317062,717971340,718570253,719480572,719539975,719705531,720210925,720978409,721370250,721422034,721440275,723216059,725681030,729111120,731966822,732705623,734083242,734321235,734757553,740345308,740406270,740450147,741605691,745365643,745707621,746761040,748610890,748670791,749900607,750162456,751340774,753255954,754108984,754367316,755841973,757588806,761090354,775314253,780716912,780969011,785535530,786840971,787334294,791667532,798525122,801545005,801895407,803125120,804450430,804590297,807135472,816318915,818687066,819660380,819785462,829585327,833835450,834150528,835020023,835768761,836204615,838625292,839684367,846849597,848620116,856610642,859024177,859835531,862200240,863815654,865005647,866550144,877800416,880660289,883080296,884885513,886095726,891005576,893785272,904085564,1028128265,1033686957,1038924684,1050170010,1061552251,1123549608,1151282775,1166261268,1174816447,1253311372,1263433138,1272476038,1295788184,1297767053,1329520826,1344956837,1345602864,1359970737,1360689709,1364741721,1384434488,1386129388,1413781970,1427394437,1500771316,1517710525,1644841350", "fb_sig_api_key"=>"786bb4519bc7f2b2304e866de0a0b93d", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_user"=>"579040750", "fb_sig_profile_update_time"=>"1241462825"}
+** RFACEBOOK INFO: Activated session from inside the canvas (user=579040750, session_key=2.S8_SBhepij8kO6jGZtIO8Q__.3600.1244062800-579040750, expires=1244062800)
+  [4;35;1mUser Columns (0.002693)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000311)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;35;1mCourse Load (0.000125)[0m   [0mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;36;1mRating Load (0.000094)[0m   [0;1mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;35;1mPhoto Load (0.000124)[0m   [0mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;36;1mHandicap Load (0.000175)[0m   [0;1mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;35;1mRound Columns (0.002582)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.000692)[0m   [0;1mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;35;1mCourse Columns (0.001914)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.000544)[0m   [0;1mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00024)
+Rendered shared/_vitals (0.02065)
+Rendered shared/_vitals_box (0.00109)
+Rendered shared/_buttons (0.00247)
+Rendered shared/_vitals_box (0.00016)
+Rendered photos/_sidebar_photos (0.00065)
+Rendered shared/_pga_news_item (0.00024)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00015)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_home_sidebar (0.02732)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;35;1mActivity Load (0.000146)[0m   [0mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;36;1mHandicap Columns (0.002763)[0m   [0;1mSHOW FIELDS FROM `handicaps`[0m
+  [4;35;1mUser Load Including Associations (0.002670)[0m   [0mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;36;1mRound Load (0.000324)[0m   [0;1mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;35;1mGame Load (0.000166)[0m   [0mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00152)
+Rendered shared/_mobile_profile_box (0.00050)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"http://apps.facebook.com/golfbookapp_dev/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"http://apps.facebook.com/golfbookapp_dev/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"http://golfbookdev.agilisto.com:8889/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"http://apps.facebook.com/golfbookapp_dev/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00016)
+Rendered shared/_home_menu.fbml.erb (0.00136)
+Rendered shared/_course_search_box (0.00146)
+Rendered shared/_minimal_block_info_box (0.00019)
+Rendered shared/_minimal_block_info_box (0.00019)
+Rendered shared/_minimal_block_info_box (0.00017)
+Rendered shared/_style (0.00045)
+Completed in 16.91530 (0 reqs/sec) | Rendering: 0.00949 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:33:34) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.002641)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000454)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCourse Load (0.000128)[0m   [0;1mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;35;1mRating Load (0.000100)[0m   [0mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;36;1mPhoto Load (0.000130)[0m   [0;1mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;35;1mHandicap Load (0.000226)[0m   [0mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;36;1mRound Columns (0.002543)[0m   [0;1mSHOW FIELDS FROM `rounds`[0m
+  [4;35;1mSQL (0.000670)[0m   [0mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;36;1mCourse Columns (0.001922)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.000533)[0m   [0mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00024)
+Rendered shared/_vitals (0.09732)
+Rendered shared/_vitals_box (0.00027)
+Rendered shared/_buttons (0.00166)
+Rendered shared/_vitals_box (0.00017)
+Rendered photos/_sidebar_photos (0.00078)
+Rendered shared/_pga_news_item (0.00018)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_vitals_box (0.00017)
+Rendered shared/_vitals_box (0.00018)
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_home_sidebar (0.10416)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;36;1mActivity Load (0.000099)[0m   [0;1mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;35;1mHandicap Columns (0.002244)[0m   [0mSHOW FIELDS FROM `handicaps`[0m
+  [4;36;1mUser Load Including Associations (0.001403)[0m   [0;1mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRound Load (0.000106)[0m   [0mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;36;1mGame Load (0.001160)[0m   [0;1mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00143)
+Rendered shared/_mobile_profile_box (0.00052)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00023)
+Rendered shared/_home_menu.fbml.erb (0.00173)
+Rendered shared/_course_search_box (0.00204)
+Rendered shared/_minimal_block_info_box (0.00026)
+Rendered shared/_minimal_block_info_box (0.00024)
+Rendered shared/_minimal_block_info_box (0.00023)
+Rendered shared/_style (0.00064)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 12.75311 (0 reqs/sec) | Rendering: 0.01210 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-06-03 21:34:22) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "controller"=>"home"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;35;1mUser Columns (0.004049)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000351)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;35;1mCourse Load (0.000192)[0m   [0mSELECT * FROM `courses` ORDER BY created_at desc LIMIT 10[0m
+  [4;36;1mRating Load (0.000083)[0m   [0;1mSELECT * FROM `ratings` ORDER BY ratings.created_at desc LIMIT 10[0m
+  [4;35;1mPhoto Load (0.000549)[0m   [0mSELECT * FROM `photos` ORDER BY created_at desc LIMIT 6[0m
+  [4;36;1mHandicap Load (0.000329)[0m   [0;1mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;35;1mRound Columns (0.001933)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.001472)[0m   [0;1mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;35;1mCourse Columns (0.002306)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.006108)[0m   [0;1mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_vitals (0.02752)
+Rendered shared/_vitals_box (0.00017)
+Rendered shared/_buttons (0.00156)
+Rendered shared/_vitals_box (0.00016)
+Rendered photos/_sidebar_photos (0.00061)
+Rendered shared/_pga_news_item (0.00017)
+Rendered shared/_pga_news_item (0.00015)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_pga_news_item (0.00016)
+Rendered shared/_vitals_box (0.00016)
+Rendered shared/_vitals_box (0.00040)
+Rendered shared/_vitals_box (0.00017)
+Rendered shared/_home_sidebar (0.03382)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex"]}) - making remote call
+  [4;35;1mActivity Load (0.000157)[0m   [0mSELECT * FROM `activities` ORDER BY created_at desc LIMIT 25[0m
+  [4;36;1mHandicap Columns (0.002725)[0m   [0;1mSHOW FIELDS FROM `handicaps`[0m
+  [4;35;1mUser Load Including Associations (0.000502)[0m   [0mSELECT `users`.`id` AS t0_r0, `users`.`facebook_uid` AS t0_r1, `users`.`session_key` AS t0_r2, `users`.`created_at` AS t0_r3, `users`.`updated_at` AS t0_r4, `users`.`latitude` AS t0_r5, `users`.`longitude` AS t0_r6, `users`.`address` AS t0_r7, `users`.`admin` AS t0_r8, `users`.`goal` AS t0_r9, `users`.`home_course_id` AS t0_r10, `users`.`female` AS t0_r11, `handicaps`.`id` AS t1_r0, `handicaps`.`value` AS t1_r1, `handicaps`.`round_id` AS t1_r2, `handicaps`.`user_id` AS t1_r3, `handicaps`.`change` AS t1_r4, `handicaps`.`date_played` AS t1_r5, `handicaps`.`created_at` AS t1_r6, `handicaps`.`updated_at` AS t1_r7 FROM `users` LEFT OUTER JOIN `handicaps` ON handicaps.user_id = users.id WHERE (`users`.`id` = 1) [0m
+  [4;36;1mRound Load (0.000146)[0m   [0;1mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 3[0m
+  [4;35;1mGame Load (0.000404)[0m   [0mSELECT * FROM `games` WHERE (games.user_id = 1 AND (date_to_play > '2009-06-03')) ORDER BY date_to_play asc LIMIT 3[0m
+Rendered shared/_profile_box (0.00180)
+Rendered shared/_mobile_profile_box (0.00058)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - profile.setFBML({:uid=>579040750, :profile_main=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>", :mobile_profile=>"<fb:mobile>\n  <table>\n    <tr>\n      <td>Current Handicap:</td>\n      <td>-</td>\n    </tr>\n    <tr>\n      <td colspan=2><a href=\"/round/new\">Post Score</a></td>\n    </tr>\n    <tr>\n      <td colspan=2>Recent Rounds:</td>\n    </tr>\n    \n  </table>\n</fb:mobile>\n", :profile=>"<fb:wide>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h1>Handicap: -</h1></td>\n    <tr>\n      <td colspan=2>\n        <h3>Recent happenings for <a href=\"/profile/show/1\"><fb:name uid=\"579040750\" linked=\"false\" /></a>\n          on <a href=\"/\">Golfbook</a></h3>\n      </td>\n    </tr>\n    <tr><td>&nbsp;</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <h4>Recent Rounds</h4>\n        <ul>\n          \n            <li>No recent rounds.</li>\n          \n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td colspan=2 text-align=\"center\">\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:wide>\n\n<fb:narrow>\n  <table width=\"100%\">\n    <tr>\n      <td valign=\"top\"><img align=\"left\" alt=\"Gb\" src=\"/images/gb.png?1244056831\" /></td>\n      <td><h2>Handicap: -</h2></td>\n    </tr>\n    <tr>\n      <td colspan=2><h2>Recent Rounds</h2></td>\n    </tr>\n    \n      <tr><td colspan=2>No Recent Rounds.</td></tr>\n    \n    <tr>\n      <td colspan=2>\n        <div style=\"border:1px solid #d8dfea;text-align:center;\"><a href=\"/profile/show/1\">View Golfbook Profile</a></div>\n      </td>\n    </tr>\n  </table>\n</fb:narrow>"}) - making remote call
+Rendering template within layouts/application
+Rendering home/index
+Rendered shared/_messages (0.00020)
+Rendered shared/_home_menu.fbml.erb (0.00166)
+Rendered shared/_course_search_box (0.00177)
+Rendered shared/_minimal_block_info_box (0.00021)
+Rendered shared/_style (0.00057)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 8.44252 (0 reqs/sec) | Rendering: 0.01148 (0%) | DB: 0.00000 (0%) | 200 OK [http://golfbookdev.agilisto.com/]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ProfileController#index (for 127.0.0.1 at 2009-06-03 21:35:58) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"index", "controller"=>"profile"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.002074)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000122)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - users.getInfo({:uids=>"579040750", :fields=>["first_name", "last_name", "uid", "sex", "current_location", "hometown_location"]}) - making remote call
+** RFACEBOOK INFO: Regular redirect_to
+** RFACEBOOK INFO: Regular redirect_to
+Redirected to http://golfbookdev.agilisto.com:8889/profile/show/1
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 7.39103 (0 reqs/sec) | DB: 0.00220 (0%) | 302 Found [http://golfbookdev.agilisto.com/profile]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ProfileController#show (for 127.0.0.1 at 2009-06-03 21:36:10) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"profile"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.002647)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000423)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mUser Load (0.000312)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mPhotoAsset Columns (0.001739)[0m   [0mSHOW FIELDS FROM `photo_assets`[0m
+  [4;36;1mPhoto Columns (0.001929)[0m   [0;1mSHOW FIELDS FROM `photos`[0m
+  [4;35;1mPhotoAsset Load Including Associations (0.000833)[0m   [0mSELECT `photo_assets`.`id` AS t0_r0, `photo_assets`.`asset_type` AS t0_r1, `photo_assets`.`asset_id` AS t0_r2, `photo_assets`.`photo_id` AS t0_r3, `photo_assets`.`created_at` AS t0_r4, `photo_assets`.`updated_at` AS t0_r5, `photos`.`id` AS t1_r0, `photos`.`fb_album_id` AS t1_r1, `photos`.`fb_photo_id` AS t1_r2, `photos`.`user_id` AS t1_r3, `photos`.`created_at` AS t1_r4, `photos`.`updated_at` AS t1_r5 FROM `photo_assets` LEFT OUTER JOIN `photos` ON `photos`.id = `photo_assets`.photo_id WHERE (asset_type = 'User' and asset_id = 1) ORDER BY photo_assets.created_at desc LIMIT 8[0m
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_buttons (0.08612)
+  [4;36;1mHandicap Load (0.000185)[0m   [0;1mSELECT * FROM `handicaps` WHERE (handicaps.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 1[0m
+  [4;35;1mRound Columns (0.002896)[0m   [0mSHOW FIELDS FROM `rounds`[0m
+  [4;36;1mSQL (0.000612)[0m   [0;1mSELECT count(*) AS count_all FROM `rounds` WHERE (rounds.user_id = 1) [0m
+  [4;35;1mCourse Columns (0.002125)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mSQL (0.000434)[0m   [0;1mSELECT count(*) AS count_all FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_vitals_box (0.00025)
+Rendered shared/_vitals (0.02272)
+Rendered shared/_profile_sidebar (0.14347)
+** RFACEBOOK(GEM) - RFacebook::FacebookSession#remote_call - fql.query({:query=>"SELECT uid, name FROM user WHERE uid IN(SELECT uid2 FROM friend WHERE uid1 = 579040750) AND has_added_app = 1"}) - making remote call
+  [4;35;1mCompetition Load (0.000572)[0m   [0mSELECT * FROM `competitions` WHERE (competitions.user_id = 1 AND (start_date <= '2009-06-03' and end_date >= '2009-06-03')) ORDER BY start_date asc[0m
+  [4;36;1mCompetition Load (0.000601)[0m   [0;1mSELECT competitions.* FROM competitions INNER JOIN competitors ON competitions.id = competitors.competition_id WHERE ((competitors.user_id = 1) AND (start_date <= '2009-06-03' and end_date >= '2009-06-03')) ORDER BY start_date asc[0m
+  [4;35;1mTour Load (0.001781)[0m   [0mSELECT `tours`.* FROM `tours` inner join tour_dates on tours.id = tour_dates.tour_id WHERE (tours.user_id = 1 AND (tour_dates.to_play_at >= '2009-06-03')) ORDER BY tour_dates.to_play_at asc[0m
+  [4;36;1mTour Load (0.004664)[0m   [0;1mSELECT tours.* FROM tours INNER JOIN tour_players ON tours.id = tour_players.tour_id inner join tour_dates on tours.id = tour_dates.tour_id WHERE ((tour_players.user_id = 1) AND (tour_dates.to_play_at >= '2009-06-03')) ORDER BY tour_dates.to_play_at asc[0m
+  [4;35;1mRound Load (0.000499)[0m   [0mSELECT * FROM `rounds` WHERE (rounds.user_id = 1) ORDER BY date_played desc, created_at desc LIMIT 5[0m
+Rendering template within layouts/application
+Rendering profile/show
+Rendered profile/_profile_header (0.00704)
+Rendered shared/_messages (0.00020)
+Rendered shared/_home_menu (0.00851)
+Rendered shared/_minimal_block_info_box (0.00017)
+Rendered shared/_minimal_block_info_box (0.00016)
+  [4;36;1mJoin Table Columns (0.001719)[0m   [0;1mSHOW FIELDS FROM `courses_users`[0m
+  [4;35;1mCourse Load (0.001471)[0m   [0mSELECT * FROM `courses` INNER JOIN courses_users ON courses.id = courses_users.course_id WHERE (courses_users.user_id = 1 ) [0m
+Rendered shared/_minimal_block_info_box (0.00026)
+Rendered photos/_photos_main_column (0.01145)
+Rendered shared/_minimal_block_info_box (0.00020)
+Rendered shared/_minimal_block_info_box (0.00022)
+Rendered shared/_style (0.00053)
+** RFACEBOOK INFO: persisting Facebook session information into Rails session
+Completed in 4.12531 (0 reqs/sec) | Rendering: 0.07494 (1%) | DB: 0.01131 (0%) | 200 OK [http://golfbookdev.agilisto.com/profile/show/1]
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ProfileController#images (for 127.0.0.1 at 2009-06-03 21:36:26) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"format"=>"png", "action"=>"images", "id"=>"hole_small", "controller"=>"profile"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.002614)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000232)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+
+
+ActionController::UnknownAction (No action responded to images):
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+Rendering /Users/armanddp/Sites/golfbook/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ProfileController#images (for 127.0.0.1 at 2009-06-03 21:36:27) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"format"=>"jpg", "action"=>"images", "id"=>"golfflat", "controller"=>"profile"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.013512)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001564)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+
+
+ActionController::UnknownAction (No action responded to images):
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+Rendering /Users/armanddp/Sites/golfbook/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ProfileController#location (for 127.0.0.1 at 2009-06-03 21:36:43) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {"action"=>"location", "controller"=>"profile"}
+** RFACEBOOK WARNING: require_facebook_install is not intended for external applications, using require_facebook_login instead
+** RFACEBOOK INFO: grabbing Facebook session from Rails session
+  [4;36;1mUser Columns (0.003138)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000169)[0m   [0mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`facebook_uid` = '579040750') LIMIT 1[0m
+
+
+ActionController::MissingTemplate (Missing template profile/location.html.erb in view path /Users/armanddp/Sites/golfbook/Golfbook/app/views):
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1269:in `assert_existence_of_template_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1098:in `render_for_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1153:in `default_render'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:697:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:678:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:677:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:123:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:388:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+Rendering /Users/armanddp/Sites/golfbook/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+** RFACEBOOK INFO: Attempting to use fb_sig_session_key as a session key, since we are inside the canvas
+** RFACEBOOK INFO: using MD5 of fb_sig_session_key [d41d8cd98f00b204e9800998ecf8427e] for the Rails session id
+** RFACEBOOK INFO: using fb_sig_session_key for the CGI::Session::ActiveRecordStore session (session_id=d41d8cd98f00b204e9800998ecf8427e)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-03 21:37:01) [GET]
+  Session ID: d41d8cd98f00b204e9800998ecf8427e
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/profile/location.fbml" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1424:in `recognize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:489:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:496:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+Rendering /Users/armanddp/Sites/golfbook/Golfbook/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
